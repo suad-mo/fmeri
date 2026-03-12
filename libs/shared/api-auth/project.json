@@ -1,0 +1,19 @@
+{
+  "name": "api-auth",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/api-auth/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/shared/api-auth",
+        "main": "libs/shared/api-auth/src/index.ts",
+        "tsConfig": "libs/shared/api-auth/tsconfig.lib.json",
+        "assets": ["libs/shared/api-auth/*.md"]
+      }
+    }
+  }
+}
