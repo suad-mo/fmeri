@@ -1,0 +1,30 @@
+# version: '3.8'
+services:
+  # API Server
+  api-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/api-server-db
+      - JWT_SECRET=${JWT_SECRET}
+      - EXPIRES_IN_MS=${EXPIRES_IN_MS}
+    depends_on:
+      - mongodb
+
+  # MongoDB Baza podataka
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      # Lijeva strana: potanja na Windowsu
+      # Desna strana: putanja unutar kontejnera (ne mijenjati)
+      - ./docker-data/db:/data/db
+    # Preporučujem dodavanje restart politike
+    restart: always
+#volumes:
+ # mongo-data:

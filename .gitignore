@@ -45,3 +45,6 @@ Thumbs.db
 .env
 .env.local
 .env.*.local
+
+# Docker mongo data
+/docker-data
