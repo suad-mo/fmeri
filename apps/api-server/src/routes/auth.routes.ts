@@ -1,16 +1,18 @@
-import { Router } from 'express';
+import { Router, Request, Response } from 'express';
 import * as authController from '../controllers/auth.controller';
 import { protect } from '../middlewares/auth.middleware';
+import { validate } from '../middlewares/validate.middleware';
+import { registerSchema, loginSchema } from '@nx-fmeri/api-auth';
 
 const router = Router();
 
-router.post('/register', authController.register);
-router.post('/login', authController.login);
+router.post('/register', validate(registerSchema), authController.register);
+router.post('/login', validate(loginSchema), authController.login);
+router.post('/refresh', authController.refresh);   // ← novo
+router.post('/logout', authController.logout);     // ← novo
 
-// Zaštićena ruta (samo za test)
-router.get('/me', protect, (req, res) => {
-  // Pošto smo koristili 'protect', ovdje imamo pristup req.user
-  res.json({ message: 'Ovo su zaštićeni podaci', user: (req as any).user });
+router.get('/me', protect, (req: Request, res: Response) => {
+  res.json({ message: 'Ovo su zaštićeni podaci', user: req.user });
 });
 
 export default router;
