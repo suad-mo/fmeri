@@ -48,3 +48,5 @@ Thumbs.db
 
 # Docker mongo data
 /docker-data
+
+.angular
