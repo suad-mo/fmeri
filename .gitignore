@@ -1,11 +1,11 @@
 # See https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
-# compiled output
+# Compiled output
 dist
 tmp
 out-tsc
 
-# dependencies
+# Dependencies
 node_modules
 
 # IDEs and editors
@@ -24,7 +24,7 @@ node_modules
 !.vscode/launch.json
 !.vscode/extensions.json
 
-# misc
+# Misc
 /.sass-cache
 /connect.lock
 /coverage
@@ -34,19 +34,32 @@ yarn-error.log
 testem.log
 /typings
 
-# System Files
+# System files
 .DS_Store
 Thumbs.db
 
+# Nx cache
 .nx/cache
 .nx/workspace-data
 
-# Ključevi i lozinke
+# Environment
 .env
 .env.local
-.env.*.local
+.env.*
+!.env.example
 
-# Docker mongo data
+# Docker
 /docker-data
+docker-compose.override.yml   # ← lokalne docker override konfiguracije
 
+# Angular cache
 .angular
+.angular/cache                # ← preciznije od samo .angular
+
+# Logs
+logs/
+*.log
+*.log.*
+
+# Build artifacts
+*.tsbuildinfo                 # ← TypeScript incremental build fajlovi
