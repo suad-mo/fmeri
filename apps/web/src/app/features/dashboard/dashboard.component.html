@@ -1,0 +1,98 @@
+<div class="dashboard-page">
+
+  <!-- Navbar -->
+  <nav class="dashboard-nav">
+    <div class="nav-brand">
+      <div class="nav-logo">
+        <mat-icon>dashboard</mat-icon>
+      </div>
+      <span class="nav-title">MyApp</span>
+    </div>
+
+    <div class="nav-actions">
+      <span class="nav-welcome">
+        Zdravo, <strong>{{ authService.currentUser()?.name }}</strong>
+      </span>
+      <button
+        mat-stroked-button
+        class="logout-btn"
+        (click)="logout()"
+        matTooltip="Odjava">
+        <mat-icon>logout</mat-icon>
+        Odjava
+      </button>
+    </div>
+  </nav>
+
+  <!-- Sadržaj -->
+  <main class="dashboard-main">
+
+    <!-- Profil kartica -->
+    <div class="profile-card">
+      <div class="profile-avatar">
+        {{ authService.currentUser()?.name?.charAt(0)?.toUpperCase() }}
+      </div>
+
+      <div class="profile-info">
+        <h1 class="profile-name">{{ authService.currentUser()?.name }}</h1>
+        <p class="profile-email">
+          <mat-icon>email</mat-icon>
+          {{ authService.currentUser()?.email }}
+        </p>
+
+        <div class="profile-roles">
+          @for (role of authService.currentUser()?.role; track role) {
+            <mat-chip class="role-chip">
+              <mat-icon matChipAvatar>verified_user</mat-icon>
+              {{ role }}
+            </mat-chip>
+          } @empty {
+            <mat-chip class="role-chip">
+              <mat-icon matChipAvatar>person</mat-icon>
+              Korisnik
+            </mat-chip>
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- Info kartice -->
+    <div class="info-grid">
+
+      <div class="info-card">
+        <div class="info-icon">
+          <mat-icon>fingerprint</mat-icon>
+        </div>
+        <div class="info-content">
+          <span class="info-label">Korisnički ID</span>
+          <span class="info-value">{{ authService.currentUser()?.id }}</span>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-icon">
+          <mat-icon>schedule</mat-icon>
+        </div>
+        <div class="info-content">
+          <span class="info-label">Sesija ističe za</span>
+          <span class="info-value">{{ authService.currentUser()?.expiresIn / 60 }} min</span>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-icon">
+          <mat-icon>security</mat-icon>
+        </div>
+        <div class="info-content">
+          <span class="info-label">Status</span>
+          <span class="info-value status-active">
+            <span class="status-dot"></span>
+            Aktivan
+          </span>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+</div>

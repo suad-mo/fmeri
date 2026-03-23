@@ -1,43 +1,62 @@
-<div class="auth-container">
-  <h2>Prijava</h2>
+<div class="auth-page">
+  <div class="auth-card">
 
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
-
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input
-        id="email"
-        type="email"
-        formControlName="email"
-        placeholder="tvoj@email.com"
-      />
-      @if (form.get('email')?.invalid && form.get('email')?.touched) {
-        <span class="error">Unesite validan email.</span>
-      }
+    <div class="auth-header">
+      <div class="auth-logo">
+        <mat-icon>lock</mat-icon>
+      </div>
+      <h1>Dobrodošli</h1>
+      <p>Prijavite se na vaš račun</p>
     </div>
 
-    <div class="form-group">
-      <label for="password">Lozinka</label>
-      <input
-        id="password"
-        type="password"
-        formControlName="password"
-        placeholder="••••••••"
-      />
-      @if (form.get('password')?.invalid && form.get('password')?.touched) {
-        <span class="error">Lozinka je obavezna.</span>
+    <form class="auth-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email adresa</mat-label>
+        <input matInput type="email" formControlName="email" placeholder="tvoj@email.com"/>
+        <mat-icon matPrefix>email</mat-icon>
+        @if (form.get('email')?.hasError('required') && form.get('email')?.touched) {
+          <mat-error>Email je obavezan.</mat-error>
+        }
+        @if (form.get('email')?.hasError('email') && form.get('email')?.touched) {
+          <mat-error>Unesite validan email.</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Lozinka</mat-label>
+        <input matInput [type]="hidePassword() ? 'password' : 'text'" formControlName="password"/>
+        <mat-icon matPrefix>lock</mat-icon>
+        <button mat-icon-button matSuffix type="button" (click)="hidePassword.set(!hidePassword())">
+          <mat-icon>{{ hidePassword() ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+        @if (form.get('password')?.hasError('required') && form.get('password')?.touched) {
+          <mat-error>Lozinka je obavezna.</mat-error>
+        }
+      </mat-form-field>
+
+      @if (errorMessage()) {
+        <div class="error-box">{{ errorMessage() }}</div>
       }
-    </div>
 
-    @if (errorMessage()) {
-      <div class="error-box">{{ errorMessage() }}</div>
-    }
+      <button
+        mat-flat-button
+        color="primary"
+        class="auth-submit-btn"
+        type="submit"
+        [disabled]="isLoading()">
+        @if (isLoading()) {
+          <mat-spinner diameter="20" />
+        } @else {
+          Prijavi se
+        }
+      </button>
 
-    <button type="submit" [disabled]="isLoading()">
-      {{ isLoading() ? 'Prijava...' : 'Prijavi se' }}
-    </button>
+      <div class="auth-footer">
+        Nemate račun?
+        <a routerLink="/auth/register">Registrujte se</a>
+      </div>
 
-    <p>Nemate račun? <a routerLink="/auth/register">Registrujte se</a></p>
-
-  </form>
+    </form>
+  </div>
 </div>

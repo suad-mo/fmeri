@@ -1,56 +1,80 @@
-<div class="auth-container">
-  <h2>Registracija</h2>
+<div class="auth-page">
+  <div class="auth-card">
 
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
-
-    <div class="form-group">
-      <label for="name">Ime</label>
-      <input
-        id="name"
-        type="text"
-        formControlName="name"
-        placeholder="Vaše ime"
-      />
-      @if (form.get('name')?.invalid && form.get('name')?.touched) {
-        <span class="error">Ime mora imati najmanje 3 karaktera.</span>
-      }
+    <div class="auth-header">
+      <div class="auth-logo">
+        <mat-icon>person_add</mat-icon>
+      </div>
+      <h1>Kreirajte račun</h1>
+      <p>Registrujte se da biste nastavili</p>
     </div>
 
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input
-        id="email"
-        type="email"
-        formControlName="email"
-        placeholder="tvoj@email.com"
-      />
-      @if (form.get('email')?.invalid && form.get('email')?.touched) {
-        <span class="error">Unesite validan email.</span>
+    <form class="auth-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+      <mat-form-field appearance="outline">
+        <mat-label>Ime</mat-label>
+        <input matInput formControlName="name" placeholder="Vaše ime"/>
+        <mat-icon matPrefix>person</mat-icon>
+        @if (form.get('name')?.hasError('required') && form.get('name')?.touched) {
+          <mat-error>Ime je obavezno.</mat-error>
+        }
+        @if (form.get('name')?.hasError('minlength') && form.get('name')?.touched) {
+          <mat-error>Ime mora imati najmanje 3 karaktera.</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email adresa</mat-label>
+        <input matInput type="email" formControlName="email" placeholder="tvoj@email.com"/>
+        <mat-icon matPrefix>email</mat-icon>
+        @if (form.get('email')?.hasError('required') && form.get('email')?.touched) {
+          <mat-error>Email je obavezan.</mat-error>
+        }
+        @if (form.get('email')?.hasError('email') && form.get('email')?.touched) {
+          <mat-error>Unesite validan email.</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Lozinka</mat-label>
+        <input matInput [type]="hidePassword() ? 'password' : 'text'" formControlName="password"/>
+        <mat-icon matPrefix>lock</mat-icon>
+        <button mat-icon-button matSuffix type="button" (click)="hidePassword.set(!hidePassword())">
+          <mat-icon>{{ hidePassword() ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+        @if (form.get('password')?.hasError('required') && form.get('password')?.touched) {
+          <mat-error>Lozinka je obavezna.</mat-error>
+        }
+        @if (form.get('password')?.hasError('minlength') && form.get('password')?.touched) {
+          <mat-error>Minimum 8 karaktera.</mat-error>
+        }
+        @if (form.get('password')?.hasError('pattern') && form.get('password')?.touched) {
+          <mat-error>Mora sadržati veliko slovo i broj.</mat-error>
+        }
+      </mat-form-field>
+
+      @if (errorMessage()) {
+        <div class="error-box">{{ errorMessage() }}</div>
       }
-    </div>
 
-    <div class="form-group">
-      <label for="password">Lozinka</label>
-      <input
-        id="password"
-        type="password"
-        formControlName="password"
-        placeholder="••••••••"
-      />
-      @if (form.get('password')?.invalid && form.get('password')?.touched) {
-        <span class="error">Min. 8 karaktera, veliko slovo i broj.</span>
-      }
-    </div>
+      <button
+        mat-flat-button
+        color="primary"
+        class="auth-submit-btn"
+        type="submit"
+        [disabled]="isLoading()">
+        @if (isLoading()) {
+          <mat-spinner diameter="20" />
+        } @else {
+          Registruj se
+        }
+      </button>
 
-    @if (errorMessage()) {
-      <div class="error-box">{{ errorMessage() }}</div>
-    }
+      <div class="auth-footer">
+        Već imate račun?
+        <a routerLink="/auth/login">Prijavite se</a>
+      </div>
 
-    <button type="submit" [disabled]="isLoading()">
-      {{ isLoading() ? 'Registracija...' : 'Registruj se' }}
-    </button>
-
-    <p>Već imate račun? <a routerLink="/auth/login">Prijavite se</a></p>
-
-  </form>
+    </form>
+  </div>
 </div>

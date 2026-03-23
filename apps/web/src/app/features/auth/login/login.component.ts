@@ -1,13 +1,25 @@
-import { Component, inject, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, signal, inject } from '@angular/core';
 import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterLink],
+  imports: [
+    ReactiveFormsModule,
+    RouterLink,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule,
+    MatProgressSpinnerModule,
+  ],
   templateUrl: './login.component.html',
 })
 export class LoginComponent {
@@ -15,7 +27,6 @@ export class LoginComponent {
   private authService = inject(AuthService);
   private router = inject(Router);
 
-  // Forma se inicijalizuje ovako bez konstruktora
   form = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', Validators.required],
@@ -23,6 +34,7 @@ export class LoginComponent {
 
   isLoading = signal(false);
   errorMessage = signal<string | null>(null);
+  hidePassword = signal(true);
 
   onSubmit(): void {
     if (this.form.invalid) return;
@@ -32,17 +44,15 @@ export class LoginComponent {
 
     const { email, password } = this.form.getRawValue();
 
-    this.authService
-      .login({
-        email: email as string,
-        password: password as string,
-      })
-      .subscribe({
-        next: () => this.router.navigate(['/dashboard']),
-        error: (err) => {
-          this.errorMessage.set(err.error?.message ?? 'Greška pri prijavi.');
-          this.isLoading.set(false);
-        },
-      });
+    this.authService.login({
+      email: email as string,
+      password: password as string,
+    }).subscribe({
+      next: () => this.router.navigate(['/dashboard']),
+      error: (err) => {
+        this.errorMessage.set(err.error?.message ?? 'Greška pri prijavi.');
+        this.isLoading.set(false);
+      },
+    });
   }
 }
