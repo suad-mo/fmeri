@@ -75,7 +75,7 @@
         </div>
         <div class="info-content">
           <span class="info-label">Sesija ističe za</span>
-          <span class="info-value">{{ authService.currentUser()?.expiresIn / 60 }} min</span>
+          <span class="info-value">{{ (authService.currentUser()?.expiresIn ?? 0) / 60 }} min</span>
         </div>
       </div>
 
