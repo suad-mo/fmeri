@@ -53,6 +53,7 @@ Thumbs.db
 docker-compose.override.yml   # ← lokalne docker override konfiguracije
 
 # Angular cache
+.angular
 .angular/cache                # ← preciznije od samo .angular
 
 # Logs
