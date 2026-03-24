@@ -15,9 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nx-fmeri/auth": ["libs/shared/auth/src/index.ts"],
       "@nx-fmeri/api-auth": ["libs/shared/api-auth/src/index.ts"],
-      "@nx-fmeri/api-cafe": ["libs/shared/api-cafe/src/index.ts"]
+      "@nx-fmeri/api-org": ["libs/shared/api-org/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

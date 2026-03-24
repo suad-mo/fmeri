@@ -3,7 +3,7 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/api-server/src",
   "projectType": "application",
-  "implicitDependencies": ["api-cafe", "api-auth"],
+  "implicitDependencies": ["api-auth", "api-org"],
   "targets": {
     "build": {
       "executor": "@nx/esbuild:esbuild",

@@ -1,5 +1,5 @@
 {
-  "name": "@nx-fmeri/auth",
+  "name": "@nx-fmeri/api-org",
   "version": "0.0.1",
   "private": true,
   "type": "commonjs",

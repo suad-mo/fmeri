@@ -14,6 +14,7 @@ import express from 'express';
 import cors from 'cors';          // ← novo
 import mongoose from 'mongoose';
 import authRoutes from './routes/auth.routes';
+import orgRoutes from './routes/org.routes';
 
 const app = express();
 
@@ -27,6 +28,7 @@ app.use(cors({
 
 app.use(express.json());
 app.use('/api/auth', authRoutes);
+app.use('/api/org', orgRoutes);
 
 const mongoUri = process.env['MONGODB_URI'] as string;
 const port = process.env['PORT'] || 3000;
