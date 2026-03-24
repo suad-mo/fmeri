@@ -23,25 +23,76 @@
   padding: 3rem;
 }
 
-.table-card {
+.tree-card {
   background: var(--bg-card);
   backdrop-filter: blur(20px);
   border: 1px solid var(--bg-card-border);
   border-radius: 16px;
   overflow: hidden;
   box-shadow: var(--shadow);
+  padding: 0.5rem 0;
+}
 
-  table {
-    width: 100%;
+.tree-node {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem 0.4rem 0;
+  width: 100%;
+  min-height: 48px;
+
+  &:hover {
+    background: rgba(102, 126, 234, 0.05);
+    border-radius: 8px;
   }
 }
 
-.chip-active {
-  background: rgba(72, 187, 120, 0.15) !important;
-  color: #48bb78 !important;
+.parent-node {
+  .parent-naziv {
+    font-weight: 600;
+  }
 }
 
-.chip-inactive {
-  background: rgba(229, 62, 62, 0.1) !important;
-  color: #e53e3e !important;
+.node-spacer {
+  width: 40px;
+  min-width: 40px;
 }
+
+.node-icon {
+  font-size: 8px;
+  width: 8px;
+  height: 8px;
+  color: var(--text-secondary);
+}
+
+.node-naziv {
+  flex: 1;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.node-tip {
+  font-size: 0.75rem !important;
+  min-height: 24px !important;
+  height: 24px !important;
+}
+
+.node-akcije {
+  display: flex;
+  gap: 0.25rem;
+  opacity: 0;
+  transition: opacity 0.2s;
+
+  .tree-node:hover & {
+    opacity: 1;
+  }
+}
+
+// Boje po tipu
+.tip-ministarstvo { background: rgba(102, 126, 234, 0.15) !important; color: #667eea !important; }
+.tip-kabinet      { background: rgba(159, 122, 234, 0.15) !important; color: #9f7aea !important; }
+.tip-upravna      { background: rgba(237, 137, 54, 0.15) !important;  color: #ed8936 !important; }
+.tip-sektor       { background: rgba(56, 178, 172, 0.15) !important;  color: #38b2ac !important; }
+.tip-odsjek       { background: rgba(72, 187, 120, 0.15) !important;  color: #48bb78 !important; }
+.tip-grupa        { background: rgba(246, 173, 85, 0.15) !important;  color: #f6ad55 !important; }
+.tip-centar       { background: rgba(66, 153, 225, 0.15) !important;  color: #4299e1 !important; }

@@ -1,7 +1,8 @@
 export type TipJedinice =
   | 'ministarstvo'
   | 'kabinet'
-  | 'upravna_organizacija'
+  | 'zavod'
+  | 'direkcija'
   | 'sektor'
   | 'odsjek'
   | 'grupa'
@@ -56,7 +57,8 @@ export interface RadnoMjesto {
 export const TIP_JEDINICE_NAZIV: Record<TipJedinice, string> = {
   ministarstvo: 'Ministarstvo',
   kabinet: 'Kabinet',
-  upravna_organizacija: 'Upravna organizacija',
+  zavod: 'Zavod',
+  direkcija: 'Direkcija',
   sektor: 'Sektor',
   odsjek: 'Odsjek',
   grupa: 'Grupa',

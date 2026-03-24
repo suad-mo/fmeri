@@ -3,7 +3,8 @@ import { Document, Schema, Model, model, Types } from 'mongoose';
 export type TipJedinice =
   | 'ministarstvo'
   | 'kabinet'
-  | 'upravna_organizacija'
+  | 'zavod' // ← umjesto upravna_organizacija
+  | 'direkcija' // ← novo
   | 'sektor'
   | 'odsjek'
   | 'grupa'
@@ -31,7 +32,8 @@ const organizacionaJedinicaSchema = new Schema<IOrganizacionaJedinica>(
       enum: [
         'ministarstvo',
         'kabinet',
-        'upravna_organizacija',
+        'zavod', // ← novo
+        'direkcija', // ← novo
         'sektor',
         'odsjek',
         'grupa',
@@ -62,7 +64,7 @@ const organizacionaJedinicaSchema = new Schema<IOrganizacionaJedinica>(
       default: 0,
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 // Indeksi za brže upite
@@ -73,5 +75,5 @@ organizacionaJedinicaSchema.index({ aktivna: 1 });
 export const OrganizacionaJedinica: Model<IOrganizacionaJedinica> =
   model<IOrganizacionaJedinica>(
     'OrganizacionaJedinica',
-    organizacionaJedinicaSchema
+    organizacionaJedinicaSchema,
   );

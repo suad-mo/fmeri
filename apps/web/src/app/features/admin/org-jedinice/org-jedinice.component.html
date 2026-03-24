@@ -1,7 +1,7 @@
 <div class="page-header">
   <div>
     <h1>Organizacione jedinice</h1>
-    <p>Upravljanje organizacionom strukturom</p>
+    <p>Struktura organizacije</p>
   </div>
   <button mat-flat-button color="primary" (click)="otvoriDijalog()">
     <mat-icon>add</mat-icon>
@@ -14,56 +14,17 @@
     <mat-spinner diameter="40" />
   </div>
 } @else {
-  <div class="table-card">
-    <table mat-table [dataSource]="jedinice()">
-
-      <ng-container matColumnDef="naziv">
-        <th mat-header-cell *matHeaderCellDef>Naziv</th>
-        <td mat-cell *matCellDef="let j">
-          <strong>{{ j.naziv }}</strong>
-        </td>
-      </ng-container>
-
-      <ng-container matColumnDef="tip">
-        <th mat-header-cell *matHeaderCellDef>Tip</th>
-        <td mat-cell *matCellDef="let j">
-          <mat-chip>{{ getTipNaziv(j.tip) }}</mat-chip>
-        </td>
-      </ng-container>
-
-      <ng-container matColumnDef="nadredjenaJedinica">
-        <th mat-header-cell *matHeaderCellDef>Nadređena jedinica</th>
-        <td mat-cell *matCellDef="let j">
-          {{ j.nadredjenaJedinica?.naziv ?? '—' }}
-        </td>
-      </ng-container>
-
-      <ng-container matColumnDef="aktivna">
-        <th mat-header-cell *matHeaderCellDef>Status</th>
-        <td mat-cell *matCellDef="let j">
-          @if (j.aktivna) {
-            <mat-chip class="chip-active">Aktivna</mat-chip>
-          } @else {
-            <mat-chip class="chip-inactive">Neaktivna</mat-chip>
-          }
-        </td>
-      </ng-container>
-
-      <ng-container matColumnDef="akcije">
-        <th mat-header-cell *matHeaderCellDef>Akcije</th>
-        <td mat-cell *matCellDef="let j">
-          <button mat-icon-button (click)="otvoriDijalog(j)" matTooltip="Uredi">
-            <mat-icon>edit</mat-icon>
-          </button>
-          <button mat-icon-button color="warn" (click)="obrisi(j._id)" matTooltip="Deaktiviraj">
-            <mat-icon>block</mat-icon>
-          </button>
-        </td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="kolone"></tr>
-      <tr mat-row *matRowDef="let row; columns: kolone;"></tr>
-
-    </table>
+  <div class="tree-card">
+    @for (node of stablo(); track node._id) {
+      <app-org-tree-node
+        [node]="node"
+        [nivo]="0"
+        (editClicked)="otvoriDijalog($any($event))"
+        (deleteClicked)="obrisi($any($event))"
+        (addJedinicaClicked)="dodajPodredjenuJedinicu($any($event))"
+        (addRadnoMjestoClicked)="dodajRadnoMjesto($any($event))"
+      >
+      </app-org-tree-node>
+    }
   </div>
 }

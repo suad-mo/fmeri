@@ -104,6 +104,8 @@ export class OrgJedinicaDialogComponent implements OnInit {
   data = inject<{
     jedinica?: OrganizacionaJedinica;
     sve: OrganizacionaJedinica[];
+    roditelj?: OrganizacionaJedinica;
+    dozvoljeneTipove?: TipJedinice[];
   }>(MAT_DIALOG_DATA);
   private fb = inject(FormBuilder);
   private orgService = inject(OrgService);
@@ -122,16 +124,47 @@ export class OrgJedinicaDialogComponent implements OnInit {
   });
 
   ngOnInit() {
-    if (this.data.jedinica) {
-      const j = this.data.jedinica;
-      this.form.patchValue({
-        naziv: j.naziv,
-        tip: j.tip,
-        nadredjenaJedinica: j.nadredjenaJedinica?._id ?? null,
-        opis: j.opis ?? '',
-        redoslijed: j.redoslijed,
-      });
-    }
+    this.orgService.getJedinice().subscribe((jedinice) => {
+      // Filtriraj trenutnu jedinicu iz liste
+      this.data.sve = this.data.jedinica
+        ? jedinice.filter((j) => j._id !== this.data.jedinica?._id)
+        : jedinice;
+
+      if (this.data.dozvoljeneTipove?.length) {
+        this.tipovi = Object.entries(TIP_JEDINICE_NAZIV)
+          .filter(([value]) =>
+            this.data.dozvoljeneTipove?.includes(value as TipJedinice),
+          )
+          .map(([value, label]) => ({ value: value as TipJedinice, label }));
+
+        if (this.data.dozvoljeneTipove.length === 1) {
+          this.form.patchValue({ tip: this.data.dozvoljeneTipove[0] });
+        }
+      }
+
+      if (this.data.roditelj) {
+        this.form.patchValue({ nadredjenaJedinica: this.data.roditelj._id });
+      }
+
+      if (this.data.jedinica) {
+        const j = this.data.jedinica;
+
+        // nadredjenaJedinica može biti string ili objekat — izvuci _id
+        const nadredjenaId = j.nadredjenaJedinica
+          ? typeof j.nadredjenaJedinica === 'string'
+            ? j.nadredjenaJedinica
+            : (j.nadredjenaJedinica as OrganizacionaJedinica)._id
+          : null;
+
+        this.form.patchValue({
+          naziv: j.naziv,
+          tip: j.tip,
+          nadredjenaJedinica: nadredjenaId,
+          opis: j.opis ?? '',
+          redoslijed: j.redoslijed,
+        });
+      }
+    });
   }
 
   spremi() {
