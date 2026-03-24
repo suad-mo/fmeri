@@ -11,8 +11,12 @@ router.post('/login', validate(loginSchema), authController.login);
 router.post('/refresh', authController.refresh);   // ← novo
 router.post('/logout', authController.logout);     // ← novo
 
-router.get('/me', protect, (req: Request, res: Response) => {
-  res.json({ message: 'Ovo su zaštićeni podaci', user: req.user });
+// router.get('/me', protect, (req: Request, res: Response) => {
+//   res.json({ message: 'Ovo su zaštićeni podaci', user: req.user });
+// });
+
+router.get('/me', protect, (req, res) => {
+  res.json({ message: 'Ovo su zaštićeni podaci', user: (req as any).user });
 });
 
 export default router;

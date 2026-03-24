@@ -15,7 +15,6 @@
     ],
     "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"]
   },
-  "nxCloudId": "69b278bca49bcefa5e02cb4f",
   "targetDefaults": {
     "@nx/esbuild:esbuild": {
       "cache": true,

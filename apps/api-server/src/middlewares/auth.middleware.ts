@@ -1,10 +1,17 @@
 import { Request, Response, NextFunction } from 'express';
 import * as jwt from 'jsonwebtoken';
 
+interface JwtPayload {
+  id: string;
+  email: string;
+}
+
 export const protect = (req: Request, res: Response, next: NextFunction) => {
   let token: string | undefined;
 
-  if (
+  if (req.cookies?.access_token) {
+    token = req.cookies.access_token;
+  } else if (
     req.headers.authorization &&
     req.headers.authorization.startsWith('Bearer')
   ) {
@@ -18,14 +25,10 @@ export const protect = (req: Request, res: Response, next: NextFunction) => {
 
   try {
     const secret = process.env['JWT_SECRET'] as string;
-    const decoded = jwt.verify(token, secret) as { id: string; email: string };
+    const decoded = jwt.verify(token, secret) as JwtPayload;
 
-    // req.user sada dolazi iz globalnog Express.Request (express.d.ts)
-    // IUser ima _id, pa mapiramo decoded JWT payload na očekivani oblik
-    req.user = {
-      _id: decoded.id,
-      email: decoded.email,
-    } as any;
+    // req.user je IUser tip iz express.d.ts — castamo kroz unknown
+    req.user = { _id: decoded.id, email: decoded.email } as unknown as Express.Request['user'];
 
     return next();
   } catch {

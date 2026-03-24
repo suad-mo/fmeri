@@ -1,0 +1,47 @@
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+
+  h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+  }
+
+  p {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+  }
+}
+
+.loading-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 3rem;
+}
+
+.table-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--bg-card-border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+
+  table {
+    width: 100%;
+  }
+}
+
+.chip-active {
+  background: rgba(72, 187, 120, 0.15) !important;
+  color: #48bb78 !important;
+}
+
+.chip-inactive {
+  background: rgba(229, 62, 62, 0.1) !important;
+  color: #e53e3e !important;
+}

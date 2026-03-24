@@ -3,7 +3,11 @@
   "compilerOptions": {
     "outDir": "../../dist/out-tsc",
     "module": "commonjs",
-    "types": ["node"]
+    "types": ["node", "express"],
+    "typeRoots": [
+      "../../node_modules/@types",
+      "../../libs/shared/api-auth/src"
+    ]
   },
   "include": [
     "src/**/*.ts",

@@ -11,7 +11,8 @@ export interface AuthJSON {
   role: string[];
   token: string;
   expiresIn: number;
-  refreshToken: string; // ← novo
+  // refreshToken se više ne vraća u body
+  // refreshToken: string; // ← novo
 }
 
 export interface IUser extends Document {
@@ -115,7 +116,7 @@ const userSchema: Schema<IUser> = new Schema<IUser>(
           role: this.role,
           token: this.generateJWT(),
           expiresIn,
-          refreshToken: this.generateRefreshToken(), // ← novo
+          // refreshToken se setuje kao cookie u controlleru
         };
       },
 

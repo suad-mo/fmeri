@@ -1,0 +1,70 @@
+<div class="page-header">
+  <div>
+    <h1>Radna mjesta</h1>
+    <p>Sistematizacija radnih mjesta</p>
+  </div>
+  <button mat-flat-button color="primary" (click)="otvoriDijalog()">
+    <mat-icon>add</mat-icon>
+    Novo radno mjesto
+  </button>
+</div>
+
+@if (isLoading()) {
+  <div class="loading-wrapper">
+    <mat-spinner diameter="40" />
+  </div>
+} @else {
+  <div class="table-card">
+    <table mat-table [dataSource]="mjesta()">
+
+      <ng-container matColumnDef="naziv">
+        <th mat-header-cell *matHeaderCellDef>Naziv</th>
+        <td mat-cell *matCellDef="let m">
+          <strong>{{ m.naziv }}</strong>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="pozicija">
+        <th mat-header-cell *matHeaderCellDef>Pozicija</th>
+        <td mat-cell *matCellDef="let m">
+          <mat-chip>{{ getPozicijaNaziv(m.pozicija) }}</mat-chip>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="organizacionaJedinica">
+        <th mat-header-cell *matHeaderCellDef>Org. jedinica</th>
+        <td mat-cell *matCellDef="let m">
+          {{ m.organizacionaJedinica?.naziv ?? '—' }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>Status</th>
+        <td mat-cell *matCellDef="let m">
+          <mat-chip>{{ getStatusNaziv(m.statusSluzbenika) }}</mat-chip>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="broj">
+        <th mat-header-cell *matHeaderCellDef>Broj izvršilaca</th>
+        <td mat-cell *matCellDef="let m">{{ m.brojIzvrsilaca }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="akcije">
+        <th mat-header-cell *matHeaderCellDef>Akcije</th>
+        <td mat-cell *matCellDef="let m">
+          <button mat-icon-button (click)="otvoriDijalog(m)" matTooltip="Uredi">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="obrisi(m._id)" matTooltip="Deaktiviraj">
+            <mat-icon>block</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="kolone"></tr>
+      <tr mat-row *matRowDef="let row; columns: kolone;"></tr>
+
+    </table>
+  </div>
+}
