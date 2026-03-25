@@ -12,6 +12,7 @@
   "include": [
     "src/**/*.ts",
     "../../libs/shared/api-auth/src/**/*.ts",
-    "../../libs/shared/api-org/src/**/*.ts"
+    "../../libs/shared/api-org/src/**/*.ts",
+    "../../libs/shared/api-ref/src/**/*.ts"
   ]
 }

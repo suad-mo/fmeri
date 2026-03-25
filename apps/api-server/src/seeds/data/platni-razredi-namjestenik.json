@@ -1,0 +1,362 @@
+{
+  "tip": "platni_razredi",
+  "kategorija": "namjestenik",
+
+  "zakon": {
+    "naziv": "Zakon o plaćama i naknadama u organima vlasti FBiH",
+    "clan": "Član 21.",
+    "verzija": "45/2010",
+    "datumPrimjene": "2010-07-01",
+    "izmjene": [
+      { "broj": "111/2012", "datum": "2012-12-31", "opis": "Izmjena koeficijenata" },
+      { "broj": "103/2021", "datum": "2021-11-01", "opis": "Izmjena Zakona o namještenicima" }
+    ],
+    "prateciZakon": {
+      "naziv": "Zakon o namještenicima u organima državne službe u FBiH",
+      "broj": "49/2005",
+      "izmjene": ["45/2010", "103/2021"]
+    },
+    "aktivno": true
+  },
+
+  "podaci": [
+    {
+      "razred": "I",
+      "koeficijent": 3.20,
+      "pozicije": [
+        {
+          "kljuc": "sef_unutrasnje_jedinice_vss",
+          "naziv": "Šef unutrašnje organizacijske jedinice (VŠS)",
+          "naziv_alternativni": [],
+          "opis": "Rukovodi unutrašnjom organizacijskom jedinicom — dopunski poslovi osnovne djelatnosti",
+          "pravniOsnov": "Član 21/I Zakon o plaćama, Član 6. Zakon o namještenicima",
+          "kategorija": "namjestenik",
+          "vrstaPoslova": "dopunski_osnovne_djelatnosti",
+          "uvjetiKonkursa": {
+            "stucnaSprema": "VŠS",
+            "minRadnoIskustvo": 1,
+            "stucniIspit": true,
+            "posebniUvjeti": [
+              "Poznavanje rada na računaru"
+            ],
+            "opciUvjeti": [
+              "Državljanstvo BiH",
+              "Punoljetnost",
+              "Opća zdravstvena sposobnost",
+              "Nije otpušten disciplinski u zadnje 2 godine"
+            ]
+          },
+          "radnoVrijeme": {
+            "satniSedmicno": 40,
+            "godisnjiOdmor": { "min": 18, "max": 30 },
+            "placeniDopust": 7,
+            "probniRad": 3
+          },
+          "odgovornost": {
+            "odgovaraKome": "Rukovodilac organa / Šef organizacijske jedinice",
+            "rukovodiCime": "Unutrašnja organizacijska jedinica"
+          },
+          "dodaci": {
+            "povecanjePlazeOcjena": {
+              "narocitoUspjesan": { "min": 5, "max": 10 },
+              "uspjesan": { "min": 0, "max": 5 }
+            },
+            "maxPosebniUvjeti": 20,
+            "maxRadniStaz": 20
+          }
+        }
+      ]
+    },
+    {
+      "razred": "II",
+      "koeficijent": 3.10,
+      "pozicije": [
+        {
+          "kljuc": "visi_samostalni_referent",
+          "naziv": "Viši samostalni referent (VŠS)",
+          "naziv_alternativni": [],
+          "opis": "Obavlja stručno-operativne i informaciono-dokumentacione poslove — VŠS stepen",
+          "pravniOsnov": "Član 21/II Zakon o plaćama, Član 6. Zakon o namještenicima",
+          "kategorija": "namjestenik",
+          "vrstaPoslova": "dopunski_osnovne_djelatnosti",
+          "uvjetiKonkursa": {
+            "stucnaSprema": "VŠS",
+            "minRadnoIskustvo": 1,
+            "stucniIspit": true,
+            "posebniUvjeti": [
+              "Poznavanje rada na računaru"
+            ],
+            "opciUvjeti": [
+              "Državljanstvo BiH",
+              "Punoljetnost",
+              "Opća zdravstvena sposobnost",
+              "Nije otpušten disciplinski u zadnje 2 godine"
+            ]
+          },
+          "radnoVrijeme": {
+            "satniSedmicno": 40,
+            "godisnjiOdmor": { "min": 18, "max": 30 },
+            "placeniDopust": 7,
+            "probniRad": 3
+          },
+          "odgovornost": {
+            "odgovaraKome": "Šef unutrašnje organizacijske jedinice",
+            "rukovodiCime": null
+          },
+          "dodaci": {
+            "povecanjePlazeOcjena": {
+              "narocitoUspjesan": { "min": 5, "max": 10 },
+              "uspjesan": { "min": 0, "max": 5 }
+            },
+            "maxPosebniUvjeti": 20,
+            "maxRadniStaz": 20
+          }
+        }
+      ]
+    },
+    {
+      "razred": "III",
+      "koeficijent": 3.00,
+      "pozicije": [
+        {
+          "kljuc": "samostalni_referent",
+          "naziv": "Samostalni referent (VŠS)",
+          "naziv_alternativni": [],
+          "opis": "Obavlja administrativno-tehničke i računovodstveno-materijalne poslove — VŠS stepen",
+          "pravniOsnov": "Član 21/III Zakon o plaćama, Član 6. Zakon o namještenicima",
+          "kategorija": "namjestenik",
+          "vrstaPoslova": "dopunski_osnovne_djelatnosti",
+          "uvjetiKonkursa": {
+            "stucnaSprema": "VŠS",
+            "minRadnoIskustvo": 0,
+            "stucniIspit": true,
+            "posebniUvjeti": [
+              "Poznavanje rada na računaru"
+            ],
+            "opciUvjeti": [
+              "Državljanstvo BiH",
+              "Punoljetnost",
+              "Opća zdravstvena sposobnost",
+              "Nije otpušten disciplinski u zadnje 2 godine"
+            ]
+          },
+          "radnoVrijeme": {
+            "satniSedmicno": 40,
+            "godisnjiOdmor": { "min": 18, "max": 30 },
+            "placeniDopust": 7,
+            "probniRad": 3
+          },
+          "odgovornost": {
+            "odgovaraKome": "Šef unutrašnje organizacijske jedinice",
+            "rukovodiCime": null
+          },
+          "dodaci": {
+            "povecanjePlazeOcjena": {
+              "narocitoUspjesan": { "min": 5, "max": 10 },
+              "uspjesan": { "min": 0, "max": 5 }
+            },
+            "maxPosebniUvjeti": 20,
+            "maxRadniStaz": 20
+          }
+        }
+      ]
+    },
+    {
+      "razred": "IV",
+      "koeficijent": 2.80,
+      "pozicije": [
+        {
+          "kljuc": "sef_unutrasnje_jedinice_sss",
+          "naziv": "Šef unutrašnje organizacijske jedinice (SSS)",
+          "naziv_alternativni": [],
+          "opis": "Rukovodi unutrašnjom organizacijskom jedinicom — SSS stepen",
+          "pravniOsnov": "Član 21/IV Zakon o plaćama, Član 6. Zakon o namještenicima",
+          "kategorija": "namjestenik",
+          "vrstaPoslova": "dopunski_osnovne_djelatnosti",
+          "uvjetiKonkursa": {
+            "stucnaSprema": "SSS",
+            "minRadnoIskustvo": 1,
+            "stucniIspit": true,
+            "posebniUvjeti": [
+              "Poznavanje rada na računaru"
+            ],
+            "opciUvjeti": [
+              "Državljanstvo BiH",
+              "Punoljetnost",
+              "Opća zdravstvena sposobnost",
+              "Nije otpušten disciplinski u zadnje 2 godine"
+            ]
+          },
+          "radnoVrijeme": {
+            "satniSedmicno": 40,
+            "godisnjiOdmor": { "min": 18, "max": 30 },
+            "placeniDopust": 7,
+            "probniRad": 3
+          },
+          "odgovornost": {
+            "odgovaraKome": "Rukovodilac organa / Pomoćnik ministra",
+            "rukovodiCime": "Unutrašnja organizacijska jedinica"
+          },
+          "dodaci": {
+            "povecanjePlazeOcjena": {
+              "narocitoUspjesan": { "min": 5, "max": 10 },
+              "uspjesan": { "min": 0, "max": 5 }
+            },
+            "maxPosebniUvjeti": 20,
+            "maxRadniStaz": 20
+          }
+        }
+      ]
+    },
+    {
+      "razred": "V",
+      "koeficijent": 2.70,
+      "pozicije": [
+        {
+          "kljuc": "visi_referent",
+          "naziv": "Viši referent (SSS) i VKV radnik",
+          "naziv_alternativni": ["Viši referent", "VKV radnik"],
+          "opis": "Obavlja stručno-operativne poslove SSS stepena ili visoko kvalificirane tehničke poslove",
+          "pravniOsnov": "Član 21/V Zakon o plaćama, Član 6. Zakon o namještenicima",
+          "kategorija": "namjestenik",
+          "vrstaPoslova": "dopunski_osnovne_djelatnosti",
+          "uvjetiKonkursa": {
+            "stucnaSprema": "SSS",
+            "minRadnoIskustvo": 0,
+            "stucniIspit": true,
+            "posebniUvjeti": [
+              "Poznavanje rada na računaru"
+            ],
+            "opciUvjeti": [
+              "Državljanstvo BiH",
+              "Punoljetnost",
+              "Opća zdravstvena sposobnost",
+              "Nije otpušten disciplinski u zadnje 2 godine"
+            ]
+          },
+          "radnoVrijeme": {
+            "satniSedmicno": 40,
+            "godisnjiOdmor": { "min": 18, "max": 30 },
+            "placeniDopust": 7,
+            "probniRad": 3
+          },
+          "odgovornost": {
+            "odgovaraKome": "Šef unutrašnje organizacijske jedinice",
+            "rukovodiCime": null
+          },
+          "dodaci": {
+            "povecanjePlazeOcjena": {
+              "narocitoUspjesan": { "min": 5, "max": 10 },
+              "uspjesan": { "min": 0, "max": 5 }
+            },
+            "maxPosebniUvjeti": 20,
+            "maxRadniStaz": 20
+          }
+        }
+      ]
+    },
+    {
+      "razred": "VI",
+      "koeficijent": 2.60,
+      "pozicije": [
+        {
+          "kljuc": "referent",
+          "naziv": "Referent (SSS) i KV radnik III i IV stepena",
+          "naziv_alternativni": ["Referent", "KV radnik"],
+          "opis": "Obavlja administrativno-tehničke poslove SSS stepena ili kvalificirane tehničke poslove",
+          "pravniOsnov": "Član 21/VI Zakon o plaćama, Član 6. Zakon o namještenicima",
+          "kategorija": "namjestenik",
+          "vrstaPoslova": "pomocna_djelatnost",
+          "uvjetiKonkursa": {
+            "stucnaSprema": "SSS",
+            "minRadnoIskustvo": 0,
+            "stucniIspit": true,
+            "posebniUvjeti": [],
+            "opciUvjeti": [
+              "Državljanstvo BiH",
+              "Punoljetnost",
+              "Opća zdravstvena sposobnost",
+              "Nije otpušten disciplinski u zadnje 2 godine"
+            ]
+          },
+          "radnoVrijeme": {
+            "satniSedmicno": 40,
+            "godisnjiOdmor": { "min": 18, "max": 30 },
+            "placeniDopust": 7,
+            "probniRad": 3
+          },
+          "odgovornost": {
+            "odgovaraKome": "Šef unutrašnje organizacijske jedinice",
+            "rukovodiCime": null
+          },
+          "dodaci": {
+            "povecanjePlazeOcjena": {
+              "narocitoUspjesan": { "min": 5, "max": 10 },
+              "uspjesan": { "min": 0, "max": 5 }
+            },
+            "maxPosebniUvjeti": 20,
+            "maxRadniStaz": 20
+          }
+        }
+      ]
+    },
+    {
+      "razred": "VII",
+      "koeficijent": 1.85,
+      "pozicije": [
+        {
+          "kljuc": "pomocni_radnik",
+          "naziv": "Pomoćni radnik i nekvalificirani radnik (NK radnik)",
+          "naziv_alternativni": ["Pomoćni radnik", "NK radnik"],
+          "opis": "Obavlja operativno-tehničke i pomoćne poslove koji ne zahtijevaju stručnu kvalifikaciju",
+          "pravniOsnov": "Član 21/VII Zakon o plaćama, Član 6. Zakon o namještenicima",
+          "kategorija": "namjestenik",
+          "vrstaPoslova": "pomocna_djelatnost",
+          "uvjetiKonkursa": {
+            "stucnaSprema": "NK",
+            "minRadnoIskustvo": 0,
+            "stucniIspit": false,
+            "posebniUvjeti": [],
+            "opciUvjeti": [
+              "Državljanstvo BiH",
+              "Min. 15 godina starosti za pomoćno-tehničke poslove",
+              "Opća zdravstvena sposobnost"
+            ]
+          },
+          "radnoVrijeme": {
+            "satniSedmicno": 40,
+            "godisnjiOdmor": { "min": 18, "max": 30 },
+            "placeniDopust": 7,
+            "probniRad": 3
+          },
+          "odgovornost": {
+            "odgovaraKome": "Šef unutrašnje organizacijske jedinice",
+            "rukovodiCime": null
+          },
+          "dodaci": {
+            "povecanjePlazeOcjena": {
+              "narocitoUspjesan": { "min": 5, "max": 10 },
+              "uspjesan": { "min": 0, "max": 5 }
+            },
+            "maxPosebniUvjeti": 20,
+            "maxRadniStaz": 20
+          }
+        }
+      ]
+    }
+  ],
+
+  "obracunPlace": {
+    "formula": "osnovica × koeficijent + uvecanje_po_stazu",
+    "osnovica": "ista kao za državne službenike — Član 40. st. 3. Zakon o namještenicima",
+    "maxUvecanjePoBodu": 0.20,
+    "minPlacaPostotak": 0.70,
+    "povecanjePlazeOcjena": {
+      "narocitoUspjesan": { "min": 0.05, "max": 0.10 },
+      "uspjesan": { "min": 0, "max": 0.05 }
+    }
+  },
+
+  "createdAt": "2026-01-01T00:00:00Z",
+  "updatedAt": "2026-01-01T00:00:00Z"
+}

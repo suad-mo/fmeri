@@ -1,0 +1,394 @@
+{
+  "tip": "platni_razredi",
+  "kategorija": "drzavni_sluzbenik",
+  "zakon": {
+    "naziv": "Zakon o plaćama i naknadama u organima vlasti FBiH",
+    "clan": "Član 20.",
+    "verzija": "45/2010",
+    "datumPrimjene": "2010-07-01",
+    "izmjene": [
+      { "broj": "111/2012", "datum": "2012-12-31", "opis": "Izmjena koeficijenata" },
+      { "broj": "20/2017",  "datum": "2017-03-24", "opis": "Izmjena platnih razreda" },
+      { "broj": "22/2019",  "datum": "2019-04-05", "opis": "Odluka Ustavnog suda" }
+    ],
+    "aktivno": true
+  },
+  "podaci": [
+    {
+      "razred": "I",
+      "koeficijent": 6.50,
+      "pozicije": [
+        {
+          "kljuc": "sekretar_vlade",
+          "naziv": "Sekretar Vlade Federacije",
+          "naziv_alternativni": ["Sekretar domova Parlamenta Federacije"],
+          "opis": "Obavlja poslove od značaja za unutrašnju organizaciju i rad organa državne službe",
+          "pravniOsnov": "Član 8. ZDS, Član 20/I Zakon o plaćama",
+          "kategorija": "rukovodeci_drzavni_sluzbenik",
+          "uvjetiKonkursa": {
+            "stucnaSprema": "VSS",
+            "bolonja": ["I ciklus", "II ciklus", "III ciklus"],
+            "minRadnoIskustvo": 5,
+            "stucniIspit": true,
+            "posebniUvjeti": ["Poznavanje rada na računaru", "Aktivno poznavanje jednog stranog jezika"],
+            "opciUvjeti": ["Državljanstvo BiH", "Min. 18 godina", "Zdravstvena sposobnost", "Nije otpušten disciplinski u zadnje 3 godine"]
+          },
+          "radnoVrijeme": { "satniSedmicno": 40, "godisnjiOdmor": 25, "placeniDopust": 5 },
+          "odgovornost": { "odgovaraKome": "Vlada Federacije", "rukovodiCime": "Sekretarijat" },
+          "dodaci": { "naZnanje": true, "maxPosebniUvjeti": 0, "maxRadniStaz": 20 }
+        }
+      ]
+    },
+    {
+      "razred": "II",
+      "koeficijent": 6.20,
+      "pozicije": [
+        {
+          "kljuc": "rukovodilac_samostalne_uprave",
+          "naziv": "Rukovodilac samostalne federalne uprave i upravne organizacije",
+          "naziv_alternativni": ["Direktor zavoda", "Direktor direkcije"],
+          "opis": "Rukovodi upravom i odgovoran je za obavljanje svih poslova iz nadležnosti",
+          "pravniOsnov": "Član 7. ZDS, Član 20/II Zakon o plaćama",
+          "kategorija": "rukovodeci_drzavni_sluzbenik",
+          "uvjetiKonkursa": {
+            "stucnaSprema": "VSS",
+            "bolonja": ["I ciklus", "II ciklus", "III ciklus"],
+            "minRadnoIskustvo": 5,
+            "stucniIspit": true,
+            "posebniUvjeti": ["Poznavanje rada na računaru", "Aktivno poznavanje jednog stranog jezika"],
+            "opciUvjeti": ["Državljanstvo BiH", "Min. 18 godina", "Zdravstvena sposobnost", "Nije otpušten disciplinski u zadnje 3 godine"]
+          },
+          "radnoVrijeme": { "satniSedmicno": 40, "godisnjiOdmor": 25, "placeniDopust": 5 },
+          "odgovornost": { "odgovaraKome": "Vlada Federacije", "rukovodiCime": "Uprava/Organizacija" },
+          "dodaci": { "naZnanje": true, "maxPosebniUvjeti": 0, "maxRadniStaz": 20 }
+        },
+        {
+          "kljuc": "sekretar_organa",
+          "naziv": "Sekretar federalnog organa uprave",
+          "naziv_alternativni": [],
+          "opis": "Koordinira radom sektora, sarađuje između organa i tijela državne službe",
+          "pravniOsnov": "Član 8. ZDS, Član 20/II Zakon o plaćama",
+          "kategorija": "rukovodeci_drzavni_sluzbenik",
+          "uvjetiKonkursa": {
+            "stucnaSprema": "VSS",
+            "bolonja": ["I ciklus", "II ciklus", "III ciklus"],
+            "minRadnoIskustvo": 5,
+            "stucniIspit": true,
+            "posebniUvjeti": ["Poznavanje rada na računaru", "Aktivno poznavanje jednog stranog jezika"],
+            "opciUvjeti": ["Državljanstvo BiH", "Min. 18 godina", "Zdravstvena sposobnost", "Nije otpušten disciplinski u zadnje 3 godine"]
+          },
+          "radnoVrijeme": { "satniSedmicno": 40, "godisnjiOdmor": 25, "placeniDopust": 5 },
+          "odgovornost": { "odgovaraKome": "Rukovodilac organa", "rukovodiCime": "Sekretarijat ministarstva" },
+          "dodaci": { "naZnanje": true, "maxPosebniUvjeti": 0, "maxRadniStaz": 20 }
+        }
+      ]
+    },
+    {
+      "razred": "III",
+      "koeficijent": 5.70,
+      "pozicije": [
+        {
+          "kljuc": "pomocnik_rukovodioca",
+          "naziv": "Pomoćnik rukovodioca organa državne službe",
+          "naziv_alternativni": ["Pomoćnik ministra"],
+          "opis": "Obavlja poslove rukovodnog karaktera unutar osnovne organizacione jedinice",
+          "pravniOsnov": "Član 10. ZDS, Član 20/III Zakon o plaćama",
+          "kategorija": "rukovodeci_drzavni_sluzbenik",
+          "uvjetiKonkursa": {
+            "stucnaSprema": "VSS",
+            "bolonja": ["I ciklus", "II ciklus", "III ciklus"],
+            "minRadnoIskustvo": 5,
+            "stucniIspit": true,
+            "posebniUvjeti": ["Poznavanje rada na računaru", "Aktivno poznavanje jednog stranog jezika"],
+            "opciUvjeti": ["Državljanstvo BiH", "Min. 18 godina", "Zdravstvena sposobnost", "Nije otpušten disciplinski u zadnje 3 godine"]
+          },
+          "radnoVrijeme": { "satniSedmicno": 40, "godisnjiOdmor": 25, "placeniDopust": 5 },
+          "odgovornost": { "odgovaraKome": "Rukovodilac organa", "rukovodiCime": "Osnovna org. jedinica (sektor)" },
+          "dodaci": { "naZnanje": true, "maxPosebniUvjeti": 20, "maxRadniStaz": 20 }
+        },
+        {
+          "kljuc": "sekretar_upravne_organizacije",
+          "naziv": "Sekretar federalne upravne organizacije",
+          "naziv_alternativni": [],
+          "opis": "Koordinira radom unutar federalne upravne organizacije",
+          "pravniOsnov": "Član 20/III Zakon o plaćama",
+          "kategorija": "rukovodeci_drzavni_sluzbenik",
+          "uvjetiKonkursa": {
+            "stucnaSprema": "VSS",
+            "bolonja": ["I ciklus", "II ciklus", "III ciklus"],
+            "minRadnoIskustvo": 5,
+            "stucniIspit": true,
+            "posebniUvjeti": ["Poznavanje rada na računaru"],
+            "opciUvjeti": ["Državljanstvo BiH", "Min. 18 godina", "Zdravstvena sposobnost", "Nije otpušten disciplinski u zadnje 3 godine"]
+          },
+          "radnoVrijeme": { "satniSedmicno": 40, "godisnjiOdmor": 25, "placeniDopust": 5 },
+          "odgovornost": { "odgovaraKome": "Rukovodilac upravne organizacije", "rukovodiCime": "Sekretarijat" },
+          "dodaci": { "naZnanje": true, "maxPosebniUvjeti": 20, "maxRadniStaz": 20 }
+        }
+      ]
+    },
+    {
+      "razred": "IV",
+      "koeficijent": 5.20,
+      "pozicije": [
+        {
+          "kljuc": "rukovodilac_u_sastavu",
+          "naziv": "Rukovodilac federalnog organa uprave u sastavu ministarstva",
+          "naziv_alternativni": [],
+          "opis": "Rukovodi upravom u sastavu ministarstva u skladu sa zakonom",
+          "pravniOsnov": "Član 9. ZDS, Član 20/IV Zakon o plaćama",
+          "kategorija": "rukovodeci_drzavni_sluzbenik",
+          "uvjetiKonkursa": {
+            "stucnaSprema": "VSS",
+            "bolonja": ["I ciklus", "II ciklus", "III ciklus"],
+            "minRadnoIskustvo": 5,
+            "stucniIspit": true,
+            "posebniUvjeti": [],
+            "opciUvjeti": ["Državljanstvo BiH", "Min. 18 godina", "Zdravstvena sposobnost", "Nije otpušten disciplinski u zadnje 3 godine"]
+          },
+          "radnoVrijeme": { "satniSedmicno": 40, "godisnjiOdmor": 25, "placeniDopust": 5 },
+          "odgovornost": { "odgovaraKome": "Ministar i Vlada Federacije", "rukovodiCime": "Uprava u sastavu" },
+          "dodaci": { "naZnanje": true, "maxPosebniUvjeti": 20, "maxRadniStaz": 20 }
+        },
+        {
+          "kljuc": "glavni_inspektor",
+          "naziv": "Glavni federalni inspektor",
+          "naziv_alternativni": [],
+          "opis": "Rukovodi poslovima inspekcije nad provođenjem federalnih zakona",
+          "pravniOsnov": "Član 11. ZDS, Član 20/IV Zakon o plaćama",
+          "kategorija": "rukovodeci_drzavni_sluzbenik",
+          "uvjetiKonkursa": {
+            "stucnaSprema": "VSS",
+            "bolonja": ["I ciklus", "II ciklus", "III ciklus"],
+            "minRadnoIskustvo": 5,
+            "stucniIspit": true,
+            "posebniUvjeti": ["Položen ispit za inspektora", "Poznavanje oblasti inspekcije"],
+            "opciUvjeti": ["Državljanstvo BiH", "Min. 18 godina", "Zdravstvena sposobnost", "Nije otpušten disciplinski u zadnje 3 godine"]
+          },
+          "radnoVrijeme": { "satniSedmicno": 40, "godisnjiOdmor": 25, "placeniDopust": 5 },
+          "odgovornost": { "odgovaraKome": "Rukovodilac organa", "rukovodiCime": "Inspektorat" },
+          "dodaci": { "naZnanje": true, "maxPosebniUvjeti": 30, "maxRadniStaz": 20 }
+        }
+      ]
+    },
+    {
+      "razred": "V",
+      "koeficijent": 4.85,
+      "pozicije": [
+        {
+          "kljuc": "pomocnik_u_sastavu",
+          "naziv": "Pomoćnik rukovodioca federalne uprave i upravne organizacije u sastavu",
+          "naziv_alternativni": [],
+          "opis": "Obavlja poslove rukovodnog karaktera unutar osnovne jedinice u sastavu",
+          "pravniOsnov": "Član 20/V Zakon o plaćama",
+          "kategorija": "rukovodeci_drzavni_sluzbenik",
+          "uvjetiKonkursa": {
+            "stucnaSprema": "VSS",
+            "bolonja": ["I ciklus", "II ciklus", "III ciklus"],
+            "minRadnoIskustvo": 5,
+            "stucniIspit": true,
+            "posebniUvjeti": ["Poznavanje rada na računaru"],
+            "opciUvjeti": ["Državljanstvo BiH", "Min. 18 godina", "Zdravstvena sposobnost", "Nije otpušten disciplinski u zadnje 3 godine"]
+          },
+          "radnoVrijeme": { "satniSedmicno": 40, "godisnjiOdmor": 25, "placeniDopust": 5 },
+          "odgovornost": { "odgovaraKome": "Rukovodilac uprave u sastavu", "rukovodiCime": "Osnovna org. jedinica" },
+          "dodaci": { "naZnanje": true, "maxPosebniUvjeti": 20, "maxRadniStaz": 20 }
+        },
+        {
+          "kljuc": "sef_kabineta_zamjenika",
+          "naziv": "Šef kabineta zamjenika premijera Vlade Federacije",
+          "naziv_alternativni": [],
+          "opis": "Rukovodi kabinetom zamjenika premijera i koordinira aktivnosti",
+          "pravniOsnov": "Član 20/V Zakon o plaćama",
+          "kategorija": "rukovodeci_drzavni_sluzbenik",
+          "uvjetiKonkursa": {
+            "stucnaSprema": "VSS",
+            "bolonja": ["I ciklus", "II ciklus", "III ciklus"],
+            "minRadnoIskustvo": 5,
+            "stucniIspit": true,
+            "posebniUvjeti": ["Poznavanje rada na računaru", "Aktivno poznavanje jednog stranog jezika"],
+            "opciUvjeti": ["Državljanstvo BiH", "Min. 18 godina", "Zdravstvena sposobnost", "Nije otpušten disciplinski u zadnje 3 godine"]
+          },
+          "radnoVrijeme": { "satniSedmicno": 40, "godisnjiOdmor": 25, "placeniDopust": 5 },
+          "odgovornost": { "odgovaraKome": "Zamjenik premijera", "rukovodiCime": "Kabinet zamjenika premijera" },
+          "dodaci": { "naZnanje": true, "maxPosebniUvjeti": 20, "maxRadniStaz": 20 }
+        }
+      ]
+    },
+    {
+      "razred": "VI",
+      "koeficijent": 4.60,
+      "pozicije": [
+        {
+          "kljuc": "sef_kabineta_rukovodioca",
+          "naziv": "Šef kabineta rukovodioca federalnog organa uprave",
+          "naziv_alternativni": [],
+          "opis": "Rukovodi kabinetom rukovodioca organa koji nema rukovodećeg državnog službenika",
+          "pravniOsnov": "Član 20/VI Zakon o plaćama",
+          "kategorija": "ostali_drzavni_sluzbenik",
+          "uvjetiKonkursa": {
+            "stucnaSprema": "VSS",
+            "bolonja": ["I ciklus", "II ciklus", "III ciklus"],
+            "minRadnoIskustvo": 3,
+            "stucniIspit": true,
+            "posebniUvjeti": ["Poznavanje rada na računaru"],
+            "opciUvjeti": ["Državljanstvo BiH", "Min. 18 godina", "Zdravstvena sposobnost", "Nije otpušten disciplinski u zadnje 3 godine"]
+          },
+          "radnoVrijeme": { "satniSedmicno": 40, "godisnjiOdmor": 20, "placeniDopust": 5 },
+          "odgovornost": { "odgovaraKome": "Rukovodilac organa", "rukovodiCime": "Kabinet" },
+          "dodaci": { "naZnanje": true, "maxPosebniUvjeti": 20, "maxRadniStaz": 20 }
+        },
+        {
+          "kljuc": "rukovodilac_osnovne_jedinice",
+          "naziv": "Rukovodilac osnovne organizacijske jedinice",
+          "naziv_alternativni": [],
+          "opis": "Rukovodi osnovnom organizacijskom jedinicom bez statusa rukovodećeg državnog službenika",
+          "pravniOsnov": "Član 20/VI Zakon o plaćama",
+          "kategorija": "ostali_drzavni_sluzbenik",
+          "uvjetiKonkursa": {
+            "stucnaSprema": "VSS",
+            "bolonja": ["I ciklus", "II ciklus", "III ciklus"],
+            "minRadnoIskustvo": 3,
+            "stucniIspit": true,
+            "posebniUvjeti": ["Poznavanje rada na računaru"],
+            "opciUvjeti": ["Državljanstvo BiH", "Min. 18 godina", "Zdravstvena sposobnost", "Nije otpušten disciplinski u zadnje 3 godine"]
+          },
+          "radnoVrijeme": { "satniSedmicno": 40, "godisnjiOdmor": 20, "placeniDopust": 5 },
+          "odgovornost": { "odgovaraKome": "Pomoćnik ministra / Sekretar", "rukovodiCime": "Osnovna org. jedinica" },
+          "dodaci": { "naZnanje": true, "maxPosebniUvjeti": 20, "maxRadniStaz": 20 }
+        }
+      ]
+    },
+    {
+      "razred": "VII",
+      "koeficijent": 4.50,
+      "pozicije": [
+        {
+          "kljuc": "sef_unutrasnje_jedinice",
+          "naziv": "Šef unutrašnje organizacijske jedinice",
+          "naziv_alternativni": ["Šef odsjeka", "Šef grupe"],
+          "opis": "Rukovodi jedinicom i obavlja složenije poslove, odgovoran za resurse jedinice",
+          "pravniOsnov": "Član 12. ZDS, Član 20/VII Zakon o plaćama",
+          "kategorija": "ostali_drzavni_sluzbenik",
+          "uvjetiKonkursa": {
+            "stucnaSprema": "VSS",
+            "bolonja": ["I ciklus", "II ciklus", "III ciklus"],
+            "minRadnoIskustvo": 3,
+            "stucniIspit": true,
+            "posebniUvjeti": ["Poznavanje rada na računaru"],
+            "opciUvjeti": ["Državljanstvo BiH", "Min. 18 godina", "Zdravstvena sposobnost", "Nije otpušten disciplinski u zadnje 3 godine"]
+          },
+          "radnoVrijeme": { "satniSedmicno": 40, "godisnjiOdmor": 20, "placeniDopust": 5 },
+          "odgovornost": { "odgovaraKome": "Pomoćnik ministra / Sekretar organa", "rukovodiCime": "Unutrašnja org. jedinica" },
+          "dodaci": { "naZnanje": true, "maxPosebniUvjeti": 20, "maxRadniStaz": 20 }
+        }
+      ]
+    },
+    {
+      "razred": "VIII",
+      "koeficijent": 4.30,
+      "pozicije": [
+        {
+          "kljuc": "inspektor",
+          "naziv": "Federalni inspektor",
+          "naziv_alternativni": [],
+          "opis": "Obavlja poslove inspekcijskog nadzora nad primjenom zakona i propisa",
+          "pravniOsnov": "Član 13. ZDS, Član 20/VIII Zakon o plaćama",
+          "kategorija": "ostali_drzavni_sluzbenik",
+          "uvjetiKonkursa": {
+            "stucnaSprema": "VSS",
+            "bolonja": ["I ciklus", "II ciklus", "III ciklus"],
+            "minRadnoIskustvo": 3,
+            "stucniIspit": true,
+            "posebniUvjeti": ["Položen ispit za inspektora", "Poznavanje oblasti inspekcije"],
+            "opciUvjeti": ["Državljanstvo BiH", "Min. 18 godina", "Zdravstvena sposobnost", "Nije otpušten disciplinski u zadnje 3 godine"]
+          },
+          "radnoVrijeme": { "satniSedmicno": 40, "godisnjiOdmor": 20, "placeniDopust": 5 },
+          "odgovornost": { "odgovaraKome": "Glavni inspektor / Šef odsjeka", "rukovodiCime": null },
+          "dodaci": { "naZnanje": true, "maxPosebniUvjeti": 30, "maxRadniStaz": 20 }
+        }
+      ]
+    },
+    {
+      "razred": "IX",
+      "koeficijent": 4.10,
+      "pozicije": [
+        {
+          "kljuc": "strucni_savjetnik",
+          "naziv": "Stručni savjetnik",
+          "naziv_alternativni": [],
+          "opis": "Visok stepen stručnosti i nezavisnosti u određenim oblastima rada unutar org. jedinice",
+          "pravniOsnov": "Član 14. ZDS, Član 20/IX Zakon o plaćama",
+          "kategorija": "ostali_drzavni_sluzbenik",
+          "uvjetiKonkursa": {
+            "stucnaSprema": "VSS",
+            "bolonja": ["I ciklus", "II ciklus", "III ciklus"],
+            "minRadnoIskustvo": 3,
+            "stucniIspit": true,
+            "posebniUvjeti": ["Poznavanje rada na računaru"],
+            "opciUvjeti": ["Državljanstvo BiH", "Min. 18 godina", "Zdravstvena sposobnost", "Nije otpušten disciplinski u zadnje 3 godine"]
+          },
+          "radnoVrijeme": { "satniSedmicno": 40, "godisnjiOdmor": 20, "placeniDopust": 5 },
+          "odgovornost": { "odgovaraKome": "Pomoćnik / Rukovodilac org. jedinice", "rukovodiCime": null },
+          "dodaci": { "naZnanje": true, "maxPosebniUvjeti": 20, "maxRadniStaz": 20 }
+        }
+      ]
+    },
+    {
+      "razred": "X",
+      "koeficijent": 3.90,
+      "pozicije": [
+        {
+          "kljuc": "visi_strucni_saradnik",
+          "naziv": "Viši stručni saradnik",
+          "naziv_alternativni": [],
+          "opis": "Obavlja odgovorne poslove u određenoj organizacionoj jedinici",
+          "pravniOsnov": "Član 15. ZDS, Član 20/X Zakon o plaćama",
+          "kategorija": "ostali_drzavni_sluzbenik",
+          "uvjetiKonkursa": {
+            "stucnaSprema": "VSS",
+            "bolonja": ["I ciklus", "II ciklus", "III ciklus"],
+            "minRadnoIskustvo": 2,
+            "stucniIspit": true,
+            "posebniUvjeti": ["Poznavanje rada na računaru"],
+            "opciUvjeti": ["Državljanstvo BiH", "Min. 18 godina", "Zdravstvena sposobnost", "Nije otpušten disciplinski u zadnje 3 godine"]
+          },
+          "radnoVrijeme": { "satniSedmicno": 40, "godisnjiOdmor": 20, "placeniDopust": 5 },
+          "odgovornost": { "odgovaraKome": "Rukovodilac org. jedinice", "rukovodiCime": null },
+          "dodaci": { "naZnanje": true, "maxPosebniUvjeti": 20, "maxRadniStaz": 20 }
+        }
+      ]
+    },
+    {
+      "razred": "XI",
+      "koeficijent": 3.70,
+      "pozicije": [
+        {
+          "kljuc": "strucni_saradnik",
+          "naziv": "Stručni saradnik",
+          "naziv_alternativni": [],
+          "opis": "Državni službenik specijaliziran za obavljanje određene oblasti rada",
+          "pravniOsnov": "Član 16. ZDS, Član 20/XI Zakon o plaćama",
+          "kategorija": "ostali_drzavni_sluzbenik",
+          "uvjetiKonkursa": {
+            "stucnaSprema": "VSS",
+            "bolonja": ["I ciklus", "II ciklus", "III ciklus"],
+            "minRadnoIskustvo": 1,
+            "stucniIspit": true,
+            "posebniUvjeti": ["Poznavanje rada na računaru"],
+            "opciUvjeti": ["Državljanstvo BiH", "Min. 18 godina", "Zdravstvena sposobnost", "Nije otpušten disciplinski u zadnje 3 godine"]
+          },
+          "radnoVrijeme": { "satniSedmicno": 40, "godisnjiOdmor": 20, "placeniDopust": 5 },
+          "odgovornost": { "odgovaraKome": "Rukovodilac org. jedinice", "rukovodiCime": null },
+          "dodaci": { "naZnanje": true, "maxPosebniUvjeti": 20, "maxRadniStaz": 20 }
+        }
+      ]
+    }
+  ],
+  "obracunPlace": {
+    "formula": "osnovica × bod × koeficijent × (1 + 0.005 × godineStaza)",
+    "maxUvecanjePoBodu": 0.20,
+    "minPlacaPostotak": 0.70,
+    "minPlacaOsnov": "70% prosječne neto plaće FBiH"
+  }
+}
