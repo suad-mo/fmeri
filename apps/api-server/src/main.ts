@@ -16,6 +16,7 @@ import mongoose from 'mongoose';
 import authRoutes from './routes/auth.routes';
 import orgRoutes from './routes/org.routes';
 import cookieParser from 'cookie-parser';
+import refRoutes from './routes/ref.routes';
 
 const app = express();
 
@@ -31,6 +32,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use('/api/auth', authRoutes);
 app.use('/api/org', orgRoutes);
+app.use('/api/ref', refRoutes);
 
 const mongoUri = process.env['MONGODB_URI'] as string;
 const port = process.env['PORT'] || 3000;
