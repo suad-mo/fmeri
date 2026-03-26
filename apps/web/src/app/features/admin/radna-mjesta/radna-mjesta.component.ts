@@ -13,6 +13,8 @@ import {
   STATUS_NAZIV,
   PozicijaRadnogMjesta,
   StatusSluzbenika,
+  KATEGORIJA_NAZIV,
+  KategorijaZaposlenog,
 } from '../../../core/models/org.models';
 import { RadnoMjestoDialogComponent } from './dialogs/radno-mjesto-dialog.component';
 
@@ -39,18 +41,26 @@ export class RadnaMjestaComponent implements OnInit {
   isLoading = signal(true);
   pozicijaNaziv = POZICIJA_NAZIV;
   statusNaziv = STATUS_NAZIV;
+  kategorijaZaposlenog = KATEGORIJA_NAZIV;
 
   kolone = [
     'naziv',
     'pozicija',
     'organizacionaJedinica',
-    'status',
+    'kategorija',
     'broj',
     'akcije',
   ];
 
   getStatusNaziv(status: string): string {
     return this.statusNaziv[status as StatusSluzbenika] ?? status;
+  }
+
+  getKategorijaNaziv(kategorija: string): string {
+    return (
+      this.kategorijaZaposlenog[kategorija as KategorijaZaposlenog] ??
+      kategorija
+    );
   }
 
   getPozicijaNaziv(pozicija: string): string {

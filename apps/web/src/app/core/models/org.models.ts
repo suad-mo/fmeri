@@ -100,10 +100,69 @@ export interface OrganizacionaJedinicaDTO {
 
 export interface RadnoMjestoDTO {
   naziv: string;
-  pozicija: PozicijaRadnogMjesta;
   organizacionaJedinica: string;
-  statusSluzbenika: StatusSluzbenika;
-  nivo: number;
-  brojIzvrsilaca: number;
+  kategorijaZaposlenog: KategorijaZaposlenog;
+  pozicijaKljuc: string;
+  platniRazred: string;
+  koeficijent: number;
   opsisPoslova?: string;
+  posebniUvjeti?: string[];
+  brojIzvrsilaca: number;
+}
+
+export type KategorijaZaposlenog =
+  | 'rukovodeci_drzavni_sluzbenik'
+  | 'ostali_drzavni_sluzbenik'
+  | 'namjestenik';
+
+export const KATEGORIJA_NAZIV: Record<KategorijaZaposlenog, string> = {
+  rukovodeci_drzavni_sluzbenik: 'Rukovodeći državni službenik',
+  ostali_drzavni_sluzbenik: 'Državni službenik',
+  namjestenik: 'Namještenik',
+};
+
+export interface PlatniRazredPozicija {
+  kljuc: string;
+  naziv: string;
+  naziv_alternativni: string[];
+  opis: string;
+  kategorija: string;
+  razred: string;
+  koeficijent: number;
+  uvjetiKonkursa: {
+    stucnaSprema: string;
+    minRadnoIskustvo: number;
+    stucniIspit: boolean;
+    posebniUvjeti: string[];
+  };
+}
+
+export interface RadnoMjesto {
+  _id: string;
+  naziv: string;
+  organizacionaJedinica: OrganizacionaJedinica;
+  kategorijaZaposlenog: KategorijaZaposlenog;
+  pozicijaKljuc: string;
+  platniRazred: string;
+  koeficijent: number;
+  opsisPoslova?: string;
+  posebniUvjeti?: string[];
+  dodatakPosebniUvjeti?: {
+    procenat: number;
+    osnov: string;
+  };
+  brojIzvrsilaca: number;
+  aktivno: boolean;
+}
+
+export interface RadnoMjestoDTO {
+  naziv: string;
+  organizacionaJedinica: string;
+  kategorijaZaposlenog: KategorijaZaposlenog;
+  pozicijaKljuc: string;
+  platniRazred: string;
+  koeficijent: number;
+  opsisPoslova?: string;
+  posebniUvjeti?: string[];
+  brojIzvrsilaca: number;
 }

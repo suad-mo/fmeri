@@ -11,9 +11,7 @@ export const getPlatniRazredi = async (req: Request, res: Response) => {
       ? { tip: 'platni_razredi', kategorija }
       : { tip: 'platni_razredi' };
 
-    const podaci = await ReferentniPodaci.find(filter)
-      .select('-__v')
-      .lean();
+    const podaci = await ReferentniPodaci.find(filter).select('-__v').lean();
 
     return res.json(podaci);
   } catch (error) {
@@ -22,16 +20,30 @@ export const getPlatniRazredi = async (req: Request, res: Response) => {
 };
 
 // GET /api/ref/pozicije?kategorija=drzavni_sluzbenik&razred=IX
+// ref.controller.ts — ažuriraj getPozicije
 export const getPozicije = async (req: Request, res: Response) => {
   try {
     const { kategorija, razred } = req.query;
 
+    // Mapiraj Angular kategorije na bazu
+    const kategorijaMap: Record<string, string> = {
+      rukovodeci_drzavni_sluzbenik: 'drzavni_sluzbenik',
+      ostali_drzavni_sluzbenik: 'drzavni_sluzbenik',
+      namjestenik: 'namjestenik',
+    };
+
+    const dbKategorija = kategorija
+      ? (kategorijaMap[kategorija as string] ?? kategorija)
+      : null;
+
     const filter: Record<string, unknown> = { tip: 'platni_razredi' };
-    if (kategorija) filter['kategorija'] = kategorija;
+    if (dbKategorija) filter['kategorija'] = dbKategorija;
 
     const dokument = await ReferentniPodaci.findOne(filter).lean();
     if (!dokument) {
-      return res.status(404).json({ message: 'Referentni podaci nisu pronađeni.' });
+      return res
+        .status(404)
+        .json({ message: 'Referentni podaci nisu pronađeni.' });
     }
 
     // Filtriraj po razredu ako je proslijeđen
@@ -39,13 +51,24 @@ export const getPozicije = async (req: Request, res: Response) => {
       ? dokument.podaci.filter((r) => r.razred === razred)
       : dokument.podaci;
 
-    // Flatten — vrati sve pozicije
+    // Flatten — filtriraj po kategoriji pozicije ako treba
     const pozicije = razredi.flatMap((r) =>
-      r.pozicije.map((p) => ({
-        ...p,
-        razred: r.razred,
-        koeficijent: r.koeficijent,
-      }))
+      r.pozicije
+        .filter((p) => {
+          if (!kategorija) return true;
+          if (kategorija === 'rukovodeci_drzavni_sluzbenik') {
+            return p.kategorija === 'rukovodeci_drzavni_sluzbenik';
+          }
+          if (kategorija === 'ostali_drzavni_sluzbenik') {
+            return p.kategorija === 'ostali_drzavni_sluzbenik';
+          }
+          return true;
+        })
+        .map((p) => ({
+          ...p,
+          razred: r.razred,
+          koeficijent: r.koeficijent,
+        })),
     );
 
     return res.json(pozicije);
@@ -59,7 +82,9 @@ export const getPozicijaByKljuc = async (req: Request, res: Response) => {
   try {
     const { kljuc } = req.params;
 
-    const dokumenti = await ReferentniPodaci.find({ tip: 'platni_razredi' }).lean();
+    const dokumenti = await ReferentniPodaci.find({
+      tip: 'platni_razredi',
+    }).lean();
 
     for (const dok of dokumenti) {
       for (const razred of dok.podaci) {
@@ -75,7 +100,9 @@ export const getPozicijaByKljuc = async (req: Request, res: Response) => {
       }
     }
 
-    return res.status(404).json({ message: `Pozicija '${kljuc}' nije pronađena.` });
+    return res
+      .status(404)
+      .json({ message: `Pozicija '${kljuc}' nije pronađena.` });
   } catch (error) {
     return res.status(500).json({ error: getErrorMessage(error) });
   }
