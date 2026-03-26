@@ -18,6 +18,7 @@
       "@nx-fmeri/api-auth": ["libs/shared/api-auth/src/index.ts"],
       "@nx-fmeri/api-org": ["libs/shared/api-org/src/index.ts"],
       "@nx-fmeri/api-ref": ["libs/shared/api-ref/src/index.ts"],
+      "@nx-fmeri/api-sablon": ["libs/shared/api-sablon/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

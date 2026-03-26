@@ -3,7 +3,7 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/api-server/src",
   "projectType": "application",
-  "implicitDependencies": ["api-auth", "api-org", "api-ref"],
+  "implicitDependencies": ["api-auth", "api-org", "api-ref", "api-sablon"],
   "targets": {
     "build": {
       "executor": "@nx/esbuild:esbuild",
@@ -96,6 +96,12 @@
       "executor": "nx:run-commands",
       "options": {
         "command": "npx ts-node -r tsconfig-paths/register --project apps/api-server/tsconfig.app.json apps/api-server/src/seeds/referentni-podaci.seed.ts"
+      }
+    },
+    "seed-sabloni": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx ts-node -r tsconfig-paths/register --project apps/api-server/tsconfig.app.json apps/api-server/src/seeds/globalni-sabloni.seed.ts"
       }
     }
   },
