@@ -166,3 +166,23 @@ export interface RadnoMjestoDTO {
   posebniUvjeti?: string[];
   brojIzvrsilaca: number;
 }
+
+export interface JedinicaSablon {
+  tip: TipJedinice;
+  naziv: string;
+  obavezna: boolean;
+  minBroj: number;
+  maxBroj: number | null;
+  roditeljTipovi: TipJedinice[];
+}
+
+export interface GlobalniSablon {
+  _id: string;
+  tipOrgana: TipJedinice;
+  naziv: string;
+  pravniOsnov: string;
+  opis?: string;
+  osnovneJedinice: JedinicaSablon[];
+  unutrasnjeJedinice: JedinicaSablon[];
+  aktivno: boolean;
+}

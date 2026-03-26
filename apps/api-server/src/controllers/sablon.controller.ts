@@ -110,7 +110,7 @@ export const getEfektivnaPravila = async (req: Request, res: Response) => {
       globalniSablon: globalni._id,
       tipOrgana: globalni.tipOrgana,
       osnovneJedinice: primijeniOverride(globalni.osnovneJedinice),
-      unutrašnjeJedinice: primijeniOverride(globalni.unutrašnjeJedinice),
+      unutrasnjeJedinice: primijeniOverride(globalni.unutrasnjeJedinice),
       napomena: organSablon.napomena,
     });
   } catch (error) {

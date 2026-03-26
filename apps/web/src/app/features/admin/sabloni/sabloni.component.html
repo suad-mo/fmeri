@@ -1,0 +1,157 @@
+<div class="page-header">
+  <div>
+    <h1>Globalni šabloni</h1>
+    <p>Organizacijski šabloni prema Uredbi o unutrašnjoj organizaciji</p>
+  </div>
+</div>
+
+@if (isLoading()) {
+  <div class="loading-wrapper">
+    <mat-spinner diameter="40" />
+  </div>
+} @else {
+  @for (sablon of sabloni(); track sablon._id) {
+    <mat-accordion class="sablon-accordion">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <mat-icon class="panel-icon">account_tree</mat-icon>
+            <strong>{{ sablon.naziv }}</strong>
+          </mat-panel-title>
+          <!-- <mat-panel-description>
+            {{ sablon.pravniOsnov }}
+          </mat-panel-description> -->
+        </mat-expansion-panel-header>
+
+        @if (sablon.opis) {
+          <p class="sablon-opis">{{ sablon.opis }}</p>
+        }
+
+        @if (sablon.pravniOsnov) {
+          <p class="sablon-pravni-osnov">
+            <mat-icon>gavel</mat-icon>
+            Pravni osnov: {{ sablon.pravniOsnov }}
+          </p>
+        }
+
+        <!-- Osnovne jedinice -->
+        <div class="sekcija">
+          <h3>
+            <mat-icon>business</mat-icon>
+            Osnovne organizacijske jedinice
+            <mat-chip class="count-chip">{{
+              sablon.osnovneJedinice.length
+            }}</mat-chip>
+          </h3>
+
+          <table
+            mat-table
+            [dataSource]="sablon.osnovneJedinice"
+            class="sablon-table"
+          >
+            <ng-container matColumnDef="tip">
+              <th mat-header-cell *matHeaderCellDef>Tip</th>
+              <td mat-cell *matCellDef="let j">
+                <mat-chip class="tip-chip tip-{{ j.tip }}">
+                  {{ getTipNaziv(j.tip) }}
+                </mat-chip>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="obavezna">
+              <th mat-header-cell *matHeaderCellDef>Obavezna</th>
+              <td mat-cell *matCellDef="let j">
+                @if (j.obavezna) {
+                  <mat-chip class="chip-da">Da</mat-chip>
+                } @else {
+                  <span class="chip-ne">Ne</span>
+                }
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="minBroj">
+              <th mat-header-cell *matHeaderCellDef>Min.</th>
+              <td mat-cell *matCellDef="let j">{{ j.minBroj }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="maxBroj">
+              <th mat-header-cell *matHeaderCellDef>Max.</th>
+              <td mat-cell *matCellDef="let j">
+                {{ j.maxBroj ?? '∞' }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="roditeljTipovi">
+              <th mat-header-cell *matHeaderCellDef>Može biti u</th>
+              <td mat-cell *matCellDef="let j">
+                {{ getRoditeljNazivi(j.roditeljTipovi) }}
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="koloneOsnovne"></tr>
+            <tr mat-row *matRowDef="let row; columns: koloneOsnovne"></tr>
+          </table>
+        </div>
+
+        <!-- Unutrašnje jedinice -->
+        <div class="sekcija">
+          <h3>
+            <mat-icon>folder_open</mat-icon>
+            Unutrašnje organizacijske jedinice
+            <mat-chip class="count-chip">{{
+              sablon.unutrasnjeJedinice.length
+            }}</mat-chip>
+          </h3>
+
+          <table
+            mat-table
+            [dataSource]="sablon.unutrasnjeJedinice"
+            class="sablon-table"
+          >
+            <ng-container matColumnDef="tip">
+              <th mat-header-cell *matHeaderCellDef>Tip</th>
+              <td mat-cell *matCellDef="let j">
+                <mat-chip class="tip-chip tip-{{ j.tip }}">
+                  {{ getTipNaziv(j.tip) }}
+                </mat-chip>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="obavezna">
+              <th mat-header-cell *matHeaderCellDef>Obavezna</th>
+              <td mat-cell *matCellDef="let j">
+                @if (j.obavezna) {
+                  <mat-chip class="chip-da">Da</mat-chip>
+                } @else {
+                  <span class="chip-ne">Ne</span>
+                }
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="minBroj">
+              <th mat-header-cell *matHeaderCellDef>Min.</th>
+              <td mat-cell *matCellDef="let j">{{ j.minBroj }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="maxBroj">
+              <th mat-header-cell *matHeaderCellDef>Max.</th>
+              <td mat-cell *matCellDef="let j">
+                {{ j.maxBroj ?? '∞' }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="roditeljTipovi">
+              <th mat-header-cell *matHeaderCellDef>Može biti u</th>
+              <td mat-cell *matCellDef="let j">
+                {{ getRoditeljNazivi(j.roditeljTipovi) }}
+              </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="koloneUnutrasnje"></tr>
+            <tr mat-row *matRowDef="let row; columns: koloneUnutrasnje"></tr>
+          </table>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  }
+}

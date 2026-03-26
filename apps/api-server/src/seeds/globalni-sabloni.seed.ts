@@ -77,7 +77,7 @@ const seed = async () => {
         roditeljTipovi: ['ministarstvo'],
       },
     ],
-    unutrašnjeJedinice: [
+    unutrasnjeJedinice: [
       {
         tip: 'odsjek',
         naziv: 'Odsjek',
@@ -154,7 +154,7 @@ const seed = async () => {
         roditeljTipovi: ['zavod'],
       },
     ],
-    unutrašnjeJedinice: [
+    unutrasnjeJedinice: [
       {
         tip: 'odsjek',
         naziv: 'Odsjek',
@@ -199,7 +199,7 @@ const seed = async () => {
         roditeljTipovi: ['direkcija'],
       },
     ],
-    unutrašnjeJedinice: [
+    unutrasnjeJedinice: [
       {
         tip: 'odsjek',
         naziv: 'Odsjek',

@@ -16,7 +16,7 @@ export interface IGlobalniSablon extends Document {
   pravniOsnov: string;
   opis?: string;
   osnovneJedinice: IJedinicaSablon[];
-  unutrašnjeJedinice: IJedinicaSablon[];
+  unutrasnjeJedinice: IJedinicaSablon[];
   aktivno: boolean;
 }
 
@@ -46,7 +46,7 @@ const globalniSablonSchema = new Schema<IGlobalniSablon>(
     },
     opis: { type: String },
     osnovneJedinice: [jedinicaSablonSchema],
-    unutrašnjeJedinice: [jedinicaSablonSchema],
+    unutrasnjeJedinice: [jedinicaSablonSchema],
     aktivno: { type: Boolean, default: true },
   },
   { timestamps: true }
