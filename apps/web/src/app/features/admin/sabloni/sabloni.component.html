@@ -21,6 +21,14 @@
           <!-- <mat-panel-description>
             {{ sablon.pravniOsnov }}
           </mat-panel-description> -->
+          <!-- U mat-expansion-panel-header, desno -->
+          <button
+            mat-icon-button
+            (click)="uredi(sablon); $event.stopPropagation()"
+            matTooltip="Uredi šablon"
+          >
+            <mat-icon>edit</mat-icon>
+          </button>
         </mat-expansion-panel-header>
 
         @if (sablon.opis) {

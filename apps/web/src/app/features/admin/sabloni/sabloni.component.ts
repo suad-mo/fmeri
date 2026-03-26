@@ -6,7 +6,15 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTableModule } from '@angular/material/table';
 import { MatBadgeModule } from '@angular/material/badge';
 import { OrgService } from '../../../core/services/org.service';
-import { GlobalniSablon, TIP_JEDINICE_NAZIV, TipJedinice } from '../../../core/models/org.models';
+import {
+  GlobalniSablon,
+  TIP_JEDINICE_NAZIV,
+  TipJedinice,
+} from '../../../core/models/org.models';
+import { MatDialogModule, MatDialog } from '@angular/material/dialog';
+import { SablonDialogComponent } from './dialogs/sablon-dialog.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-sabloni',
@@ -18,18 +26,28 @@ import { GlobalniSablon, TIP_JEDINICE_NAZIV, TipJedinice } from '../../../core/m
     MatProgressSpinnerModule,
     MatTableModule,
     MatBadgeModule,
+    MatDialogModule, // ← dodaj
+    MatTooltipModule, // ← dodaj
+    MatButtonModule, // ← dodaj
   ],
   templateUrl: './sabloni.component.html',
   styleUrl: './sabloni.component.scss',
 })
 export class SabloniComponent implements OnInit {
   private orgService = inject(OrgService);
+  private dialog = inject(MatDialog);
 
   sabloni = signal<GlobalniSablon[]>([]);
   isLoading = signal(true);
 
   koloneOsnovne = ['tip', 'obavezna', 'minBroj', 'maxBroj', 'roditeljTipovi'];
-  koloneUnutrasnje = ['tip', 'obavezna', 'minBroj', 'maxBroj', 'roditeljTipovi'];
+  koloneUnutrasnje = [
+    'tip',
+    'obavezna',
+    'minBroj',
+    'maxBroj',
+    'roditeljTipovi',
+  ];
 
   ngOnInit() {
     this.orgService.getGlobalniSabloni().subscribe({
@@ -47,5 +65,15 @@ export class SabloniComponent implements OnInit {
 
   getRoditeljNazivi(tipovi: string[]): string {
     return tipovi.map((t) => this.getTipNaziv(t)).join(', ');
+  }
+
+  uredi(sablon: GlobalniSablon) {
+    const ref = this.dialog.open(SablonDialogComponent, {
+      width: '700px',
+      data: { sablon },
+    });
+    ref.afterClosed().subscribe((rezultat) => {
+      if (rezultat) this.ngOnInit();
+    });
   }
 }

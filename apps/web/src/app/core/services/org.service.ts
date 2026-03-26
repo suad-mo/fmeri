@@ -96,4 +96,14 @@ export class OrgService {
       `${this.refUrl}/pozicije/${kljuc}`,
     );
   }
+
+  updateGlobalniSablon(
+    id: string,
+    data: Partial<GlobalniSablon>,
+  ): Observable<GlobalniSablon> {
+    return this.http.patch<GlobalniSablon>(
+      `${this.sablonUrl}/globalni/${id}`,
+      data,
+    );
+  }
 }
