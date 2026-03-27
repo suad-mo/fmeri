@@ -186,3 +186,23 @@ export interface GlobalniSablon {
   unutrasnjeJedinice: JedinicaSablon[];
   aktivno: boolean;
 }
+
+export interface UserProfil {
+  _id: string;
+  name: string;
+  email: string;
+  role: string[];
+  slika?: string;
+  organizacionaJedinica?: {
+    _id: string;
+    naziv: string;
+    tipJedinice: string;
+  };
+  radnoMjesto?: {
+    _id: string;
+    naziv: string;
+    pozicijaKljuc: string;
+    platniRazred: string;
+    koeficijent: number;
+  };
+}

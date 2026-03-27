@@ -8,6 +8,7 @@ import {
   RadnoMjestoDTO,
   PlatniRazredPozicija,
   GlobalniSablon,
+  UserProfil,
 } from '../models/org.models';
 
 @Injectable({ providedIn: 'root' })
@@ -16,6 +17,46 @@ export class OrgService {
   private readonly apiUrl = 'http://localhost:3000/api/org';
   private readonly refUrl = 'http://localhost:3000/api/ref';
   private readonly sablonUrl = 'http://localhost:3000/api/sablon';
+  private readonly usersUrl = 'http://localhost:3000/api/users';
+
+  // Vlastiti profil
+  getMe(): Observable<UserProfil> {
+    return this.http.get<UserProfil>(`${this.usersUrl}/me`);
+  }
+
+  promijeniLozinku(data: {
+    trenutnaLozinka: string;
+    novaLozinka: string;
+  }): Observable<{ message: string }> {
+    return this.http.patch<{ message: string }>(
+      `${this.usersUrl}/me/lozinka`,
+      data,
+    );
+  }
+
+  uploadSlika(file: File): Observable<{ slika: string }> {
+    const formData = new FormData();
+    formData.append('slika', file);
+    return this.http.post<{ slika: string }>(
+      `${this.usersUrl}/me/slika`,
+      formData,
+    );
+  }
+
+  // Admin
+  getUsers(): Observable<UserProfil[]> {
+    return this.http.get<UserProfil[]>(`${this.usersUrl}`);
+  }
+
+  dodjelaOrgRM(
+    userId: string,
+    data: { organizacionaJedinica: string; radnoMjesto: string },
+  ): Observable<UserProfil> {
+    return this.http.patch<UserProfil>(
+      `${this.usersUrl}/${userId}/dodjela`,
+      data,
+    );
+  }
 
   getGlobalniSabloni(): Observable<GlobalniSablon[]> {
     return this.http.get<GlobalniSablon[]>(`${this.sablonUrl}/globalni`);

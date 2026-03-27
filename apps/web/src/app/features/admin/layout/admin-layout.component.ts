@@ -34,5 +34,6 @@ export class AdminLayoutComponent {
     },
     { label: 'Radna mjesta', icon: 'work', route: '/admin/radna-mjesta' },
     { label: 'Šabloni', icon: 'description', route: '/admin/sabloni' },
+    { label: 'Moj profil', icon: 'account_circle', route: '/profil' },
   ];
 }
