@@ -1,12 +1,13 @@
 import { Request, Response, NextFunction } from 'express';
 import * as jwt from 'jsonwebtoken';
+import { User } from '@nx-fmeri/api-auth';
 
 interface JwtPayload {
   id: string;
   email: string;
 }
 
-export const protect = (req: Request, res: Response, next: NextFunction) => {
+export const protect = async (req: Request, res: Response, next: NextFunction) => {
   let token: string | undefined;
 
   if (req.cookies?.access_token) {
@@ -27,9 +28,18 @@ export const protect = (req: Request, res: Response, next: NextFunction) => {
     const secret = process.env['JWT_SECRET'] as string;
     const decoded = jwt.verify(token, secret) as JwtPayload;
 
-    // req.user je IUser tip iz express.d.ts — castamo kroz unknown
-    // req.user = { _id: decoded.id, email: decoded.email } as unknown as Express.Request['user'];
-    req.user = { id: decoded.id, email: decoded.email, role: [] };
+    // Dohvati korisnika iz baze da dobijemo role
+    const user = await User.findById(decoded.id).select('email role').lean();
+    if (!user) {
+      res.status(401).json({ message: 'Korisnik nije pronađen.' });
+      return;
+    }
+
+    req.user = {
+      id: decoded.id,
+      email: user.email,
+      role: user.role ?? [],
+    };
 
     return next();
   } catch {

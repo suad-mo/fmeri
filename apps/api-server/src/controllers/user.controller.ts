@@ -62,7 +62,7 @@ export const uploadSlika = async (req: Request, res: Response) => {
 
     // Obriši staru sliku ako postoji
     if (user.slika) {
-      const staraSlika = path.join(__dirname, '../../uploads/slike', user.slika);
+      const staraSlika = path.join(__dirname, '../../../../../uploads/slike', user.slika);
       if (fs.existsSync(staraSlika)) fs.unlinkSync(staraSlika);
     }
 

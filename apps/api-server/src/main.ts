@@ -23,7 +23,8 @@ import userRoutes from './routes/user.routes';
 const app = express();
 
 // Statički fajlovi za slike
-app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
+// Zamijeni postojeću liniju za statičke fajlove
+app.use('/uploads', express.static(path.join(__dirname, '../../../../uploads')));
 
 // ← CORS konfiguracija
 app.use(cors({

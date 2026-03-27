@@ -6,7 +6,9 @@ import * as path from 'path';
 import * as fs from 'fs';
 
 // Multer konfiguracija
-const uploadDir = path.join(__dirname, '../../uploads/slike');
+// user.routes.ts — uploadDir
+const uploadDir = path.join(__dirname, '../../../../../uploads/slike');
+console.log('Upload dir:', uploadDir);
 if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir, { recursive: true });
 
 const storage = multer.diskStorage({

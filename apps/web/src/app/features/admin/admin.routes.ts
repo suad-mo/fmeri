@@ -27,6 +27,13 @@ export const adminRoutes: Routes = [
         loadComponent: () =>
           import('./sabloni/sabloni.component').then((m) => m.SabloniComponent),
       },
+      {
+        path: 'korisnici',
+        loadComponent: () =>
+          import('./korisnici/korisnici.component').then(
+            (m) => m.KorisniciComponent,
+          ),
+      },
       { path: '', redirectTo: 'org-jedinice', pathMatch: 'full' },
     ],
   },

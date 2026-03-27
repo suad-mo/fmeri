@@ -34,6 +34,17 @@ export class AdminLayoutComponent {
     },
     { label: 'Radna mjesta', icon: 'work', route: '/admin/radna-mjesta' },
     { label: 'Šabloni', icon: 'description', route: '/admin/sabloni' },
+    {
+      label: 'Korisnici',
+      icon: 'people',
+      route: '/admin/korisnici',
+      adminOnly: true,
+    },
     { label: 'Moj profil', icon: 'account_circle', route: '/profil' },
   ];
+
+  isAdmin(): boolean {
+    return this.authService.userRoles().includes('admin');
+  }
+
 }

@@ -1,5 +1,4 @@
 <mat-sidenav-container class="admin-container">
-
   <!-- Sidebar -->
   <mat-sidenav mode="side" opened class="admin-sidenav">
     <div class="sidenav-header">
@@ -11,13 +10,16 @@
 
     <mat-nav-list>
       @for (item of menuItems; track item.route) {
-        <a
-          mat-list-item
-          [routerLink]="item.route"
-          routerLinkActive="active-link">
-          <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
-          <span matListItemTitle>{{ item.label }}</span>
-        </a>
+        @if (!item['adminOnly'] || isAdmin()) {
+          <a
+            mat-list-item
+            [routerLink]="item.route"
+            routerLinkActive="active-link"
+          >
+            <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+            <span matListItemTitle>{{ item.label }}</span>
+          </a>
+        }
       }
     </mat-nav-list>
 
@@ -43,5 +45,4 @@
       <router-outlet />
     </div>
   </mat-sidenav-content>
-
 </mat-sidenav-container>
