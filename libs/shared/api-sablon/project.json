@@ -1,0 +1,19 @@
+{
+  "name": "api-sablon",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/api-sablon/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/shared/api-sablon",
+        "main": "libs/shared/api-sablon/src/index.ts",
+        "tsConfig": "libs/shared/api-sablon/tsconfig.lib.json",
+        "assets": ["libs/shared/api-sablon/*.md"]
+      }
+    }
+  }
+}

@@ -1,0 +1,217 @@
+import { Component, Input, Output, EventEmitter, signal, OnInit } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import {
+  OrganizacionaJedinica,
+  TIP_JEDINICE_NAZIV,
+  TipJedinice,
+} from '../../../core/models/org.models';
+
+@Component({
+  selector: 'app-org-tree-node',
+  standalone: true,
+  imports: [MatIconModule, MatButtonModule, MatChipsModule, MatTooltipModule],
+  template: `
+    <div class="tree-node" [style.padding-left.px]="nivo * 24 + 8">
+      <div class="node-row">
+
+        <!-- Toggle dugme -->
+        @if (node.djeca && node.djeca.length > 0) {
+          <button mat-icon-button class="toggle-btn" (click)="prosiren.set(!prosiren())">
+            <mat-icon>{{ prosiren() ? 'expand_more' : 'chevron_right' }}</mat-icon>
+          </button>
+        } @else {
+          <span class="leaf-spacer">
+            <mat-icon class="leaf-icon">fiber_manual_record</mat-icon>
+          </span>
+        }
+
+        <!-- Naziv -->
+        <span class="node-naziv" [class.parent-naziv]="node.djeca && node.djeca.length > 0">
+          {{ node.naziv }}
+        </span>
+
+        <!-- Tip badge -->
+        <mat-chip class="node-tip tip-{{ node.tip }}">
+          {{ getTipNaziv(node.tip) }}
+        </mat-chip>
+
+        <!-- Akcije -->
+        <div class="node-akcije">
+
+          @if (mozeDodiJedinicu(node.tip)) {
+            <button
+              mat-icon-button
+              class="btn-add-jedinica"
+              (click)="addJedinicaClicked.emit({ roditelj: node, dozvoljeneTipove: getDozvoljeneTipove(node.tip) })"
+              matTooltip="Dodaj podređenu jedinicu">
+              <mat-icon>account_tree</mat-icon>
+            </button>
+          }
+
+          @if (mozeDodatiRadnoMjesto(node.tip)) {
+            <button
+              mat-icon-button
+              class="btn-add-radno"
+              (click)="addRadnoMjestoClicked.emit(node)"
+              matTooltip="Dodaj radno mjesto">
+              <mat-icon>work</mat-icon>
+            </button>
+          }
+
+          <button mat-icon-button (click)="editClicked.emit(node)" matTooltip="Uredi">
+            <mat-icon>edit</mat-icon>
+          </button>
+
+          <button mat-icon-button color="warn" (click)="deleteClicked.emit(node._id)" matTooltip="Deaktiviraj">
+            <mat-icon>block</mat-icon>
+          </button>
+
+        </div>
+      </div>
+
+      <!-- Rekurzivno djeca -->
+      @if (prosiren() && node.djeca && node.djeca.length > 0) {
+        @for (dijete of node.djeca; track dijete._id) {
+          <app-org-tree-node
+            [node]="dijete"
+            [nivo]="nivo + 1"
+            (editClicked)="editClicked.emit($event)"
+            (deleteClicked)="deleteClicked.emit($event)"
+            (addJedinicaClicked)="addJedinicaClicked.emit($event)"
+            (addRadnoMjestoClicked)="addRadnoMjestoClicked.emit($event)">
+          </app-org-tree-node>
+        }
+      }
+    </div>
+  `,
+  styles: [`
+    .tree-node {
+      width: 100%;
+    }
+
+    .node-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 1rem 0.35rem 0;
+      min-height: 44px;
+      cursor: default;
+      border-radius: 8px;
+      transition: background 0.15s;
+
+      &:hover {
+        background: rgba(102, 126, 234, 0.06);
+
+        .node-akcije {
+          opacity: 1;
+        }
+      }
+    }
+
+    .toggle-btn {
+      width: 32px;
+      height: 32px;
+      min-width: 32px;
+    }
+
+    .leaf-spacer {
+      width: 32px;
+      min-width: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .leaf-icon {
+      font-size: 8px !important;
+      width: 8px !important;
+      height: 8px !important;
+      color: var(--text-secondary);
+    }
+
+    .node-naziv {
+      flex: 1;
+      font-size: 0.9rem;
+      color: var(--text-primary);
+
+      &.parent-naziv {
+        font-weight: 600;
+      }
+    }
+
+    .node-tip {
+      font-size: 0.75rem !important;
+      min-height: 24px !important;
+      height: 24px !important;
+      padding: 0 8px !important;
+    }
+
+    .node-akcije {
+      display: flex;
+      gap: 0.1rem;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .btn-add-jedinica {
+      color: #667eea !important;
+    }
+
+    .btn-add-radno {
+      color: #48bb78 !important;
+    }
+
+    .tip-ministarstvo { background: rgba(102, 126, 234, 0.15) !important; color: #667eea !important; }
+    .tip-kabinet      { background: rgba(159, 122, 234, 0.15) !important; color: #9f7aea !important; }
+    .tip-zavod        { background: rgba(237, 137, 54, 0.15) !important;  color: #ed8936 !important; }
+    .tip-direkcija    { background: rgba(229, 62, 62, 0.15) !important;   color: #e53e3e !important; }
+    .tip-sektor       { background: rgba(56, 178, 172, 0.15) !important;  color: #38b2ac !important; }
+    .tip-odsjek       { background: rgba(72, 187, 120, 0.15) !important;  color: #48bb78 !important; }
+    .tip-grupa        { background: rgba(246, 173, 85, 0.15) !important;  color: #f6ad55 !important; }
+    .tip-centar       { background: rgba(66, 153, 225, 0.15) !important;  color: #4299e1 !important; }
+  `],
+})
+export class OrgTreeNodeComponent implements OnInit {
+  @Input() node!: OrganizacionaJedinica;
+  @Input() nivo = 0;
+  @Output() editClicked = new EventEmitter<OrganizacionaJedinica>();
+  @Output() deleteClicked = new EventEmitter<string>();
+  @Output() addJedinicaClicked = new EventEmitter<{
+    roditelj: OrganizacionaJedinica;
+    dozvoljeneTipove: TipJedinice[];
+  }>();
+  @Output() addRadnoMjestoClicked = new EventEmitter<OrganizacionaJedinica>();
+
+  prosiren = signal(false);
+
+  private readonly DOZVOLJENI_PODREDJENI: Partial<Record<TipJedinice, TipJedinice[]>> = {
+    ministarstvo: ['kabinet', 'sektor', 'zavod', 'direkcija'],
+    sektor: ['odsjek'],
+    odsjek: ['grupa'],
+    zavod: ['centar'],
+    direkcija: ['sektor'],
+  };
+
+  ngOnInit() {
+    this.prosiren.set(this.nivo === 0);
+  }
+
+  getTipNaziv(tip: string): string {
+    return TIP_JEDINICE_NAZIV[tip as TipJedinice] ?? tip;
+  }
+
+  mozeDodiJedinicu(tip: TipJedinice): boolean {
+    return !!this.DOZVOLJENI_PODREDJENI[tip];
+  }
+
+  mozeDodatiRadnoMjesto(tip: TipJedinice): boolean {
+    return ['kabinet', 'zavod', 'direkcija', 'sektor', 'grupa', 'odsjek', 'centar'].includes(tip);
+  }
+
+  getDozvoljeneTipove(tip: TipJedinice): TipJedinice[] {
+    return this.DOZVOLJENI_PODREDJENI[tip] ?? [];
+  }
+}

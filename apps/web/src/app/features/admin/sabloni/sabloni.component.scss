@@ -1,0 +1,119 @@
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+
+  h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+  }
+
+  p {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+  }
+}
+
+.loading-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 3rem;
+}
+
+.sablon-accordion {
+  margin-bottom: 1.5rem;
+}
+
+.panel-icon {
+  margin-right: 0.5rem;
+  color: #667eea;
+}
+
+.sablon-opis {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background: var(--color-background-secondary);
+  border-radius: 8px;
+}
+
+.sablon-pravni-osnov {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background: var(--color-background-secondary);
+  border-radius: 8px;
+}
+.sekcija {
+  margin-bottom: 1.5rem;
+
+  h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+
+    mat-icon {
+      font-size: 18px;
+      width: 18px;
+      height: 18px;
+      color: var(--text-secondary);
+    }
+  }
+}
+
+.sablon-table {
+  width: 100%;
+  background: var(--color-background-secondary);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.count-chip {
+  font-size: 0.75rem !important;
+  min-height: 20px !important;
+  height: 20px !important;
+  padding: 0 6px !important;
+  background: rgba(102, 126, 234, 0.15) !important;
+  color: #667eea !important;
+}
+
+.chip-da {
+  background: rgba(72, 187, 120, 0.15) !important;
+  color: #48bb78 !important;
+  font-size: 0.75rem !important;
+  min-height: 24px !important;
+  height: 24px !important;
+}
+
+.chip-ne {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.tip-chip {
+  font-size: 0.75rem !important;
+  min-height: 24px !important;
+  height: 24px !important;
+}
+
+.tip-kabinet      { background: rgba(159, 122, 234, 0.15) !important; color: #9f7aea !important; }
+.tip-sektor       { background: rgba(56, 178, 172, 0.15) !important;  color: #38b2ac !important; }
+.tip-odjeljenje   { background: rgba(66, 153, 225, 0.15) !important;  color: #4299e1 !important; }
+.tip-inspektorat  { background: rgba(229, 62, 62, 0.15) !important;   color: #e53e3e !important; }
+.tip-centar       { background: rgba(72, 187, 120, 0.15) !important;  color: #48bb78 !important; }
+.tip-servis       { background: rgba(246, 173, 85, 0.15) !important;  color: #f6ad55 !important; }
+.tip-sluzba       { background: rgba(237, 137, 54, 0.15) !important;  color: #ed8936 !important; }
+.tip-odsjek       { background: rgba(102, 126, 234, 0.15) !important; color: #667eea !important; }
+.tip-grupa        { background: rgba(236, 201, 75, 0.15) !important;  color: #d69e2e !important; }
+.tip-pisarnica    { background: rgba(160, 174, 192, 0.15) !important; color: #718096 !important; }
+.tip-arhiva       { background: rgba(160, 174, 192, 0.15) !important; color: #718096 !important; }
+.tip-racunovodstvo{ background: rgba(160, 174, 192, 0.15) !important; color: #718096 !important; }

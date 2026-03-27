@@ -13,6 +13,10 @@
       <span class="nav-welcome">
         Zdravo, <strong>{{ authService.currentUser()?.name }}</strong>
       </span>
+      <button mat-stroked-button routerLink="/admin" class="admin-btn">
+  <mat-icon>admin_panel_settings</mat-icon>
+  Admin panel
+</button>
       <button
         mat-stroked-button
         class="logout-btn"
@@ -75,7 +79,7 @@
         </div>
         <div class="info-content">
           <span class="info-label">Sesija ističe za</span>
-          <span class="info-value">{{ (authService.currentUser()?.expiresIn ?? 0) / 60 }} min</span>
+          <span class="info-value">{{ (authService.currentUser()?.expiresIn ?? 0) / 1000 / 60 }} min</span>
         </div>
       </div>
 

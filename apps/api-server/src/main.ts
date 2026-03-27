@@ -14,8 +14,17 @@ import express from 'express';
 import cors from 'cors';          // ← novo
 import mongoose from 'mongoose';
 import authRoutes from './routes/auth.routes';
+import orgRoutes from './routes/org.routes';
+import cookieParser from 'cookie-parser';
+import refRoutes from './routes/ref.routes';
+import sablonRoutes from './routes/sablon.routes';
+import userRoutes from './routes/user.routes';
 
 const app = express();
+
+// Statički fajlovi za slike
+// Zamijeni postojeću liniju za statičke fajlove
+app.use('/uploads', express.static(path.join(__dirname, '../../../../uploads')));
 
 // ← CORS konfiguracija
 app.use(cors({
@@ -26,7 +35,12 @@ app.use(cors({
 }));
 
 app.use(express.json());
+app.use(cookieParser());
 app.use('/api/auth', authRoutes);
+app.use('/api/org', orgRoutes);
+app.use('/api/ref', refRoutes);
+app.use('/api/sablon', sablonRoutes);
+app.use('/api/users', userRoutes);
 
 const mongoUri = process.env['MONGODB_URI'] as string;
 const port = process.env['PORT'] || 3000;

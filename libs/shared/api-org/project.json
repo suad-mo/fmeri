@@ -1,0 +1,19 @@
+{
+  "name": "api-org",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/api-org/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/shared/api-org",
+        "main": "libs/shared/api-org/src/index.ts",
+        "tsConfig": "libs/shared/api-org/tsconfig.lib.json",
+        "assets": ["libs/shared/api-org/*.md"]
+      }
+    }
+  }
+}

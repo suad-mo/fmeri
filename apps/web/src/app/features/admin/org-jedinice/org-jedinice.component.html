@@ -1,0 +1,30 @@
+<div class="page-header">
+  <div>
+    <h1>Organizacione jedinice</h1>
+    <p>Struktura organizacije</p>
+  </div>
+  <button mat-flat-button color="primary" (click)="otvoriDijalog()">
+    <mat-icon>add</mat-icon>
+    Nova jedinica
+  </button>
+</div>
+
+@if (isLoading()) {
+  <div class="loading-wrapper">
+    <mat-spinner diameter="40" />
+  </div>
+} @else {
+  <div class="tree-card">
+    @for (node of stablo(); track node._id) {
+      <app-org-tree-node
+        [node]="node"
+        [nivo]="0"
+        (editClicked)="otvoriDijalog($any($event))"
+        (deleteClicked)="obrisi($any($event))"
+        (addJedinicaClicked)="dodajPodredjenuJedinicu($any($event))"
+        (addRadnoMjestoClicked)="dodajRadnoMjesto($any($event))"
+      >
+      </app-org-tree-node>
+    }
+  </div>
+}
