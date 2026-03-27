@@ -1,9 +1,11 @@
-import { IUser } from '@nx-fmeri/api-auth';
-
 declare global {
   namespace Express {
     interface Request {
-      user?: IUser;
+      user?: {
+        id: string;
+        email: string;
+        role: string[];
+      };
     }
   }
 }

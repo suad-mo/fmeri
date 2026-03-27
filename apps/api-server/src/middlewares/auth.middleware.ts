@@ -36,3 +36,20 @@ export const protect = (req: Request, res: Response, next: NextFunction) => {
     return;
   }
 };
+
+export const requireRole = (...roles: string[]) => {
+  return (req: Request, res: Response, next: NextFunction) => {
+    if (!req.user) {
+      return res.status(401).json({ message: 'Nije autorizovan.' });
+    }
+
+    const userRoles: string[] = req.user.role ?? [];
+    const hasRole = roles.some((r) => userRoles.includes(r));
+
+    if (!hasRole) {
+      return res.status(403).json({ message: 'Nemate dozvolu za ovu akciju.' });
+    }
+
+    return next();
+  };
+};
