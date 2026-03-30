@@ -19,6 +19,8 @@ import cookieParser from 'cookie-parser';
 import refRoutes from './routes/ref.routes';
 import sablonRoutes from './routes/sablon.routes';
 import userRoutes from './routes/user.routes';
+import statsRoutes from './routes/stats.routes';
+
 
 const app = express();
 
@@ -41,6 +43,7 @@ app.use('/api/org', orgRoutes);
 app.use('/api/ref', refRoutes);
 app.use('/api/sablon', sablonRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/stats', statsRoutes);
 
 const mongoUri = process.env['MONGODB_URI'] as string;
 const port = process.env['PORT'] || 3000;

@@ -1,235 +1,176 @@
 .dashboard-page {
-  min-height: 100vh;
-  background: var(--bg-primary);
-}
-
-// ── Navbar ────────────────────────────────────────────────
-.dashboard-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 2rem;
-  background: var(--bg-card);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--bg-card-border);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.nav-brand {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-
-  .nav-logo {
-    width: 40px;
-    height: 40px;
-    background: var(--gradient);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    mat-icon {
-      color: white;
-      font-size: 20px;
-      width: 20px;
-      height: 20px;
-    }
-  }
-
-  .nav-title {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--text-primary);
-  }
-}
-
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-
-  .nav-welcome {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-
-    strong {
-      color: var(--text-primary);
-    }
-  }
-
-  .logout-btn {
-    border-radius: 10px;
-    gap: 0.25rem;
-  }
-}
-
-// ── Main ──────────────────────────────────────────────────
-.dashboard-main {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  padding: 1.5rem;
 }
 
-// ── Profil kartica ────────────────────────────────────────
-.profile-card {
-  background: var(--bg-card);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--bg-card-border);
-  border-radius: 24px;
-  padding: 2rem;
-  box-shadow: var(--shadow);
+.page-header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 2rem;
+  margin-bottom: 1.5rem;
 
-  @media (max-width: 600px) {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
-.profile-avatar {
-  width: 80px;
-  height: 80px;
-  min-width: 80px;
-  background: var(--gradient);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  font-weight: 700;
-  color: white;
-}
-
-.profile-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  flex: 1;
-
-  .profile-name {
+  h1 {
     font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text-primary);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin: 0 0 0.25rem;
   }
 
-  .profile-email {
+  p {
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+    margin: 0;
+  }
+}
+
+.loading-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 3rem;
+}
+
+// ── Statistike kartice ────────────────────────────────
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat-card {
+  mat-card-content {
     display: flex;
     align-items: center;
-    gap: 0.4rem;
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-
-    mat-icon {
-      font-size: 16px;
-      width: 16px;
-      height: 16px;
-    }
+    gap: 1rem;
+    padding: 1.25rem !important;
   }
 
-  .profile-roles {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    margin-top: 0.25rem;
-  }
-}
-
-// ── Info grid ─────────────────────────────────────────────
-.info-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
-}
-
-.info-card {
-  background: var(--bg-card);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--bg-card-border);
-  border-radius: 16px;
-  padding: 1.25rem 1.5rem;
-  box-shadow: var(--shadow);
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 40px rgba(31, 38, 135, 0.2);
-  }
-
-  .info-icon {
-    width: 44px;
-    height: 44px;
-    min-width: 44px;
-    background: var(--gradient);
+  .stat-icon {
+    width: 48px;
+    height: 48px;
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
 
     mat-icon {
+      font-size: 24px;
+      width: 24px;
+      height: 24px;
       color: white;
-      font-size: 20px;
-      width: 20px;
-      height: 20px;
     }
   }
 
-  .info-content {
+  .stat-info {
     display: flex;
     flex-direction: column;
-    gap: 0.2rem;
-    overflow: hidden;
+  }
 
-    .info-label {
-      font-size: 0.75rem;
-      color: var(--text-secondary);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      font-weight: 500;
-    }
+  .stat-broj {
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--color-text-primary);
+  }
 
-    .info-value {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    margin-top: 0.25rem;
   }
 }
 
-// ── Status ────────────────────────────────────────────────
-.status-active {
+.stat-blue   .stat-icon { background: linear-gradient(135deg, #667eea, #764ba2); }
+.stat-green  .stat-icon { background: linear-gradient(135deg, #48bb78, #38a169); }
+.stat-purple .stat-icon { background: linear-gradient(135deg, #9f7aea, #805ad5); }
+.stat-orange .stat-icon { background: linear-gradient(135deg, #ed8936, #dd6b20); }
+
+// ── Grafikoni ─────────────────────────────────────────
+.charts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.chart-card {
+  mat-card-content {
+    padding: 1rem !important;
+    max-height: 300px;
+  }
+}
+
+.no-data {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.4rem;
-  color: #48bb78 !important;
+  justify-content: center;
+  padding: 2rem;
+  color: var(--color-text-secondary);
+  text-align: center;
 
-  .status-dot {
-    width: 8px;
-    height: 8px;
-    min-width: 8px;
-    background: #48bb78;
-    border-radius: 50%;
-    animation: pulse 2s infinite;
+  mat-icon {
+    font-size: 48px;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 0.5rem;
+    opacity: 0.3;
+  }
+
+  p { margin: 0; font-size: 0.875rem; }
+}
+
+// ── Sistematizacija tabela ────────────────────────────
+.table-card {
+  mat-card-content { padding: 0 !important; }
+}
+
+.sistematizacija-table {
+  width: 100%;
+
+  .razred-badge {
+    font-weight: 600;
+    color: #667eea;
+  }
+
+  .koef {
+    color: var(--color-text-secondary);
+    font-size: 0.75rem;
+  }
+
+  .izvršioci {
+    font-weight: 500;
   }
 }
 
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
+.chip-popunjeno  {
+  background: rgba(72, 187, 120, 0.15) !important;
+  color: #48bb78 !important;
+}
+.chip-djelimicno {
+  background: rgba(237, 137, 54, 0.15) !important;
+  color: #ed8936 !important;
+}
+.chip-slobodno   {
+  background: rgba(229, 62, 62, 0.15) !important;
+  color: #e53e3e !important;
+}
+
+// ── Print stilovi ─────────────────────────────────────
+@media print {
+  .no-print { display: none !important; }
+
+  .dashboard-page {
+    padding: 0;
+    max-width: 100%;
+  }
+
+  .stats-grid { grid-template-columns: repeat(4, 1fr); }
+  .charts-grid { grid-template-columns: repeat(2, 1fr); }
+
+  mat-card {
+    box-shadow: none !important;
+    border: 1px solid #e2e8f0 !important;
+  }
 }

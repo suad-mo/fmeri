@@ -206,3 +206,32 @@ export interface UserProfil {
     koeficijent: number;
   };
 }
+
+export interface DashboardStats {
+  ukupnoZaposlenika: number;
+  ukupnoJedinica: number;
+  ukupnoRadnihMjesta: number;
+  zaposleniciSaRadnimMjestom: number;
+  zaposleniciSaDodjeljenim: number;
+}
+
+export interface PlatniRazredStat {
+  razred: string;
+  kategorija: string;
+  broj: number;
+  koeficijent: number;
+}
+
+export interface SistematizacijaItem {
+  _id: string;
+  naziv: string;
+  organizacionaJedinica: { _id: string; naziv: string };
+  pozicijaKljuc: string;
+  platniRazred: string;
+  koeficijent: number;
+  kategorijaZaposlenog: string;
+  brojIzvrsilaca: number;
+  popunjeno: number;
+  slobodna: number;
+  status: 'popunjeno' | 'djelimicno' | 'slobodno';
+}

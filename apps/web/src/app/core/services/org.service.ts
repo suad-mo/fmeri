@@ -9,6 +9,9 @@ import {
   PlatniRazredPozicija,
   GlobalniSablon,
   UserProfil,
+  DashboardStats,
+  PlatniRazredStat,
+  SistematizacijaItem,
 } from '../models/org.models';
 
 @Injectable({ providedIn: 'root' })
@@ -18,6 +21,7 @@ export class OrgService {
   private readonly refUrl = 'http://localhost:3000/api/ref';
   private readonly sablonUrl = 'http://localhost:3000/api/sablon';
   private readonly usersUrl = 'http://localhost:3000/api/users';
+  private readonly statsUrl = 'http://localhost:3000/api/stats';
 
   // Vlastiti profil
   getMe(): Observable<UserProfil> {
@@ -147,4 +151,23 @@ export class OrgService {
       data,
     );
   }
+
+
+getDashboardStats(): Observable<DashboardStats> {
+  return this.http.get<DashboardStats>(`${this.statsUrl}/dashboard`);
+}
+
+getZaposleniciPoSektoru(): Observable<{ naziv: string; broj: number }[]> {
+  return this.http.get<{ naziv: string; broj: number }[]>(
+    `${this.statsUrl}/zaposlenici-po-sektoru`
+  );
+}
+
+getPlatniRazrediStats(): Observable<PlatniRazredStat[]> {
+  return this.http.get<PlatniRazredStat[]>(`${this.statsUrl}/platni-razredi`);
+}
+
+getSistematizacija(): Observable<SistematizacijaItem[]> {
+  return this.http.get<SistematizacijaItem[]>(`${this.statsUrl}/sistematizacija`);
+}
 }
