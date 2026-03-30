@@ -109,6 +109,12 @@
       "options": {
         "command": "npx ts-node -r tsconfig-paths/register --project apps/api-server/tsconfig.app.json apps/api-server/src/seeds/users.seed.ts"
       }
+    },
+    "seed-users-fmeri": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx ts-node -r tsconfig-paths/register --project apps/api-server/tsconfig.app.json apps/api-server/src/seeds/users-fmeri.seed.ts"
+      }
     }
   },
   "tags": []
