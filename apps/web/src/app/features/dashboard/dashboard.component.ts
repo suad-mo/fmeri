@@ -1,4 +1,4 @@
-import { Component, inject, signal, OnInit } from '@angular/core';
+import { Component, inject, signal, OnInit, computed } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -24,17 +24,21 @@ import {
   KATEGORIJA_NAZIV,
   KategorijaZaposlenog,
 } from '../../core/models/org.models';
+import { RouterLink } from '@angular/router';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
   imports: [
+    RouterLink,
     MatCardModule,
     MatIconModule,
     MatProgressSpinnerModule,
     MatTableModule,
     MatChipsModule,
     MatButtonModule,
+    MatTooltipModule,
     NgApexchartsModule,
   ],
   templateUrl: './dashboard.component.html',
@@ -45,40 +49,108 @@ export class DashboardComponent implements OnInit {
   authService = inject(AuthService);
 
   stats = signal<DashboardStats | null>(null);
-  sistematizacija = signal<SistematizacijaItem[]>([]);
+  // sistematizacija = signal<SistematizacijaItem[]>([]);
+  sistematizacijaRaw = signal<SistematizacijaItem[]>([]);
+  sistematizacijaGrupirana = computed(() => {
+    const items = this.sistematizacijaRaw();
+    const grupe = new Map<
+      string,
+      { naziv: string; items: SistematizacijaItem[] }
+    >();
+
+    for (const item of items) {
+      const naziv = item.organizacionaJedinica?.naziv ?? 'Ostalo';
+      if (!grupe.has(naziv)) {
+        grupe.set(naziv, { naziv, items: [] });
+      }
+      grupe.get(naziv)?.items.push(item);
+    }
+
+    return Array.from(grupe.values());
+  });
+
   isLoading = signal(true);
+  isDark = signal(localStorage.getItem('theme') === 'dark');
 
-  kolone = ['naziv', 'organizacija', 'razred', 'kategorija', 'izvršioci', 'status'];
+  kolone = [
+    'naziv',
+    'organizacija',
+    'razred',
+    'kategorija',
+    'izvrsioci',
+    'status',
+  ];
+  koloneGrupa = ['naziv', 'razred', 'kategorija', 'izvrsioci', 'status'];
 
-  // ── Bar chart — zaposlenici po sektoru ───────────────
+  // ── Bar chart ─────────────────────────────────────────
   barSeries: ApexAxisChartSeries = [];
   barChart: ApexChart = {
     type: 'bar',
-    height: 280,
+    height: 300,
     toolbar: { show: false },
     fontFamily: 'inherit',
+    animations: { enabled: true, speed: 600 },
   };
   barXAxis: ApexXAxis = { categories: [] };
   barPlotOptions: ApexPlotOptions = {
-    bar: { borderRadius: 6, columnWidth: '55%' },
+    bar: { borderRadius: 8, columnWidth: '50%' },
   };
   barDataLabels: ApexDataLabels = { enabled: false };
   barColors = ['#667eea'];
+  barFill = {
+    type: 'gradient',
+    gradient: {
+      shade: 'light',
+      type: 'vertical',
+      shadeIntensity: 0.4,
+      gradientToColors: ['#764ba2'],
+      opacityFrom: 1,
+      opacityTo: 0.8,
+    },
+  };
 
-  // ── Donut chart — platni razredi ──────────────────────
+  // ── Donut chart ───────────────────────────────────────
   donutSeries: ApexNonAxisChartSeries = [];
   donutChart: ApexChart = {
     type: 'donut',
-    height: 280,
+    height: 300,
     fontFamily: 'inherit',
+    animations: { enabled: true, speed: 600 },
   };
   donutLabels: string[] = [];
-  donutLegend: ApexLegend = { position: 'right', fontSize: '12px' };
+  donutLegend: ApexLegend = { position: 'bottom', fontSize: '12px' };
   donutResponsive: ApexResponsive[] = [
     { breakpoint: 768, options: { legend: { position: 'bottom' } } },
   ];
-  donutColors = ['#667eea', '#48bb78', '#ed8936', '#e53e3e', '#38b2ac',
-                 '#9f7aea', '#f6ad55', '#4299e1', '#68d391', '#fc8181', '#b794f4'];
+  donutPlotOptions: ApexPlotOptions = {
+    pie: {
+      donut: {
+        size: '65%',
+        labels: {
+          show: true,
+          total: {
+            show: true,
+            label: 'Ukupno',
+            fontSize: '14px',
+            fontWeight: '600',
+          },
+        },
+      },
+    },
+  };
+  donutColors = [
+    '#667eea',
+    '#48bb78',
+    '#ed8936',
+    '#e53e3e',
+    '#38b2ac',
+    '#9f7aea',
+    '#f6ad55',
+    '#4299e1',
+    '#68d391',
+    '#fc8181',
+    '#b794f4',
+  ];
 
   ngOnInit() {
     Promise.all([
@@ -88,17 +160,19 @@ export class DashboardComponent implements OnInit {
       this.orgService.getSistematizacija().toPromise(),
     ]).then(([stats, sektori, razredi, sistematizacija]) => {
       this.stats.set(stats ?? null);
-      this.sistematizacija.set(sistematizacija ?? []);
+      this.sistematizacijaRaw.set(sistematizacija ?? []);
 
       // Bar chart data
       if (sektori?.length) {
-        this.barSeries = [{
-          name: 'Zaposlenici',
-          data: sektori.map((s) => s.broj),
-        }];
+        this.barSeries = [
+          {
+            name: 'Zaposlenici',
+            data: sektori.map((s) => s.broj),
+          },
+        ];
         this.barXAxis = {
           categories: sektori.map((s) =>
-            s.naziv.length > 20 ? s.naziv.substring(0, 20) + '...' : s.naziv
+            s.naziv.length > 20 ? s.naziv.substring(0, 20) + '...' : s.naziv,
           ),
           labels: { style: { fontSize: '11px' } },
         };
@@ -107,7 +181,9 @@ export class DashboardComponent implements OnInit {
       // Donut chart data
       if (razredi?.length) {
         this.donutSeries = razredi.map((r) => r.broj);
-        this.donutLabels = razredi.map((r) => `Razred ${r.razred} (koef. ${r.koeficijent})`);
+        this.donutLabels = razredi.map(
+          (r) => `Razred ${r.razred} (koef. ${r.koeficijent})`,
+        );
       }
 
       this.isLoading.set(false);
@@ -115,13 +191,19 @@ export class DashboardComponent implements OnInit {
   }
 
   getStatusBoja(status: string): string {
-    return status === 'popunjeno' ? 'chip-popunjeno' :
-           status === 'djelimicno' ? 'chip-djelimicno' : 'chip-slobodno';
+    return status === 'popunjeno'
+      ? 'chip-popunjeno'
+      : status === 'djelimicno'
+        ? 'chip-djelimicno'
+        : 'chip-slobodno';
   }
 
   getStatusNaziv(status: string): string {
-    return status === 'popunjeno' ? 'Popunjeno' :
-           status === 'djelimicno' ? 'Djelimično' : 'Slobodno';
+    return status === 'popunjeno'
+      ? 'Popunjeno'
+      : status === 'djelimicno'
+        ? 'Djelimično'
+        : 'Slobodno';
   }
 
   getKategorijaNaziv(k: string): string {
@@ -130,5 +212,21 @@ export class DashboardComponent implements OnInit {
 
   stampaj() {
     window.print();
+  }
+
+  logout() {
+    this.authService.logout();
+  }
+
+  toggleTheme(): void {
+    this.isDark.set(!this.isDark());
+    const body = document.body;
+    if (this.isDark()) {
+      body.classList.add('dark-theme');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      body.classList.remove('dark-theme');
+      localStorage.setItem('theme', 'light');
+    }
   }
 }

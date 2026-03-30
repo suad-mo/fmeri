@@ -20,5 +20,6 @@ router.get('/radna-mjesta', orgController.getRadnaMjesta);
 router.post('/radna-mjesta', orgController.createRadnoMjesto);
 router.patch('/radna-mjesta/:id', orgController.updateRadnoMjesto);
 router.delete('/radna-mjesta/:id', orgController.removeRadnoMjesto);
+router.get('/jedinice/:id/detalji', orgController.getJedinicaDetalji);
 
 export default router;

@@ -1,20 +1,22 @@
 .dashboard-page {
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 1.5rem;
 }
 
+// ── Header ────────────────────────────────────────────
 .page-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 
   h1 {
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-size: 1.75rem;
+    font-weight: 700;
     color: var(--color-text-primary);
     margin: 0 0 0.25rem;
+    letter-spacing: -0.5px;
   }
 
   p {
@@ -24,81 +26,127 @@
   }
 }
 
+.header-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 .loading-wrapper {
   display: flex;
   justify-content: center;
-  padding: 3rem;
+  padding: 4rem;
 }
 
-// ── Statistike kartice ────────────────────────────────
+// ── Stat kartice ──────────────────────────────────────
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
   margin-bottom: 1.5rem;
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .stat-card {
+  border-radius: 16px !important;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12) !important;
+  }
+
   mat-card-content {
     display: flex;
     align-items: center;
     gap: 1rem;
-    padding: 1.25rem !important;
+    padding: 1.5rem !important;
   }
 
   .stat-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 
     mat-icon {
-      font-size: 24px;
-      width: 24px;
-      height: 24px;
+      font-size: 26px;
+      width: 26px;
+      height: 26px;
       color: white;
     }
   }
 
-  .stat-info {
-    display: flex;
-    flex-direction: column;
-  }
-
   .stat-broj {
-    font-size: 1.75rem;
-    font-weight: 700;
+    font-size: 2rem;
+    font-weight: 800;
     line-height: 1;
     color: var(--color-text-primary);
+    letter-spacing: -1px;
   }
 
   .stat-label {
     font-size: 0.8rem;
     color: var(--color-text-secondary);
-    margin-top: 0.25rem;
+    margin-top: 0.3rem;
+    font-weight: 500;
   }
 }
 
-.stat-blue   .stat-icon { background: linear-gradient(135deg, #667eea, #764ba2); }
-.stat-green  .stat-icon { background: linear-gradient(135deg, #48bb78, #38a169); }
-.stat-purple .stat-icon { background: linear-gradient(135deg, #9f7aea, #805ad5); }
-.stat-orange .stat-icon { background: linear-gradient(135deg, #ed8936, #dd6b20); }
+.stat-blue   .stat-icon { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+.stat-green  .stat-icon { background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); }
+.stat-purple .stat-icon { background: linear-gradient(135deg, #8e2de2 0%, #4a00e0 100%); }
+.stat-orange .stat-icon { background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%); }
 
 // ── Grafikoni ─────────────────────────────────────────
 .charts-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.2fr 0.8fr;
   gap: 1rem;
   margin-bottom: 1.5rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .chart-card {
-  mat-card-content {
-    padding: 1rem !important;
-    max-height: 300px;
+  border-radius: 16px !important;
+
+  mat-card-header {
+    padding: 1.25rem 1.25rem 0;
   }
+
+  mat-card-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+  }
+
+  mat-card-content {
+    padding: 0.5rem 0.5rem 0 !important;
+  }
+}
+
+.card-icon {
+  color: #667eea;
+  font-size: 20px !important;
+  width: 20px !important;
+  height: 20px !important;
 }
 
 .no-data {
@@ -106,71 +154,156 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 3rem;
   color: var(--color-text-secondary);
-  text-align: center;
 
   mat-icon {
     font-size: 48px;
     width: 48px;
     height: 48px;
     margin-bottom: 0.5rem;
-    opacity: 0.3;
+    opacity: 0.2;
   }
 
   p { margin: 0; font-size: 0.875rem; }
 }
 
-// ── Sistematizacija tabela ────────────────────────────
+// ── Grupirana tabela ──────────────────────────────────
 .table-card {
-  mat-card-content { padding: 0 !important; }
+  border-radius: 16px !important;
+
+  mat-card-header { padding: 1.25rem 1.25rem 0; }
+
+  mat-card-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+  }
+
+  mat-card-content { padding: 1rem 0 0 !important; }
+}
+
+.grupa-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.08), rgba(118, 75, 162, 0.05));
+  border-left: 3px solid #667eea;
+  margin-top: 0.5rem;
+
+  &:first-child { margin-top: 0; }
+
+  .grupa-icon {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    color: #667eea;
+  }
+
+  span {
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: var(--color-text-primary);
+    flex: 1;
+  }
+
+  .grupa-count {
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    font-weight: 400;
+  }
 }
 
 .sistematizacija-table {
   width: 100%;
+  background: transparent !important;
+  margin-bottom: 0.5rem;
 
-  .razred-badge {
+  th { font-size: 0.75rem; color: var(--color-text-secondary); font-weight: 600; }
+  td { font-size: 0.85rem; }
+}
+
+// Platni razred badge
+.razred-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.75rem;
+  background: rgba(102, 126, 234, 0.12);
+  color: #667eea;
+  margin-right: 0.25rem;
+}
+
+.koef {
+  color: var(--color-text-secondary);
+  font-size: 0.75rem;
+}
+
+// Progress bar za izvršioce
+.izvrsioci-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 80px;
+
+  .izvrsioci-text {
+    font-size: 0.8rem;
     font-weight: 600;
-    color: #667eea;
+    color: var(--color-text-primary);
   }
 
-  .koef {
-    color: var(--color-text-secondary);
-    font-size: 0.75rem;
+  .progress-bar {
+    height: 4px;
+    background: var(--color-background-secondary);
+    border-radius: 2px;
+    overflow: hidden;
+
+    .progress-fill {
+      height: 100%;
+      border-radius: 2px;
+      transition: width 0.5s ease;
+
+      &.fill-popunjeno  { background: #48bb78; }
+      &.fill-djelimicno { background: #ed8936; }
+      &.fill-slobodno   { background: #e2e8f0; }
+    }
   }
+}
 
-  .izvršioci {
-    font-weight: 500;
+// Status badge
+.status-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+
+  &.status-popunjeno  {
+    background: rgba(72, 187, 120, 0.15);
+    color: #38a169;
+  }
+  &.status-djelimicno {
+    background: rgba(237, 137, 54, 0.15);
+    color: #c05621;
+  }
+  &.status-slobodno   {
+    background: rgba(229, 62, 62, 0.1);
+    color: #c53030;
   }
 }
 
-.chip-popunjeno  {
-  background: rgba(72, 187, 120, 0.15) !important;
-  color: #48bb78 !important;
-}
-.chip-djelimicno {
-  background: rgba(237, 137, 54, 0.15) !important;
-  color: #ed8936 !important;
-}
-.chip-slobodno   {
-  background: rgba(229, 62, 62, 0.15) !important;
-  color: #e53e3e !important;
-}
-
-// ── Print stilovi ─────────────────────────────────────
+// ── Print ─────────────────────────────────────────────
 @media print {
   .no-print { display: none !important; }
-
-  .dashboard-page {
-    padding: 0;
-    max-width: 100%;
-  }
-
+  .dashboard-page { padding: 0; max-width: 100%; }
   .stats-grid { grid-template-columns: repeat(4, 1fr); }
   .charts-grid { grid-template-columns: repeat(2, 1fr); }
-
-  mat-card {
-    box-shadow: none !important;
-    border: 1px solid #e2e8f0 !important;
-  }
+  mat-card { box-shadow: none !important; border: 1px solid #e2e8f0 !important; }
 }

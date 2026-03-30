@@ -24,7 +24,7 @@ export const getDashboard = async (req: Request, res: Response) => {
       ukupnoRadnihMjesta,
       zaposleniciSaRadnimMjestom,
       zaposleniciSaDodjeljenim: Math.round(
-        (zaposleniciSaRadnimMjestom / ukupnoZaposlenika) * 100
+        (zaposleniciSaRadnimMjestom / ukupnoZaposlenika) * 100,
       ),
     });
   } catch (error) {
@@ -56,10 +56,12 @@ export const getZaposleniciPoSektoru = async (req: Request, res: Response) => {
       { $limit: 10 },
     ]);
 
-    return res.json(rezultat.map((r) => ({
-      naziv: r._id,
-      broj: r.broj,
-    })));
+    return res.json(
+      rezultat.map((r) => ({
+        naziv: r._id,
+        broj: r.broj,
+      })),
+    );
   } catch (error) {
     return res.status(500).json({ error: getErrorMessage(error) });
   }
@@ -92,16 +94,47 @@ export const getPlatniRazrediStats = async (req: Request, res: Response) => {
       { $sort: { '_id.razred': 1 } },
     ]);
 
-    return res.json(rezultat.map((r) => ({
-      razred: r._id.razred,
-      kategorija: r._id.kategorija,
-      broj: r.broj,
-      koeficijent: r.koeficijent,
-    })));
+    return res.json(
+      rezultat.map((r) => ({
+        razred: r._id.razred,
+        kategorija: r._id.kategorija,
+        broj: r.broj,
+        koeficijent: r.koeficijent,
+      })),
+    );
   } catch (error) {
     return res.status(500).json({ error: getErrorMessage(error) });
   }
 };
+
+const REDOSLIJED_JEDINICA = [
+  'Federalno ministarstvo energije, rudarstva i industrije',
+  'Kabinet ministra',
+  'Sektor energije',
+  'Odsjek za elektroenergetiku',
+  'Odsjek za tečne energente, plin i termoenergetiku',
+  'Odsjek za razvoj',
+  'Sektor rudarstva',
+  'Odsjek za rudarstvo',
+  'Odsjek za geologiju',
+  'Sektor industrije',
+  'Odsjek za metalnu i elektro industriju, industriju prerade drveta, industriju građevinskog materijala i nemetala i grafičku djelatnost',
+  'Odsjek za tekstilnu, kožarsku, obućarsku, hemijsku i farmaceutsku industriju',
+  'Odsjek za analizu i praćenje stanja u privredi',
+  'Odsjek za razvoj i unapređenje privrede',
+  'Sektor za pravne, finansijske i opće poslove',
+  'Odsjek za pravne poslove i radne odnose',
+  'Odsjek za finansijsko-računovodstvene poslove',
+  'Odsjek za opće poslove',
+  'Pisarnica',
+  'Zavod za mjeriteljstvo',
+  'Centar za mjeriteljstvo Mostar',
+  'Centar za mjeriteljstvo Sarajevo',
+  'Centar za mjeriteljstvo Tuzla',
+  'Federalna direkcija za namjensku industriju',
+];
+
+// Na kraju getSistematizacija, prije return res.json(rezultat):
 
 // GET /api/stats/sistematizacija
 export const getSistematizacija = async (req: Request, res: Response) => {
@@ -125,11 +158,22 @@ export const getSistematizacija = async (req: Request, res: Response) => {
           brojIzvrsilaca: rm.brojIzvrsilaca,
           popunjeno,
           slobodna: Math.max(0, rm.brojIzvrsilaca - popunjeno),
-          status: popunjeno >= rm.brojIzvrsilaca ? 'popunjeno' :
-                  popunjeno > 0 ? 'djelimicno' : 'slobodno',
+          status:
+            popunjeno >= rm.brojIzvrsilaca
+              ? 'popunjeno'
+              : popunjeno > 0
+                ? 'djelimicno'
+                : 'slobodno',
         };
-      })
+      }),
     );
+    rezultat.sort((a, b) => {
+      const aNaziv = (a.organizacionaJedinica as any)?.naziv ?? '';
+      const bNaziv = (b.organizacionaJedinica as any)?.naziv ?? '';
+      const aIdx = REDOSLIJED_JEDINICA.indexOf(aNaziv);
+      const bIdx = REDOSLIJED_JEDINICA.indexOf(bNaziv);
+      return (aIdx === -1 ? 999 : aIdx) - (bIdx === -1 ? 999 : bIdx);
+    });
 
     return res.json(rezultat);
   } catch (error) {

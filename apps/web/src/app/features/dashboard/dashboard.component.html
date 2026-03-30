@@ -1,23 +1,43 @@
 <div class="dashboard-page" id="print-area">
-
   <!-- Header -->
   <div class="page-header no-print">
     <div>
       <h1>Dashboard</h1>
       <p>Federalno ministarstvo energije, rudarstva i industrije</p>
     </div>
-    <button mat-flat-button color="primary" (click)="stampaj()">
-      <mat-icon>print</mat-icon>
-      Štampaj / PDF
-    </button>
+    <div class="header-actions">
+      @if (authService.currentUser()?.role?.includes('admin')) {
+        <button mat-stroked-button routerLink="/admin/org-jedinice">
+          <mat-icon>admin_panel_settings</mat-icon>
+          Admin panel
+        </button>
+      }
+      <button mat-stroked-button routerLink="/profil">
+        <mat-icon>account_circle</mat-icon>
+        Moj profil
+      </button>
+      <button
+        mat-icon-button
+        (click)="toggleTheme()"
+        [matTooltip]="isDark() ? 'Svjetla tema' : 'Tamna tema'"
+      >
+        <mat-icon>{{ isDark() ? 'light_mode' : 'dark_mode' }}</mat-icon>
+      </button>
+      <button mat-icon-button (click)="logout()" matTooltip="Odjava">
+        <mat-icon>logout</mat-icon>
+      </button>
+      <button mat-flat-button color="primary" (click)="stampaj()">
+        <mat-icon>print</mat-icon>
+        Štampaj / PDF
+      </button>
+    </div>
   </div>
 
   @if (isLoading()) {
     <div class="loading-wrapper">
-      <mat-spinner diameter="40"/>
+      <mat-spinner diameter="40" />
     </div>
   } @else if (stats(); as s) {
-
     <!-- Statistike kartice -->
     <div class="stats-grid">
       <mat-card class="stat-card stat-blue">
@@ -62,115 +82,133 @@
     </div>
 
     <!-- Grafikoni -->
-    <div class="charts-grid">
-      <mat-card class="chart-card">
-        <mat-card-header>
-          <mat-card-title>Zaposlenici po sektoru</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          @if (barSeries.length > 0) {
-            <apx-chart
-              [series]="barSeries"
-              [chart]="barChart"
-              [xaxis]="barXAxis"
-              [plotOptions]="barPlotOptions"
-              [dataLabels]="barDataLabels"
-              [colors]="barColors">
-            </apx-chart>
-          } @else {
-            <div class="no-data">
-              <mat-icon>bar_chart</mat-icon>
-              <p>Nema podataka — dodijelite zaposlenike org. jedinicama</p>
+<div class="charts-grid">
+  <mat-card class="chart-card">
+    <mat-card-header>
+      <mat-card-title>
+        <mat-icon class="card-icon">bar_chart</mat-icon>
+        Zaposlenici po sektoru
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      @if (barSeries.length > 0) {
+        <apx-chart
+          [series]="barSeries"
+          [chart]="barChart"
+          [xaxis]="barXAxis"
+          [plotOptions]="barPlotOptions"
+          [dataLabels]="barDataLabels"
+          [colors]="barColors"
+          [fill]="barFill">
+        </apx-chart>
+      } @else {
+        <div class="no-data">
+          <mat-icon>bar_chart</mat-icon>
+          <p>Nema podataka</p>
+        </div>
+      }
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="chart-card">
+    <mat-card-header>
+      <mat-card-title>
+        <mat-icon class="card-icon">donut_large</mat-icon>
+        Raspored po platnim razredima
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      @if (donutSeries.length > 0) {
+        <apx-chart
+          [series]="donutSeries"
+          [chart]="donutChart"
+          [labels]="donutLabels"
+          [legend]="donutLegend"
+          [colors]="donutColors"
+          [responsive]="donutResponsive"
+          [plotOptions]="donutPlotOptions">
+        </apx-chart>
+      } @else {
+        <div class="no-data">
+          <mat-icon>donut_large</mat-icon>
+          <p>Nema podataka</p>
+        </div>
+      }
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<!-- Grupirana sistematizacija -->
+<mat-card class="table-card">
+  <mat-card-header>
+    <mat-card-title>
+      <mat-icon class="card-icon">assignment</mat-icon>
+      Pregled sistematizacije
+    </mat-card-title>
+    <mat-card-subtitle>
+      Popunjenost radnih mjesta prema aktu o unutrašnjoj organizaciji
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    @for (grupa of sistematizacijaGrupirana(); track grupa.naziv) {
+      <div class="grupa-header">
+        <mat-icon class="grupa-icon">account_tree</mat-icon>
+        <span>{{ grupa.naziv }}</span>
+        <span class="grupa-count">{{ grupa.items.length }} radnih mjesta</span>
+      </div>
+      <table mat-table [dataSource]="grupa.items" class="sistematizacija-table">
+
+        <ng-container matColumnDef="naziv">
+          <th mat-header-cell *matHeaderCellDef>Naziv radnog mjesta</th>
+          <td mat-cell *matCellDef="let rm">{{ rm.naziv }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="razred">
+          <th mat-header-cell *matHeaderCellDef>Razred</th>
+          <td mat-cell *matCellDef="let rm">
+            <span class="razred-badge razred-{{ rm.platniRazred }}">
+              {{ rm.platniRazred }}
+            </span>
+            <small class="koef">({{ rm.koeficijent }})</small>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="kategorija">
+          <th mat-header-cell *matHeaderCellDef>Kategorija</th>
+          <td mat-cell *matCellDef="let rm">
+            <small>{{ getKategorijaNaziv(rm.kategorijaZaposlenog) }}</small>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="izvrsioci">
+          <th mat-header-cell *matHeaderCellDef>Izvršioci</th>
+          <td mat-cell *matCellDef="let rm">
+            <div class="izvrsioci-bar">
+              <span class="izvrsioci-text">{{ rm.popunjeno }} / {{ rm.brojIzvrsilaca }}</span>
+              <div class="progress-bar">
+                <div class="progress-fill"
+                  [style.width.%]="rm.brojIzvrsilaca > 0 ? (rm.popunjeno / rm.brojIzvrsilaca * 100) : 0"
+                  [class]="'fill-' + rm.status">
+                </div>
+              </div>
             </div>
-          }
-        </mat-card-content>
-      </mat-card>
+          </td>
+        </ng-container>
 
-      <mat-card class="chart-card">
-        <mat-card-header>
-          <mat-card-title>Raspored po platnim razredima</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          @if (donutSeries.length > 0) {
-            <apx-chart
-              [series]="donutSeries"
-              [chart]="donutChart"
-              [labels]="donutLabels"
-              [legend]="donutLegend"
-              [colors]="donutColors"
-              [responsive]="donutResponsive">
-            </apx-chart>
-          } @else {
-            <div class="no-data">
-              <mat-icon>donut_large</mat-icon>
-              <p>Nema podataka — dodijelite zaposlenike radnim mjestima</p>
-            </div>
-          }
-        </mat-card-content>
-      </mat-card>
-    </div>
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef>Status</th>
+          <td mat-cell *matCellDef="let rm">
+            <span class="status-badge status-{{ rm.status }}">
+              {{ getStatusNaziv(rm.status) }}
+            </span>
+          </td>
+        </ng-container>
 
-    <!-- Sistematizacija tabela -->
-    <mat-card class="table-card">
-      <mat-card-header>
-        <mat-card-title>Pregled sistematizacije</mat-card-title>
-        <mat-card-subtitle>
-          Popunjenost radnih mjesta prema aktu o unutrašnjoj organizaciji
-        </mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <table mat-table [dataSource]="sistematizacija()" class="sistematizacija-table">
-
-          <ng-container matColumnDef="naziv">
-            <th mat-header-cell *matHeaderCellDef>Naziv radnog mjesta</th>
-            <td mat-cell *matCellDef="let rm">{{ rm.naziv }}</td>
-          </ng-container>
-
-          <ng-container matColumnDef="organizacija">
-            <th mat-header-cell *matHeaderCellDef>Org. jedinica</th>
-            <td mat-cell *matCellDef="let rm">
-              {{ rm.organizacionaJedinica?.naziv }}
-            </td>
-          </ng-container>
-
-          <ng-container matColumnDef="razred">
-            <th mat-header-cell *matHeaderCellDef>Platni razred</th>
-            <td mat-cell *matCellDef="let rm">
-              <span class="razred-badge">{{ rm.platniRazred }}</span>
-              <small class="koef"> ({{ rm.koeficijent }})</small>
-            </td>
-          </ng-container>
-
-          <ng-container matColumnDef="kategorija">
-            <th mat-header-cell *matHeaderCellDef>Kategorija</th>
-            <td mat-cell *matCellDef="let rm">
-              <small>{{ getKategorijaNaziv(rm.kategorijaZaposlenog) }}</small>
-            </td>
-          </ng-container>
-
-          <ng-container matColumnDef="izvršioci">
-            <th mat-header-cell *matHeaderCellDef>Izvršioci</th>
-            <td mat-cell *matCellDef="let rm">
-              <span class="izvrsioci">
-                {{ rm.popunjeno }} / {{ rm.brojIzvrsilaca }}
-              </span>
-            </td>
-          </ng-container>
-
-          <ng-container matColumnDef="status">
-            <th mat-header-cell *matHeaderCellDef>Status</th>
-            <td mat-cell *matCellDef="let rm">
-              <mat-chip [class]="getStatusBoja(rm.status)">
-                {{ getStatusNaziv(rm.status) }}
-              </mat-chip>
-            </td>
-          </ng-container>
-
-          <tr mat-header-row *matHeaderRowDef="kolone"></tr>
-          <tr mat-row *matRowDef="let row; columns: kolone;"></tr>
-        </table>
-      </mat-card-content>
-    </mat-card>
-
+        <tr mat-header-row *matHeaderRowDef="koloneGrupa"></tr>
+        <tr mat-row *matRowDef="let row; columns: koloneGrupa;"></tr>
+      </table>
+    }
+  </mat-card-content>
+</mat-card>
   }
 </div>
