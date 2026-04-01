@@ -13,6 +13,8 @@ import {
   PlatniRazredStat,
   SistematizacijaItem,
   JedinicaDetalji,
+  Organ,
+  OrganStruktura,
 } from '../models/org.models';
 
 @Injectable({ providedIn: 'root' })
@@ -23,6 +25,7 @@ export class OrgService {
   private readonly sablonUrl = 'http://localhost:3000/api/sablon';
   private readonly usersUrl = 'http://localhost:3000/api/users';
   private readonly statsUrl = 'http://localhost:3000/api/stats';
+  private readonly organiUrl = 'http://localhost:3000/api/organi';
 
   // Vlastiti profil
   getMe(): Observable<UserProfil> {
@@ -117,12 +120,29 @@ export class OrgService {
     return this.http.post<RadnoMjesto>(`${this.apiUrl}/radna-mjesta`, data);
   }
 
-  updateRadnoMjesto(id: string, data: RadnoMjestoDTO): Observable<RadnoMjesto> {
+  // updateRadnoMjesto(
+  //   id: string,
+  //   data: Partial<RadnoMjestoDTO> & { [key: string]: unknown },
+  // ): Observable<RadnoMjesto> {
+  //   return this.http.patch<RadnoMjesto>(
+  //     `${this.apiUrl}/radna-mjesta/${id}`,
+  //     data,
+  //   );
+  // }
+
+  updateRadnoMjesto(
+    id: string,
+    data: Record<string, unknown>,
+  ): Observable<RadnoMjesto> {
     return this.http.patch<RadnoMjesto>(
       `${this.apiUrl}/radna-mjesta/${id}`,
       data,
     );
   }
+
+  // deleteRadnoMjesto(id: string): Observable<void> {
+  //   return this.http.delete<void>(`${this.apiUrl}/radna-mjesta/${id}`);
+  // }
 
   deleteRadnoMjesto(id: string): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/radna-mjesta/${id}`);
@@ -177,5 +197,33 @@ export class OrgService {
     return this.http.get<JedinicaDetalji>(
       `${this.apiUrl}/jedinice/${id}/detalji`,
     );
+  }
+
+  getOrgani(): Observable<Organ[]> {
+    return this.http.get<Organ[]>(this.organiUrl);
+  }
+
+  getOrgan(id: string): Observable<Organ> {
+    return this.http.get<Organ>(`${this.organiUrl}/${id}`);
+  }
+
+  getOrganStruktura(id: string): Observable<OrganStruktura> {
+    return this.http.get<OrganStruktura>(`${this.organiUrl}/${id}/struktura`);
+  }
+
+  getOrganiUSastavu(organId: string): Observable<Organ[]> {
+    return this.http.get<Organ[]>(`${this.organiUrl}/u-sastavu/${organId}`);
+  }
+
+  createOrgan(data: Partial<Organ>): Observable<Organ> {
+    return this.http.post<Organ>(this.organiUrl, data);
+  }
+
+  updateOrgan(id: string, data: Partial<Organ>): Observable<Organ> {
+    return this.http.patch<Organ>(`${this.organiUrl}/${id}`, data);
+  }
+
+  deleteOrgan(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.organiUrl}/${id}`);
   }
 }

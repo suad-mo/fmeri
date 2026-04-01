@@ -117,6 +117,7 @@ export interface RadnoMjestoDTO {
   opsisPoslova?: string;
   posebniUvjeti?: string[];
   brojIzvrsilaca: number;
+    [key: string]: unknown; // ← dodaj
 }
 
 // ── Referentni podaci ─────────────────────────────────
@@ -212,6 +213,7 @@ export interface SistematizacijaItem {
 export interface RadnoMjestoDetalji {
   _id: string;
   naziv: string;
+  organizacionaJedinica?: { _id: string; naziv: string } | string; // ← dodaj
   kategorijaZaposlenog: KategorijaZaposlenog;
   pozicijaKljuc: PozicijaKljuc;
   platniRazred: string;
@@ -232,4 +234,47 @@ export interface JedinicaDetalji {
   radnaMjesta: RadnoMjestoDetalji[];
   ukupnoMjesta: number;
   popunjeno: number;
+}
+
+// ── Organ ─────────────────────────────────────────────
+export type VrstaOrgana =
+  | 'ministarstvo'
+  | 'uprava'
+  | 'upravna_organizacija'
+  | 'ustanova';
+
+export const VRSTA_ORGANA_NAZIV: Record<VrstaOrgana, string> = {
+  ministarstvo: 'Ministarstvo',
+  uprava: 'Uprava',
+  upravna_organizacija: 'Upravna organizacija',
+  ustanova: 'Ustanova',
+};
+
+export interface Organ {
+  _id: string;
+  naziv: string;
+  skraceniNaziv?: string;
+  vrstaOrgana: VrstaOrgana;
+  nadleznost?: string;
+  opis?: string;
+  zakonskiOsnov?: string[];
+  uSastavu: boolean;
+  nadredjeniOrgan?: { _id: string; naziv: string; skraceniNaziv?: string };
+  aktivan: boolean;
+  redoslijed: number;
+}
+
+export interface OsnovnaJedinicaDetalji extends OrganizacionaJedinica {
+  radnaMjesta: RadnoMjestoDetalji[];
+  unutrasnje: UnutrasnjaJedinicaDetalji[];
+}
+
+export interface UnutrasnjaJedinicaDetalji extends OrganizacionaJedinica {
+  radnaMjesta: RadnoMjestoDetalji[];
+}
+
+export interface OrganStruktura {
+  organ: Organ;
+  radnaMjesta: RadnoMjestoDetalji[];
+  osnovneJedinice: OsnovnaJedinicaDetalji[];
 }

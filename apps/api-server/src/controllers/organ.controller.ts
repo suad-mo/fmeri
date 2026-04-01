@@ -33,7 +33,8 @@ export const getOrgan = async (req: Request, res: Response) => {
 export const getOrganStruktura = async (req: Request, res: Response) => {
   try {
     const organ = await Organ.findById(req.params['id']).lean();
-    if (!organ) return res.status(404).json({ message: 'Organ nije pronađen.' });
+    if (!organ)
+      return res.status(404).json({ message: 'Organ nije pronađen.' });
 
     const jedinice = await OrganizacionaJedinica.find({
       organ: req.params['id'],
@@ -47,9 +48,12 @@ export const getOrganStruktura = async (req: Request, res: Response) => {
     // = ona čija organizacionaJedinica je sam organ (ministarstvo tip)
     const organJedinica = await OrganizacionaJedinica.findOne({
       organ: req.params['id'],
-      tip: organ.vrstaOrgana === 'ministarstvo' ? 'ministarstvo' :
-           organ.vrstaOrgana === 'upravna_organizacija' ?
-           { $in: ['zavod', 'direkcija'] } : 'ministarstvo',
+      tip:
+        organ.vrstaOrgana === 'ministarstvo'
+          ? 'ministarstvo'
+          : organ.vrstaOrgana === 'upravna_organizacija'
+            ? { $in: ['zavod', 'direkcija'] }
+            : 'ministarstvo',
     }).lean();
 
     const radnaMjestaOrgana = organJedinica
@@ -59,8 +63,12 @@ export const getOrganStruktura = async (req: Request, res: Response) => {
         }).lean()
       : [];
 
-    const osnovneJedinice = jedinice.filter(j => j.nivoJedinice === 'osnovna');
-    const unutrasnje = jedinice.filter(j => j.nivoJedinice === 'unutrasnja');
+    const osnovneJedinice = jedinice.filter(
+      (j) =>
+        j.nivoJedinice === 'osnovna' &&
+        !['ministarstvo', 'direkcija', 'zavod'].includes(j.tip),
+    );
+    const unutrasnje = jedinice.filter((j) => j.nivoJedinice === 'unutrasnja');
 
     const strukturaOOJ = await Promise.all(
       osnovneJedinice.map(async (ooj) => {
@@ -70,7 +78,7 @@ export const getOrganStruktura = async (req: Request, res: Response) => {
         }).lean();
 
         const uojZaOvu = unutrasnje.filter(
-          u => u.nadredjenaJedinica?.toString() === ooj._id.toString()
+          (u) => u.nadredjenaJedinica?.toString() === ooj._id.toString(),
         );
 
         const uojSaRM = await Promise.all(
@@ -80,7 +88,7 @@ export const getOrganStruktura = async (req: Request, res: Response) => {
               aktivno: true,
             }).lean();
             return { ...uoj, radnaMjesta: rmUOJ };
-          })
+          }),
         );
 
         return {
@@ -88,7 +96,7 @@ export const getOrganStruktura = async (req: Request, res: Response) => {
           radnaMjesta: rmOOJ,
           unutrasnje: uojSaRM,
         };
-      })
+      }),
     );
 
     return res.json({

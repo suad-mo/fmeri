@@ -32,6 +32,7 @@ export class AdminLayoutComponent {
       icon: 'account_tree',
       route: '/admin/org-jedinice',
     },
+    { label: 'Organi', icon: 'account_balance', route: '/admin/organi' },
     { label: 'Radna mjesta', icon: 'work', route: '/admin/radna-mjesta' },
     { label: 'Šabloni', icon: 'description', route: '/admin/sabloni' },
     {

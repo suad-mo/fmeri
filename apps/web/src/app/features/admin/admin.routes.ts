@@ -34,6 +34,11 @@ export const adminRoutes: Routes = [
             (m) => m.KorisniciComponent,
           ),
       },
+      {
+        path: 'organi',
+        loadComponent: () =>
+          import('./organi/organi.component').then((m) => m.OrganiComponent),
+      },
       { path: '', redirectTo: 'org-jedinice', pathMatch: 'full' },
     ],
   },
