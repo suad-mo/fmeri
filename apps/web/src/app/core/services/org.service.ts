@@ -12,6 +12,7 @@ import {
   DashboardStats,
   PlatniRazredStat,
   SistematizacijaItem,
+  JedinicaDetalji,
 } from '../models/org.models';
 
 @Injectable({ providedIn: 'root' })
@@ -152,22 +153,29 @@ export class OrgService {
     );
   }
 
+  getDashboardStats(): Observable<DashboardStats> {
+    return this.http.get<DashboardStats>(`${this.statsUrl}/dashboard`);
+  }
 
-getDashboardStats(): Observable<DashboardStats> {
-  return this.http.get<DashboardStats>(`${this.statsUrl}/dashboard`);
-}
+  getZaposleniciPoSektoru(): Observable<{ naziv: string; broj: number }[]> {
+    return this.http.get<{ naziv: string; broj: number }[]>(
+      `${this.statsUrl}/zaposlenici-po-sektoru`,
+    );
+  }
 
-getZaposleniciPoSektoru(): Observable<{ naziv: string; broj: number }[]> {
-  return this.http.get<{ naziv: string; broj: number }[]>(
-    `${this.statsUrl}/zaposlenici-po-sektoru`
-  );
-}
+  getPlatniRazrediStats(): Observable<PlatniRazredStat[]> {
+    return this.http.get<PlatniRazredStat[]>(`${this.statsUrl}/platni-razredi`);
+  }
 
-getPlatniRazrediStats(): Observable<PlatniRazredStat[]> {
-  return this.http.get<PlatniRazredStat[]>(`${this.statsUrl}/platni-razredi`);
-}
+  getSistematizacija(): Observable<SistematizacijaItem[]> {
+    return this.http.get<SistematizacijaItem[]>(
+      `${this.statsUrl}/sistematizacija`,
+    );
+  }
 
-getSistematizacija(): Observable<SistematizacijaItem[]> {
-  return this.http.get<SistematizacijaItem[]>(`${this.statsUrl}/sistematizacija`);
-}
+  getJedinicaDetalji(id: string): Observable<JedinicaDetalji> {
+    return this.http.get<JedinicaDetalji>(
+      `${this.apiUrl}/jedinice/${id}/detalji`,
+    );
+  }
 }

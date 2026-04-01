@@ -18,6 +18,7 @@ import {
   KategorijaZaposlenog,
   PlatniRazredPozicija,
   KATEGORIJA_NAZIV,
+  PozicijaKljuc,
 } from '../../../../core/models/org.models';
 
 @Component({
@@ -318,7 +319,7 @@ export class RadnoMjestoDialogComponent implements OnInit {
       naziv: raw.naziv as string,
       organizacionaJedinica: raw.organizacionaJedinica as string,
       kategorijaZaposlenog: raw.kategorijaZaposlenog as KategorijaZaposlenog,
-      pozicijaKljuc: raw.pozicijaKljuc as string,
+      pozicijaKljuc: raw.pozicijaKljuc as PozicijaKljuc,
       platniRazred: raw.platniRazred as string,
       koeficijent: Number(raw.koeficijent),
       opsisPoslova: raw.opsisPoslova as string,

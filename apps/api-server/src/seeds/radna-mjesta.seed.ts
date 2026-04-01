@@ -28,58 +28,99 @@ const seed = async () => {
   // ── Ministarstvo — rukovodeći ─────────────────────────
   await RadnoMjesto.insertMany([
     {
+      naziv: 'Federalni ministar energije, rudarstva i industrije',
+      organizacionaJedinica: j(
+        'Federalno ministarstvo energije, rudarstva i industrije',
+      ),
+      kategorijaZaposlenog: 'izabrani_duznosnik',
+      pozicijaKljuc: 'ministar',
+      platniRazred: 'IV', // Član 9. Zakon o plaćama — ministri koeficijent 9.00
+      koeficijent: 9.0,
+      opsisPoslova: 'Rukovodi Ministarstvom, odgovoran Vladi Federacije.',
+      brojIzvrsilaca: 1,
+    },
+    {
       naziv: 'Sekretar Ministarstva',
-      organizacionaJedinica: j('Federalno ministarstvo energije, rudarstva i industrije'),
+      organizacionaJedinica: j(
+        'Federalno ministarstvo energije, rudarstva i industrije',
+      ),
       kategorijaZaposlenog: 'rukovodeci_drzavni_sluzbenik',
       pozicijaKljuc: 'sekretar_organa',
       platniRazred: 'II',
-      koeficijent: 6.20,
-      opsisPoslova: 'Obavlja poslove od značaja za unutrašnju organizaciju i rad Ministarstva, koordinira radom sektora i organizacionih jedinica.',
-      posebniUvjeti: ['VSS - VII stepen ili Bologna, pravna ili ekonomska struka', 'Min. 5 godina radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 6.2,
+      opsisPoslova:
+        'Obavlja poslove od značaja za unutrašnju organizaciju i rad Ministarstva, koordinira radom sektora i organizacionih jedinica.',
+      posebniUvjeti: [
+        'VSS - VII stepen ili Bologna, pravna ili ekonomska struka',
+        'Min. 5 godina radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
       naziv: 'Savjetnik ministra za energiju',
-      organizacionaJedinica: j('Federalno ministarstvo energije, rudarstva i industrije'),
+      organizacionaJedinica: j(
+        'Federalno ministarstvo energije, rudarstva i industrije',
+      ),
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_savjetnik',
       platniRazred: 'IX',
-      koeficijent: 4.10,
+      koeficijent: 4.1,
       opsisPoslova: 'Pruža stručnu podršku ministru u oblasti energetike.',
-      posebniUvjeti: ['VSS - VII stepen ili Bologna, tehnički fakultet', 'Min. 3 godine radnog staža'],
+      posebniUvjeti: [
+        'VSS - VII stepen ili Bologna, tehnički fakultet',
+        'Min. 3 godine radnog staža',
+      ],
       brojIzvrsilaca: 1,
     },
     {
       naziv: 'Savjetnik ministra za rudarstvo',
-      organizacionaJedinica: j('Federalno ministarstvo energije, rudarstva i industrije'),
+      organizacionaJedinica: j(
+        'Federalno ministarstvo energije, rudarstva i industrije',
+      ),
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_savjetnik',
       platniRazred: 'IX',
-      koeficijent: 4.10,
+      koeficijent: 4.1,
       opsisPoslova: 'Pruža stručnu podršku ministru u oblasti rudarstva.',
-      posebniUvjeti: ['VSS - VII stepen ili Bologna, rudarsko-geološki ili tehnički fakultet', 'Min. 3 godine radnog staža'],
+      posebniUvjeti: [
+        'VSS - VII stepen ili Bologna, rudarsko-geološki ili tehnički fakultet',
+        'Min. 3 godine radnog staža',
+      ],
       brojIzvrsilaca: 1,
     },
     {
       naziv: 'Savjetnik ministra za industriju',
-      organizacionaJedinica: j('Federalno ministarstvo energije, rudarstva i industrije'),
+      organizacionaJedinica: j(
+        'Federalno ministarstvo energije, rudarstva i industrije',
+      ),
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_savjetnik',
       platniRazred: 'IX',
-      koeficijent: 4.10,
+      koeficijent: 4.1,
       opsisPoslova: 'Pruža stručnu podršku ministru u oblasti industrije.',
-      posebniUvjeti: ['VSS - VII stepen ili Bologna, tehnički ili ekonomski fakultet', 'Min. 3 godine radnog staža'],
+      posebniUvjeti: [
+        'VSS - VII stepen ili Bologna, tehnički ili ekonomski fakultet',
+        'Min. 3 godine radnog staža',
+      ],
       brojIzvrsilaca: 1,
     },
     {
       naziv: 'Stručni savjetnik — interni revizor',
-      organizacionaJedinica: j('Federalno ministarstvo energije, rudarstva i industrije'),
+      organizacionaJedinica: j(
+        'Federalno ministarstvo energije, rudarstva i industrije',
+      ),
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_savjetnik',
       platniRazred: 'IX',
-      koeficijent: 4.10,
-      opsisPoslova: 'Vrši poslove interne revizije u skladu sa Zakonom o Budžetu i međunarodnim standardima za internu reviziju.',
-      posebniUvjeti: ['VSS - VII stepen ili Bologna, ekonomski ili pravni fakultet', 'Min. 3 godine radnog staža', 'Položen ispit za internog revizora'],
+      koeficijent: 4.1,
+      opsisPoslova:
+        'Vrši poslove interne revizije u skladu sa Zakonom o Budžetu i međunarodnim standardima za internu reviziju.',
+      posebniUvjeti: [
+        'VSS - VII stepen ili Bologna, ekonomski ili pravni fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen ispit za internog revizora',
+      ],
       brojIzvrsilaca: 1,
     },
   ]);
@@ -93,9 +134,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'rukovodilac_osnovne_jedinice',
       platniRazred: 'VI',
-      koeficijent: 4.60,
-      opsisPoslova: 'Rukovodi Kabinetom, organizuje protokolarne i administrativne poslove ministra, priprema sjednice Stručnog kolegija.',
-      posebniUvjeti: ['VSS - pravna/upravna struka ili filozofski fakultet - engleski jezik', 'Min. 5 godina radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.6,
+      opsisPoslova:
+        'Rukovodi Kabinetom, organizuje protokolarne i administrativne poslove ministra, priprema sjednice Stručnog kolegija.',
+      posebniUvjeti: [
+        'VSS - pravna/upravna struka ili filozofski fakultet - engleski jezik',
+        'Min. 5 godina radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -104,9 +150,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_savjetnik',
       platniRazred: 'IX',
-      koeficijent: 4.10,
-      opsisPoslova: 'Vrši izradu informacionih programa, poslove analize, projektovanja i implementacije informacionog sistema Ministarstva.',
-      posebniUvjeti: ['VSS - fakultet informacijskih tehnologija, elektrotehnički ili mašinski', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.1,
+      opsisPoslova:
+        'Vrši izradu informacionih programa, poslove analize, projektovanja i implementacije informacionog sistema Ministarstva.',
+      posebniUvjeti: [
+        'VSS - fakultet informacijskih tehnologija, elektrotehnički ili mašinski',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -115,9 +166,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_saradnik',
       platniRazred: 'XI',
-      koeficijent: 3.70,
-      opsisPoslova: 'Prikuplja i obrađuje podatke u vezi odnosa s javnošću, priprema materijale za Web stranicu, planira kontakte s javnošću.',
-      posebniUvjeti: ['VSS - pravna/upravna struka, filozofski/politički fakultet - odnosi s javnošću ili žurnalistika', 'Min. 1 godina radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 3.7,
+      opsisPoslova:
+        'Prikuplja i obrađuje podatke u vezi odnosa s javnošću, priprema materijale za Web stranicu, planira kontakte s javnošću.',
+      posebniUvjeti: [
+        'VSS - pravna/upravna struka, filozofski/politički fakultet - odnosi s javnošću ili žurnalistika',
+        'Min. 1 godina radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -126,9 +182,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_saradnik',
       platniRazred: 'XI',
-      koeficijent: 3.70,
-      opsisPoslova: 'Vrši prijevod tekstova sa službenih jezika na engleski i obratno, vrši simultano prevođenje.',
-      posebniUvjeti: ['VSS - filozofski fakultet ili fakultet humanističkih nauka - engleski jezik', 'Min. 1 godina radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 3.7,
+      opsisPoslova:
+        'Vrši prijevod tekstova sa službenih jezika na engleski i obratno, vrši simultano prevođenje.',
+      posebniUvjeti: [
+        'VSS - filozofski fakultet ili fakultet humanističkih nauka - engleski jezik',
+        'Min. 1 godina radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -137,9 +198,15 @@ const seed = async () => {
       kategorijaZaposlenog: 'namjestenik',
       pozicijaKljuc: 'visi_referent',
       platniRazred: 'V',
-      koeficijent: 2.70,
-      opsisPoslova: 'Vrši administrativno-tehničke poslove u vezi prijema i distribucije prepiske, rukuje telefaks aparatom i uređajem za kopiranje.',
-      posebniUvjeti: ['SSS - ekonomska, upravna, mašinska ili gimnazija', 'Min. 10 mjeseci radnog staža', 'Položen stručni ispit', 'Poznavanje rada na računaru'],
+      koeficijent: 2.7,
+      opsisPoslova:
+        'Vrši administrativno-tehničke poslove u vezi prijema i distribucije prepiske, rukuje telefaks aparatom i uređajem za kopiranje.',
+      posebniUvjeti: [
+        'SSS - ekonomska, upravna, mašinska ili gimnazija',
+        'Min. 10 mjeseci radnog staža',
+        'Položen stručni ispit',
+        'Poznavanje rada na računaru',
+      ],
       brojIzvrsilaca: 2,
     },
     {
@@ -148,9 +215,15 @@ const seed = async () => {
       kategorijaZaposlenog: 'namjestenik',
       pozicijaKljuc: 'visi_referent',
       platniRazred: 'V',
-      koeficijent: 2.70,
-      opsisPoslova: 'Vrši prikupljanje, sređivanje i tehničku obradu materijala, vodi evidenciju o dokumentaciji i ažurira bazu podataka.',
-      posebniUvjeti: ['SSS - birotehnička, gimnazija, ekonomska, mašinsko-tehnička ili upravna', 'Min. 10 mjeseci radnog staža', 'Položen stručni ispit', 'Poznavanje rada na računaru'],
+      koeficijent: 2.7,
+      opsisPoslova:
+        'Vrši prikupljanje, sređivanje i tehničku obradu materijala, vodi evidenciju o dokumentaciji i ažurira bazu podataka.',
+      posebniUvjeti: [
+        'SSS - birotehnička, gimnazija, ekonomska, mašinsko-tehnička ili upravna',
+        'Min. 10 mjeseci radnog staža',
+        'Položen stručni ispit',
+        'Poznavanje rada na računaru',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -160,8 +233,13 @@ const seed = async () => {
       pozicijaKljuc: 'pomocni_radnik',
       platniRazred: 'VII',
       koeficijent: 1.85,
-      opsisPoslova: 'Upravlja putničkim vozilom prema službenom nalogu, stara se o redovnom održavanju i tehničkoj ispravnosti vozila.',
-      posebniUvjeti: ['SSS - saobraćajna ili tehnička škola', 'VKV vozač motornih vozila "B" kategorije', 'Min. 10 mjeseci radnog staža'],
+      opsisPoslova:
+        'Upravlja putničkim vozilom prema službenom nalogu, stara se o redovnom održavanju i tehničkoj ispravnosti vozila.',
+      posebniUvjeti: [
+        'SSS - saobraćajna ili tehnička škola',
+        'VKV vozač motornih vozila "B" kategorije',
+        'Min. 10 mjeseci radnog staža',
+      ],
       brojIzvrsilaca: 2,
     },
   ]);
@@ -175,9 +253,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'rukovodeci_drzavni_sluzbenik',
       pozicijaKljuc: 'pomocnik_rukovodioca',
       platniRazred: 'III',
-      koeficijent: 5.70,
-      opsisPoslova: 'Rukovodi Sektorom energije, odgovoran za praćenje i provođenje zakona u oblasti energije.',
-      posebniUvjeti: ['VSS - tehnički ili pravni fakultet', 'Min. 5 godina radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 5.7,
+      opsisPoslova:
+        'Rukovodi Sektorom energije, odgovoran za praćenje i provođenje zakona u oblasti energije.',
+      posebniUvjeti: [
+        'VSS - tehnički ili pravni fakultet',
+        'Min. 5 godina radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     // Odsjek za elektroenergetiku
@@ -187,9 +270,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'sef_unutrasnje_jedinice',
       platniRazred: 'VII',
-      koeficijent: 4.50,
-      opsisPoslova: 'Rukovodi odsjekom, koordinira kreiranje elektroenergetske politike i nadzire realizaciju bilansa elektroenergetskih potreba.',
-      posebniUvjeti: ['VSS - elektrotehnički fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.5,
+      opsisPoslova:
+        'Rukovodi odsjekom, koordinira kreiranje elektroenergetske politike i nadzire realizaciju bilansa elektroenergetskih potreba.',
+      posebniUvjeti: [
+        'VSS - elektrotehnički fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -198,9 +286,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_savjetnik',
       platniRazred: 'IX',
-      koeficijent: 4.10,
-      opsisPoslova: 'Učestvuje u izradi zakona i pratećih akata, kreiranje elektroenergetske politike i razvoj alternativnih izvora energije.',
-      posebniUvjeti: ['VSS - elektrotehnički fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.1,
+      opsisPoslova:
+        'Učestvuje u izradi zakona i pratećih akata, kreiranje elektroenergetske politike i razvoj alternativnih izvora energije.',
+      posebniUvjeti: [
+        'VSS - elektrotehnički fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -209,9 +302,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_savjetnik',
       platniRazred: 'IX',
-      koeficijent: 4.10,
-      opsisPoslova: 'Izrađuje prednacrte i nacrte zakona, vodi upravni postupak i rješava u upravnim stvarima u oblasti elektroenergetike.',
-      posebniUvjeti: ['VSS - pravni fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.1,
+      opsisPoslova:
+        'Izrađuje prednacrte i nacrte zakona, vodi upravni postupak i rješava u upravnim stvarima u oblasti elektroenergetike.',
+      posebniUvjeti: [
+        'VSS - pravni fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -220,9 +318,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'visi_strucni_saradnik',
       platniRazred: 'X',
-      koeficijent: 3.90,
-      opsisPoslova: 'Prati sveukupno poslovanje privrednih subjekata u oblasti elektroenergetike i obrađuje prikupljene podatke.',
-      posebniUvjeti: ['VSS - elektrotehnički fakultet', 'Min. 2 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 3.9,
+      opsisPoslova:
+        'Prati sveukupno poslovanje privrednih subjekata u oblasti elektroenergetike i obrađuje prikupljene podatke.',
+      posebniUvjeti: [
+        'VSS - elektrotehnički fakultet',
+        'Min. 2 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -231,65 +334,106 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_saradnik',
       platniRazred: 'XI',
-      koeficijent: 3.70,
-      opsisPoslova: 'Vrši stručnu obradu sistemskih rješenja od značaja za oblast elektroenergetike i izrađuje analitičke materijale.',
-      posebniUvjeti: ['VSS - elektrotehnički fakultet', 'Min. 1 godina radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 3.7,
+      opsisPoslova:
+        'Vrši stručnu obradu sistemskih rješenja od značaja za oblast elektroenergetike i izrađuje analitičke materijale.',
+      posebniUvjeti: [
+        'VSS - elektrotehnički fakultet',
+        'Min. 1 godina radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     // Odsjek za tečne energente, plin i termoenergetiku
     {
       naziv: 'Šef odsjeka za tečne energente, plin i termoenergetiku',
-      organizacionaJedinica: j('Odsjek za tečne energente, plin i termoenergetiku'),
+      organizacionaJedinica: j(
+        'Odsjek za tečne energente, plin i termoenergetiku',
+      ),
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'sef_unutrasnje_jedinice',
       platniRazred: 'VII',
-      koeficijent: 4.50,
-      opsisPoslova: 'Rukovodi odsjekom, koordinira definisanje potreba i osiguranje naftnih derivata i prirodnog plina.',
-      posebniUvjeti: ['VSS - mašinski, hemijsko-tehnološki ili tehnički fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.5,
+      opsisPoslova:
+        'Rukovodi odsjekom, koordinira definisanje potreba i osiguranje naftnih derivata i prirodnog plina.',
+      posebniUvjeti: [
+        'VSS - mašinski, hemijsko-tehnološki ili tehnički fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
       naziv: 'Stručni savjetnik za tečne energente, plin i termoenergetiku',
-      organizacionaJedinica: j('Odsjek za tečne energente, plin i termoenergetiku'),
+      organizacionaJedinica: j(
+        'Odsjek za tečne energente, plin i termoenergetiku',
+      ),
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_savjetnik',
       platniRazred: 'IX',
-      koeficijent: 4.10,
-      opsisPoslova: 'Prati sveukupno poslovanje privrednih društava, kreiranje energetske politike u oblasti tečnih energenata i plina.',
-      posebniUvjeti: ['VSS - mašinski ili hemijsko-tehnološki fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.1,
+      opsisPoslova:
+        'Prati sveukupno poslovanje privrednih društava, kreiranje energetske politike u oblasti tečnih energenata i plina.',
+      posebniUvjeti: [
+        'VSS - mašinski ili hemijsko-tehnološki fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
       naziv: 'Viši stručni saradnik za tečne energente, plin i termoenergetiku',
-      organizacionaJedinica: j('Odsjek za tečne energente, plin i termoenergetiku'),
+      organizacionaJedinica: j(
+        'Odsjek za tečne energente, plin i termoenergetiku',
+      ),
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'visi_strucni_saradnik',
       platniRazred: 'X',
-      koeficijent: 3.90,
-      opsisPoslova: 'Izrađuje materijale za informiranje nadležnih organa o stanju u oblasti tečnih energenata.',
-      posebniUvjeti: ['VSS - mašinski ili hemijsko-tehnološki fakultet', 'Min. 2 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 3.9,
+      opsisPoslova:
+        'Izrađuje materijale za informiranje nadležnih organa o stanju u oblasti tečnih energenata.',
+      posebniUvjeti: [
+        'VSS - mašinski ili hemijsko-tehnološki fakultet',
+        'Min. 2 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
       naziv: 'Stručni saradnik za tečne energente, plin i termoenergetiku',
-      organizacionaJedinica: j('Odsjek za tečne energente, plin i termoenergetiku'),
+      organizacionaJedinica: j(
+        'Odsjek za tečne energente, plin i termoenergetiku',
+      ),
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_saradnik',
       platniRazred: 'XI',
-      koeficijent: 3.70,
-      opsisPoslova: 'Vrši stručnu obradu sistemskih rješenja u oblasti tečnih energenata, plina i termoenergetike.',
-      posebniUvjeti: ['VSS - mašinski ili hemijsko-tehnološki fakultet', 'Min. 1 godina radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 3.7,
+      opsisPoslova:
+        'Vrši stručnu obradu sistemskih rješenja u oblasti tečnih energenata, plina i termoenergetike.',
+      posebniUvjeti: [
+        'VSS - mašinski ili hemijsko-tehnološki fakultet',
+        'Min. 1 godina radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
       naziv: 'Viši referent za tehničku dokumentaciju - energija',
-      organizacionaJedinica: j('Odsjek za tečne energente, plin i termoenergetiku'),
+      organizacionaJedinica: j(
+        'Odsjek za tečne energente, plin i termoenergetiku',
+      ),
       kategorijaZaposlenog: 'namjestenik',
       pozicijaKljuc: 'visi_referent',
       platniRazred: 'V',
-      koeficijent: 2.70,
-      opsisPoslova: 'Vrši prikupljanje, sređivanje i tehničku obradu materijala u oblasti tečnih energenata.',
-      posebniUvjeti: ['SSS - tehnička ili birotehnička škola', 'Min. 10 mjeseci radnog staža', 'Položen stručni ispit', 'Poznavanje rada na računaru'],
+      koeficijent: 2.7,
+      opsisPoslova:
+        'Vrši prikupljanje, sređivanje i tehničku obradu materijala u oblasti tečnih energenata.',
+      posebniUvjeti: [
+        'SSS - tehnička ili birotehnička škola',
+        'Min. 10 mjeseci radnog staža',
+        'Položen stručni ispit',
+        'Poznavanje rada na računaru',
+      ],
       brojIzvrsilaca: 1,
     },
     // Odsjek za razvoj
@@ -299,9 +443,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'sef_unutrasnje_jedinice',
       platniRazred: 'VII',
-      koeficijent: 4.50,
-      opsisPoslova: 'Rukovodi odsjekom, koordinira monitoring tekućih energetskih projekata i pripremu osnovnih informacija za investitore.',
-      posebniUvjeti: ['VSS - tehnički fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.5,
+      opsisPoslova:
+        'Rukovodi odsjekom, koordinira monitoring tekućih energetskih projekata i pripremu osnovnih informacija za investitore.',
+      posebniUvjeti: [
+        'VSS - tehnički fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -310,9 +459,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_savjetnik',
       platniRazred: 'IX',
-      koeficijent: 4.10,
-      opsisPoslova: 'Učestvuje u pripremi i izradi studija i projekata izgradnje i rekonstrukcije energetskih objekata.',
-      posebniUvjeti: ['VSS - tehnički fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.1,
+      opsisPoslova:
+        'Učestvuje u pripremi i izradi studija i projekata izgradnje i rekonstrukcije energetskih objekata.',
+      posebniUvjeti: [
+        'VSS - tehnički fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -321,9 +475,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'visi_strucni_saradnik',
       platniRazred: 'X',
-      koeficijent: 3.90,
-      opsisPoslova: 'Priprema programe istraživanja u oblasti energije, učestvuje u izradi i praćenju energetskih bilansa.',
-      posebniUvjeti: ['VSS - tehnički ili ekonomski fakultet', 'Min. 2 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 3.9,
+      opsisPoslova:
+        'Priprema programe istraživanja u oblasti energije, učestvuje u izradi i praćenju energetskih bilansa.',
+      posebniUvjeti: [
+        'VSS - tehnički ili ekonomski fakultet',
+        'Min. 2 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -332,9 +491,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_saradnik',
       platniRazred: 'XI',
-      koeficijent: 3.70,
-      opsisPoslova: 'Učestvuje u pripremi, izradi i praćenju redovnih i periodičnih energetskih bilansa.',
-      posebniUvjeti: ['VSS - tehnički ili ekonomski fakultet', 'Min. 1 godina radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 3.7,
+      opsisPoslova:
+        'Učestvuje u pripremi, izradi i praćenju redovnih i periodičnih energetskih bilansa.',
+      posebniUvjeti: [
+        'VSS - tehnički ili ekonomski fakultet',
+        'Min. 1 godina radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -343,9 +507,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'namjestenik',
       pozicijaKljuc: 'visi_referent',
       platniRazred: 'V',
-      koeficijent: 2.70,
-      opsisPoslova: 'Vrši vođenje i ažuriranje tehničke dokumentacije za projekte u oblasti energetskog razvoja.',
-      posebniUvjeti: ['SSS - birotehnička ili tehnička škola', 'Min. 10 mjeseci radnog staža', 'Položen stručni ispit'],
+      koeficijent: 2.7,
+      opsisPoslova:
+        'Vrši vođenje i ažuriranje tehničke dokumentacije za projekte u oblasti energetskog razvoja.',
+      posebniUvjeti: [
+        'SSS - birotehnička ili tehnička škola',
+        'Min. 10 mjeseci radnog staža',
+        'Položen stručni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
   ]);
@@ -359,9 +528,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'rukovodeci_drzavni_sluzbenik',
       pozicijaKljuc: 'pomocnik_rukovodioca',
       platniRazred: 'III',
-      koeficijent: 5.70,
-      opsisPoslova: 'Rukovodi Sektorom rudarstva, odgovoran za izradu prednacrta zakona i provođenje politike u oblasti rudarstva i geologije.',
-      posebniUvjeti: ['VSS - rudarsko-geološki ili tehnički fakultet', 'Min. 5 godina radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 5.7,
+      opsisPoslova:
+        'Rukovodi Sektorom rudarstva, odgovoran za izradu prednacrta zakona i provođenje politike u oblasti rudarstva i geologije.',
+      posebniUvjeti: [
+        'VSS - rudarsko-geološki ili tehnički fakultet',
+        'Min. 5 godina radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     // Odsjek za rudarstvo
@@ -371,9 +545,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'sef_unutrasnje_jedinice',
       platniRazred: 'VII',
-      koeficijent: 4.50,
-      opsisPoslova: 'Rukovodi odsjekom, koordinira poslove u oblasti podzemne i površinske eksploatacije mineralnih sirovina.',
-      posebniUvjeti: ['VSS - rudarski fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.5,
+      opsisPoslova:
+        'Rukovodi odsjekom, koordinira poslove u oblasti podzemne i površinske eksploatacije mineralnih sirovina.',
+      posebniUvjeti: [
+        'VSS - rudarski fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -382,9 +561,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_savjetnik',
       platniRazred: 'IX',
-      koeficijent: 4.10,
-      opsisPoslova: 'Prati razvoj i modernizaciju rudnika uglja, koordinira aktivnosti u oblasti prestrukturiranja.',
-      posebniUvjeti: ['VSS - rudarski fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.1,
+      opsisPoslova:
+        'Prati razvoj i modernizaciju rudnika uglja, koordinira aktivnosti u oblasti prestrukturiranja.',
+      posebniUvjeti: [
+        'VSS - rudarski fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -393,9 +577,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_savjetnik',
       platniRazred: 'IX',
-      koeficijent: 4.10,
-      opsisPoslova: 'Prati stanje i razvoj eksploatacije metaličnih mineralnih sirovina.',
-      posebniUvjeti: ['VSS - rudarski ili geološki fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.1,
+      opsisPoslova:
+        'Prati stanje i razvoj eksploatacije metaličnih mineralnih sirovina.',
+      posebniUvjeti: [
+        'VSS - rudarski ili geološki fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -404,9 +593,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_savjetnik',
       platniRazred: 'IX',
-      koeficijent: 4.10,
-      opsisPoslova: 'Koordinira realizaciju Akcionog plana prestrukturiranja i modernizacije rudnika ugljena.',
-      posebniUvjeti: ['VSS - rudarski ili ekonomski fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.1,
+      opsisPoslova:
+        'Koordinira realizaciju Akcionog plana prestrukturiranja i modernizacije rudnika ugljena.',
+      posebniUvjeti: [
+        'VSS - rudarski ili ekonomski fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -415,9 +609,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_savjetnik',
       platniRazred: 'IX',
-      koeficijent: 4.10,
-      opsisPoslova: 'Daje stručna mišljenja, izrađuje prijedloge zakona i propisa u oblasti rudarstva.',
-      posebniUvjeti: ['VSS - pravni fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.1,
+      opsisPoslova:
+        'Daje stručna mišljenja, izrađuje prijedloge zakona i propisa u oblasti rudarstva.',
+      posebniUvjeti: [
+        'VSS - pravni fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -426,9 +625,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'namjestenik',
       pozicijaKljuc: 'visi_samostalni_referent',
       platniRazred: 'II',
-      koeficijent: 3.10,
-      opsisPoslova: 'Vrši informaciono-dokumentacione i administrativne poslove u Sektoru rudarstva.',
-      posebniUvjeti: ['VŠS - ekonomska ili upravna struka', 'Min. 1 godina radnog staža', 'Položen stručni ispit'],
+      koeficijent: 3.1,
+      opsisPoslova:
+        'Vrši informaciono-dokumentacione i administrativne poslove u Sektoru rudarstva.',
+      posebniUvjeti: [
+        'VŠS - ekonomska ili upravna struka',
+        'Min. 1 godina radnog staža',
+        'Položen stručni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     // Odsjek za geologiju
@@ -438,9 +642,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'sef_unutrasnje_jedinice',
       platniRazred: 'VII',
-      koeficijent: 4.50,
-      opsisPoslova: 'Rukovodi odsjekom, koordinira poslove u oblasti geoloških istraživanja.',
-      posebniUvjeti: ['VSS - geološki ili rudarski fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.5,
+      opsisPoslova:
+        'Rukovodi odsjekom, koordinira poslove u oblasti geoloških istraživanja.',
+      posebniUvjeti: [
+        'VSS - geološki ili rudarski fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -449,9 +658,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_savjetnik',
       platniRazred: 'IX',
-      koeficijent: 4.10,
-      opsisPoslova: 'Prati i koordinira poslove osnove geološke istraživanja mineralnih sirovina.',
-      posebniUvjeti: ['VSS - geološki fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.1,
+      opsisPoslova:
+        'Prati i koordinira poslove osnove geološke istraživanja mineralnih sirovina.',
+      posebniUvjeti: [
+        'VSS - geološki fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -460,20 +674,31 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_savjetnik',
       platniRazred: 'IX',
-      koeficijent: 4.10,
-      opsisPoslova: 'Prati i koordinira poslove detaljnih geoloških istraživanja.',
-      posebniUvjeti: ['VSS - geološki ili rudarski fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.1,
+      opsisPoslova:
+        'Prati i koordinira poslove detaljnih geoloških istraživanja.',
+      posebniUvjeti: [
+        'VSS - geološki ili rudarski fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
-      naziv: 'Viši stručni saradnik za katastar istražnih prostora i eksploatacionih polja',
+      naziv:
+        'Viši stručni saradnik za katastar istražnih prostora i eksploatacionih polja',
       organizacionaJedinica: j('Odsjek za geologiju'),
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'visi_strucni_saradnik',
       platniRazred: 'X',
-      koeficijent: 3.90,
-      opsisPoslova: 'Vrši vođenje i ažuriranje katastra istražnih prostora i eksploatacionih polja mineralnih sirovina.',
-      posebniUvjeti: ['VSS - geološki ili rudarski fakultet', 'Min. 2 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 3.9,
+      opsisPoslova:
+        'Vrši vođenje i ažuriranje katastra istražnih prostora i eksploatacionih polja mineralnih sirovina.',
+      posebniUvjeti: [
+        'VSS - geološki ili rudarski fakultet',
+        'Min. 2 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -482,9 +707,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_saradnik',
       platniRazred: 'XI',
-      koeficijent: 3.70,
-      opsisPoslova: 'Učestvuje u izradi bilansa rezervi mineralnih sirovina i praćenju geološke dokumentacije.',
-      posebniUvjeti: ['VSS - geološki ili rudarski fakultet', 'Min. 1 godina radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 3.7,
+      opsisPoslova:
+        'Učestvuje u izradi bilansa rezervi mineralnih sirovina i praćenju geološke dokumentacije.',
+      posebniUvjeti: [
+        'VSS - geološki ili rudarski fakultet',
+        'Min. 1 godina radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
   ]);
@@ -498,155 +728,250 @@ const seed = async () => {
       kategorijaZaposlenog: 'rukovodeci_drzavni_sluzbenik',
       pozicijaKljuc: 'pomocnik_rukovodioca',
       platniRazred: 'III',
-      koeficijent: 5.70,
-      opsisPoslova: 'Rukovodi Sektorom industrije, odgovoran za praćenje privređivanja i koordinaciju industrijskog razvoja.',
-      posebniUvjeti: ['VSS - tehnički ili ekonomski fakultet', 'Min. 5 godina radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 5.7,
+      opsisPoslova:
+        'Rukovodi Sektorom industrije, odgovoran za praćenje privređivanja i koordinaciju industrijskog razvoja.',
+      posebniUvjeti: [
+        'VSS - tehnički ili ekonomski fakultet',
+        'Min. 5 godina radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     // Odsjek za metalnu i elektro industriju
     {
       naziv: 'Šef odsjeka za metalnu i elektro industriju',
-      organizacionaJedinica: j('Odsjek za metalnu i elektro industriju, industriju prerade drveta, industriju građevinskog materijala i nemetala i grafičku djelatnost'),
+      organizacionaJedinica: j(
+        'Odsjek za metalnu i elektro industriju, industriju prerade drveta, industriju građevinskog materijala i nemetala i grafičku djelatnost',
+      ),
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'sef_unutrasnje_jedinice',
       platniRazred: 'VII',
-      koeficijent: 4.50,
-      opsisPoslova: 'Rukovodi odsjekom, koordinira praćenje i analizu stanja u metalnoj, elektro industriji i industrijama prerade drveta.',
-      posebniUvjeti: ['VSS - mašinski, elektrotehnički ili tehnološki fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.5,
+      opsisPoslova:
+        'Rukovodi odsjekom, koordinira praćenje i analizu stanja u metalnoj, elektro industriji i industrijama prerade drveta.',
+      posebniUvjeti: [
+        'VSS - mašinski, elektrotehnički ili tehnološki fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
       naziv: 'Stručni savjetnik za metalnu industriju',
-      organizacionaJedinica: j('Odsjek za metalnu i elektro industriju, industriju prerade drveta, industriju građevinskog materijala i nemetala i grafičku djelatnost'),
+      organizacionaJedinica: j(
+        'Odsjek za metalnu i elektro industriju, industriju prerade drveta, industriju građevinskog materijala i nemetala i grafičku djelatnost',
+      ),
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_savjetnik',
       platniRazred: 'IX',
-      koeficijent: 4.10,
-      opsisPoslova: 'Prati i analizira stanje u metalnoj industriji, priprema prijedloge mjera za unapređenje.',
-      posebniUvjeti: ['VSS - mašinski ili metalurški fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.1,
+      opsisPoslova:
+        'Prati i analizira stanje u metalnoj industriji, priprema prijedloge mjera za unapređenje.',
+      posebniUvjeti: [
+        'VSS - mašinski ili metalurški fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 2,
     },
     {
-      naziv: 'Stručni savjetnik za industriju građevinskog materijala i nemetale',
-      organizacionaJedinica: j('Odsjek za metalnu i elektro industriju, industriju prerade drveta, industriju građevinskog materijala i nemetala i grafičku djelatnost'),
+      naziv:
+        'Stručni savjetnik za industriju građevinskog materijala i nemetale',
+      organizacionaJedinica: j(
+        'Odsjek za metalnu i elektro industriju, industriju prerade drveta, industriju građevinskog materijala i nemetala i grafičku djelatnost',
+      ),
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_savjetnik',
       platniRazred: 'IX',
-      koeficijent: 4.10,
+      koeficijent: 4.1,
       opsisPoslova: 'Prati industriju građevinskog materijala i nemetala.',
-      posebniUvjeti: ['VSS - građevinski ili tehnološki fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      posebniUvjeti: [
+        'VSS - građevinski ili tehnološki fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
-      naziv: 'Stručni savjetnik za industriju prerade drveta i grafičku djelatnost',
-      organizacionaJedinica: j('Odsjek za metalnu i elektro industriju, industriju prerade drveta, industriju građevinskog materijala i nemetala i grafičku djelatnost'),
+      naziv:
+        'Stručni savjetnik za industriju prerade drveta i grafičku djelatnost',
+      organizacionaJedinica: j(
+        'Odsjek za metalnu i elektro industriju, industriju prerade drveta, industriju građevinskog materijala i nemetala i grafičku djelatnost',
+      ),
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_savjetnik',
       platniRazred: 'IX',
-      koeficijent: 4.10,
-      opsisPoslova: 'Prati i analizira stanje u industriji prerade drveta i grafičkoj djelatnosti.',
-      posebniUvjeti: ['VSS - šumarski ili tehnološki fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.1,
+      opsisPoslova:
+        'Prati i analizira stanje u industriji prerade drveta i grafičkoj djelatnosti.',
+      posebniUvjeti: [
+        'VSS - šumarski ili tehnološki fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
       naziv: 'Stručni savjetnik za elektroindustriju',
-      organizacionaJedinica: j('Odsjek za metalnu i elektro industriju, industriju prerade drveta, industriju građevinskog materijala i nemetala i grafičku djelatnost'),
+      organizacionaJedinica: j(
+        'Odsjek za metalnu i elektro industriju, industriju prerade drveta, industriju građevinskog materijala i nemetala i grafičku djelatnost',
+      ),
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_savjetnik',
       platniRazred: 'IX',
-      koeficijent: 4.10,
+      koeficijent: 4.1,
       opsisPoslova: 'Prati i analizira stanje u elektroindustriji.',
-      posebniUvjeti: ['VSS - elektrotehnički fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      posebniUvjeti: [
+        'VSS - elektrotehnički fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     // Odsjek za tekstilnu industriju
     {
-      naziv: 'Šef odsjeka za tekstilnu, kožarsku, obućarsku, hemijsku i farmaceutsku industriju',
-      organizacionaJedinica: j('Odsjek za tekstilnu, kožarsku, obućarsku, hemijsku i farmaceutsku industriju'),
+      naziv:
+        'Šef odsjeka za tekstilnu, kožarsku, obućarsku, hemijsku i farmaceutsku industriju',
+      organizacionaJedinica: j(
+        'Odsjek za tekstilnu, kožarsku, obućarsku, hemijsku i farmaceutsku industriju',
+      ),
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'sef_unutrasnje_jedinice',
       platniRazred: 'VII',
-      koeficijent: 4.50,
-      opsisPoslova: 'Rukovodi odsjekom, koordinira praćenje i analizu tekstilne, kožarske, hemijske i farmaceutske industrije.',
-      posebniUvjeti: ['VSS - tehnološki ili hemijsko-tehnološki fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.5,
+      opsisPoslova:
+        'Rukovodi odsjekom, koordinira praćenje i analizu tekstilne, kožarske, hemijske i farmaceutske industrije.',
+      posebniUvjeti: [
+        'VSS - tehnološki ili hemijsko-tehnološki fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
       naziv: 'Stručni savjetnik za tekstilnu, kožarsku i obućarsku industriju',
-      organizacionaJedinica: j('Odsjek za tekstilnu, kožarsku, obućarsku, hemijsku i farmaceutsku industriju'),
+      organizacionaJedinica: j(
+        'Odsjek za tekstilnu, kožarsku, obućarsku, hemijsku i farmaceutsku industriju',
+      ),
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_savjetnik',
       platniRazred: 'IX',
-      koeficijent: 4.10,
-      opsisPoslova: 'Prati i analizira stanje u tekstilnoj, kožarskoj i obućarskoj industriji.',
-      posebniUvjeti: ['VSS - tehnološki ili tehnički fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.1,
+      opsisPoslova:
+        'Prati i analizira stanje u tekstilnoj, kožarskoj i obućarskoj industriji.',
+      posebniUvjeti: [
+        'VSS - tehnološki ili tehnički fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 2,
     },
     {
       naziv: 'Stručni savjetnik za farmaceutsku industriju',
-      organizacionaJedinica: j('Odsjek za tekstilnu, kožarsku, obućarsku, hemijsku i farmaceutsku industriju'),
+      organizacionaJedinica: j(
+        'Odsjek za tekstilnu, kožarsku, obućarsku, hemijsku i farmaceutsku industriju',
+      ),
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_savjetnik',
       platniRazred: 'IX',
-      koeficijent: 4.10,
+      koeficijent: 4.1,
       opsisPoslova: 'Prati i analizira stanje u farmaceutskoj industriji.',
-      posebniUvjeti: ['VSS - farmaceutski ili hemijsko-tehnološki fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      posebniUvjeti: [
+        'VSS - farmaceutski ili hemijsko-tehnološki fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
       naziv: 'Viši stručni saradnik za hemijsku industriju',
-      organizacionaJedinica: j('Odsjek za tekstilnu, kožarsku, obućarsku, hemijsku i farmaceutsku industriju'),
+      organizacionaJedinica: j(
+        'Odsjek za tekstilnu, kožarsku, obućarsku, hemijsku i farmaceutsku industriju',
+      ),
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'visi_strucni_saradnik',
       platniRazred: 'X',
-      koeficijent: 3.90,
+      koeficijent: 3.9,
       opsisPoslova: 'Prati i analizira stanje u hemijskoj industriji.',
-      posebniUvjeti: ['VSS - hemijsko-tehnološki fakultet', 'Min. 2 godine radnog staža', 'Položen stručni upravni ispit'],
+      posebniUvjeti: [
+        'VSS - hemijsko-tehnološki fakultet',
+        'Min. 2 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     // Odsjek za analizu i praćenje stanja u privredi
     {
       naziv: 'Šef odsjeka za analizu i praćenje stanja u privredi',
-      organizacionaJedinica: j('Odsjek za analizu i praćenje stanja u privredi'),
+      organizacionaJedinica: j(
+        'Odsjek za analizu i praćenje stanja u privredi',
+      ),
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'sef_unutrasnje_jedinice',
       platniRazred: 'VII',
-      koeficijent: 4.50,
-      opsisPoslova: 'Rukovodi odsjekom, koordinira analizu i praćenje stanja u privredi.',
-      posebniUvjeti: ['VSS - ekonomski ili tehnički fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.5,
+      opsisPoslova:
+        'Rukovodi odsjekom, koordinira analizu i praćenje stanja u privredi.',
+      posebniUvjeti: [
+        'VSS - ekonomski ili tehnički fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
       naziv: 'Stručni savjetnik za analizu i praćenje stanja u privredi',
-      organizacionaJedinica: j('Odsjek za analizu i praćenje stanja u privredi'),
+      organizacionaJedinica: j(
+        'Odsjek za analizu i praćenje stanja u privredi',
+      ),
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_savjetnik',
       platniRazred: 'IX',
-      koeficijent: 4.10,
-      opsisPoslova: 'Vrši analizu i praćenje stanja u privredi, priprema izvještaje i informacije.',
-      posebniUvjeti: ['VSS - ekonomski fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.1,
+      opsisPoslova:
+        'Vrši analizu i praćenje stanja u privredi, priprema izvještaje i informacije.',
+      posebniUvjeti: [
+        'VSS - ekonomski fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
       naziv: 'Stručni savjetnik za pravne poslove - industrija',
-      organizacionaJedinica: j('Odsjek za analizu i praćenje stanja u privredi'),
+      organizacionaJedinica: j(
+        'Odsjek za analizu i praćenje stanja u privredi',
+      ),
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_savjetnik',
       platniRazred: 'IX',
-      koeficijent: 4.10,
-      opsisPoslova: 'Priprema pravna mišljenja i propise u oblasti industrijskog razvoja.',
-      posebniUvjeti: ['VSS - pravni fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.1,
+      opsisPoslova:
+        'Priprema pravna mišljenja i propise u oblasti industrijskog razvoja.',
+      posebniUvjeti: [
+        'VSS - pravni fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
       naziv: 'Viši referent za tehničku dokumentaciju - industrija',
-      organizacionaJedinica: j('Odsjek za analizu i praćenje stanja u privredi'),
+      organizacionaJedinica: j(
+        'Odsjek za analizu i praćenje stanja u privredi',
+      ),
       kategorijaZaposlenog: 'namjestenik',
       pozicijaKljuc: 'visi_referent',
       platniRazred: 'V',
-      koeficijent: 2.70,
-      opsisPoslova: 'Vrši tehničku obradu i vodi dokumentaciju sektora industrije.',
-      posebniUvjeti: ['SSS - birotehnička ili ekonomska škola', 'Min. 10 mjeseci radnog staža', 'Položen stručni ispit'],
+      koeficijent: 2.7,
+      opsisPoslova:
+        'Vrši tehničku obradu i vodi dokumentaciju sektora industrije.',
+      posebniUvjeti: [
+        'SSS - birotehnička ili ekonomska škola',
+        'Min. 10 mjeseci radnog staža',
+        'Položen stručni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     // Odsjek za razvoj i unapređenje privrede
@@ -656,9 +981,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'sef_unutrasnje_jedinice',
       platniRazred: 'VII',
-      koeficijent: 4.50,
-      opsisPoslova: 'Rukovodi odsjekom, koordinira pripremu i praćenje projekata razvoja privrede.',
-      posebniUvjeti: ['VSS - ekonomski ili tehnički fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.5,
+      opsisPoslova:
+        'Rukovodi odsjekom, koordinira pripremu i praćenje projekata razvoja privrede.',
+      posebniUvjeti: [
+        'VSS - ekonomski ili tehnički fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -667,9 +997,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_savjetnik',
       platniRazred: 'IX',
-      koeficijent: 4.10,
-      opsisPoslova: 'Priprema projekte i prijedloge mjera za razvoj i unapređenje privrednih subjekata.',
-      posebniUvjeti: ['VSS - ekonomski fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.1,
+      opsisPoslova:
+        'Priprema projekte i prijedloge mjera za razvoj i unapređenje privrednih subjekata.',
+      posebniUvjeti: [
+        'VSS - ekonomski fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -678,9 +1013,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'visi_strucni_saradnik',
       platniRazred: 'X',
-      koeficijent: 3.90,
-      opsisPoslova: 'Učestvuje u pripremi analiza i izvještaja o razvoju privrednih subjekata.',
-      posebniUvjeti: ['VSS - ekonomski fakultet', 'Min. 2 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 3.9,
+      opsisPoslova:
+        'Učestvuje u pripremi analiza i izvještaja o razvoju privrednih subjekata.',
+      posebniUvjeti: [
+        'VSS - ekonomski fakultet',
+        'Min. 2 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -689,9 +1029,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_saradnik',
       platniRazred: 'XI',
-      koeficijent: 3.70,
-      opsisPoslova: 'Prikuplja i obrađuje podatke o privrednim subjektima, učestvuje u pripremi programa unapređenja.',
-      posebniUvjeti: ['VSS - ekonomski ili tehnički fakultet', 'Min. 1 godina radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 3.7,
+      opsisPoslova:
+        'Prikuplja i obrađuje podatke o privrednim subjektima, učestvuje u pripremi programa unapređenja.',
+      posebniUvjeti: [
+        'VSS - ekonomski ili tehnički fakultet',
+        'Min. 1 godina radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
   ]);
@@ -705,9 +1050,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'rukovodeci_drzavni_sluzbenik',
       pozicijaKljuc: 'pomocnik_rukovodioca',
       platniRazred: 'III',
-      koeficijent: 5.70,
-      opsisPoslova: 'Rukovodi sektorom, odgovoran za normativno-pravne, finansijske i opće poslove Ministarstva.',
-      posebniUvjeti: ['VSS - pravni ili ekonomski fakultet', 'Min. 5 godina radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 5.7,
+      opsisPoslova:
+        'Rukovodi sektorom, odgovoran za normativno-pravne, finansijske i opće poslove Ministarstva.',
+      posebniUvjeti: [
+        'VSS - pravni ili ekonomski fakultet',
+        'Min. 5 godina radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     // Odsjek za pravne poslove i radne odnose
@@ -717,9 +1067,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'sef_unutrasnje_jedinice',
       platniRazred: 'VII',
-      koeficijent: 4.50,
-      opsisPoslova: 'Rukovodi odsjekom, koordinira normativno-pravne poslove i radne odnose.',
-      posebniUvjeti: ['VSS - pravni fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.5,
+      opsisPoslova:
+        'Rukovodi odsjekom, koordinira normativno-pravne poslove i radne odnose.',
+      posebniUvjeti: [
+        'VSS - pravni fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -728,9 +1083,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_savjetnik',
       platniRazred: 'IX',
-      koeficijent: 4.10,
-      opsisPoslova: 'Izrađuje prednacrte i nacrte propisa, daje pravna mišljenja i rješava u upravnim stvarima.',
-      posebniUvjeti: ['VSS - pravni fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.1,
+      opsisPoslova:
+        'Izrađuje prednacrte i nacrte propisa, daje pravna mišljenja i rješava u upravnim stvarima.',
+      posebniUvjeti: [
+        'VSS - pravni fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 2,
     },
     {
@@ -739,9 +1099,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_savjetnik',
       platniRazred: 'IX',
-      koeficijent: 4.10,
-      opsisPoslova: 'Vrši normativno-pravnu obradu propisa, priprema nacrte zakona i podzakonskih akata.',
-      posebniUvjeti: ['VSS - pravni fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.1,
+      opsisPoslova:
+        'Vrši normativno-pravnu obradu propisa, priprema nacrte zakona i podzakonskih akata.',
+      posebniUvjeti: [
+        'VSS - pravni fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 2,
     },
     {
@@ -750,9 +1115,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_savjetnik',
       platniRazred: 'IX',
-      koeficijent: 4.10,
-      opsisPoslova: 'Vrši poslove u oblasti radnih odnosa, rješava zahtjeve i žalbe državnih službenika i namještenika.',
-      posebniUvjeti: ['VSS - pravni fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.1,
+      opsisPoslova:
+        'Vrši poslove u oblasti radnih odnosa, rješava zahtjeve i žalbe državnih službenika i namještenika.',
+      posebniUvjeti: [
+        'VSS - pravni fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 2,
     },
     {
@@ -761,9 +1131,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_saradnik',
       platniRazred: 'XI',
-      koeficijent: 3.70,
-      opsisPoslova: 'Vrši lekturu i korekturu svih akata i dokumenata Ministarstva.',
-      posebniUvjeti: ['VSS - filozofski fakultet - jezik i književnost', 'Min. 1 godina radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 3.7,
+      opsisPoslova:
+        'Vrši lekturu i korekturu svih akata i dokumenata Ministarstva.',
+      posebniUvjeti: [
+        'VSS - filozofski fakultet - jezik i književnost',
+        'Min. 1 godina radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -772,9 +1147,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'namjestenik',
       pozicijaKljuc: 'visi_samostalni_referent',
       platniRazred: 'II',
-      koeficijent: 3.10,
-      opsisPoslova: 'Vrši kadrovske i administrativne poslove, vodi evidenciju o zaposlenima.',
-      posebniUvjeti: ['VŠS - ekonomska ili upravna struka', 'Min. 1 godina radnog staža', 'Položen stručni ispit'],
+      koeficijent: 3.1,
+      opsisPoslova:
+        'Vrši kadrovske i administrativne poslove, vodi evidenciju o zaposlenima.',
+      posebniUvjeti: [
+        'VŠS - ekonomska ili upravna struka',
+        'Min. 1 godina radnog staža',
+        'Položen stručni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     // Odsjek za finansijsko-računovodstvene poslove
@@ -784,9 +1164,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'sef_unutrasnje_jedinice',
       platniRazred: 'VII',
-      koeficijent: 4.50,
-      opsisPoslova: 'Rukovodi odsjekom, koordinira finansijsko-računovodstvene poslove Ministarstva.',
-      posebniUvjeti: ['VSS - ekonomski fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.5,
+      opsisPoslova:
+        'Rukovodi odsjekom, koordinira finansijsko-računovodstvene poslove Ministarstva.',
+      posebniUvjeti: [
+        'VSS - ekonomski fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -795,9 +1180,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_savjetnik',
       platniRazred: 'IX',
-      koeficijent: 4.10,
-      opsisPoslova: 'Vrši finansijsko-računovodstvene poslove, priprema finansijske izvještaje i analize.',
-      posebniUvjeti: ['VSS - ekonomski fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.1,
+      opsisPoslova:
+        'Vrši finansijsko-računovodstvene poslove, priprema finansijske izvještaje i analize.',
+      posebniUvjeti: [
+        'VSS - ekonomski fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -806,9 +1196,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'visi_strucni_saradnik',
       platniRazred: 'X',
-      koeficijent: 3.90,
-      opsisPoslova: 'Vrši poslove u oblasti finansijskog planiranja i izvještavanja.',
-      posebniUvjeti: ['VSS - ekonomski fakultet', 'Min. 2 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 3.9,
+      opsisPoslova:
+        'Vrši poslove u oblasti finansijskog planiranja i izvještavanja.',
+      posebniUvjeti: [
+        'VSS - ekonomski fakultet',
+        'Min. 2 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 2,
     },
     {
@@ -817,9 +1212,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'namjestenik',
       pozicijaKljuc: 'visi_referent',
       platniRazred: 'V',
-      koeficijent: 2.70,
-      opsisPoslova: 'Vrši blagajničke poslove, evidenciju gotovinskih uplata i isplata.',
-      posebniUvjeti: ['SSS - ekonomska škola', 'Min. 10 mjeseci radnog staža', 'Položen stručni ispit'],
+      koeficijent: 2.7,
+      opsisPoslova:
+        'Vrši blagajničke poslove, evidenciju gotovinskih uplata i isplata.',
+      posebniUvjeti: [
+        'SSS - ekonomska škola',
+        'Min. 10 mjeseci radnog staža',
+        'Položen stručni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     // Odsjek za opće poslove
@@ -829,9 +1229,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'sef_unutrasnje_jedinice',
       platniRazred: 'VII',
-      koeficijent: 4.50,
-      opsisPoslova: 'Rukovodi odsjekom, koordinira opće i logističke poslove Ministarstva.',
-      posebniUvjeti: ['VSS - pravni ili ekonomski fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.5,
+      opsisPoslova:
+        'Rukovodi odsjekom, koordinira opće i logističke poslove Ministarstva.',
+      posebniUvjeti: [
+        'VSS - pravni ili ekonomski fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -840,9 +1245,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'namjestenik',
       pozicijaKljuc: 'samostalni_referent',
       platniRazred: 'III',
-      koeficijent: 3.00,
-      opsisPoslova: 'Vrši opće administrativne i logističke poslove za potrebe Ministarstva.',
-      posebniUvjeti: ['VŠS - ekonomska ili upravna struka', 'Min. 1 godina radnog staža', 'Položen stručni ispit'],
+      koeficijent: 3.0,
+      opsisPoslova:
+        'Vrši opće administrativne i logističke poslove za potrebe Ministarstva.',
+      posebniUvjeti: [
+        'VŠS - ekonomska ili upravna struka',
+        'Min. 1 godina radnog staža',
+        'Položen stručni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -863,7 +1273,8 @@ const seed = async () => {
       pozicijaKljuc: 'pomocni_radnik',
       platniRazred: 'VII',
       koeficijent: 1.85,
-      opsisPoslova: 'Vrši poslove čišćenja i održavanja prostorija Ministarstva.',
+      opsisPoslova:
+        'Vrši poslove čišćenja i održavanja prostorija Ministarstva.',
       posebniUvjeti: ['SSS ili NK', 'Min. 10 mjeseci radnog staža'],
       brojIzvrsilaca: 2,
     },
@@ -874,9 +1285,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'namjestenik',
       pozicijaKljuc: 'sef_unutrasnje_jedinice_sss',
       platniRazred: 'IV',
-      koeficijent: 2.80,
-      opsisPoslova: 'Rukovodi pisarnicom, organizuje prijem, evidentiranje i distribuciju pošte.',
-      posebniUvjeti: ['SSS - birotehnička, upravna ili ekonomska škola', 'Min. 10 mjeseci radnog staža', 'Položen stručni ispit'],
+      koeficijent: 2.8,
+      opsisPoslova:
+        'Rukovodi pisarnicom, organizuje prijem, evidentiranje i distribuciju pošte.',
+      posebniUvjeti: [
+        'SSS - birotehnička, upravna ili ekonomska škola',
+        'Min. 10 mjeseci radnog staža',
+        'Položen stručni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -885,9 +1301,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'namjestenik',
       pozicijaKljuc: 'visi_referent',
       platniRazred: 'V',
-      koeficijent: 2.70,
-      opsisPoslova: 'Vrši prijem, evidentiranje, raspoređivanje i ekspediciju pošte i prati kretanje akata.',
-      posebniUvjeti: ['SSS - birotehnička ili upravna škola', 'Min. 10 mjeseci radnog staža', 'Položen stručni ispit'],
+      koeficijent: 2.7,
+      opsisPoslova:
+        'Vrši prijem, evidentiranje, raspoređivanje i ekspediciju pošte i prati kretanje akata.',
+      posebniUvjeti: [
+        'SSS - birotehnička ili upravna škola',
+        'Min. 10 mjeseci radnog staža',
+        'Položen stručni ispit',
+      ],
       brojIzvrsilaca: 2,
     },
     {
@@ -896,9 +1317,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'namjestenik',
       pozicijaKljuc: 'visi_referent',
       platniRazred: 'V',
-      koeficijent: 2.70,
-      opsisPoslova: 'Vrši arhiviranje dokumenata i evidenciju arhivske građe Ministarstva.',
-      posebniUvjeti: ['SSS - birotehnička ili upravna škola', 'Min. 10 mjeseci radnog staža', 'Položen stručni ispit'],
+      koeficijent: 2.7,
+      opsisPoslova:
+        'Vrši arhiviranje dokumenata i evidenciju arhivske građe Ministarstva.',
+      posebniUvjeti: [
+        'SSS - birotehnička ili upravna škola',
+        'Min. 10 mjeseci radnog staža',
+        'Položen stručni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
   ]);
@@ -916,9 +1342,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'rukovodeci_drzavni_sluzbenik',
       pozicijaKljuc: 'rukovodilac_samostalne_uprave',
       platniRazred: 'II',
-      koeficijent: 6.20,
-      opsisPoslova: 'Rukovodi Zavodom, odgovoran za obavljanje svih poslova iz nadležnosti Zavoda.',
-      posebniUvjeti: ['VSS - tehnički, pravni ili ekonomski fakultet', 'Min. 5 godina radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 6.2,
+      opsisPoslova:
+        'Rukovodi Zavodom, odgovoran za obavljanje svih poslova iz nadležnosti Zavoda.',
+      posebniUvjeti: [
+        'VSS - tehnički, pravni ili ekonomski fakultet',
+        'Min. 5 godina radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
   ]);
@@ -931,9 +1362,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'rukovodilac_osnovne_jedinice',
       platniRazred: 'VI',
-      koeficijent: 4.60,
-      opsisPoslova: 'Rukovodi Centrom, koordinira poslove verifikacije i nadzora mjerila u regiji Mostar.',
-      posebniUvjeti: ['VSS - tehnički fakultet - mjeriteljstvo ili fizika', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.6,
+      opsisPoslova:
+        'Rukovodi Centrom, koordinira poslove verifikacije i nadzora mjerila u regiji Mostar.',
+      posebniUvjeti: [
+        'VSS - tehnički fakultet - mjeriteljstvo ili fizika',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -942,9 +1378,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_savjetnik',
       platniRazred: 'IX',
-      koeficijent: 4.10,
-      opsisPoslova: 'Vrši stručne poslove verifikacije mjerila, izdaje rješenja i provodi upravni postupak.',
-      posebniUvjeti: ['VSS - tehnički fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.1,
+      opsisPoslova:
+        'Vrši stručne poslove verifikacije mjerila, izdaje rješenja i provodi upravni postupak.',
+      posebniUvjeti: [
+        'VSS - tehnički fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -953,9 +1394,13 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_savjetnik',
       platniRazred: 'IX',
-      koeficijent: 4.10,
+      koeficijent: 4.1,
       opsisPoslova: 'Vrši žigosanje i kontrolu plemenitih metala.',
-      posebniUvjeti: ['VSS - tehnički ili hemijski fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      posebniUvjeti: [
+        'VSS - tehnički ili hemijski fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -964,9 +1409,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'visi_strucni_saradnik',
       platniRazred: 'X',
-      koeficijent: 3.90,
-      opsisPoslova: 'Učestvuje u verifikaciji mjerila i izradi pratećih dokumenata.',
-      posebniUvjeti: ['VSS - tehnički fakultet', 'Min. 2 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 3.9,
+      opsisPoslova:
+        'Učestvuje u verifikaciji mjerila i izradi pratećih dokumenata.',
+      posebniUvjeti: [
+        'VSS - tehnički fakultet',
+        'Min. 2 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -975,9 +1425,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'namjestenik',
       pozicijaKljuc: 'visi_referent',
       platniRazred: 'V',
-      koeficijent: 2.70,
-      opsisPoslova: 'Vrši administrativno-tehničke poslove u oblasti mjeriteljstva i plemenitih metala.',
-      posebniUvjeti: ['SSS - tehnička škola', 'Min. 10 mjeseci radnog staža', 'Položen stručni ispit'],
+      koeficijent: 2.7,
+      opsisPoslova:
+        'Vrši administrativno-tehničke poslove u oblasti mjeriteljstva i plemenitih metala.',
+      posebniUvjeti: [
+        'SSS - tehnička škola',
+        'Min. 10 mjeseci radnog staža',
+        'Položen stručni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
   ]);
@@ -991,9 +1446,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'rukovodilac_osnovne_jedinice',
       platniRazred: 'VI',
-      koeficijent: 4.60,
-      opsisPoslova: 'Rukovodi Centrom, koordinira poslove verifikacije i nadzora mjerila u regiji Sarajevo.',
-      posebniUvjeti: ['VSS - tehnički fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.6,
+      opsisPoslova:
+        'Rukovodi Centrom, koordinira poslove verifikacije i nadzora mjerila u regiji Sarajevo.',
+      posebniUvjeti: [
+        'VSS - tehnički fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -1002,9 +1462,13 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_savjetnik',
       platniRazred: 'IX',
-      koeficijent: 4.10,
+      koeficijent: 4.1,
       opsisPoslova: 'Vrši stručne poslove verifikacije mjerila.',
-      posebniUvjeti: ['VSS - tehnički fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      posebniUvjeti: [
+        'VSS - tehnički fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -1013,9 +1477,13 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_savjetnik',
       platniRazred: 'IX',
-      koeficijent: 4.10,
+      koeficijent: 4.1,
       opsisPoslova: 'Vrši žigosanje i kontrolu plemenitih metala.',
-      posebniUvjeti: ['VSS - hemijski ili tehnički fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      posebniUvjeti: [
+        'VSS - hemijski ili tehnički fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -1024,9 +1492,13 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'visi_strucni_saradnik',
       platniRazred: 'X',
-      koeficijent: 3.90,
+      koeficijent: 3.9,
       opsisPoslova: 'Učestvuje u verifikaciji mjerila.',
-      posebniUvjeti: ['VSS - tehnički fakultet', 'Min. 2 godine radnog staža', 'Položen stručni upravni ispit'],
+      posebniUvjeti: [
+        'VSS - tehnički fakultet',
+        'Min. 2 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -1035,9 +1507,13 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'visi_strucni_saradnik',
       platniRazred: 'X',
-      koeficijent: 3.90,
+      koeficijent: 3.9,
       opsisPoslova: 'Učestvuje u kontroli plemenitih metala.',
-      posebniUvjeti: ['VSS - hemijski ili tehnički fakultet', 'Min. 2 godine radnog staža', 'Položen stručni upravni ispit'],
+      posebniUvjeti: [
+        'VSS - hemijski ili tehnički fakultet',
+        'Min. 2 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -1046,9 +1522,13 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_saradnik',
       platniRazred: 'XI',
-      koeficijent: 3.70,
+      koeficijent: 3.7,
       opsisPoslova: 'Vrši poslove verifikacije mjerila.',
-      posebniUvjeti: ['VSS - tehnički fakultet', 'Min. 1 godina radnog staža', 'Položen stručni upravni ispit'],
+      posebniUvjeti: [
+        'VSS - tehnički fakultet',
+        'Min. 1 godina radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -1057,9 +1537,13 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_saradnik',
       platniRazred: 'XI',
-      koeficijent: 3.70,
+      koeficijent: 3.7,
       opsisPoslova: 'Vrši poslove kontrole plemenitih metala.',
-      posebniUvjeti: ['VSS - hemijski ili tehnički fakultet', 'Min. 1 godina radnog staža', 'Položen stručni upravni ispit'],
+      posebniUvjeti: [
+        'VSS - hemijski ili tehnički fakultet',
+        'Min. 1 godina radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -1068,9 +1552,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'namjestenik',
       pozicijaKljuc: 'visi_referent',
       platniRazred: 'V',
-      koeficijent: 2.70,
-      opsisPoslova: 'Vrši administrativno-tehničke poslove u oblasti mjeriteljstva.',
-      posebniUvjeti: ['SSS - tehnička škola', 'Min. 10 mjeseci radnog staža', 'Položen stručni ispit'],
+      koeficijent: 2.7,
+      opsisPoslova:
+        'Vrši administrativno-tehničke poslove u oblasti mjeriteljstva.',
+      posebniUvjeti: [
+        'SSS - tehnička škola',
+        'Min. 10 mjeseci radnog staža',
+        'Položen stručni ispit',
+      ],
       brojIzvrsilaca: 2,
     },
   ]);
@@ -1084,9 +1573,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'rukovodilac_osnovne_jedinice',
       platniRazred: 'VI',
-      koeficijent: 4.60,
-      opsisPoslova: 'Rukovodi Centrom, koordinira poslove verifikacije i nadzora mjerila u regiji Tuzla.',
-      posebniUvjeti: ['VSS - tehnički fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.6,
+      opsisPoslova:
+        'Rukovodi Centrom, koordinira poslove verifikacije i nadzora mjerila u regiji Tuzla.',
+      posebniUvjeti: [
+        'VSS - tehnički fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -1095,9 +1589,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_savjetnik',
       platniRazred: 'IX',
-      koeficijent: 4.10,
-      opsisPoslova: 'Vrši žigosanje i kontrolu plemenitih metala u regiji Tuzla.',
-      posebniUvjeti: ['VSS - hemijski ili tehnički fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.1,
+      opsisPoslova:
+        'Vrši žigosanje i kontrolu plemenitih metala u regiji Tuzla.',
+      posebniUvjeti: [
+        'VSS - hemijski ili tehnički fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -1106,9 +1605,13 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'visi_strucni_saradnik',
       platniRazred: 'X',
-      koeficijent: 3.90,
+      koeficijent: 3.9,
       opsisPoslova: 'Učestvuje u verifikaciji mjerila u regiji Tuzla.',
-      posebniUvjeti: ['VSS - tehnički fakultet', 'Min. 2 godine radnog staža', 'Položen stručni upravni ispit'],
+      posebniUvjeti: [
+        'VSS - tehnički fakultet',
+        'Min. 2 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -1117,9 +1620,13 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_saradnik',
       platniRazred: 'XI',
-      koeficijent: 3.70,
+      koeficijent: 3.7,
       opsisPoslova: 'Vrši poslove verifikacije mjerila u regiji Tuzla.',
-      posebniUvjeti: ['VSS - tehnički fakultet', 'Min. 1 godina radnog staža', 'Položen stručni upravni ispit'],
+      posebniUvjeti: [
+        'VSS - tehnički fakultet',
+        'Min. 1 godina radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -1128,9 +1635,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'namjestenik',
       pozicijaKljuc: 'visi_referent',
       platniRazred: 'V',
-      koeficijent: 2.70,
-      opsisPoslova: 'Vrši administrativno-tehničke poslove u oblasti mjeriteljstva u Tuzli.',
-      posebniUvjeti: ['SSS - tehnička škola', 'Min. 10 mjeseci radnog staža', 'Položen stručni ispit'],
+      koeficijent: 2.7,
+      opsisPoslova:
+        'Vrši administrativno-tehničke poslove u oblasti mjeriteljstva u Tuzli.',
+      posebniUvjeti: [
+        'SSS - tehnička škola',
+        'Min. 10 mjeseci radnog staža',
+        'Položen stručni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
   ]);
@@ -1144,9 +1656,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'rukovodilac_osnovne_jedinice',
       platniRazred: 'VI',
-      koeficijent: 4.60,
-      opsisPoslova: 'Rukovodi Službom za opće poslove, koordinira administrativne i finansijske poslove Zavoda.',
-      posebniUvjeti: ['VSS - pravni ili ekonomski fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.6,
+      opsisPoslova:
+        'Rukovodi Službom za opće poslove, koordinira administrativne i finansijske poslove Zavoda.',
+      posebniUvjeti: [
+        'VSS - pravni ili ekonomski fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -1155,9 +1672,13 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_savjetnik',
       platniRazred: 'IX',
-      koeficijent: 4.10,
+      koeficijent: 4.1,
       opsisPoslova: 'Vrši pravne poslove Zavoda, priprema propise i rješenja.',
-      posebniUvjeti: ['VSS - pravni fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      posebniUvjeti: [
+        'VSS - pravni fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -1166,9 +1687,13 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'visi_strucni_saradnik',
       platniRazred: 'X',
-      koeficijent: 3.90,
+      koeficijent: 3.9,
       opsisPoslova: 'Vrši finansijsko-računovodstvene poslove Zavoda.',
-      posebniUvjeti: ['VSS - ekonomski fakultet', 'Min. 2 godine radnog staža', 'Položen stručni upravni ispit'],
+      posebniUvjeti: [
+        'VSS - ekonomski fakultet',
+        'Min. 2 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -1177,9 +1702,13 @@ const seed = async () => {
       kategorijaZaposlenog: 'namjestenik',
       pozicijaKljuc: 'visi_referent',
       platniRazred: 'V',
-      koeficijent: 2.70,
+      koeficijent: 2.7,
       opsisPoslova: 'Vrši administrativno-tehničke i opće poslove Zavoda.',
-      posebniUvjeti: ['SSS - birotehnička ili ekonomska škola', 'Min. 10 mjeseci radnog staža', 'Položen stručni ispit'],
+      posebniUvjeti: [
+        'SSS - birotehnička ili ekonomska škola',
+        'Min. 10 mjeseci radnog staža',
+        'Položen stručni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
   ]);
@@ -1197,9 +1726,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'rukovodeci_drzavni_sluzbenik',
       pozicijaKljuc: 'rukovodilac_samostalne_uprave',
       platniRazred: 'II',
-      koeficijent: 6.20,
-      opsisPoslova: 'Rukovodi Direkcijom, odgovoran za sve poslove iz nadležnosti namjenske industrije.',
-      posebniUvjeti: ['VSS - tehnički, pravni ili ekonomski fakultet', 'Min. 5 godina radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 6.2,
+      opsisPoslova:
+        'Rukovodi Direkcijom, odgovoran za sve poslove iz nadležnosti namjenske industrije.',
+      posebniUvjeti: [
+        'VSS - tehnički, pravni ili ekonomski fakultet',
+        'Min. 5 godina radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
   ]);
@@ -1207,14 +1741,20 @@ const seed = async () => {
   // Sektor za proizvodnju, remont i kontrolu kvaliteta (Član 74.)
   await RadnoMjesto.insertMany([
     {
-      naziv: 'Pomoćnik direktora — Sektor za proizvodnju, remont i kontrolu kvaliteta',
+      naziv:
+        'Pomoćnik direktora — Sektor za proizvodnju, remont i kontrolu kvaliteta',
       organizacionaJedinica: j('Federalna direkcija za namjensku industriju'),
       kategorijaZaposlenog: 'rukovodeci_drzavni_sluzbenik',
       pozicijaKljuc: 'pomocnik_u_sastavu',
       platniRazred: 'V',
       koeficijent: 4.85,
-      opsisPoslova: 'Rukovodi Sektorom, koordinira planiranje i nadzor proizvodnje i remonta NVO.',
-      posebniUvjeti: ['VSS - tehnički fakultet', 'Min. 5 godina radnog staža', 'Položen stručni upravni ispit'],
+      opsisPoslova:
+        'Rukovodi Sektorom, koordinira planiranje i nadzor proizvodnje i remonta NVO.',
+      posebniUvjeti: [
+        'VSS - tehnički fakultet',
+        'Min. 5 godina radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -1223,9 +1763,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'sef_unutrasnje_jedinice',
       platniRazred: 'VII',
-      koeficijent: 4.50,
-      opsisPoslova: 'Rukovodi Grupom, koordinira izradu planova razvoja, proizvodnje i remonta NVO.',
-      posebniUvjeti: ['VSS - mašinski ili tehnički fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.5,
+      opsisPoslova:
+        'Rukovodi Grupom, koordinira izradu planova razvoja, proizvodnje i remonta NVO.',
+      posebniUvjeti: [
+        'VSS - mašinski ili tehnički fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -1234,9 +1779,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_savjetnik',
       platniRazred: 'IX',
-      koeficijent: 4.10,
-      opsisPoslova: 'Vrši izradu dugoročnih i kratkoročnih planova proizvodnje NVO.',
-      posebniUvjeti: ['VSS - mašinski ili tehnički fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.1,
+      opsisPoslova:
+        'Vrši izradu dugoročnih i kratkoročnih planova proizvodnje NVO.',
+      posebniUvjeti: [
+        'VSS - mašinski ili tehnički fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -1245,9 +1795,13 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_savjetnik',
       platniRazred: 'IX',
-      koeficijent: 4.10,
+      koeficijent: 4.1,
       opsisPoslova: 'Koordinira aktivnosti remonta NVO i tržišnih proizvoda.',
-      posebniUvjeti: ['VSS - mašinski ili tehnički fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      posebniUvjeti: [
+        'VSS - mašinski ili tehnički fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -1256,9 +1810,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_saradnik',
       platniRazred: 'XI',
-      koeficijent: 3.70,
-      opsisPoslova: 'Učestvuje u praćenju realizacije planova proizvodnje i remonta NVO.',
-      posebniUvjeti: ['VSS - mašinski ili tehnički fakultet', 'Min. 1 godina radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 3.7,
+      opsisPoslova:
+        'Učestvuje u praćenju realizacije planova proizvodnje i remonta NVO.',
+      posebniUvjeti: [
+        'VSS - mašinski ili tehnički fakultet',
+        'Min. 1 godina radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -1267,9 +1826,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'sef_unutrasnje_jedinice',
       platniRazred: 'VII',
-      koeficijent: 4.50,
-      opsisPoslova: 'Rukovodi Grupom, koordinira planiranje i nadzor razvoja i kontrole kvaliteta NVO.',
-      posebniUvjeti: ['VSS - mašinski ili tehnički fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.5,
+      opsisPoslova:
+        'Rukovodi Grupom, koordinira planiranje i nadzor razvoja i kontrole kvaliteta NVO.',
+      posebniUvjeti: [
+        'VSS - mašinski ili tehnički fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -1278,9 +1842,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_savjetnik',
       platniRazred: 'IX',
-      koeficijent: 4.10,
-      opsisPoslova: 'Koordinira razvoj i kontrolu kvaliteta NVO i tržišnih proizvoda.',
-      posebniUvjeti: ['VSS - mašinski ili tehnički fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.1,
+      opsisPoslova:
+        'Koordinira razvoj i kontrolu kvaliteta NVO i tržišnih proizvoda.',
+      posebniUvjeti: [
+        'VSS - mašinski ili tehnički fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -1289,9 +1858,13 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_saradnik',
       platniRazred: 'XI',
-      koeficijent: 3.70,
+      koeficijent: 3.7,
       opsisPoslova: 'Učestvuje u realizaciji planova razvoja i kvaliteta.',
-      posebniUvjeti: ['VSS - mašinski ili tehnički fakultet', 'Min. 1 godina radnog staža', 'Položen stručni upravni ispit'],
+      posebniUvjeti: [
+        'VSS - mašinski ili tehnički fakultet',
+        'Min. 1 godina radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -1300,13 +1873,20 @@ const seed = async () => {
       kategorijaZaposlenog: 'namjestenik',
       pozicijaKljuc: 'visi_referent',
       platniRazred: 'V',
-      koeficijent: 2.70,
-      opsisPoslova: 'Vrši administrativno-tehničke poslove za Sektor za proizvodnju.',
-      posebniUvjeti: ['SSS - birotehnička ili ekonomska škola', 'Min. 10 mjeseci radnog staža', 'Položen stručni ispit'],
+      koeficijent: 2.7,
+      opsisPoslova:
+        'Vrši administrativno-tehničke poslove za Sektor za proizvodnju.',
+      posebniUvjeti: [
+        'SSS - birotehnička ili ekonomska škola',
+        'Min. 10 mjeseci radnog staža',
+        'Položen stručni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
   ]);
-  console.log('✓ FDNI - Sektor za proizvodnju, remont i kontrolu kvaliteta (9 radnih mjesta, 9 izvršilaca)');
+  console.log(
+    '✓ FDNI - Sektor za proizvodnju, remont i kontrolu kvaliteta (9 radnih mjesta, 9 izvršilaca)',
+  );
 
   // Sektor za pravne i ekonomske poslove (Član 75.)
   await RadnoMjesto.insertMany([
@@ -1317,8 +1897,13 @@ const seed = async () => {
       pozicijaKljuc: 'pomocnik_u_sastavu',
       platniRazred: 'V',
       koeficijent: 4.85,
-      opsisPoslova: 'Rukovodi Sektorom, koordinira pravne i ekonomske poslove Direkcije.',
-      posebniUvjeti: ['VSS - pravni ili ekonomski fakultet', 'Min. 5 godina radnog staža', 'Položen stručni upravni ispit'],
+      opsisPoslova:
+        'Rukovodi Sektorom, koordinira pravne i ekonomske poslove Direkcije.',
+      posebniUvjeti: [
+        'VSS - pravni ili ekonomski fakultet',
+        'Min. 5 godina radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -1327,9 +1912,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'sef_unutrasnje_jedinice',
       platniRazred: 'VII',
-      koeficijent: 4.50,
-      opsisPoslova: 'Rukovodi Grupom, koordinira izradu pravnih analiza i propisa u oblasti namjenske industrije.',
-      posebniUvjeti: ['VSS - pravni fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.5,
+      opsisPoslova:
+        'Rukovodi Grupom, koordinira izradu pravnih analiza i propisa u oblasti namjenske industrije.',
+      posebniUvjeti: [
+        'VSS - pravni fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -1338,9 +1928,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_savjetnik',
       platniRazred: 'IX',
-      koeficijent: 4.10,
-      opsisPoslova: 'Vrši normativno-pravne poslove, izrađuje prijedloge zakona i propisa u oblasti namjenske industrije.',
-      posebniUvjeti: ['VSS - pravni fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.1,
+      opsisPoslova:
+        'Vrši normativno-pravne poslove, izrađuje prijedloge zakona i propisa u oblasti namjenske industrije.',
+      posebniUvjeti: [
+        'VSS - pravni fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -1349,9 +1944,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'visi_strucni_saradnik',
       platniRazred: 'X',
-      koeficijent: 3.90,
-      opsisPoslova: 'Vrši normativno-pravne poslove u oblasti namjenske industrije.',
-      posebniUvjeti: ['VSS - pravni fakultet', 'Min. 2 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 3.9,
+      opsisPoslova:
+        'Vrši normativno-pravne poslove u oblasti namjenske industrije.',
+      posebniUvjeti: [
+        'VSS - pravni fakultet',
+        'Min. 2 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -1360,9 +1960,13 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_saradnik',
       platniRazred: 'XI',
-      koeficijent: 3.70,
+      koeficijent: 3.7,
       opsisPoslova: 'Učestvuje u pripremi pravnih akata i mišljenja.',
-      posebniUvjeti: ['VSS - pravni fakultet', 'Min. 1 godina radnog staža', 'Položen stručni upravni ispit'],
+      posebniUvjeti: [
+        'VSS - pravni fakultet',
+        'Min. 1 godina radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -1371,9 +1975,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'sef_unutrasnje_jedinice',
       platniRazred: 'VII',
-      koeficijent: 4.50,
-      opsisPoslova: 'Rukovodi Grupom, koordinira finansijsko planiranje i ekonomske poslove Direkcije.',
-      posebniUvjeti: ['VSS - ekonomski fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.5,
+      opsisPoslova:
+        'Rukovodi Grupom, koordinira finansijsko planiranje i ekonomske poslove Direkcije.',
+      posebniUvjeti: [
+        'VSS - ekonomski fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -1382,9 +1991,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_savjetnik',
       platniRazred: 'IX',
-      koeficijent: 4.10,
-      opsisPoslova: 'Vrši izradu dugoročnih i kratkoročnih finansijskih planova namjenske industrije.',
-      posebniUvjeti: ['VSS - ekonomski fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.1,
+      opsisPoslova:
+        'Vrši izradu dugoročnih i kratkoročnih finansijskih planova namjenske industrije.',
+      posebniUvjeti: [
+        'VSS - ekonomski fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -1393,9 +2007,13 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_saradnik',
       platniRazred: 'XI',
-      koeficijent: 3.70,
+      koeficijent: 3.7,
       opsisPoslova: 'Učestvuje u pripremi finansijskih planova i izvještaja.',
-      posebniUvjeti: ['VSS - ekonomski fakultet', 'Min. 1 godina radnog staža', 'Položen stručni upravni ispit'],
+      posebniUvjeti: [
+        'VSS - ekonomski fakultet',
+        'Min. 1 godina radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -1404,13 +2022,20 @@ const seed = async () => {
       kategorijaZaposlenog: 'namjestenik',
       pozicijaKljuc: 'visi_referent',
       platniRazred: 'V',
-      koeficijent: 2.70,
-      opsisPoslova: 'Vrši administrativno-tehničke poslove za ekonomski sektor.',
-      posebniUvjeti: ['SSS - ekonomska škola', 'Min. 10 mjeseci radnog staža', 'Položen stručni ispit'],
+      koeficijent: 2.7,
+      opsisPoslova:
+        'Vrši administrativno-tehničke poslove za ekonomski sektor.',
+      posebniUvjeti: [
+        'SSS - ekonomska škola',
+        'Min. 10 mjeseci radnog staža',
+        'Položen stručni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
   ]);
-  console.log('✓ FDNI - Sektor za pravne i ekonomske poslove (9 radnih mjesta, 9 izvršilaca)');
+  console.log(
+    '✓ FDNI - Sektor za pravne i ekonomske poslove (9 radnih mjesta, 9 izvršilaca)',
+  );
 
   // Sektor za promet, marketing i sigurnost (Član 76.)
   await RadnoMjesto.insertMany([
@@ -1421,8 +2046,13 @@ const seed = async () => {
       pozicijaKljuc: 'pomocnik_u_sastavu',
       platniRazred: 'V',
       koeficijent: 4.85,
-      opsisPoslova: 'Rukovodi Sektorom, koordinira marketing, promet i sigurnost u oblasti namjenske industrije.',
-      posebniUvjeti: ['VSS - tehnički, pravni ili ekonomski fakultet', 'Min. 5 godina radnog staža', 'Položen stručni upravni ispit'],
+      opsisPoslova:
+        'Rukovodi Sektorom, koordinira marketing, promet i sigurnost u oblasti namjenske industrije.',
+      posebniUvjeti: [
+        'VSS - tehnički, pravni ili ekonomski fakultet',
+        'Min. 5 godina radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -1431,9 +2061,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'sef_unutrasnje_jedinice',
       platniRazred: 'VII',
-      koeficijent: 4.50,
-      opsisPoslova: 'Rukovodi Grupom, koordinira planiranje nastupa na domaćem i ino tržištu.',
-      posebniUvjeti: ['VSS - ekonomski ili tehnički fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.5,
+      opsisPoslova:
+        'Rukovodi Grupom, koordinira planiranje nastupa na domaćem i ino tržištu.',
+      posebniUvjeti: [
+        'VSS - ekonomski ili tehnički fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -1442,9 +2077,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_savjetnik',
       platniRazred: 'IX',
-      koeficijent: 4.10,
-      opsisPoslova: 'Vrši izradu planova marketinga, koordinira izvoz i uvoz NVO.',
-      posebniUvjeti: ['VSS - ekonomski fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.1,
+      opsisPoslova:
+        'Vrši izradu planova marketinga, koordinira izvoz i uvoz NVO.',
+      posebniUvjeti: [
+        'VSS - ekonomski fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -1453,9 +2093,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'visi_strucni_saradnik',
       platniRazred: 'X',
-      koeficijent: 3.90,
-      opsisPoslova: 'Učestvuje u pripremi planova nastupa na tržištu i kontroli izvoza NVO.',
-      posebniUvjeti: ['VSS - ekonomski fakultet', 'Min. 2 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 3.9,
+      opsisPoslova:
+        'Učestvuje u pripremi planova nastupa na tržištu i kontroli izvoza NVO.',
+      posebniUvjeti: [
+        'VSS - ekonomski fakultet',
+        'Min. 2 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -1464,9 +2109,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'namjestenik',
       pozicijaKljuc: 'visi_referent',
       platniRazred: 'V',
-      koeficijent: 2.70,
-      opsisPoslova: 'Vrši administrativno-tehničke poslove za promet i marketing.',
-      posebniUvjeti: ['SSS - ekonomska ili birotehnička škola', 'Min. 10 mjeseci radnog staža', 'Položen stručni ispit'],
+      koeficijent: 2.7,
+      opsisPoslova:
+        'Vrši administrativno-tehničke poslove za promet i marketing.',
+      posebniUvjeti: [
+        'SSS - ekonomska ili birotehnička škola',
+        'Min. 10 mjeseci radnog staža',
+        'Položen stručni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -1475,9 +2125,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'sef_unutrasnje_jedinice',
       platniRazred: 'VII',
-      koeficijent: 4.50,
-      opsisPoslova: 'Rukovodi Grupom, koordinira planiranje i nadzor sigurnosti pri proizvodnji NVO.',
-      posebniUvjeti: ['VSS - tehnički ili pravni fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.5,
+      opsisPoslova:
+        'Rukovodi Grupom, koordinira planiranje i nadzor sigurnosti pri proizvodnji NVO.',
+      posebniUvjeti: [
+        'VSS - tehnički ili pravni fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -1486,9 +2141,14 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'strucni_savjetnik',
       platniRazred: 'IX',
-      koeficijent: 4.10,
-      opsisPoslova: 'Koordinira aktivnosti na sigurnosti i zaštiti pri proizvodnji i remontu NVO.',
-      posebniUvjeti: ['VSS - tehnički ili pravni fakultet', 'Min. 3 godine radnog staža', 'Položen stručni upravni ispit'],
+      koeficijent: 4.1,
+      opsisPoslova:
+        'Koordinira aktivnosti na sigurnosti i zaštiti pri proizvodnji i remontu NVO.',
+      posebniUvjeti: [
+        'VSS - tehnički ili pravni fakultet',
+        'Min. 3 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
     {
@@ -1497,13 +2157,19 @@ const seed = async () => {
       kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
       pozicijaKljuc: 'visi_strucni_saradnik',
       platniRazred: 'X',
-      koeficijent: 3.90,
+      koeficijent: 3.9,
       opsisPoslova: 'Učestvuje u izradi planova sigurnosti i zaštite.',
-      posebniUvjeti: ['VSS - tehnički fakultet', 'Min. 2 godine radnog staža', 'Položen stručni upravni ispit'],
+      posebniUvjeti: [
+        'VSS - tehnički fakultet',
+        'Min. 2 godine radnog staža',
+        'Položen stručni upravni ispit',
+      ],
       brojIzvrsilaca: 1,
     },
   ]);
-  console.log('✓ FDNI - Sektor za promet, marketing i sigurnost (8 radnih mjesta, 8 izvršilaca)');
+  console.log(
+    '✓ FDNI - Sektor za promet, marketing i sigurnost (8 radnih mjesta, 8 izvršilaca)',
+  );
 
   const ukupno = await RadnoMjesto.countDocuments();
   console.log(`\n✅ Seed završen! Ukupno kreirano: ${ukupno} radnih mjesta`);

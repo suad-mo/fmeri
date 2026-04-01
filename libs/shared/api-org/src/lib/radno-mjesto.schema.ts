@@ -1,13 +1,9 @@
 import { Document, Schema, Model, model, Types } from 'mongoose';
 
-// Kategorije direktno iz zakona
-export type KategorijaZaposlenog =
-  | 'rukovodeci_drzavni_sluzbenik'  // Član 6a ZDS
-  | 'ostali_drzavni_sluzbenik'       // Član 6b ZDS
-  | 'namjestenik';                   // Zakon o namještenicima
-
-// Ključevi pozicija iz referentnih podataka (api-ref)
 export type PozicijaKljuc =
+  // Izabrani dužnosnici
+  | 'ministar'
+  | 'savjetnik_ministra'
   // Rukovodeći državni službenici
   | 'sekretar_vlade'
   | 'rukovodilac_samostalne_uprave'
@@ -34,8 +30,14 @@ export type PozicijaKljuc =
   | 'visi_referent'
   | 'referent'
   | 'pomocni_radnik'
-  // Posebni (van standardnih razreda)
+  // Posebni
   | 'ostalo';
+
+export type KategorijaZaposlenog =
+  | 'izabrani_duznosnik'
+  | 'rukovodeci_drzavni_sluzbenik'
+  | 'ostali_drzavni_sluzbenik'
+  | 'namjestenik';
 
 export interface IRadnoMjesto extends Document {
   naziv: string;

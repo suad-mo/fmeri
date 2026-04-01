@@ -6,9 +6,17 @@ import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { OrgService } from '../../../core/services/org.service';
-import { OrganizacionaJedinica, TipJedinice } from '../../../core/models/org.models';
+import {
+  JedinicaDetalji,
+  KATEGORIJA_NAZIV,
+  KategorijaZaposlenog,
+  OrganizacionaJedinica,
+  TipJedinice,
+} from '../../../core/models/org.models';
 import { OrgJedinicaDialogComponent } from './dialogs/org-jedinica-dialog.component';
 import { OrgTreeNodeComponent } from './org-tree-node.component';
+import { MatDividerModule } from '@angular/material/divider';
+// import { MatDivider } from "@angular/material/divider";
 
 @Component({
   selector: 'app-org-jedinice',
@@ -21,6 +29,8 @@ import { OrgTreeNodeComponent } from './org-tree-node.component';
     MatProgressSpinnerModule,
     MatTooltipModule,
     OrgTreeNodeComponent,
+    MatDividerModule,
+    // MatDivider
   ],
   templateUrl: './org-jedinice.component.html',
   styleUrl: './org-jedinice.component.scss',
@@ -30,12 +40,69 @@ export class OrgJediniceComponent implements OnInit {
   private dialog = inject(MatDialog);
 
   stablo = signal<OrganizacionaJedinica[]>([]);
+  // novo
+  odabranaJedinica = signal<JedinicaDetalji | null>(null);
+  panelOtvoren = signal(false);
+  panelLoading = signal(false);
+  // Ne mjenja se
   jedinicePlana = signal<OrganizacionaJedinica[]>([]);
   isLoading = signal(true);
+  // novo
+  readonly apiUrl = 'http://localhost:3000/uploads/slike';
+
+  // ngOnInit() {
+  //   this.ucitaj();
+  // }
+  //izmjenjeno
+  // ngOnInit() {
+  //   this.orgService.getStablo().subscribe((data) => {
+  //     this.stablo.set(data);
+  //   });
+  // }
 
   ngOnInit() {
-    this.ucitaj();
+    this.isLoading.set(true);
+    this.orgService.getStablo().subscribe({
+      next: (data) => {
+        this.stablo.set(data);
+        this.jedinicePlana.set(this.flattenTree(data));
+        this.isLoading.set(false);
+      },
+      error: () => this.isLoading.set(false),
+    });
   }
+
+  // dodano
+  otvoriDetalje(jedinica: OrganizacionaJedinica) {
+    this.panelOtvoren.set(true);
+    this.panelLoading.set(true);
+    this.odabranaJedinica.set(null);
+
+    this.orgService.getJedinicaDetalji(jedinica._id).subscribe({
+      next: (data) => {
+        this.odabranaJedinica.set(data);
+        this.panelLoading.set(false);
+      },
+      error: () => this.panelLoading.set(false),
+    });
+  }
+
+  zatvoriPanel() {
+    this.panelOtvoren.set(false);
+    this.odabranaJedinica.set(null);
+  }
+
+  getKategorijaNaziv(k: string): string {
+    return KATEGORIJA_NAZIV[k as KategorijaZaposlenog] ?? k;
+  }
+
+  getPopunjenostPostotak(rm: any): number {
+    return rm.brojIzvrsilaca > 0
+      ? Math.round((rm.useri.length / rm.brojIzvrsilaca) * 100)
+      : 0;
+  }
+
+  // Ostale postojeće metode za CRUD...
 
   ucitaj() {
     this.isLoading.set(true);

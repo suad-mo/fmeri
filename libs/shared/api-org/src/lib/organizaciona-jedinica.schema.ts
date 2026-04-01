@@ -18,6 +18,7 @@ export interface IOrganizacionaJedinica extends Document {
   opis?: string;
   aktivna: boolean;
   redoslijed: number;
+  uSastavu: boolean; // ← novo
 }
 
 const organizacionaJedinicaSchema = new Schema<IOrganizacionaJedinica>(
@@ -62,6 +63,10 @@ const organizacionaJedinicaSchema = new Schema<IOrganizacionaJedinica>(
     redoslijed: {
       type: Number,
       default: 0,
+    },
+    uSastavu: {
+      type: Boolean,
+      default: false,
     },
   },
   { timestamps: true },
