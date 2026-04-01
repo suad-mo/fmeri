@@ -10,15 +10,21 @@ export type TipJedinice =
   | 'grupa'
   | 'centar';
 
+export type NivoJedinice = 'osnovna' | 'unutrasnja';
+
 export interface IOrganizacionaJedinica extends Document {
   naziv: string;
   tip: TipJedinice;
   nadredjenaJedinica: Types.ObjectId | null;
   rukovodilac?: Types.ObjectId;
   opis?: string;
+  nadleznost?: string; // ← novo
+  zakonskiOsnov?: string[]; // ← novo
+  organ: Types.ObjectId; // ← novo — veza na Organ
+  nivoJedinice: NivoJedinice; // ← novo
   aktivna: boolean;
   redoslijed: number;
-  uSastavu: boolean; // ← novo
+  uSastavu: boolean; // ← ovo je bilo ranije
 }
 
 const organizacionaJedinicaSchema = new Schema<IOrganizacionaJedinica>(
@@ -55,6 +61,27 @@ const organizacionaJedinicaSchema = new Schema<IOrganizacionaJedinica>(
     opis: {
       type: String,
       trim: true,
+    },
+    nadleznost: {
+      type: String,
+      trim: true,
+    },
+    zakonskiOsnov: [
+      {
+        type: String,
+        trim: true,
+      },
+    ],
+    organ: {
+      type: Schema.Types.ObjectId,
+      ref: 'Organ',
+      required: false,
+      default: null,
+    },
+    nivoJedinice: {
+      type: String,
+      enum: ['osnovna', 'unutrasnja'],
+      default: 'osnovna',
     },
     aktivna: {
       type: Boolean,

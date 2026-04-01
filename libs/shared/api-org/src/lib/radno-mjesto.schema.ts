@@ -43,6 +43,11 @@ export interface IRadnoMjesto extends Document {
   naziv: string;
   organizacionaJedinica: Types.ObjectId;
 
+  // Interface
+  organ: Types.ObjectId; // ← novo
+  osnovnaJedinica?: Types.ObjectId; // ← novo (nullable)
+  unutrasnjaJedinica?: Types.ObjectId; // ← novo (nullable)
+
   // Klasifikacija po zakonu
   kategorijaZaposlenog: KategorijaZaposlenog;
   pozicijaKljuc: PozicijaKljuc;
@@ -77,6 +82,23 @@ const radnoMjestoSchema = new Schema<IRadnoMjesto>(
       type: Schema.Types.ObjectId,
       ref: 'OrganizacionaJedinica',
       required: [true, 'Organizaciona jedinica je obavezna'],
+    },
+    // Schema
+    organ: {
+      type: Schema.Types.ObjectId,
+      ref: 'Organ',
+      required: false,
+      default: null,
+    },
+    osnovnaJedinica: {
+      type: Schema.Types.ObjectId,
+      ref: 'OrganizacionaJedinica',
+      default: null,
+    },
+    unutrasnjaJedinica: {
+      type: Schema.Types.ObjectId,
+      ref: 'OrganizacionaJedinica',
+      default: null,
     },
     kategorijaZaposlenog: {
       type: String,
@@ -119,7 +141,7 @@ const radnoMjestoSchema = new Schema<IRadnoMjesto>(
       default: true,
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 radnoMjestoSchema.index({ organizacionaJedinica: 1 });
@@ -129,5 +151,5 @@ radnoMjestoSchema.index({ platniRazred: 1 });
 
 export const RadnoMjesto: Model<IRadnoMjesto> = model<IRadnoMjesto>(
   'RadnoMjesto',
-  radnoMjestoSchema
+  radnoMjestoSchema,
 );
