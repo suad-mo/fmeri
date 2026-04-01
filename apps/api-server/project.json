@@ -127,6 +127,12 @@
       "options": {
         "command": "npx ts-node -r tsconfig-paths/register --project apps/api-server/tsconfig.app.json apps/api-server/src/seeds/organ.seed.ts"
       }
+    },
+    "seed-fdni-raspored": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx ts-node -r tsconfig-paths/register --project apps/api-server/tsconfig.app.json apps/api-server/src/seeds/fdni-rm-raspored.seed.ts"
+      }
     }
   },
   "tags": []

@@ -62,10 +62,10 @@ const seed = async () => {
       organizacionaJedinica: j(
         'Federalno ministarstvo energije, rudarstva i industrije',
       ),
-      kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
-      pozicijaKljuc: 'strucni_savjetnik',
-      platniRazred: 'IX',
-      koeficijent: 4.1,
+      kategorijaZaposlenog: 'izabrani_duznosnik',
+      pozicijaKljuc: 'savjetnik_ministra',
+      platniRazred: 'XI', // ← poseban razred
+      koeficijent: 6.4, // ← bio 4.10
       opsisPoslova: 'Pruža stručnu podršku ministru u oblasti energetike.',
       posebniUvjeti: [
         'VSS - VII stepen ili Bologna, tehnički fakultet',
@@ -78,10 +78,10 @@ const seed = async () => {
       organizacionaJedinica: j(
         'Federalno ministarstvo energije, rudarstva i industrije',
       ),
-      kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
-      pozicijaKljuc: 'strucni_savjetnik',
-      platniRazred: 'IX',
-      koeficijent: 4.1,
+      kategorijaZaposlenog: 'izabrani_duznosnik',
+      pozicijaKljuc: 'savjetnik_ministra',
+      platniRazred: 'XI', // ← poseban razred
+      koeficijent: 6.4, // ← bio 4.10
       opsisPoslova: 'Pruža stručnu podršku ministru u oblasti rudarstva.',
       posebniUvjeti: [
         'VSS - VII stepen ili Bologna, rudarsko-geološki ili tehnički fakultet',
@@ -94,10 +94,10 @@ const seed = async () => {
       organizacionaJedinica: j(
         'Federalno ministarstvo energije, rudarstva i industrije',
       ),
-      kategorijaZaposlenog: 'ostali_drzavni_sluzbenik',
-      pozicijaKljuc: 'strucni_savjetnik',
-      platniRazred: 'IX',
-      koeficijent: 4.1,
+      kategorijaZaposlenog: 'izabrani_duznosnik',
+      pozicijaKljuc: 'savjetnik_ministra',
+      platniRazred: 'XI', // ← poseban razred
+      koeficijent: 6.4, // ← bio 4.10
       opsisPoslova: 'Pruža stručnu podršku ministru u oblasti industrije.',
       posebniUvjeti: [
         'VSS - VII stepen ili Bologna, tehnički ili ekonomski fakultet',

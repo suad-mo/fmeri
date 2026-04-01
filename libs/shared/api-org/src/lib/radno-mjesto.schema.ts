@@ -103,6 +103,7 @@ const radnoMjestoSchema = new Schema<IRadnoMjesto>(
     kategorijaZaposlenog: {
       type: String,
       enum: [
+        'izabrani_duznosnik',          // ← dodaj
         'rukovodeci_drzavni_sluzbenik',
         'ostali_drzavni_sluzbenik',
         'namjestenik',

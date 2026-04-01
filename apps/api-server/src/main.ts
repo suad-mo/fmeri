@@ -21,7 +21,7 @@ import sablonRoutes from './routes/sablon.routes';
 import userRoutes from './routes/user.routes';
 import statsRoutes from './routes/stats.routes';
 
-
+import organRoutes from './routes/organ.routes';
 const app = express();
 
 // Statički fajlovi za slike
@@ -44,6 +44,7 @@ app.use('/api/ref', refRoutes);
 app.use('/api/sablon', sablonRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/stats', statsRoutes);
+app.use('/api/organi', organRoutes);
 
 const mongoUri = process.env['MONGODB_URI'] as string;
 const port = process.env['PORT'] || 3000;
