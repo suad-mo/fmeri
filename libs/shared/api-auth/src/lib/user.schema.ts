@@ -25,6 +25,7 @@ export interface IUser extends Document {
   // Dodjela od strane admina
   organizacionaJedinica?: Types.ObjectId; // ref → OrganizacionaJedinica
   radnoMjesto?: Types.ObjectId; // ref → RadnoMjesto
+  zaposlenik?: Types.ObjectId; // ref → Zaposlenik
   resetToken?: string;
   resetTokenExpiration?: Date;
   refreshToken?: string; // ← novo
@@ -66,6 +67,11 @@ const userSchema: Schema<IUser> = new Schema<IUser>(
     radnoMjesto: {
       type: Schema.Types.ObjectId,
       ref: 'RadnoMjesto',
+      default: null,
+    },
+    zaposlenik: {
+      type: Schema.Types.ObjectId,
+      ref: 'Zaposlenik',
       default: null,
     },
     resetToken: { type: String },
