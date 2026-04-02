@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { Organ, OrganizacionaJedinica, RadnoMjesto } from '@nx-fmeri/api-org';
+import { Organ, OrganizacionaJedinica, RadnoMjesto, Zaposlenik } from '@nx-fmeri/api-org';
 import { getErrorMessage } from '../helpers/error.helper';
 
 // ── GET /api/organi ───────────────────────────────────
@@ -33,34 +33,43 @@ export const getOrgan = async (req: Request, res: Response) => {
 export const getOrganStruktura = async (req: Request, res: Response) => {
   try {
     const organ = await Organ.findById(req.params['id']).lean();
-    if (!organ)
-      return res.status(404).json({ message: 'Organ nije pronađen.' });
+    if (!organ) return res.status(404).json({ message: 'Organ nije pronađen.' });
 
     const jedinice = await OrganizacionaJedinica.find({
       organ: req.params['id'],
       aktivna: true,
-      tip: { $ne: 'ministarstvo' }, // ← izuzmi sam organ
     })
       .sort({ nivoJedinice: 1, redoslijed: 1 })
       .lean();
 
-    // Radna mjesta direktno u organu (Ministar, Sekretar, Savjetnici)
-    // = ona čija organizacionaJedinica je sam organ (ministarstvo tip)
     const organJedinica = await OrganizacionaJedinica.findOne({
       organ: req.params['id'],
-      tip:
-        organ.vrstaOrgana === 'ministarstvo'
-          ? 'ministarstvo'
-          : organ.vrstaOrgana === 'upravna_organizacija'
-            ? { $in: ['zavod', 'direkcija'] }
-            : 'ministarstvo',
+      tip: { $in: ['ministarstvo', 'zavod', 'direkcija'] },
     }).lean();
 
+    // Helper — dohvati RM sa zaposlenicima
+    const rmSaZaposlenicima = async (filter: Record<string, unknown>) => {
+      const radnaMjesta = await RadnoMjesto.find({
+        ...filter,
+        aktivno: true,
+      }).lean();
+
+      return Promise.all(
+        radnaMjesta.map(async (rm) => {
+          const zaposlenici = await Zaposlenik.find({
+            radnoMjesto: rm._id,
+            aktivan: true,
+          })
+            .select('ime prezime sluzbeniEmail slika')
+            .lean();
+          return { ...rm, zaposlenici };
+        })
+      );
+    };
+
+    // Radna mjesta direktno u organu
     const radnaMjestaOrgana = organJedinica
-      ? await RadnoMjesto.find({
-          organizacionaJedinica: organJedinica._id,
-          aktivno: true,
-        }).lean()
+      ? await rmSaZaposlenicima({ organizacionaJedinica: organJedinica._id })
       : [];
 
     const osnovneJedinice = jedinice.filter(
@@ -72,23 +81,21 @@ export const getOrganStruktura = async (req: Request, res: Response) => {
 
     const strukturaOOJ = await Promise.all(
       osnovneJedinice.map(async (ooj) => {
-        const rmOOJ = await RadnoMjesto.find({
+        const rmOOJ = await rmSaZaposlenicima({
           organizacionaJedinica: ooj._id,
-          aktivno: true,
-        }).lean();
+        });
 
         const uojZaOvu = unutrasnje.filter(
-          (u) => u.nadredjenaJedinica?.toString() === ooj._id.toString(),
+          (u) => u.nadredjenaJedinica?.toString() === ooj._id.toString()
         );
 
         const uojSaRM = await Promise.all(
           uojZaOvu.map(async (uoj) => {
-            const rmUOJ = await RadnoMjesto.find({
+            const rmUOJ = await rmSaZaposlenicima({
               organizacionaJedinica: uoj._id,
-              aktivno: true,
-            }).lean();
+            });
             return { ...uoj, radnaMjesta: rmUOJ };
-          }),
+          })
         );
 
         return {
@@ -96,7 +103,7 @@ export const getOrganStruktura = async (req: Request, res: Response) => {
           radnaMjesta: rmOOJ,
           unutrasnje: uojSaRM,
         };
-      }),
+      })
     );
 
     return res.json({

@@ -120,6 +120,35 @@
                     <mat-icon>block</mat-icon>
                   </button>
                 </div>
+                <!-- Zaposlenici na ovom RM -->
+                @if (rm.zaposlenici && rm.zaposlenici.length > 0) {
+                  <div class="zaposlenici-lista">
+                    @for (z of rm.zaposlenici; track z._id) {
+                      <div class="zaposlenik-row">
+                        <div class="zaposlenik-avatar">
+                          @if (z.slika) {
+                            <img [src]="apiUrl + '/' + z.slika" [alt]="z.ime" />
+                          } @else {
+                            <mat-icon>person</mat-icon>
+                          }
+                        </div>
+                        <div class="zaposlenik-info">
+                          <span class="zaposlenik-ime"
+                            >{{ z.ime }} {{ z.prezime }}</span
+                          >
+                          <span class="zaposlenik-email">{{
+                            z.sluzbeniEmail
+                          }}</span>
+                        </div>
+                      </div>
+                    }
+                  </div>
+                } @else {
+                  <div class="slobodno-rm">
+                    <mat-icon>person_add</mat-icon>
+                    <span>Slobodno radno mjesto</span>
+                  </div>
+                }
               }
             </div>
             <mat-divider />
@@ -186,6 +215,38 @@
                           <mat-icon>block</mat-icon>
                         </button>
                       </div>
+                      <!-- Zaposlenici na ovom RM -->
+                      @if (rm.zaposlenici && rm.zaposlenici.length > 0) {
+                        <div class="zaposlenici-lista">
+                          @for (z of rm.zaposlenici; track z._id) {
+                            <div class="zaposlenik-row">
+                              <div class="zaposlenik-avatar">
+                                @if (z.slika) {
+                                  <img
+                                    [src]="apiUrl + '/' + z.slika"
+                                    [alt]="z.ime"
+                                  />
+                                } @else {
+                                  <mat-icon>person</mat-icon>
+                                }
+                              </div>
+                              <div class="zaposlenik-info">
+                                <span class="zaposlenik-ime"
+                                  >{{ z.ime }} {{ z.prezime }}</span
+                                >
+                                <span class="zaposlenik-email">{{
+                                  z.sluzbeniEmail
+                                }}</span>
+                              </div>
+                            </div>
+                          }
+                        </div>
+                      } @else {
+                        <div class="slobodno-rm">
+                          <mat-icon>person_add</mat-icon>
+                          <span>Slobodno radno mjesto</span>
+                        </div>
+                      }
                     }
                   </div>
                 }
@@ -235,6 +296,38 @@
                           <mat-icon>block</mat-icon>
                         </button>
                       </div>
+                      <!-- Zaposlenici na ovom RM -->
+                      @if (rm.zaposlenici && rm.zaposlenici.length > 0) {
+                        <div class="zaposlenici-lista">
+                          @for (z of rm.zaposlenici; track z._id) {
+                            <div class="zaposlenik-row">
+                              <div class="zaposlenik-avatar">
+                                @if (z.slika) {
+                                  <img
+                                    [src]="apiUrl + '/' + z.slika"
+                                    [alt]="z.ime"
+                                  />
+                                } @else {
+                                  <mat-icon>person</mat-icon>
+                                }
+                              </div>
+                              <div class="zaposlenik-info">
+                                <span class="zaposlenik-ime"
+                                  >{{ z.ime }} {{ z.prezime }}</span
+                                >
+                                <span class="zaposlenik-email">{{
+                                  z.sluzbeniEmail
+                                }}</span>
+                              </div>
+                            </div>
+                          }
+                        </div>
+                      } @else {
+                        <div class="slobodno-rm">
+                          <mat-icon>person_add</mat-icon>
+                          <span>Slobodno radno mjesto</span>
+                        </div>
+                      }
                     }
                   </div>
                 }

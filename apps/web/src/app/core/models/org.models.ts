@@ -117,7 +117,7 @@ export interface RadnoMjestoDTO {
   opsisPoslova?: string;
   posebniUvjeti?: string[];
   brojIzvrsilaca: number;
-    [key: string]: unknown; // ← dodaj
+  [key: string]: unknown; // ← dodaj
 }
 
 // ── Referentni podaci ─────────────────────────────────
@@ -213,7 +213,7 @@ export interface SistematizacijaItem {
 export interface RadnoMjestoDetalji {
   _id: string;
   naziv: string;
-  organizacionaJedinica?: { _id: string; naziv: string } | string; // ← dodaj
+  organizacionaJedinica?: { _id: string; naziv: string } | string;
   kategorijaZaposlenog: KategorijaZaposlenog;
   pozicijaKljuc: PozicijaKljuc;
   platniRazred: string;
@@ -221,6 +221,14 @@ export interface RadnoMjestoDetalji {
   opsisPoslova?: string;
   posebniUvjeti?: string[];
   brojIzvrsilaca: number;
+  zaposlenici: {
+    // ← dodaj
+    _id: string;
+    ime: string;
+    prezime: string;
+    sluzbeniEmail?: string;
+    slika?: string;
+  }[];
   useri: {
     _id: string;
     name: string;
