@@ -284,5 +284,74 @@ export interface UnutrasnjaJedinicaDetalji extends OrganizacionaJedinica {
 export interface OrganStruktura {
   organ: Organ;
   radnaMjesta: RadnoMjestoDetalji[];
+  zaposleniciUOrganu: {        // ← dodaj
+    _id: string;
+    ime: string;
+    prezime: string;
+    sluzbeniEmail?: string;
+    slika?: string;
+    radnoMjesto?: string;
+  }[];
   osnovneJedinice: OsnovnaJedinicaDetalji[];
+}
+
+// ── Zaposlenik ────────────────────────────────────────
+export type VrstaUgovora =
+  | 'neodredjeno'
+  | 'odredjeno'
+  | 'pripravnik'
+  | 'volonter';
+
+export const VRSTA_UGOVORA_NAZIV: Record<VrstaUgovora, string> = {
+  neodredjeno: 'Neodređeno',
+  odredjeno:   'Određeno',
+  pripravnik:  'Pripravnik',
+  volonter:    'Volonter',
+};
+
+export interface Zaposlenik {
+  _id: string;
+  ime: string;
+  prezime: string;
+  jmbg?: string;
+  datumRodjenja?: string;
+  spol?: 'M' | 'Z';
+  sluzbeniEmail?: string;
+  privatniEmail?: string;
+  telefon?: string;
+  mobilni?: string;
+  adresa?: string;
+  organ?: { _id: string; naziv: string; skraceniNaziv?: string };
+  organizacionaJedinica?: { _id: string; naziv: string; tip: string };
+  radnoMjesto?: {
+    _id: string;
+    naziv: string;
+    pozicijaKljuc: string;
+    platniRazred: string;
+    koeficijent: number;
+    kategorijaZaposlenog: string;
+  };
+  datumZaposlenja?: string;
+  vrstaUgovora?: VrstaUgovora;
+  slika?: string;
+  user?: { _id: string; email: string; role: string[] };
+  aktivan: boolean;
+}
+
+export interface ZaposlenikDTO {
+  ime: string;
+  prezime: string;
+  jmbg?: string;
+  datumRodjenja?: string;
+  spol?: 'M' | 'Z';
+  sluzbeniEmail?: string;
+  privatniEmail?: string;
+  telefon?: string;
+  mobilni?: string;
+  adresa?: string;
+  organ?: string;
+  organizacionaJedinica?: string;
+  radnoMjesto?: string;
+  datumZaposlenja?: string;
+  vrstaUgovora?: VrstaUgovora;
 }

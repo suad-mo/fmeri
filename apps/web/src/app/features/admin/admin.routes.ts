@@ -39,6 +39,13 @@ export const adminRoutes: Routes = [
         loadComponent: () =>
           import('./organi/organi.component').then((m) => m.OrganiComponent),
       },
+      {
+        path: 'zaposlenici',
+        loadComponent: () =>
+          import('./zaposlenici/zaposlenici.component').then(
+            (m) => m.ZaposleniciComponent,
+          ),
+      },
       { path: '', redirectTo: 'org-jedinice', pathMatch: 'full' },
     ],
   },

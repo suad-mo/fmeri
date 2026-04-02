@@ -1,5 +1,10 @@
 import { Request, Response } from 'express';
-import { Organ, OrganizacionaJedinica, RadnoMjesto, Zaposlenik } from '@nx-fmeri/api-org';
+import {
+  Organ,
+  OrganizacionaJedinica,
+  RadnoMjesto,
+  Zaposlenik,
+} from '@nx-fmeri/api-org';
 import { getErrorMessage } from '../helpers/error.helper';
 
 // ── GET /api/organi ───────────────────────────────────
@@ -33,7 +38,8 @@ export const getOrgan = async (req: Request, res: Response) => {
 export const getOrganStruktura = async (req: Request, res: Response) => {
   try {
     const organ = await Organ.findById(req.params['id']).lean();
-    if (!organ) return res.status(404).json({ message: 'Organ nije pronađen.' });
+    if (!organ)
+      return res.status(404).json({ message: 'Organ nije pronađen.' });
 
     const jedinice = await OrganizacionaJedinica.find({
       organ: req.params['id'],
@@ -63,7 +69,7 @@ export const getOrganStruktura = async (req: Request, res: Response) => {
             .select('ime prezime sluzbeniEmail slika')
             .lean();
           return { ...rm, zaposlenici };
-        })
+        }),
       );
     };
 
@@ -86,7 +92,7 @@ export const getOrganStruktura = async (req: Request, res: Response) => {
         });
 
         const uojZaOvu = unutrasnje.filter(
-          (u) => u.nadredjenaJedinica?.toString() === ooj._id.toString()
+          (u) => u.nadredjenaJedinica?.toString() === ooj._id.toString(),
         );
 
         const uojSaRM = await Promise.all(
@@ -95,7 +101,7 @@ export const getOrganStruktura = async (req: Request, res: Response) => {
               organizacionaJedinica: uoj._id,
             });
             return { ...uoj, radnaMjesta: rmUOJ };
-          })
+          }),
         );
 
         return {
@@ -103,12 +109,21 @@ export const getOrganStruktura = async (req: Request, res: Response) => {
           radnaMjesta: rmOOJ,
           unutrasnje: uojSaRM,
         };
-      })
+      }),
     );
+
+    const zaposleniciUOrganu = await Zaposlenik.find({
+      organ: req.params['id'],
+      organizacionaJedinica: null,
+      aktivan: true,
+    })
+      .select('ime prezime sluzbeniEmail slika radnoMjesto')
+      .lean();
 
     return res.json({
       organ,
       radnaMjesta: radnaMjestaOrgana,
+      zaposleniciUOrganu, // ← dodaj
       osnovneJedinice: strukturaOOJ,
     });
   } catch (error) {

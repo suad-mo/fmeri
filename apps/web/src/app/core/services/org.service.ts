@@ -15,6 +15,8 @@ import {
   JedinicaDetalji,
   Organ,
   OrganStruktura,
+  Zaposlenik,
+  ZaposlenikDTO,
 } from '../models/org.models';
 
 @Injectable({ providedIn: 'root' })
@@ -26,6 +28,7 @@ export class OrgService {
   private readonly usersUrl = 'http://localhost:3000/api/users';
   private readonly statsUrl = 'http://localhost:3000/api/stats';
   private readonly organiUrl = 'http://localhost:3000/api/organi';
+  private readonly zaposlenikUrl = 'http://localhost:3000/api/zaposlenici';
 
   // Vlastiti profil
   getMe(): Observable<UserProfil> {
@@ -225,5 +228,50 @@ export class OrgService {
 
   deleteOrgan(id: string): Observable<void> {
     return this.http.delete<void>(`${this.organiUrl}/${id}`);
+  }
+
+  // ── Zaposlenici ────────────────────────────────────
+  getZaposlenici(filter?: {
+    organ?: string;
+    organizacionaJedinica?: string;
+  }): Observable<Zaposlenik[]> {
+    let params = '';
+    if (filter?.organ) params += `?organ=${filter.organ}`;
+    if (filter?.organizacionaJedinica)
+      params += `${params ? '&' : '?'}organizacionaJedinica=${filter.organizacionaJedinica}`;
+    return this.http.get<Zaposlenik[]>(`${this.zaposlenikUrl}${params}`);
+  }
+
+  getZaposlenik(id: string): Observable<Zaposlenik> {
+    return this.http.get<Zaposlenik>(`${this.zaposlenikUrl}/${id}`);
+  }
+
+  createZaposlenik(data: ZaposlenikDTO): Observable<Zaposlenik> {
+    return this.http.post<Zaposlenik>(this.zaposlenikUrl, data);
+  }
+
+  updateZaposlenik(
+    id: string,
+    data: Partial<ZaposlenikDTO>,
+  ): Observable<Zaposlenik> {
+    return this.http.patch<Zaposlenik>(`${this.zaposlenikUrl}/${id}`, data);
+  }
+
+  deleteZaposlenik(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.zaposlenikUrl}/${id}`);
+  }
+
+  dodjelaZaposlenika(
+    id: string,
+    data: {
+      organ?: string;
+      organizacionaJedinica?: string;
+      radnoMjesto?: string;
+    },
+  ): Observable<Zaposlenik> {
+    return this.http.patch<Zaposlenik>(
+      `${this.zaposlenikUrl}/${id}/dodjela`,
+      data,
+    );
   }
 }

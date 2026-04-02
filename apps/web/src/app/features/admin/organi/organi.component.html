@@ -81,7 +81,37 @@
           }
 
           <mat-divider />
+          <mat-divider />
 
+          <!-- Zaposlenici direktno u organu (Ministar, Direktori) -->
+          @if (s.zaposleniciUOrganu && s.zaposleniciUOrganu.length > 0) {
+            <div class="rm-sekcija">
+              <div class="rm-sekcija-header">
+                <mat-icon>account_balance</mat-icon>
+                <span>Rukovodstvo organa</span>
+              </div>
+              @for (z of s.zaposleniciUOrganu; track z._id) {
+                <div class="zaposlenik-row" style="padding: 0.35rem 0.75rem">
+                  <div class="zaposlenik-avatar">
+                    @if (z.slika) {
+                      <img [src]="apiUrl + '/' + z.slika" [alt]="z.ime" />
+                    } @else {
+                      <mat-icon>person</mat-icon>
+                    }
+                  </div>
+                  <div class="zaposlenik-info">
+                    <span class="zaposlenik-ime"
+                      >{{ z.ime }} {{ z.prezime }}</span
+                    >
+                    <span class="zaposlenik-email">{{ z.sluzbeniEmail }}</span>
+                  </div>
+                </div>
+              }
+            </div>
+            <mat-divider />
+          }
+
+          <!-- Radna mjesta direktno u organu -->
           <!-- Radna mjesta direktno u organu -->
           @if (s.radnaMjesta.length > 0) {
             <div class="rm-sekcija">

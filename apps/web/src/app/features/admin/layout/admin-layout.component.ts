@@ -41,11 +41,11 @@ export class AdminLayoutComponent {
       route: '/admin/korisnici',
       adminOnly: true,
     },
+    { label: 'Zaposlenici', icon: 'people', route: '/admin/zaposlenici' },
     { label: 'Moj profil', icon: 'account_circle', route: '/profil' },
   ];
 
   isAdmin(): boolean {
     return this.authService.userRoles().includes('admin');
   }
-
 }
