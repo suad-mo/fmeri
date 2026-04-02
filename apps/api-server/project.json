@@ -145,6 +145,12 @@
       "options": {
         "command": "npx ts-node -r tsconfig-paths/register --project apps/api-server/tsconfig.app.json apps/api-server/src/seeds/zaposlenik.seed.ts"
       }
+    },
+    "export-dodjela": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx ts-node -r tsconfig-paths/register --project apps/api-server/tsconfig.app.json apps/api-server/src/seeds/export-dodjela.ts"
+      }
     }
   },
   "tags": []

@@ -20,6 +20,7 @@ import refRoutes from './routes/ref.routes';
 import sablonRoutes from './routes/sablon.routes';
 import userRoutes from './routes/user.routes';
 import statsRoutes from './routes/stats.routes';
+import zaposlenikRoutes from './routes/zaposlenik.routes';
 
 import organRoutes from './routes/organ.routes';
 const app = express();
@@ -45,6 +46,7 @@ app.use('/api/sablon', sablonRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/stats', statsRoutes);
 app.use('/api/organi', organRoutes);
+app.use('/api/zaposlenici', zaposlenikRoutes);
 
 const mongoUri = process.env['MONGODB_URI'] as string;
 const port = process.env['PORT'] || 3000;
