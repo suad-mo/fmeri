@@ -151,6 +151,30 @@
       "options": {
         "command": "npx ts-node -r tsconfig-paths/register --project apps/api-server/tsconfig.app.json apps/api-server/src/seeds/export-dodjela.ts"
       }
+    },
+    "seed-fmeri": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx ts-node -r tsconfig-paths/register --project apps/api-server/tsconfig.app.json apps/api-server/src/seeds/seed-fmeri.ts"
+      }
+    },
+    "seed-zavod": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx ts-node -r tsconfig-paths/register --project apps/api-server/tsconfig.app.json apps/api-server/src/seeds/seed-zavod.ts"
+      }
+    },
+    "seed-fdni": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx ts-node -r tsconfig-paths/register --project apps/api-server/tsconfig.app.json apps/api-server/src/seeds/seed-fdni.ts"
+      }
+    },
+    "seed-dodjela-novo": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx ts-node -r tsconfig-paths/register --project apps/api-server/tsconfig.app.json apps/api-server/src/seeds/seed-dodjela.ts"
+      }
     }
   },
   "tags": []

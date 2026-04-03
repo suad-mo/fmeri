@@ -3,7 +3,7 @@ import * as path from 'path';
 dotenv.config({ path: path.join(__dirname, '../../../../.env') });
 
 import mongoose from 'mongoose';
-import { Organ, OrganizacionaJedinica } from '@nx-fmeri/api-org';
+import { Organ, OrganizacionaJedinica, RadnoMjesto } from '@nx-fmeri/api-org';
 
 const seed = async () => {
   const mongoUri = process.env['MONGODB_URI'] as string;
@@ -152,6 +152,46 @@ const seed = async () => {
     }
     console.log(`✓ ${sviIds.length} jedinica FDNI povezano`);
   }
+
+  // ── Poveži radna mjesta s organima ───────────────────
+  console.log('\nPovezujem radna mjesta s organima...');
+
+  const dohvatiSveJedinice = async (organId: mongoose.Types.ObjectId) => {
+    return await OrganizacionaJedinica.find({ organ: organId }).lean();
+  };
+
+  // Ministarstvo
+  const miniJedinice = await dohvatiSveJedinice(
+    ministarstvo._id as mongoose.Types.ObjectId,
+  );
+  const miniIds = miniJedinice.map((j) => j._id);
+  const rmMini = await RadnoMjesto.updateMany(
+    { organizacionaJedinica: { $in: miniIds } },
+    { organ: ministarstvo._id },
+  );
+  console.log(`✓ ${rmMini.modifiedCount} RM ministarstva povezano`);
+
+  // Zavod
+  const zavodJedinice = await dohvatiSveJedinice(
+    zavod._id as mongoose.Types.ObjectId,
+  );
+  const zavodIds = zavodJedinice.map((j) => j._id);
+  const rmZavod = await RadnoMjesto.updateMany(
+    { organizacionaJedinica: { $in: zavodIds } },
+    { organ: zavod._id },
+  );
+  console.log(`✓ ${rmZavod.modifiedCount} RM Zavoda povezano`);
+
+  // FDNI
+  const fdniJedinice2 = await dohvatiSveJedinice(
+    fdni._id as mongoose.Types.ObjectId,
+  );
+  const fdniIds = fdniJedinice2.map((j) => j._id);
+  const rmFdni = await RadnoMjesto.updateMany(
+    { organizacionaJedinica: { $in: fdniIds } },
+    { organ: fdni._id },
+  );
+  console.log(`✓ ${rmFdni.modifiedCount} RM FDNI povezano`);
 
   console.log('\n✅ Seed organa završen!');
   console.log(`   Ministarstvo ID: ${ministarstvo._id}`);
