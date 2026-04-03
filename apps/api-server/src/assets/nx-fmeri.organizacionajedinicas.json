@@ -1,0 +1,881 @@
+[{
+  "_id": {
+    "$oid": "69cf6b937bed248dd368de53"
+  },
+  "naziv": "Federalno ministarstvo energije, rudarstva i industrije",
+  "tip": "ministarstvo",
+  "nadredjenaJedinica": null,
+  "rukovodilac": null,
+  "opis": "Federalno ministarstvo energije, rudarstva i industrije",
+  "zakonskiOsnov": [],
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "nivoJedinice": "osnovna",
+  "aktivna": true,
+  "redoslijed": 1,
+  "uSastavu": false,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:11.708Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.442Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6b937bed248dd368de57"
+  },
+  "naziv": "Kabinet ministra",
+  "tip": "kabinet",
+  "nadredjenaJedinica": {
+    "$oid": "69cf6b937bed248dd368de53"
+  },
+  "rukovodilac": null,
+  "zakonskiOsnov": [],
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "nivoJedinice": "osnovna",
+  "aktivna": true,
+  "redoslijed": 1,
+  "uSastavu": false,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:11.722Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.471Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6b937bed248dd368de5b"
+  },
+  "naziv": "Sektor energije",
+  "tip": "sektor",
+  "nadredjenaJedinica": {
+    "$oid": "69cf6b937bed248dd368de53"
+  },
+  "rukovodilac": null,
+  "zakonskiOsnov": [],
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "nivoJedinice": "osnovna",
+  "aktivna": true,
+  "redoslijed": 2,
+  "uSastavu": false,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:11.730Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.487Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6b937bed248dd368de5f"
+  },
+  "naziv": "Odsjek za elektroenergetiku",
+  "tip": "odsjek",
+  "nadredjenaJedinica": {
+    "$oid": "69cf6b937bed248dd368de5b"
+  },
+  "rukovodilac": null,
+  "zakonskiOsnov": [],
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "nivoJedinice": "unutrasnja",
+  "aktivna": true,
+  "redoslijed": 1,
+  "uSastavu": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:11.741Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.492Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b937bed248dd368de60"
+  },
+  "naziv": "Odsjek za tečne energente, plin i termoenergetiku",
+  "tip": "odsjek",
+  "nadredjenaJedinica": {
+    "$oid": "69cf6b937bed248dd368de5b"
+  },
+  "rukovodilac": null,
+  "zakonskiOsnov": [],
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "nivoJedinice": "unutrasnja",
+  "aktivna": true,
+  "redoslijed": 2,
+  "uSastavu": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:11.741Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.504Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b937bed248dd368de61"
+  },
+  "naziv": "Odsjek za razvoj",
+  "tip": "odsjek",
+  "nadredjenaJedinica": {
+    "$oid": "69cf6b937bed248dd368de5b"
+  },
+  "rukovodilac": null,
+  "zakonskiOsnov": [],
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "nivoJedinice": "unutrasnja",
+  "aktivna": true,
+  "redoslijed": 3,
+  "uSastavu": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:11.742Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.513Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b937bed248dd368de66"
+  },
+  "naziv": "Sektor rudarstva",
+  "tip": "sektor",
+  "nadredjenaJedinica": {
+    "$oid": "69cf6b937bed248dd368de53"
+  },
+  "rukovodilac": null,
+  "zakonskiOsnov": [],
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "nivoJedinice": "osnovna",
+  "aktivna": true,
+  "redoslijed": 3,
+  "uSastavu": false,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:11.752Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.524Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6b937bed248dd368de6a"
+  },
+  "naziv": "Odsjek za rudarstvo",
+  "tip": "odsjek",
+  "nadredjenaJedinica": {
+    "$oid": "69cf6b937bed248dd368de66"
+  },
+  "rukovodilac": null,
+  "zakonskiOsnov": [],
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "nivoJedinice": "unutrasnja",
+  "aktivna": true,
+  "redoslijed": 1,
+  "uSastavu": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:11.756Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.527Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b937bed248dd368de6b"
+  },
+  "naziv": "Odsjek za geologiju",
+  "tip": "odsjek",
+  "nadredjenaJedinica": {
+    "$oid": "69cf6b937bed248dd368de66"
+  },
+  "rukovodilac": null,
+  "zakonskiOsnov": [],
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "nivoJedinice": "unutrasnja",
+  "aktivna": true,
+  "redoslijed": 2,
+  "uSastavu": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:11.756Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.540Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b937bed248dd368de6e"
+  },
+  "naziv": "Sektor industrije",
+  "tip": "sektor",
+  "nadredjenaJedinica": {
+    "$oid": "69cf6b937bed248dd368de53"
+  },
+  "rukovodilac": null,
+  "zakonskiOsnov": [],
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "nivoJedinice": "osnovna",
+  "aktivna": true,
+  "redoslijed": 4,
+  "uSastavu": false,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:11.759Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.547Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6b937bed248dd368de71"
+  },
+  "naziv": "Odsjek za metalnu i elektro industriju, industriju prerade drveta, industriju građevinskog materijala i nemetala i grafičku djelatnost",
+  "tip": "odsjek",
+  "nadredjenaJedinica": {
+    "$oid": "69cf6b937bed248dd368de6e"
+  },
+  "rukovodilac": null,
+  "zakonskiOsnov": [],
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "nivoJedinice": "unutrasnja",
+  "aktivna": true,
+  "redoslijed": 1,
+  "uSastavu": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:11.761Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.553Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b937bed248dd368de72"
+  },
+  "naziv": "Odsjek za tekstilnu, kožarsku, obućarsku, hemijsku i farmaceutsku industriju",
+  "tip": "odsjek",
+  "nadredjenaJedinica": {
+    "$oid": "69cf6b937bed248dd368de6e"
+  },
+  "rukovodilac": null,
+  "zakonskiOsnov": [],
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "nivoJedinice": "unutrasnja",
+  "aktivna": true,
+  "redoslijed": 2,
+  "uSastavu": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:11.761Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.574Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b937bed248dd368de73"
+  },
+  "naziv": "Odsjek za analizu i praćenje stanja u privredi",
+  "tip": "odsjek",
+  "nadredjenaJedinica": {
+    "$oid": "69cf6b937bed248dd368de6e"
+  },
+  "rukovodilac": null,
+  "zakonskiOsnov": [],
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "nivoJedinice": "unutrasnja",
+  "aktivna": true,
+  "redoslijed": 3,
+  "uSastavu": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:11.761Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.589Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b937bed248dd368de74"
+  },
+  "naziv": "Odsjek za razvoj i unapređenje privrede",
+  "tip": "odsjek",
+  "nadredjenaJedinica": {
+    "$oid": "69cf6b937bed248dd368de6e"
+  },
+  "rukovodilac": null,
+  "zakonskiOsnov": [],
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "nivoJedinice": "unutrasnja",
+  "aktivna": true,
+  "redoslijed": 4,
+  "uSastavu": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:11.761Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.603Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b937bed248dd368de77"
+  },
+  "naziv": "Sektor za pravne, finansijske i opće poslove",
+  "tip": "sektor",
+  "nadredjenaJedinica": {
+    "$oid": "69cf6b937bed248dd368de53"
+  },
+  "rukovodilac": null,
+  "zakonskiOsnov": [],
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "nivoJedinice": "osnovna",
+  "aktivna": true,
+  "redoslijed": 5,
+  "uSastavu": false,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:11.764Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.613Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6b937bed248dd368de7a"
+  },
+  "naziv": "Odsjek za pravne poslove i radne odnose",
+  "tip": "odsjek",
+  "nadredjenaJedinica": {
+    "$oid": "69cf6b937bed248dd368de77"
+  },
+  "rukovodilac": null,
+  "zakonskiOsnov": [],
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "nivoJedinice": "unutrasnja",
+  "aktivna": true,
+  "redoslijed": 1,
+  "uSastavu": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:11.768Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.617Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b937bed248dd368de7b"
+  },
+  "naziv": "Odsjek za finansijsko-računovodstvene poslove",
+  "tip": "odsjek",
+  "nadredjenaJedinica": {
+    "$oid": "69cf6b937bed248dd368de77"
+  },
+  "rukovodilac": null,
+  "zakonskiOsnov": [],
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "nivoJedinice": "unutrasnja",
+  "aktivna": true,
+  "redoslijed": 2,
+  "uSastavu": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:11.768Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.634Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b937bed248dd368de7c"
+  },
+  "naziv": "Odsjek za opće poslove",
+  "tip": "odsjek",
+  "nadredjenaJedinica": {
+    "$oid": "69cf6b937bed248dd368de77"
+  },
+  "rukovodilac": null,
+  "zakonskiOsnov": [],
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "nivoJedinice": "unutrasnja",
+  "aktivna": true,
+  "redoslijed": 3,
+  "uSastavu": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:11.768Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.642Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b937bed248dd368de7d"
+  },
+  "naziv": "Pisarnica",
+  "tip": "odsjek",
+  "nadredjenaJedinica": {
+    "$oid": "69cf6b937bed248dd368de77"
+  },
+  "rukovodilac": null,
+  "zakonskiOsnov": [],
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "nivoJedinice": "unutrasnja",
+  "aktivna": true,
+  "redoslijed": 4,
+  "uSastavu": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:11.768Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.651Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b937bed248dd368de80"
+  },
+  "naziv": "Zavod za mjeriteljstvo",
+  "tip": "zavod",
+  "nadredjenaJedinica": null,
+  "rukovodilac": null,
+  "opis": "Federalni zavod za mjeriteljstvo",
+  "zakonskiOsnov": [],
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "nivoJedinice": "osnovna",
+  "aktivna": true,
+  "redoslijed": 2,
+  "uSastavu": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:11.776Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T09:13:21.935Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6b937bed248dd368de82"
+  },
+  "naziv": "Centar za mjeriteljstvo Mostar",
+  "tip": "centar",
+  "nadredjenaJedinica": {
+    "$oid": "69cf6b937bed248dd368de80"
+  },
+  "rukovodilac": null,
+  "zakonskiOsnov": [],
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "nivoJedinice": "osnovna",
+  "aktivna": true,
+  "redoslijed": 2,
+  "uSastavu": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:11.779Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T11:14:00.095Z"
+  },
+  "opis": ""
+},
+{
+  "_id": {
+    "$oid": "69cf6b937bed248dd368de83"
+  },
+  "naziv": "Centar za mjeriteljstvo Sarajevo",
+  "tip": "centar",
+  "nadredjenaJedinica": {
+    "$oid": "69cf6b937bed248dd368de80"
+  },
+  "rukovodilac": null,
+  "zakonskiOsnov": [],
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "nivoJedinice": "osnovna",
+  "aktivna": true,
+  "redoslijed": 2,
+  "uSastavu": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:11.779Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:21:42.621Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b937bed248dd368de84"
+  },
+  "naziv": "Centar za mjeriteljstvo Tuzla",
+  "tip": "centar",
+  "nadredjenaJedinica": {
+    "$oid": "69cf6b937bed248dd368de80"
+  },
+  "rukovodilac": null,
+  "zakonskiOsnov": [],
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "nivoJedinice": "osnovna",
+  "aktivna": true,
+  "redoslijed": 3,
+  "uSastavu": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:11.779Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:21:42.637Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b937bed248dd368de86"
+  },
+  "naziv": "Federalna direkcija za namjensku industriju",
+  "tip": "direkcija",
+  "nadredjenaJedinica": null,
+  "rukovodilac": null,
+  "opis": "Federalna direkcija za namjensku industriju",
+  "zakonskiOsnov": [],
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "nivoJedinice": "osnovna",
+  "aktivna": true,
+  "redoslijed": 3,
+  "uSastavu": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:11.784Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T09:13:08.224Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6b937bed248dd368de88"
+  },
+  "naziv": "Sektor za proizvodnju, remont i kontrolu kvaliteta proizvoda",
+  "tip": "sektor",
+  "nadredjenaJedinica": {
+    "$oid": "69cf6b937bed248dd368de86"
+  },
+  "rukovodilac": null,
+  "zakonskiOsnov": [],
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "nivoJedinice": "osnovna",
+  "aktivna": true,
+  "redoslijed": 1,
+  "uSastavu": false,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:11.787Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:40:10.143Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6b937bed248dd368de8a"
+  },
+  "naziv": "Grupa za proizvodnju i remont",
+  "tip": "grupa",
+  "nadredjenaJedinica": {
+    "$oid": "69cf6b937bed248dd368de88"
+  },
+  "rukovodilac": null,
+  "zakonskiOsnov": [],
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "nivoJedinice": "unutrasnja",
+  "aktivna": true,
+  "redoslijed": 1,
+  "uSastavu": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:11.788Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:40:10.149Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b937bed248dd368de8b"
+  },
+  "naziv": "Grupa za razvoj i kontrolu kvaliteta",
+  "tip": "grupa",
+  "nadredjenaJedinica": {
+    "$oid": "69cf6b937bed248dd368de88"
+  },
+  "rukovodilac": null,
+  "zakonskiOsnov": [],
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "nivoJedinice": "unutrasnja",
+  "aktivna": true,
+  "redoslijed": 2,
+  "uSastavu": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:11.788Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:40:10.158Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b937bed248dd368de8d"
+  },
+  "naziv": "Sektor za pravne i ekonomske poslove",
+  "tip": "sektor",
+  "nadredjenaJedinica": {
+    "$oid": "69cf6b937bed248dd368de86"
+  },
+  "rukovodilac": null,
+  "zakonskiOsnov": [],
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "nivoJedinice": "osnovna",
+  "aktivna": true,
+  "redoslijed": 2,
+  "uSastavu": false,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:11.789Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:40:10.171Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6b937bed248dd368de8f"
+  },
+  "naziv": "Grupa za pravne poslove",
+  "tip": "grupa",
+  "nadredjenaJedinica": {
+    "$oid": "69cf6b937bed248dd368de8d"
+  },
+  "rukovodilac": null,
+  "zakonskiOsnov": [],
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "nivoJedinice": "unutrasnja",
+  "aktivna": true,
+  "redoslijed": 1,
+  "uSastavu": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:11.790Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:40:10.177Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b937bed248dd368de90"
+  },
+  "naziv": "Grupa za ekonomske poslove",
+  "tip": "grupa",
+  "nadredjenaJedinica": {
+    "$oid": "69cf6b937bed248dd368de8d"
+  },
+  "rukovodilac": null,
+  "zakonskiOsnov": [],
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "nivoJedinice": "unutrasnja",
+  "aktivna": true,
+  "redoslijed": 2,
+  "uSastavu": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:11.790Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:40:10.184Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b937bed248dd368de92"
+  },
+  "naziv": "Sektor za promet, marketing i sigurnost",
+  "tip": "sektor",
+  "nadredjenaJedinica": {
+    "$oid": "69cf6b937bed248dd368de86"
+  },
+  "rukovodilac": null,
+  "zakonskiOsnov": [],
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "nivoJedinice": "osnovna",
+  "aktivna": true,
+  "redoslijed": 3,
+  "uSastavu": false,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:11.791Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:40:10.193Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6b937bed248dd368de94"
+  },
+  "naziv": "Grupa za promet i marketing",
+  "tip": "grupa",
+  "nadredjenaJedinica": {
+    "$oid": "69cf6b937bed248dd368de92"
+  },
+  "rukovodilac": null,
+  "zakonskiOsnov": [],
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "nivoJedinice": "unutrasnja",
+  "aktivna": true,
+  "redoslijed": 1,
+  "uSastavu": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:11.792Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:40:10.196Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b937bed248dd368de95"
+  },
+  "naziv": "Grupa za sigurnost",
+  "tip": "grupa",
+  "nadredjenaJedinica": {
+    "$oid": "69cf6b937bed248dd368de92"
+  },
+  "rukovodilac": null,
+  "zakonskiOsnov": [],
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "nivoJedinice": "unutrasnja",
+  "aktivna": true,
+  "redoslijed": 2,
+  "uSastavu": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:11.792Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:40:10.206Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cfa0ebbc34cf2113998358"
+  },
+  "naziv": "Služba za opće poslove",
+  "tip": "sluzba",
+  "nadredjenaJedinica": {
+    "$oid": "69cf6b937bed248dd368de80"
+  },
+  "rukovodilac": null,
+  "opis": "Služba za opće poslove",
+  "zakonskiOsnov": [],
+  "organ": null,
+  "nivoJedinice": "osnovna",
+  "aktivna": true,
+  "redoslijed": 1,
+  "uSastavu": false,
+  "createdAt": {
+    "$date": "2026-04-03T11:13:47.698Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T12:23:44.104Z"
+  },
+  "__v": 0
+}]

@@ -1,0 +1,4549 @@
+[{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568b0"
+  },
+  "naziv": "Federalni ministar energije, rudarstva i industrije",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de53"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "izabrani_duznosnik",
+  "pozicijaKljuc": "ministar",
+  "platniRazred": "I",
+  "koeficijent": 9,
+  "opsisPoslova": "Rukovodi Ministarstvom, odgovoran Vladi Federacije BiH.",
+  "posebniUvjeti": [],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.536Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.456Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568b1"
+  },
+  "naziv": "Sekretar Ministarstva",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de53"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "rukovodeci_drzavni_sluzbenik",
+  "pozicijaKljuc": "sekretar_organa",
+  "platniRazred": "II",
+  "koeficijent": 6.2,
+  "opsisPoslova": "Koordinira radom sektora i organizacionih jedinica Ministarstva.",
+  "posebniUvjeti": [
+    "VSS - VII stepen ili Bologna, pravna ili ekonomska struka",
+    "Min. 5 godina radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.538Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.460Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568b2"
+  },
+  "naziv": "Savjetnik ministra za energiju",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de53"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "izabrani_duznosnik",
+  "pozicijaKljuc": "savjetnik_ministra",
+  "platniRazred": "XI",
+  "koeficijent": 6.4,
+  "opsisPoslova": "Pruža stručnu podršku ministru u oblasti energetike.",
+  "posebniUvjeti": [
+    "VSS - VII stepen ili Bologna, tehnički fakultet",
+    "Min. 3 godine radnog staža"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.538Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.463Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568b3"
+  },
+  "naziv": "Savjetnik ministra za rudarstvo",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de53"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "izabrani_duznosnik",
+  "pozicijaKljuc": "savjetnik_ministra",
+  "platniRazred": "XI",
+  "koeficijent": 6.4,
+  "opsisPoslova": "Pruža stručnu podršku ministru u oblasti rudarstva.",
+  "posebniUvjeti": [
+    "VSS - VII stepen ili Bologna, rudarsko-geološki ili tehnički fakultet",
+    "Min. 3 godine radnog staža"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.538Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.465Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568b4"
+  },
+  "naziv": "Savjetnik ministra za industriju",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de53"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "izabrani_duznosnik",
+  "pozicijaKljuc": "savjetnik_ministra",
+  "platniRazred": "XI",
+  "koeficijent": 6.4,
+  "opsisPoslova": "Pruža stručnu podršku ministru u oblasti industrije.",
+  "posebniUvjeti": [
+    "VSS - VII stepen ili Bologna, tehnički ili ekonomski fakultet",
+    "Min. 3 godine radnog staža"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.538Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.468Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568b5"
+  },
+  "naziv": "Stručni savjetnik — interni revizor",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de53"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_savjetnik",
+  "platniRazred": "IX",
+  "koeficijent": 4.1,
+  "opsisPoslova": "Vrši poslove interne revizije prema međunarodnim standardima.",
+  "posebniUvjeti": [
+    "VSS - VII stepen ili Bologna, ekonomski ili pravni fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen ispit za internog revizora"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.539Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.469Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568b9"
+  },
+  "naziv": "Šef Kabineta",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de57"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "rukovodilac_osnovne_jedinice",
+  "platniRazred": "VI",
+  "koeficijent": 4.6,
+  "opsisPoslova": "Rukovodi Kabinetom, organizuje protokolarne i administrativne poslove ministra, priprema sjednice Stručnog kolegija.",
+  "posebniUvjeti": [
+    "VSS - pravna/upravna struka ili filozofski fakultet - engleski jezik",
+    "Min. 5 godina radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.548Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.472Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568ba"
+  },
+  "naziv": "Stručni savjetnik za razvoj informacionog sistema",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de57"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_savjetnik",
+  "platniRazred": "IX",
+  "koeficijent": 4.1,
+  "opsisPoslova": "Vrši izradu informacionih programa, poslove analize, projektovanja i implementacije informacionog sistema Ministarstva.",
+  "posebniUvjeti": [
+    "VSS - fakultet informacijskih tehnologija, elektrotehnički ili mašinski",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.548Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.474Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568bb"
+  },
+  "naziv": "Stručni saradnik za komunikaciju",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de57"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_saradnik",
+  "platniRazred": "XI",
+  "koeficijent": 3.7,
+  "opsisPoslova": "Prikuplja i obrađuje podatke u vezi odnosa s javnošću, priprema materijale za Web stranicu, planira kontakte s javnošću.",
+  "posebniUvjeti": [
+    "VSS - pravna/upravna struka, filozofski/politički fakultet - odnosi s javnošću ili žurnalistika",
+    "Min. 1 godina radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.548Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.476Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568bc"
+  },
+  "naziv": "Stručni saradnik - prevodilac",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de57"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_saradnik",
+  "platniRazred": "XI",
+  "koeficijent": 3.7,
+  "opsisPoslova": "Vrši prijevod tekstova sa službenih jezika na engleski i obratno, vrši simultano prevođenje.",
+  "posebniUvjeti": [
+    "VSS - filozofski fakultet ili fakultet humanističkih nauka - engleski jezik",
+    "Min. 1 godina radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.548Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.477Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568bd"
+  },
+  "naziv": "Viši referent - tehnički sekretar",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de57"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "namjestenik",
+  "pozicijaKljuc": "visi_referent",
+  "platniRazred": "V",
+  "koeficijent": 2.7,
+  "opsisPoslova": "Vrši administrativno-tehničke poslove u vezi prijema i distribucije prepiske, rukuje telefaks aparatom i uređajem za kopiranje.",
+  "posebniUvjeti": [
+    "SSS - ekonomska, upravna, mašinska ili gimnazija",
+    "Min. 10 mjeseci radnog staža",
+    "Položen stručni ispit",
+    "Poznavanje rada na računaru"
+  ],
+  "brojIzvrsilaca": 2,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.548Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.480Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568be"
+  },
+  "naziv": "Viši referent za tehničku dokumentaciju",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de57"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "namjestenik",
+  "pozicijaKljuc": "visi_referent",
+  "platniRazred": "V",
+  "koeficijent": 2.7,
+  "opsisPoslova": "Vrši prikupljanje, sređivanje i tehničku obradu materijala, vodi evidenciju o dokumentaciji i ažurira bazu podataka.",
+  "posebniUvjeti": [
+    "SSS - birotehnička, gimnazija, ekonomska, mašinsko-tehnička ili upravna",
+    "Min. 10 mjeseci radnog staža",
+    "Položen stručni ispit",
+    "Poznavanje rada na računaru"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.548Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.481Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568bf"
+  },
+  "naziv": "Vozač",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de57"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "namjestenik",
+  "pozicijaKljuc": "pomocni_radnik",
+  "platniRazred": "VII",
+  "koeficijent": 1.85,
+  "opsisPoslova": "Upravlja putničkim vozilom prema službenom nalogu, stara se o redovnom održavanju i tehničkoj ispravnosti vozila.",
+  "posebniUvjeti": [
+    "SSS - saobraćajna ili tehnička škola",
+    "VKV vozač motornih vozila \"B\" kategorije",
+    "Min. 10 mjeseci radnog staža"
+  ],
+  "brojIzvrsilaca": 2,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.548Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.484Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568c4"
+  },
+  "naziv": "Pomoćnik ministra — Sektor energije",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de5b"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "rukovodeci_drzavni_sluzbenik",
+  "pozicijaKljuc": "pomocnik_rukovodioca",
+  "platniRazred": "III",
+  "koeficijent": 5.7,
+  "opsisPoslova": "Rukovodi Sektorom energije, odgovoran za praćenje i provođenje zakona u oblasti energije.",
+  "posebniUvjeti": [
+    "VSS - tehnički ili pravni fakultet",
+    "Min. 5 godina radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.556Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.491Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568c5"
+  },
+  "naziv": "Šef odsjeka za elektroenergetiku",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de5f"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "sef_unutrasnje_jedinice",
+  "platniRazred": "VII",
+  "koeficijent": 4.5,
+  "opsisPoslova": "Rukovodi odsjekom, koordinira kreiranje elektroenergetske politike i nadzire realizaciju bilansa elektroenergetskih potreba.",
+  "posebniUvjeti": [
+    "VSS - elektrotehnički fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.556Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.494Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568c6"
+  },
+  "naziv": "Stručni savjetnik za elektroenergetiku",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de5f"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_savjetnik",
+  "platniRazred": "IX",
+  "koeficijent": 4.1,
+  "opsisPoslova": "Učestvuje u izradi zakona i pratećih akata, kreiranje elektroenergetske politike i razvoj alternativnih izvora energije.",
+  "posebniUvjeti": [
+    "VSS - elektrotehnički fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.556Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.496Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568c7"
+  },
+  "naziv": "Stručni savjetnik za pravne poslove - elektroenergetika",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de5f"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_savjetnik",
+  "platniRazred": "IX",
+  "koeficijent": 4.1,
+  "opsisPoslova": "Izrađuje prednacrte i nacrte zakona, vodi upravni postupak i rješava u upravnim stvarima u oblasti elektroenergetike.",
+  "posebniUvjeti": [
+    "VSS - pravni fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.556Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.497Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568c8"
+  },
+  "naziv": "Viši stručni saradnik za elektroenergetiku",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de5f"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "visi_strucni_saradnik",
+  "platniRazred": "X",
+  "koeficijent": 3.9,
+  "opsisPoslova": "Prati sveukupno poslovanje privrednih subjekata u oblasti elektroenergetike i obrađuje prikupljene podatke.",
+  "posebniUvjeti": [
+    "VSS - elektrotehnički fakultet",
+    "Min. 2 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.557Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.500Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568c9"
+  },
+  "naziv": "Stručni saradnik za elektroenergetiku",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de5f"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_saradnik",
+  "platniRazred": "XI",
+  "koeficijent": 3.7,
+  "opsisPoslova": "Vrši stručnu obradu sistemskih rješenja od značaja za oblast elektroenergetike i izrađuje analitičke materijale.",
+  "posebniUvjeti": [
+    "VSS - elektrotehnički fakultet",
+    "Min. 1 godina radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.557Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.502Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568ca"
+  },
+  "naziv": "Šef odsjeka za tečne energente, plin i termoenergetiku",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de60"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "sef_unutrasnje_jedinice",
+  "platniRazred": "VII",
+  "koeficijent": 4.5,
+  "opsisPoslova": "Rukovodi odsjekom, koordinira definisanje potreba i osiguranje naftnih derivata i prirodnog plina.",
+  "posebniUvjeti": [
+    "VSS - mašinski, hemijsko-tehnološki ili tehnički fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.557Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.506Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568cb"
+  },
+  "naziv": "Stručni savjetnik za tečne energente, plin i termoenergetiku",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de60"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_savjetnik",
+  "platniRazred": "IX",
+  "koeficijent": 4.1,
+  "opsisPoslova": "Prati sveukupno poslovanje privrednih društava, kreiranje energetske politike u oblasti tečnih energenata i plina.",
+  "posebniUvjeti": [
+    "VSS - mašinski ili hemijsko-tehnološki fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.557Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.507Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568cc"
+  },
+  "naziv": "Viši stručni saradnik za tečne energente, plin i termoenergetiku",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de60"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "visi_strucni_saradnik",
+  "platniRazred": "X",
+  "koeficijent": 3.9,
+  "opsisPoslova": "Izrađuje materijale za informiranje nadležnih organa o stanju u oblasti tečnih energenata.",
+  "posebniUvjeti": [
+    "VSS - mašinski ili hemijsko-tehnološki fakultet",
+    "Min. 2 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.557Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.508Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568cd"
+  },
+  "naziv": "Stručni saradnik za tečne energente, plin i termoenergetiku",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de60"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_saradnik",
+  "platniRazred": "XI",
+  "koeficijent": 3.7,
+  "opsisPoslova": "Vrši stručnu obradu sistemskih rješenja u oblasti tečnih energenata, plina i termoenergetike.",
+  "posebniUvjeti": [
+    "VSS - mašinski ili hemijsko-tehnološki fakultet",
+    "Min. 1 godina radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.557Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.510Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568ce"
+  },
+  "naziv": "Viši referent za tehničku dokumentaciju - energija",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de60"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "namjestenik",
+  "pozicijaKljuc": "visi_referent",
+  "platniRazred": "V",
+  "koeficijent": 2.7,
+  "opsisPoslova": "Vrši prikupljanje, sređivanje i tehničku obradu materijala u oblasti tečnih energenata.",
+  "posebniUvjeti": [
+    "SSS - tehnička ili birotehnička škola",
+    "Min. 10 mjeseci radnog staža",
+    "Položen stručni ispit",
+    "Poznavanje rada na računaru"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.557Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.512Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568cf"
+  },
+  "naziv": "Šef odsjeka za razvoj",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de61"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "sef_unutrasnje_jedinice",
+  "platniRazred": "VII",
+  "koeficijent": 4.5,
+  "opsisPoslova": "Rukovodi odsjekom, koordinira monitoring tekućih energetskih projekata i pripremu osnovnih informacija za investitore.",
+  "posebniUvjeti": [
+    "VSS - tehnički fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.557Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.514Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568d0"
+  },
+  "naziv": "Stručni savjetnik za energetske objekte",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de61"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_savjetnik",
+  "platniRazred": "IX",
+  "koeficijent": 4.1,
+  "opsisPoslova": "Učestvuje u pripremi i izradi studija i projekata izgradnje i rekonstrukcije energetskih objekata.",
+  "posebniUvjeti": [
+    "VSS - tehnički fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.557Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.516Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568d1"
+  },
+  "naziv": "Viši stručni saradnik za energetski bilans i pokazatelje",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de61"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "visi_strucni_saradnik",
+  "platniRazred": "X",
+  "koeficijent": 3.9,
+  "opsisPoslova": "Priprema programe istraživanja u oblasti energije, učestvuje u izradi i praćenju energetskih bilansa.",
+  "posebniUvjeti": [
+    "VSS - tehnički ili ekonomski fakultet",
+    "Min. 2 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.557Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.519Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568d2"
+  },
+  "naziv": "Stručni saradnik za energetski bilans i pokazatelje",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de61"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_saradnik",
+  "platniRazred": "XI",
+  "koeficijent": 3.7,
+  "opsisPoslova": "Učestvuje u pripremi, izradi i praćenju redovnih i periodičnih energetskih bilansa.",
+  "posebniUvjeti": [
+    "VSS - tehnički ili ekonomski fakultet",
+    "Min. 1 godina radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.557Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.522Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568d3"
+  },
+  "naziv": "Viši referent za vođenje tehničke dokumentacije - razvoj",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de61"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "namjestenik",
+  "pozicijaKljuc": "visi_referent",
+  "platniRazred": "V",
+  "koeficijent": 2.7,
+  "opsisPoslova": "Vrši vođenje i ažuriranje tehničke dokumentacije za projekte u oblasti energetskog razvoja.",
+  "posebniUvjeti": [
+    "SSS - birotehnička ili tehnička škola",
+    "Min. 10 mjeseci radnog staža",
+    "Položen stručni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.557Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.523Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568d7"
+  },
+  "naziv": "Pomoćnik ministra — Sektor rudarstva",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de66"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "rukovodeci_drzavni_sluzbenik",
+  "pozicijaKljuc": "pomocnik_rukovodioca",
+  "platniRazred": "III",
+  "koeficijent": 5.7,
+  "opsisPoslova": "Rukovodi Sektorom rudarstva, odgovoran za izradu prednacrta zakona i provođenje politike u oblasti rudarstva i geologije.",
+  "posebniUvjeti": [
+    "VSS - rudarsko-geološki ili tehnički fakultet",
+    "Min. 5 godina radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.562Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.525Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568d8"
+  },
+  "naziv": "Šef odsjeka za rudarstvo",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de6a"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "sef_unutrasnje_jedinice",
+  "platniRazred": "VII",
+  "koeficijent": 4.5,
+  "opsisPoslova": "Rukovodi odsjekom, koordinira poslove u oblasti podzemne i površinske eksploatacije mineralnih sirovina.",
+  "posebniUvjeti": [
+    "VSS - rudarski fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.562Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.529Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568d9"
+  },
+  "naziv": "Stručni savjetnik za podzemnu i površinsku eksploataciju ugljena",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de6a"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_savjetnik",
+  "platniRazred": "IX",
+  "koeficijent": 4.1,
+  "opsisPoslova": "Prati razvoj i modernizaciju rudnika uglja, koordinira aktivnosti u oblasti prestrukturiranja.",
+  "posebniUvjeti": [
+    "VSS - rudarski fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.562Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.530Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568da"
+  },
+  "naziv": "Stručni savjetnik za metalične mineralne sirovine",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de6a"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_savjetnik",
+  "platniRazred": "IX",
+  "koeficijent": 4.1,
+  "opsisPoslova": "Prati stanje i razvoj eksploatacije metaličnih mineralnih sirovina.",
+  "posebniUvjeti": [
+    "VSS - rudarski ili geološki fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.562Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.532Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568db"
+  },
+  "naziv": "Stručni savjetnik za prestrukturiranje rudnika uglja",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de6a"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_savjetnik",
+  "platniRazred": "IX",
+  "koeficijent": 4.1,
+  "opsisPoslova": "Koordinira realizaciju Akcionog plana prestrukturiranja i modernizacije rudnika ugljena.",
+  "posebniUvjeti": [
+    "VSS - rudarski ili ekonomski fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.562Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.534Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568dc"
+  },
+  "naziv": "Stručni savjetnik za pravne poslove - rudarstvo",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de6a"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_savjetnik",
+  "platniRazred": "IX",
+  "koeficijent": 4.1,
+  "opsisPoslova": "Daje stručna mišljenja, izrađuje prijedloge zakona i propisa u oblasti rudarstva.",
+  "posebniUvjeti": [
+    "VSS - pravni fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.562Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.536Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568dd"
+  },
+  "naziv": "Viši samostalni referent za administrativne poslove - rudarstvo",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de6a"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "namjestenik",
+  "pozicijaKljuc": "visi_samostalni_referent",
+  "platniRazred": "II",
+  "koeficijent": 3.1,
+  "opsisPoslova": "Vrši informaciono-dokumentacione i administrativne poslove u Sektoru rudarstva.",
+  "posebniUvjeti": [
+    "VŠS - ekonomska ili upravna struka",
+    "Min. 1 godina radnog staža",
+    "Položen stručni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.562Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.537Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568de"
+  },
+  "naziv": "Šef odsjeka za geologiju",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de6b"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "sef_unutrasnje_jedinice",
+  "platniRazred": "VII",
+  "koeficijent": 4.5,
+  "opsisPoslova": "Rukovodi odsjekom, koordinira poslove u oblasti geoloških istraživanja.",
+  "posebniUvjeti": [
+    "VSS - geološki ili rudarski fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.562Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.541Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568df"
+  },
+  "naziv": "Stručni savjetnik za osnovna geološka istraživanja",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de6b"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_savjetnik",
+  "platniRazred": "IX",
+  "koeficijent": 4.1,
+  "opsisPoslova": "Prati i koordinira poslove osnove geološke istraživanja mineralnih sirovina.",
+  "posebniUvjeti": [
+    "VSS - geološki fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.562Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.543Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568e0"
+  },
+  "naziv": "Stručni savjetnik za detaljna geološka istraživanja",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de6b"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_savjetnik",
+  "platniRazred": "IX",
+  "koeficijent": 4.1,
+  "opsisPoslova": "Prati i koordinira poslove detaljnih geoloških istraživanja.",
+  "posebniUvjeti": [
+    "VSS - geološki ili rudarski fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.562Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.544Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568e1"
+  },
+  "naziv": "Viši stručni saradnik za katastar istražnih prostora i eksploatacionih polja",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de6b"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "visi_strucni_saradnik",
+  "platniRazred": "X",
+  "koeficijent": 3.9,
+  "opsisPoslova": "Vrši vođenje i ažuriranje katastra istražnih prostora i eksploatacionih polja mineralnih sirovina.",
+  "posebniUvjeti": [
+    "VSS - geološki ili rudarski fakultet",
+    "Min. 2 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.562Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:23.420Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568e2"
+  },
+  "naziv": "Stručni saradnik za izradu bilansa rezervi mineralnih sirovina",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de6b"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_saradnik",
+  "platniRazred": "XI",
+  "koeficijent": 3.7,
+  "opsisPoslova": "Učestvuje u izradi bilansa rezervi mineralnih sirovina i praćenju geološke dokumentacije.",
+  "posebniUvjeti": [
+    "VSS - geološki ili rudarski fakultet",
+    "Min. 1 godina radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.562Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.546Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568e5"
+  },
+  "naziv": "Pomoćnik ministra — Sektor industrije",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de6e"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "rukovodeci_drzavni_sluzbenik",
+  "pozicijaKljuc": "pomocnik_rukovodioca",
+  "platniRazred": "III",
+  "koeficijent": 5.7,
+  "opsisPoslova": "Rukovodi Sektorom industrije, odgovoran za praćenje privređivanja i koordinaciju industrijskog razvoja.",
+  "posebniUvjeti": [
+    "VSS - tehnički ili ekonomski fakultet",
+    "Min. 5 godina radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.567Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.550Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568e6"
+  },
+  "naziv": "Šef odsjeka za metalnu i elektro industriju",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de71"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "sef_unutrasnje_jedinice",
+  "platniRazred": "VII",
+  "koeficijent": 4.5,
+  "opsisPoslova": "Rukovodi odsjekom, koordinira praćenje i analizu stanja u metalnoj, elektro industriji i industrijama prerade drveta.",
+  "posebniUvjeti": [
+    "VSS - mašinski, elektrotehnički ili tehnološki fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.567Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.556Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568e7"
+  },
+  "naziv": "Stručni savjetnik za metalnu industriju",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de71"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_savjetnik",
+  "platniRazred": "IX",
+  "koeficijent": 4.1,
+  "opsisPoslova": "Prati i analizira stanje u metalnoj industriji, priprema prijedloge mjera za unapređenje.",
+  "posebniUvjeti": [
+    "VSS - mašinski ili metalurški fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 2,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.567Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.562Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568e8"
+  },
+  "naziv": "Stručni savjetnik za industriju građevinskog materijala i nemetale",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de71"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_savjetnik",
+  "platniRazred": "IX",
+  "koeficijent": 4.1,
+  "opsisPoslova": "Prati industriju građevinskog materijala i nemetala.",
+  "posebniUvjeti": [
+    "VSS - građevinski ili tehnološki fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.567Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.565Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568e9"
+  },
+  "naziv": "Stručni savjetnik za industriju prerade drveta i grafičku djelatnost",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de71"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_savjetnik",
+  "platniRazred": "IX",
+  "koeficijent": 4.1,
+  "opsisPoslova": "Prati i analizira stanje u industriji prerade drveta i grafičkoj djelatnosti.",
+  "posebniUvjeti": [
+    "VSS - šumarski ili tehnološki fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.567Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.568Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568ea"
+  },
+  "naziv": "Stručni savjetnik za elektroindustriju",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de71"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_savjetnik",
+  "platniRazred": "IX",
+  "koeficijent": 4.1,
+  "opsisPoslova": "Prati i analizira stanje u elektroindustriji.",
+  "posebniUvjeti": [
+    "VSS - elektrotehnički fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.567Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.570Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568eb"
+  },
+  "naziv": "Šef odsjeka za tekstilnu, kožarsku, obućarsku, hemijsku i farmaceutsku industriju",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de72"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "sef_unutrasnje_jedinice",
+  "platniRazred": "VII",
+  "koeficijent": 4.5,
+  "opsisPoslova": "Rukovodi odsjekom, koordinira praćenje i analizu tekstilne, kožarske, hemijske i farmaceutske industrije.",
+  "posebniUvjeti": [
+    "VSS - tehnološki ili hemijsko-tehnološki fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.567Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.577Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568ec"
+  },
+  "naziv": "Stručni savjetnik za tekstilnu, kožarsku i obućarsku industriju",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de72"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_savjetnik",
+  "platniRazred": "IX",
+  "koeficijent": 4.1,
+  "opsisPoslova": "Prati i analizira stanje u tekstilnoj, kožarskoj i obućarskoj industriji.",
+  "posebniUvjeti": [
+    "VSS - tehnološki ili tehnički fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 2,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.567Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.580Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568ed"
+  },
+  "naziv": "Stručni savjetnik za farmaceutsku industriju",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de72"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_savjetnik",
+  "platniRazred": "IX",
+  "koeficijent": 4.1,
+  "opsisPoslova": "Prati i analizira stanje u farmaceutskoj industriji.",
+  "posebniUvjeti": [
+    "VSS - farmaceutski ili hemijsko-tehnološki fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.568Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.582Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568ee"
+  },
+  "naziv": "Viši stručni saradnik za hemijsku industriju",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de72"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "visi_strucni_saradnik",
+  "platniRazred": "X",
+  "koeficijent": 3.9,
+  "opsisPoslova": "Prati i analizira stanje u hemijskoj industriji.",
+  "posebniUvjeti": [
+    "VSS - hemijsko-tehnološki fakultet",
+    "Min. 2 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.568Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.585Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568ef"
+  },
+  "naziv": "Šef odsjeka za analizu i praćenje stanja u privredi",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de73"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "sef_unutrasnje_jedinice",
+  "platniRazred": "VII",
+  "koeficijent": 4.5,
+  "opsisPoslova": "Rukovodi odsjekom, koordinira analizu i praćenje stanja u privredi.",
+  "posebniUvjeti": [
+    "VSS - ekonomski ili tehnički fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.568Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.591Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568f0"
+  },
+  "naziv": "Stručni savjetnik za analizu i praćenje stanja u privredi",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de73"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_savjetnik",
+  "platniRazred": "IX",
+  "koeficijent": 4.1,
+  "opsisPoslova": "Vrši analizu i praćenje stanja u privredi, priprema izvještaje i informacije.",
+  "posebniUvjeti": [
+    "VSS - ekonomski fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.568Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.594Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568f1"
+  },
+  "naziv": "Stručni savjetnik za pravne poslove - industrija",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de73"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_savjetnik",
+  "platniRazred": "IX",
+  "koeficijent": 4.1,
+  "opsisPoslova": "Priprema pravna mišljenja i propise u oblasti industrijskog razvoja.",
+  "posebniUvjeti": [
+    "VSS - pravni fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.568Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.597Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568f2"
+  },
+  "naziv": "Viši referent za tehničku dokumentaciju - industrija",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de73"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "namjestenik",
+  "pozicijaKljuc": "visi_referent",
+  "platniRazred": "V",
+  "koeficijent": 2.7,
+  "opsisPoslova": "Vrši tehničku obradu i vodi dokumentaciju sektora industrije.",
+  "posebniUvjeti": [
+    "SSS - birotehnička ili ekonomska škola",
+    "Min. 10 mjeseci radnog staža",
+    "Položen stručni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.568Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.599Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568f3"
+  },
+  "naziv": "Šef odsjeka za razvoj i unapređenje privrede",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de74"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "sef_unutrasnje_jedinice",
+  "platniRazred": "VII",
+  "koeficijent": 4.5,
+  "opsisPoslova": "Rukovodi odsjekom, koordinira pripremu i praćenje projekata razvoja privrede.",
+  "posebniUvjeti": [
+    "VSS - ekonomski ili tehnički fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.568Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.605Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568f4"
+  },
+  "naziv": "Stručni savjetnik za razvoj privrede",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de74"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_savjetnik",
+  "platniRazred": "IX",
+  "koeficijent": 4.1,
+  "opsisPoslova": "Priprema projekte i prijedloge mjera za razvoj i unapređenje privrednih subjekata.",
+  "posebniUvjeti": [
+    "VSS - ekonomski fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.568Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.607Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568f5"
+  },
+  "naziv": "Viši stručni saradnik za razvoj privrede",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de74"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "visi_strucni_saradnik",
+  "platniRazred": "X",
+  "koeficijent": 3.9,
+  "opsisPoslova": "Učestvuje u pripremi analiza i izvještaja o razvoju privrednih subjekata.",
+  "posebniUvjeti": [
+    "VSS - ekonomski fakultet",
+    "Min. 2 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.568Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.609Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568f6"
+  },
+  "naziv": "Stručni saradnik za unapređenje privrede",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de74"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_saradnik",
+  "platniRazred": "XI",
+  "koeficijent": 3.7,
+  "opsisPoslova": "Prikuplja i obrađuje podatke o privrednim subjektima, učestvuje u pripremi programa unapređenja.",
+  "posebniUvjeti": [
+    "VSS - ekonomski ili tehnički fakultet",
+    "Min. 1 godina radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.568Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.612Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568fa"
+  },
+  "naziv": "Pomoćnik ministra — Sektor za pravne, finansijske i opće poslove",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de77"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "rukovodeci_drzavni_sluzbenik",
+  "pozicijaKljuc": "pomocnik_rukovodioca",
+  "platniRazred": "III",
+  "koeficijent": 5.7,
+  "opsisPoslova": "Rukovodi sektorom, odgovoran za normativno-pravne, finansijske i opće poslove Ministarstva.",
+  "posebniUvjeti": [
+    "VSS - pravni ili ekonomski fakultet",
+    "Min. 5 godina radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.576Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.615Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568fb"
+  },
+  "naziv": "Šef odsjeka za pravne poslove i radne odnose",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de7a"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "sef_unutrasnje_jedinice",
+  "platniRazred": "VII",
+  "koeficijent": 4.5,
+  "opsisPoslova": "Rukovodi odsjekom, koordinira normativno-pravne poslove i radne odnose.",
+  "posebniUvjeti": [
+    "VSS - pravni fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.576Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.618Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568fc"
+  },
+  "naziv": "Stručni savjetnik za pravne poslove",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de7a"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_savjetnik",
+  "platniRazred": "IX",
+  "koeficijent": 4.1,
+  "opsisPoslova": "Izrađuje prednacrte i nacrte propisa, daje pravna mišljenja i rješava u upravnim stvarima.",
+  "posebniUvjeti": [
+    "VSS - pravni fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 2,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.576Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.620Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568fd"
+  },
+  "naziv": "Stručni savjetnik za normativno-pravne poslove",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de7a"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_savjetnik",
+  "platniRazred": "IX",
+  "koeficijent": 4.1,
+  "opsisPoslova": "Vrši normativno-pravnu obradu propisa, priprema nacrte zakona i podzakonskih akata.",
+  "posebniUvjeti": [
+    "VSS - pravni fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 2,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.576Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.622Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568fe"
+  },
+  "naziv": "Stručni savjetnik za radne odnose",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de7a"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_savjetnik",
+  "platniRazred": "IX",
+  "koeficijent": 4.1,
+  "opsisPoslova": "Vrši poslove u oblasti radnih odnosa, rješava zahtjeve i žalbe državnih službenika i namještenika.",
+  "posebniUvjeti": [
+    "VSS - pravni fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 2,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.576Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.625Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c306840568ff"
+  },
+  "naziv": "Stručni saradnik - lektor",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de7a"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_saradnik",
+  "platniRazred": "XI",
+  "koeficijent": 3.7,
+  "opsisPoslova": "Vrši lekturu i korekturu svih akata i dokumenata Ministarstva.",
+  "posebniUvjeti": [
+    "VSS - filozofski fakultet - jezik i književnost",
+    "Min. 1 godina radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.576Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.628Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056900"
+  },
+  "naziv": "Viši samostalni referent za kadrovske i administrativne poslove",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de7a"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "namjestenik",
+  "pozicijaKljuc": "visi_samostalni_referent",
+  "platniRazred": "II",
+  "koeficijent": 3.1,
+  "opsisPoslova": "Vrši kadrovske i administrativne poslove, vodi evidenciju o zaposlenima.",
+  "posebniUvjeti": [
+    "VŠS - ekonomska ili upravna struka",
+    "Min. 1 godina radnog staža",
+    "Položen stručni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.576Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.630Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056901"
+  },
+  "naziv": "Šef odsjeka za finansijsko-računovodstvene poslove",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de7b"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "sef_unutrasnje_jedinice",
+  "platniRazred": "VII",
+  "koeficijent": 4.5,
+  "opsisPoslova": "Rukovodi odsjekom, koordinira finansijsko-računovodstvene poslove Ministarstva.",
+  "posebniUvjeti": [
+    "VSS - ekonomski fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.576Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.637Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056902"
+  },
+  "naziv": "Stručni savjetnik za ekonomsko-finansijske poslove",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de7b"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_savjetnik",
+  "platniRazred": "IX",
+  "koeficijent": 4.1,
+  "opsisPoslova": "Vrši finansijsko-računovodstvene poslove, priprema finansijske izvještaje i analize.",
+  "posebniUvjeti": [
+    "VSS - ekonomski fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.576Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.638Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056903"
+  },
+  "naziv": "Viši stručni saradnik za ekonomsko-finansijske poslove",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de7b"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "visi_strucni_saradnik",
+  "platniRazred": "X",
+  "koeficijent": 3.9,
+  "opsisPoslova": "Vrši poslove u oblasti finansijskog planiranja i izvještavanja.",
+  "posebniUvjeti": [
+    "VSS - ekonomski fakultet",
+    "Min. 2 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 2,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.576Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.640Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056904"
+  },
+  "naziv": "Viši referent - blagajnik",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de7b"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "namjestenik",
+  "pozicijaKljuc": "visi_referent",
+  "platniRazred": "V",
+  "koeficijent": 2.7,
+  "opsisPoslova": "Vrši blagajničke poslove, evidenciju gotovinskih uplata i isplata.",
+  "posebniUvjeti": [
+    "SSS - ekonomska škola",
+    "Min. 10 mjeseci radnog staža",
+    "Položen stručni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.576Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.641Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056905"
+  },
+  "naziv": "Šef odsjeka za opće poslove",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de7c"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "sef_unutrasnje_jedinice",
+  "platniRazred": "VII",
+  "koeficijent": 4.5,
+  "opsisPoslova": "Rukovodi odsjekom, koordinira opće i logističke poslove Ministarstva.",
+  "posebniUvjeti": [
+    "VSS - pravni ili ekonomski fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.576Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.643Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056906"
+  },
+  "naziv": "Samostalni referent za opće poslove",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de7c"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "namjestenik",
+  "pozicijaKljuc": "samostalni_referent",
+  "platniRazred": "III",
+  "koeficijent": 3,
+  "opsisPoslova": "Vrši opće administrativne i logističke poslove za potrebe Ministarstva.",
+  "posebniUvjeti": [
+    "VŠS - ekonomska ili upravna struka",
+    "Min. 1 godina radnog staža",
+    "Položen stručni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.576Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.646Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056907"
+  },
+  "naziv": "Kafe kuharica",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de7c"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "namjestenik",
+  "pozicijaKljuc": "pomocni_radnik",
+  "platniRazred": "VII",
+  "koeficijent": 1.85,
+  "opsisPoslova": "Priprema napitke za potrebe Ministarstva.",
+  "posebniUvjeti": [
+    "SSS",
+    "Min. 10 mjeseci radnog staža"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.576Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.648Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056908"
+  },
+  "naziv": "Spremačica",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de7c"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "namjestenik",
+  "pozicijaKljuc": "pomocni_radnik",
+  "platniRazred": "VII",
+  "koeficijent": 1.85,
+  "opsisPoslova": "Vrši poslove čišćenja i održavanja prostorija Ministarstva.",
+  "posebniUvjeti": [
+    "SSS ili NK",
+    "Min. 10 mjeseci radnog staža"
+  ],
+  "brojIzvrsilaca": 2,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.576Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.650Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056909"
+  },
+  "naziv": "Šef pisarnice",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de7d"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "namjestenik",
+  "pozicijaKljuc": "sef_unutrasnje_jedinice_sss",
+  "platniRazred": "IV",
+  "koeficijent": 2.8,
+  "opsisPoslova": "Rukovodi pisarnicom, organizuje prijem, evidentiranje i distribuciju pošte.",
+  "posebniUvjeti": [
+    "SSS - birotehnička, upravna ili ekonomska škola",
+    "Min. 10 mjeseci radnog staža",
+    "Položen stručni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.576Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.652Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c3068405690a"
+  },
+  "naziv": "Viši referent za kancelarijsko poslovanje",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de7d"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "namjestenik",
+  "pozicijaKljuc": "visi_referent",
+  "platniRazred": "V",
+  "koeficijent": 2.7,
+  "opsisPoslova": "Vrši prijem, evidentiranje, raspoređivanje i ekspediciju pošte i prati kretanje akata.",
+  "posebniUvjeti": [
+    "SSS - birotehnička ili upravna škola",
+    "Min. 10 mjeseci radnog staža",
+    "Položen stručni ispit"
+  ],
+  "brojIzvrsilaca": 2,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.576Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.653Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c3068405690b"
+  },
+  "naziv": "Viši referent za arhivske poslove",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de7d"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "namjestenik",
+  "pozicijaKljuc": "visi_referent",
+  "platniRazred": "V",
+  "koeficijent": 2.7,
+  "opsisPoslova": "Vrši arhiviranje dokumenata i evidenciju arhivske građe Ministarstva.",
+  "posebniUvjeti": [
+    "SSS - birotehnička ili upravna škola",
+    "Min. 10 mjeseci radnog staža",
+    "Položen stručni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.576Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.654Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c3068405690e"
+  },
+  "naziv": "Direktor Zavoda za mjeriteljstvo",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de80"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "rukovodeci_drzavni_sluzbenik",
+  "pozicijaKljuc": "rukovodilac_samostalne_uprave",
+  "platniRazred": "II",
+  "koeficijent": 6.2,
+  "opsisPoslova": "Rukovodi Zavodom, odgovoran za sve poslove iz nadležnosti mjeriteljstva.",
+  "posebniUvjeti": [
+    "VSS - tehnički, pravni ili ekonomski fakultet",
+    "Min. 5 godina radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.580Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:21:42.582Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056910"
+  },
+  "naziv": "Načelnik Centra - Mostar",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de82"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "rukovodilac_osnovne_jedinice",
+  "platniRazred": "VI",
+  "koeficijent": 4.6,
+  "opsisPoslova": "Rukovodi Centrom, koordinira poslove verifikacije i nadzora mjerila u regiji Mostar.",
+  "posebniUvjeti": [
+    "VSS - tehnički fakultet - mjeriteljstvo ili fizika",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.582Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:21:42.608Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056911"
+  },
+  "naziv": "Stručni savjetnik za mjeriteljstvo - Mostar",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de82"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_savjetnik",
+  "platniRazred": "IX",
+  "koeficijent": 4.1,
+  "opsisPoslova": "Vrši stručne poslove verifikacije mjerila, izdaje rješenja i provodi upravni postupak.",
+  "posebniUvjeti": [
+    "VSS - tehnički fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.582Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:21:42.610Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056912"
+  },
+  "naziv": "Stručni savjetnik za plemenite metale - Mostar",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de82"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_savjetnik",
+  "platniRazred": "IX",
+  "koeficijent": 4.1,
+  "opsisPoslova": "Vrši žigosanje i kontrolu plemenitih metala.",
+  "posebniUvjeti": [
+    "VSS - tehnički ili hemijski fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.582Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:21:42.612Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056913"
+  },
+  "naziv": "Viši stručni saradnik za mjeriteljstvo - Mostar",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de82"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "visi_strucni_saradnik",
+  "platniRazred": "X",
+  "koeficijent": 3.9,
+  "opsisPoslova": "Učestvuje u verifikaciji mjerila i izradi pratećih dokumenata.",
+  "posebniUvjeti": [
+    "VSS - tehnički fakultet",
+    "Min. 2 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.582Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:21:42.613Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056914"
+  },
+  "naziv": "Viši referent za mjeriteljstvo i plemenite metale - Mostar",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de82"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "namjestenik",
+  "pozicijaKljuc": "visi_referent",
+  "platniRazred": "V",
+  "koeficijent": 2.7,
+  "opsisPoslova": "Vrši administrativno-tehničke poslove u oblasti mjeriteljstva i plemenitih metala.",
+  "posebniUvjeti": [
+    "SSS - tehnička škola",
+    "Min. 10 mjeseci radnog staža",
+    "Položen stručni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.582Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:21:42.620Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056916"
+  },
+  "naziv": "Načelnik Centra - Sarajevo",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de83"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "rukovodilac_osnovne_jedinice",
+  "platniRazred": "VI",
+  "koeficijent": 4.6,
+  "opsisPoslova": "Rukovodi Centrom, koordinira poslove verifikacije i nadzora mjerila u regiji Sarajevo.",
+  "posebniUvjeti": [
+    "VSS - tehnički fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.584Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:21:42.623Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056917"
+  },
+  "naziv": "Stručni savjetnik za mjeriteljstvo - Sarajevo",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de83"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_savjetnik",
+  "platniRazred": "IX",
+  "koeficijent": 4.1,
+  "opsisPoslova": "Vrši stručne poslove verifikacije mjerila.",
+  "posebniUvjeti": [
+    "VSS - tehnički fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.584Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:21:42.624Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056918"
+  },
+  "naziv": "Stručni savjetnik za plemenite metale - Sarajevo",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de83"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_savjetnik",
+  "platniRazred": "IX",
+  "koeficijent": 4.1,
+  "opsisPoslova": "Vrši žigosanje i kontrolu plemenitih metala.",
+  "posebniUvjeti": [
+    "VSS - hemijski ili tehnički fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.584Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:21:42.626Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056919"
+  },
+  "naziv": "Viši stručni saradnik za mjeriteljstvo - Sarajevo",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de83"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "visi_strucni_saradnik",
+  "platniRazred": "X",
+  "koeficijent": 3.9,
+  "opsisPoslova": "Učestvuje u verifikaciji mjerila.",
+  "posebniUvjeti": [
+    "VSS - tehnički fakultet",
+    "Min. 2 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.584Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:21:42.628Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c3068405691a"
+  },
+  "naziv": "Viši stručni saradnik za plemenite metale - Sarajevo",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de83"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "visi_strucni_saradnik",
+  "platniRazred": "X",
+  "koeficijent": 3.9,
+  "opsisPoslova": "Učestvuje u kontroli plemenitih metala.",
+  "posebniUvjeti": [
+    "VSS - hemijski ili tehnički fakultet",
+    "Min. 2 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.584Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:21:42.629Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c3068405691b"
+  },
+  "naziv": "Stručni saradnik za mjeriteljstvo - Sarajevo",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de83"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_saradnik",
+  "platniRazred": "XI",
+  "koeficijent": 3.7,
+  "opsisPoslova": "Vrši poslove verifikacije mjerila.",
+  "posebniUvjeti": [
+    "VSS - tehnički fakultet",
+    "Min. 1 godina radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.584Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:21:42.632Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c3068405691c"
+  },
+  "naziv": "Stručni saradnik za plemenite metale - Sarajevo",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de83"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_saradnik",
+  "platniRazred": "XI",
+  "koeficijent": 3.7,
+  "opsisPoslova": "Vrši poslove kontrole plemenitih metala.",
+  "posebniUvjeti": [
+    "VSS - hemijski ili tehnički fakultet",
+    "Min. 1 godina radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.584Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:23.426Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c3068405691d"
+  },
+  "naziv": "Viši referent za mjeriteljstvo i plemenite metale - Sarajevo",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de83"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "namjestenik",
+  "pozicijaKljuc": "visi_referent",
+  "platniRazred": "V",
+  "koeficijent": 2.7,
+  "opsisPoslova": "Vrši administrativno-tehničke poslove u oblasti mjeriteljstva.",
+  "posebniUvjeti": [
+    "SSS - tehnička škola",
+    "Min. 10 mjeseci radnog staža",
+    "Položen stručni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.584Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:21:42.635Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c3068405691f"
+  },
+  "naziv": "Načelnik Centra - Tuzla",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de84"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "rukovodilac_osnovne_jedinice",
+  "platniRazred": "VI",
+  "koeficijent": 4.6,
+  "opsisPoslova": "Rukovodi Centrom, koordinira poslove verifikacije i nadzora mjerila u regiji Tuzla.",
+  "posebniUvjeti": [
+    "VSS - tehnički fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.589Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:21:42.638Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056920"
+  },
+  "naziv": "Stručni savjetnik za plemenite metale - Tuzla",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de84"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_savjetnik",
+  "platniRazred": "IX",
+  "koeficijent": 4.1,
+  "opsisPoslova": "Vrši žigosanje i kontrolu plemenitih metala u regiji Tuzla.",
+  "posebniUvjeti": [
+    "VSS - hemijski ili tehnički fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.589Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:21:42.641Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056921"
+  },
+  "naziv": "Viši stručni saradnik za mjeriteljstvo - Tuzla",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de84"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "visi_strucni_saradnik",
+  "platniRazred": "X",
+  "koeficijent": 3.9,
+  "opsisPoslova": "Učestvuje u verifikaciji mjerila u regiji Tuzla.",
+  "posebniUvjeti": [
+    "VSS - tehnički fakultet",
+    "Min. 2 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.589Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:21:42.643Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056922"
+  },
+  "naziv": "Stručni saradnik za mjeriteljstvo - Tuzla",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de84"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_saradnik",
+  "platniRazred": "XI",
+  "koeficijent": 3.7,
+  "opsisPoslova": "Vrši poslove verifikacije mjerila u regiji Tuzla.",
+  "posebniUvjeti": [
+    "VSS - tehnički fakultet",
+    "Min. 1 godina radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.589Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:21:42.645Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056923"
+  },
+  "naziv": "Viši referent za mjeriteljstvo i plemenite metale - Tuzla",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de84"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "namjestenik",
+  "pozicijaKljuc": "visi_referent",
+  "platniRazred": "V",
+  "koeficijent": 2.7,
+  "opsisPoslova": "Vrši administrativno-tehničke poslove u oblasti mjeriteljstva u Tuzli.",
+  "posebniUvjeti": [
+    "SSS - tehnička škola",
+    "Min. 10 mjeseci radnog staža",
+    "Položen stručni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.589Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:21:42.648Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056925"
+  },
+  "naziv": "Načelnik Službe za opće poslove - Zavod",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de80"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "rukovodilac_osnovne_jedinice",
+  "platniRazred": "VI",
+  "koeficijent": 4.6,
+  "opsisPoslova": "Rukovodi Službom za opće poslove, koordinira administrativne i finansijske poslove Zavoda.",
+  "posebniUvjeti": [
+    "VSS - pravni ili ekonomski fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.591Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:21:42.588Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056926"
+  },
+  "naziv": "Stručni savjetnik za pravne poslove - Zavod",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de80"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_savjetnik",
+  "platniRazred": "IX",
+  "koeficijent": 4.1,
+  "opsisPoslova": "Vrši pravne poslove Zavoda, priprema propise i rješenja.",
+  "posebniUvjeti": [
+    "VSS - pravni fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.591Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:21:42.591Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056927"
+  },
+  "naziv": "Viši stručni saradnik za ekonomske poslove - Zavod",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de80"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "visi_strucni_saradnik",
+  "platniRazred": "X",
+  "koeficijent": 3.9,
+  "opsisPoslova": "Vrši finansijsko-računovodstvene poslove Zavoda.",
+  "posebniUvjeti": [
+    "VSS - ekonomski fakultet",
+    "Min. 2 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.591Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:21:42.600Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056928"
+  },
+  "naziv": "Viši referent za opće poslove - Zavod",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de80"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "namjestenik",
+  "pozicijaKljuc": "visi_referent",
+  "platniRazred": "V",
+  "koeficijent": 2.7,
+  "opsisPoslova": "Vrši administrativno-tehničke i opće poslove Zavoda.",
+  "posebniUvjeti": [
+    "SSS - birotehnička ili ekonomska škola",
+    "Min. 10 mjeseci radnog staža",
+    "Položen stručni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.591Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:21:42.605Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c3068405692a"
+  },
+  "naziv": "Direktor Federalne direkcije za namjensku industriju",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de86"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "rukovodeci_drzavni_sluzbenik",
+  "pozicijaKljuc": "rukovodilac_samostalne_uprave",
+  "platniRazred": "II",
+  "koeficijent": 6.2,
+  "opsisPoslova": "Rukovodi Direkcijom, odgovoran za sve poslove iz nadležnosti namjenske industrije.",
+  "posebniUvjeti": [
+    "VSS - tehnički, pravni ili ekonomski fakultet",
+    "Min. 5 godina radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.593Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T09:29:49.680Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c3068405692c"
+  },
+  "naziv": "Pomoćnik direktora — Sektor za proizvodnju, remont i kontrolu kvaliteta",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de88"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "rukovodeci_drzavni_sluzbenik",
+  "pozicijaKljuc": "pomocnik_u_sastavu",
+  "platniRazred": "V",
+  "koeficijent": 4.85,
+  "opsisPoslova": "Rukovodi Sektorom, koordinira planiranje i nadzor proizvodnje i remonta NVO.",
+  "posebniUvjeti": [
+    "VSS - tehnički fakultet",
+    "Min. 5 godina radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.596Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:40:10.146Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c3068405692d"
+  },
+  "naziv": "Šef Grupe za proizvodnju i remont",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de8a"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "sef_unutrasnje_jedinice",
+  "platniRazred": "VII",
+  "koeficijent": 4.5,
+  "opsisPoslova": "Rukovodi Grupom, koordinira izradu planova razvoja, proizvodnje i remonta NVO.",
+  "posebniUvjeti": [
+    "VSS - mašinski ili tehnički fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.596Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:40:10.151Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c3068405692e"
+  },
+  "naziv": "Stručni savjetnik za planiranje proizvodnje NVO",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de8a"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_savjetnik",
+  "platniRazred": "IX",
+  "koeficijent": 4.1,
+  "opsisPoslova": "Vrši izradu dugoročnih i kratkoročnih planova proizvodnje NVO.",
+  "posebniUvjeti": [
+    "VSS - mašinski ili tehnički fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.596Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:40:10.153Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c3068405692f"
+  },
+  "naziv": "Stručni savjetnik za remont NVO",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de8a"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_savjetnik",
+  "platniRazred": "IX",
+  "koeficijent": 4.1,
+  "opsisPoslova": "Koordinira aktivnosti remonta NVO i tržišnih proizvoda.",
+  "posebniUvjeti": [
+    "VSS - mašinski ili tehnički fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.596Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:40:10.155Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056930"
+  },
+  "naziv": "Stručni saradnik za proizvodnju i remont",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de8a"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_saradnik",
+  "platniRazred": "XI",
+  "koeficijent": 3.7,
+  "opsisPoslova": "Učestvuje u praćenju realizacije planova proizvodnje i remonta NVO.",
+  "posebniUvjeti": [
+    "VSS - mašinski ili tehnički fakultet",
+    "Min. 1 godina radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.596Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:40:10.156Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056931"
+  },
+  "naziv": "Šef Grupe za razvoj i kontrolu kvaliteta proizvoda",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de8b"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "sef_unutrasnje_jedinice",
+  "platniRazred": "VII",
+  "koeficijent": 4.5,
+  "opsisPoslova": "Rukovodi Grupom, koordinira planiranje i nadzor razvoja i kontrole kvaliteta NVO.",
+  "posebniUvjeti": [
+    "VSS - mašinski ili tehnički fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.596Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:40:10.161Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056932"
+  },
+  "naziv": "Stručni savjetnik za razvoj i kvalitet NVO",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de8b"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_savjetnik",
+  "platniRazred": "IX",
+  "koeficijent": 4.1,
+  "opsisPoslova": "Koordinira razvoj i kontrolu kvaliteta NVO i tržišnih proizvoda.",
+  "posebniUvjeti": [
+    "VSS - mašinski ili tehnički fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.596Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:40:10.163Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056933"
+  },
+  "naziv": "Stručni saradnik za razvoj i kontrolu kvaliteta",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de8b"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_saradnik",
+  "platniRazred": "XI",
+  "koeficijent": 3.7,
+  "opsisPoslova": "Učestvuje u realizaciji planova razvoja i kvaliteta.",
+  "posebniUvjeti": [
+    "VSS - mašinski ili tehnički fakultet",
+    "Min. 1 godina radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.596Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:40:10.164Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056934"
+  },
+  "naziv": "Viši referent za administrativne poslove - FDNI",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de88"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "namjestenik",
+  "pozicijaKljuc": "visi_referent",
+  "platniRazred": "V",
+  "koeficijent": 2.7,
+  "opsisPoslova": "Vrši administrativno-tehničke poslove za Sektor za proizvodnju.",
+  "posebniUvjeti": [
+    "SSS - birotehnička ili ekonomska škola",
+    "Min. 10 mjeseci radnog staža",
+    "Položen stručni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.596Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T10:46:11.159Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056936"
+  },
+  "naziv": "Pomoćnik direktora — Sektor za pravne i ekonomske poslove",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de8d"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "rukovodeci_drzavni_sluzbenik",
+  "pozicijaKljuc": "pomocnik_u_sastavu",
+  "platniRazred": "V",
+  "koeficijent": 4.85,
+  "opsisPoslova": "Rukovodi Sektorom, koordinira pravne i ekonomske poslove Direkcije.",
+  "posebniUvjeti": [
+    "VSS - pravni ili ekonomski fakultet",
+    "Min. 5 godina radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.598Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T10:32:27.184Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056937"
+  },
+  "naziv": "Šef Grupe za pravne poslove",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de86"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "sef_unutrasnje_jedinice",
+  "platniRazred": "VII",
+  "koeficijent": 4.5,
+  "opsisPoslova": "Rukovodi Grupom, koordinira izradu pravnih analiza i propisa u oblasti namjenske industrije.",
+  "posebniUvjeti": [
+    "VSS - pravni fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.598Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T10:32:56.928Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056938"
+  },
+  "naziv": "Stručni savjetnik za pravne poslove - FDNI",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de8f"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_savjetnik",
+  "platniRazred": "IX",
+  "koeficijent": 4.1,
+  "opsisPoslova": "Vrši normativno-pravne poslove, izrađuje prijedloge zakona i propisa u oblasti namjenske industrije.",
+  "posebniUvjeti": [
+    "VSS - pravni fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.598Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:40:10.180Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056939"
+  },
+  "naziv": "Viši stručni saradnik za pravne poslove - FDNI",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de8f"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "visi_strucni_saradnik",
+  "platniRazred": "X",
+  "koeficijent": 3.9,
+  "opsisPoslova": "Vrši normativno-pravne poslove u oblasti namjenske industrije.",
+  "posebniUvjeti": [
+    "VSS - pravni fakultet",
+    "Min. 2 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.599Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:40:10.181Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c3068405693a"
+  },
+  "naziv": "Stručni saradnik za pravne poslove - FDNI",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de8f"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_saradnik",
+  "platniRazred": "XI",
+  "koeficijent": 3.7,
+  "opsisPoslova": "Učestvuje u pripremi pravnih akata i mišljenja.",
+  "posebniUvjeti": [
+    "VSS - pravni fakultet",
+    "Min. 1 godina radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.599Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:40:10.182Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c3068405693b"
+  },
+  "naziv": "Šef Grupe za ekonomske poslove",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de90"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "sef_unutrasnje_jedinice",
+  "platniRazred": "VII",
+  "koeficijent": 4.5,
+  "opsisPoslova": "Rukovodi Grupom, koordinira finansijsko planiranje i ekonomske poslove Direkcije.",
+  "posebniUvjeti": [
+    "VSS - ekonomski fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.599Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:40:10.186Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c3068405693c"
+  },
+  "naziv": "Stručni savjetnik za ekonomske poslove - FDNI",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de90"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_savjetnik",
+  "platniRazred": "IX",
+  "koeficijent": 4.1,
+  "opsisPoslova": "Vrši izradu dugoročnih i kratkoročnih finansijskih planova namjenske industrije.",
+  "posebniUvjeti": [
+    "VSS - ekonomski fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.599Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:40:10.188Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c3068405693d"
+  },
+  "naziv": "Stručni saradnik za ekonomske poslove - FDNI",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de90"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_saradnik",
+  "platniRazred": "XI",
+  "koeficijent": 3.7,
+  "opsisPoslova": "Učestvuje u pripremi finansijskih planova i izvještaja.",
+  "posebniUvjeti": [
+    "VSS - ekonomski fakultet",
+    "Min. 1 godina radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.599Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:40:10.189Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c3068405693e"
+  },
+  "naziv": "Viši referent za ekonomsko-finansijske poslove - FDNI",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de90"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "namjestenik",
+  "pozicijaKljuc": "visi_referent",
+  "platniRazred": "V",
+  "koeficijent": 2.7,
+  "opsisPoslova": "Vrši administrativno-tehničke poslove za ekonomski sektor.",
+  "posebniUvjeti": [
+    "SSS - ekonomska škola",
+    "Min. 10 mjeseci radnog staža",
+    "Položen stručni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.599Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:40:10.190Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056940"
+  },
+  "naziv": "Pomoćnik direktora — Sektor za promet, marketing i sigurnost",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de86"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "rukovodeci_drzavni_sluzbenik",
+  "pozicijaKljuc": "pomocnik_u_sastavu",
+  "platniRazred": "V",
+  "koeficijent": 4.85,
+  "opsisPoslova": "Rukovodi Sektorom, koordinira marketing, promet i sigurnost u oblasti namjenske industrije.",
+  "posebniUvjeti": [
+    "VSS - tehnički, pravni ili ekonomski fakultet",
+    "Min. 5 godina radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.601Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T10:32:07.082Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056941"
+  },
+  "naziv": "Šef Grupe za promet i marketing",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de94"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "sef_unutrasnje_jedinice",
+  "platniRazred": "VII",
+  "koeficijent": 4.5,
+  "opsisPoslova": "Rukovodi Grupom, koordinira planiranje nastupa na domaćem i ino tržištu.",
+  "posebniUvjeti": [
+    "VSS - ekonomski ili tehnički fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.602Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:40:10.197Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056942"
+  },
+  "naziv": "Stručni savjetnik za promet i marketing",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de94"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_savjetnik",
+  "platniRazred": "IX",
+  "koeficijent": 4.1,
+  "opsisPoslova": "Vrši izradu planova marketinga, koordinira izvoz i uvoz NVO.",
+  "posebniUvjeti": [
+    "VSS - ekonomski fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.602Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:40:10.200Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056943"
+  },
+  "naziv": "Viši stručni saradnik za promet i marketing",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de94"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "visi_strucni_saradnik",
+  "platniRazred": "X",
+  "koeficijent": 3.9,
+  "opsisPoslova": "Učestvuje u pripremi planova nastupa na tržištu i kontroli izvoza NVO.",
+  "posebniUvjeti": [
+    "VSS - ekonomski fakultet",
+    "Min. 2 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.602Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:40:10.202Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056944"
+  },
+  "naziv": "Viši referent za promet - FDNI",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de94"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "namjestenik",
+  "pozicijaKljuc": "visi_referent",
+  "platniRazred": "V",
+  "koeficijent": 2.7,
+  "opsisPoslova": "Vrši administrativno-tehničke poslove za promet i marketing.",
+  "posebniUvjeti": [
+    "SSS - ekonomska ili birotehnička škola",
+    "Min. 10 mjeseci radnog staža",
+    "Položen stručni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.602Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:40:10.204Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056945"
+  },
+  "naziv": "Šef Grupe za sigurnost",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de86"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "sef_unutrasnje_jedinice",
+  "platniRazred": "VII",
+  "koeficijent": 4.5,
+  "opsisPoslova": "Rukovodi Grupom, koordinira planiranje i nadzor sigurnosti pri proizvodnji NVO.",
+  "posebniUvjeti": [
+    "VSS - tehnički ili pravni fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.602Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T10:33:47.665Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056946"
+  },
+  "naziv": "Stručni savjetnik za sigurnost NVO",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de95"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "strucni_savjetnik",
+  "platniRazred": "IX",
+  "koeficijent": 4.1,
+  "opsisPoslova": "Koordinira aktivnosti na sigurnosti i zaštiti pri proizvodnji i remontu NVO.",
+  "posebniUvjeti": [
+    "VSS - tehnički ili pravni fakultet",
+    "Min. 3 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.602Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:40:10.208Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6b99b5b8c30684056947"
+  },
+  "naziv": "Viši stručni saradnik za sigurnost",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de86"
+  },
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "pozicijaKljuc": "visi_strucni_saradnik",
+  "platniRazred": "X",
+  "koeficijent": 3.9,
+  "opsisPoslova": "Učestvuje u izradi planova sigurnosti i zaštite.",
+  "posebniUvjeti": [
+    "VSS - tehnički fakultet",
+    "Min. 2 godine radnog staža",
+    "Položen stručni upravni ispit"
+  ],
+  "brojIzvrsilaca": 1,
+  "aktivno": false,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:17.602Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T10:34:09.868Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf763e06e39faeafe3cccc"
+  },
+  "naziv": "Viši stručni saradnik za katastar istražnih prostora i eksploatacionih polja",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de6a"
+  },
+  "__v": 0,
+  "aktivno": true,
+  "brojIzvrsilaca": 1,
+  "createdAt": {
+    "$date": "2026-04-03T08:11:42.324Z"
+  },
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "koeficijent": 3.9,
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "osnovnaJedinica": null,
+  "platniRazred": "X",
+  "posebniUvjeti": [],
+  "pozicijaKljuc": "visi_strucni_saradnik",
+  "unutrasnjaJedinica": null,
+  "updatedAt": {
+    "$date": "2026-04-03T08:18:40.539Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf789606e39faeafe3d0a6"
+  },
+  "naziv": "Stručni savjetnik za ekonomske poslove - Zavod",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de80"
+  },
+  "__v": 0,
+  "aktivno": true,
+  "brojIzvrsilaca": 1,
+  "createdAt": {
+    "$date": "2026-04-03T08:21:42.595Z"
+  },
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "koeficijent": 4.1,
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "osnovnaJedinica": null,
+  "platniRazred": "IX",
+  "posebniUvjeti": [],
+  "pozicijaKljuc": "strucni_savjetnik",
+  "unutrasnjaJedinica": null,
+  "updatedAt": {
+    "$date": "2026-04-03T08:21:42.595Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf789606e39faeafe3d0af"
+  },
+  "naziv": "Viši stručni saradnik za plemenite metale - Mostar",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de82"
+  },
+  "__v": 0,
+  "aktivno": true,
+  "brojIzvrsilaca": 1,
+  "createdAt": {
+    "$date": "2026-04-03T08:21:42.615Z"
+  },
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "koeficijent": 3.9,
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "osnovnaJedinica": null,
+  "platniRazred": "X",
+  "posebniUvjeti": [],
+  "pozicijaKljuc": "visi_strucni_saradnik",
+  "unutrasnjaJedinica": null,
+  "updatedAt": {
+    "$date": "2026-04-03T08:21:42.615Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf789606e39faeafe3d0b1"
+  },
+  "naziv": "Stručni saradnik za mjeriteljstvo - Mostar",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de82"
+  },
+  "__v": 0,
+  "aktivno": true,
+  "brojIzvrsilaca": 1,
+  "createdAt": {
+    "$date": "2026-04-03T08:21:42.618Z"
+  },
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "koeficijent": 3.7,
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "osnovnaJedinica": null,
+  "platniRazred": "XI",
+  "posebniUvjeti": [],
+  "pozicijaKljuc": "strucni_saradnik",
+  "unutrasnjaJedinica": null,
+  "updatedAt": {
+    "$date": "2026-04-03T08:21:42.618Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf789606e39faeafe3d0be"
+  },
+  "naziv": "Stručni savjetnik za mjeriteljstvo - Tuzla",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de84"
+  },
+  "__v": 0,
+  "aktivno": true,
+  "brojIzvrsilaca": 1,
+  "createdAt": {
+    "$date": "2026-04-03T08:21:42.640Z"
+  },
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "koeficijent": 4.1,
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "osnovnaJedinica": null,
+  "platniRazred": "IX",
+  "posebniUvjeti": [],
+  "pozicijaKljuc": "strucni_savjetnik",
+  "unutrasnjaJedinica": null,
+  "updatedAt": {
+    "$date": "2026-04-03T08:21:42.640Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf7cea06e39faeafe3d1d1"
+  },
+  "naziv": "Viši referent za administrativne poslove - FDNI",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de8b"
+  },
+  "__v": 0,
+  "aktivno": false,
+  "brojIzvrsilaca": 1,
+  "createdAt": {
+    "$date": "2026-04-03T08:40:10.167Z"
+  },
+  "kategorijaZaposlenog": "namjestenik",
+  "koeficijent": 2.7,
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "osnovnaJedinica": null,
+  "platniRazred": "V",
+  "posebniUvjeti": [],
+  "pozicijaKljuc": "visi_referent",
+  "unutrasnjaJedinica": null,
+  "updatedAt": {
+    "$date": "2026-04-03T10:46:45.736Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf7cea06e39faeafe3d1d4"
+  },
+  "naziv": "Pomoćnik direktora — Sektor za pravne i ekonomske poslove",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de8d"
+  },
+  "__v": 0,
+  "aktivno": true,
+  "brojIzvrsilaca": 1,
+  "createdAt": {
+    "$date": "2026-04-03T08:40:10.174Z"
+  },
+  "kategorijaZaposlenog": "rukovodeci_drzavni_sluzbenik",
+  "koeficijent": 4.85,
+  "opsisPoslova": "Rukovodi Sektorom, koordinira pravne i ekonomske poslove Direkcije.",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "osnovnaJedinica": null,
+  "platniRazred": "V",
+  "posebniUvjeti": [],
+  "pozicijaKljuc": "pomocnik_u_sastavu",
+  "unutrasnjaJedinica": null,
+  "updatedAt": {
+    "$date": "2026-04-03T08:40:10.174Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf7cea06e39faeafe3d1d7"
+  },
+  "naziv": "Šef Grupe za pravne poslove",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de8f"
+  },
+  "__v": 0,
+  "aktivno": true,
+  "brojIzvrsilaca": 1,
+  "createdAt": {
+    "$date": "2026-04-03T08:40:10.178Z"
+  },
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "koeficijent": 4.5,
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "osnovnaJedinica": null,
+  "platniRazred": "VII",
+  "posebniUvjeti": [],
+  "pozicijaKljuc": "sef_unutrasnje_jedinice",
+  "unutrasnjaJedinica": null,
+  "updatedAt": {
+    "$date": "2026-04-03T08:40:10.178Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf7cea06e39faeafe3d1e2"
+  },
+  "naziv": "Pomoćnik direktora — Sektor za promet, marketing i sigurnost",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de92"
+  },
+  "__v": 0,
+  "aktivno": true,
+  "brojIzvrsilaca": 1,
+  "createdAt": {
+    "$date": "2026-04-03T08:40:10.194Z"
+  },
+  "kategorijaZaposlenog": "rukovodeci_drzavni_sluzbenik",
+  "koeficijent": 4.85,
+  "opsisPoslova": "Rukovodi Sektorom, koordinira marketing, promet i sigurnost.",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "osnovnaJedinica": null,
+  "platniRazred": "V",
+  "posebniUvjeti": [],
+  "pozicijaKljuc": "pomocnik_u_sastavu",
+  "unutrasnjaJedinica": null,
+  "updatedAt": {
+    "$date": "2026-04-03T08:40:10.194Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf7cea06e39faeafe3d1ea"
+  },
+  "naziv": "Šef Grupe za sigurnost",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de95"
+  },
+  "__v": 0,
+  "aktivno": true,
+  "brojIzvrsilaca": 1,
+  "createdAt": {
+    "$date": "2026-04-03T08:40:10.207Z"
+  },
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "koeficijent": 4.5,
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "osnovnaJedinica": null,
+  "platniRazred": "VII",
+  "posebniUvjeti": [],
+  "pozicijaKljuc": "sef_unutrasnje_jedinice",
+  "unutrasnjaJedinica": null,
+  "updatedAt": {
+    "$date": "2026-04-03T08:40:10.207Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf7cea06e39faeafe3d1ed"
+  },
+  "naziv": "Viši stručni saradnik za sigurnost",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de95"
+  },
+  "__v": 0,
+  "aktivno": true,
+  "brojIzvrsilaca": 1,
+  "createdAt": {
+    "$date": "2026-04-03T08:40:10.210Z"
+  },
+  "kategorijaZaposlenog": "ostali_drzavni_sluzbenik",
+  "koeficijent": 3.9,
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "osnovnaJedinica": null,
+  "platniRazred": "X",
+  "posebniUvjeti": [],
+  "pozicijaKljuc": "visi_strucni_saradnik",
+  "unutrasnjaJedinica": null,
+  "updatedAt": {
+    "$date": "2026-04-03T08:40:10.210Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf97fabc34cf2113997bad"
+  },
+  "naziv": "Vozač",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de95"
+  },
+  "organ": null,
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "namjestenik",
+  "pozicijaKljuc": "referent",
+  "platniRazred": "VI",
+  "koeficijent": 2.6,
+  "opsisPoslova": "Vozač u Direkciji za namjensku industriju",
+  "posebniUvjeti": [],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "createdAt": {
+    "$date": "2026-04-03T10:35:38.696Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T10:35:38.696Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf99c0bc34cf2113997f7c"
+  },
+  "naziv": "Viši referent za tehničku dokumentaciju",
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de8b"
+  },
+  "organ": null,
+  "osnovnaJedinica": null,
+  "unutrasnjaJedinica": null,
+  "kategorijaZaposlenog": "namjestenik",
+  "pozicijaKljuc": "visi_referent",
+  "platniRazred": "V",
+  "koeficijent": 2.7,
+  "opsisPoslova": "",
+  "posebniUvjeti": [],
+  "brojIzvrsilaca": 1,
+  "aktivno": true,
+  "createdAt": {
+    "$date": "2026-04-03T10:43:12.392Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T10:43:12.392Z"
+  },
+  "__v": 0
+}]

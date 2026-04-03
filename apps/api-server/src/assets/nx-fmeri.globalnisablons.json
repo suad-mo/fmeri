@@ -1,0 +1,247 @@
+[{
+  "_id": {
+    "$oid": "69c525d51acb90347c7847dd"
+  },
+  "tipOrgana": "ministarstvo",
+  "naziv": "Šablon federalnog ministarstva",
+  "pravniOsnov": "Uredba o načelima za unutrašnju organizaciju federalnih organa uprave, Član 10.",
+  "opis": "Osnovna organizacijska šema za federalna ministarstva",
+  "osnovneJedinice": [
+    {
+      "tip": "kabinet",
+      "naziv": "Kabinet",
+      "obavezna": true,
+      "minBroj": 1,
+      "maxBroj": 1,
+      "roditeljTipovi": [
+        "ministarstvo"
+      ]
+    },
+    {
+      "tip": "sektor",
+      "naziv": "Sektor",
+      "obavezna": true,
+      "minBroj": 1,
+      "maxBroj": null,
+      "roditeljTipovi": [
+        "ministarstvo"
+      ]
+    },
+    {
+      "tip": "odjeljenje",
+      "naziv": "Odjeljenje",
+      "obavezna": false,
+      "minBroj": 0,
+      "maxBroj": null,
+      "roditeljTipovi": [
+        "ministarstvo"
+      ]
+    },
+    {
+      "tip": "inspektorat",
+      "naziv": "Inspektorat",
+      "obavezna": false,
+      "minBroj": 0,
+      "maxBroj": null,
+      "roditeljTipovi": [
+        "ministarstvo"
+      ]
+    },
+    {
+      "tip": "centar",
+      "naziv": "Centar",
+      "obavezna": false,
+      "minBroj": 0,
+      "maxBroj": null,
+      "roditeljTipovi": [
+        "ministarstvo"
+      ]
+    },
+    {
+      "tip": "servis",
+      "naziv": "Servis",
+      "obavezna": false,
+      "minBroj": 0,
+      "maxBroj": null,
+      "roditeljTipovi": [
+        "ministarstvo"
+      ]
+    },
+    {
+      "tip": "sluzba",
+      "naziv": "Služba",
+      "obavezna": false,
+      "minBroj": 0,
+      "maxBroj": null,
+      "roditeljTipovi": [
+        "ministarstvo"
+      ]
+    }
+  ],
+  "unutrasnjeJedinice": [
+    {
+      "tip": "odsjek",
+      "naziv": "Odsjek",
+      "obavezna": false,
+      "minBroj": 2,
+      "maxBroj": null,
+      "roditeljTipovi": [
+        "sektor",
+        "odjeljenje",
+        "inspektorat"
+      ]
+    },
+    {
+      "tip": "grupa",
+      "naziv": "Grupa",
+      "obavezna": false,
+      "minBroj": 2,
+      "maxBroj": null,
+      "roditeljTipovi": [
+        "sektor",
+        "odjeljenje",
+        "centar",
+        "servis",
+        "sluzba"
+      ]
+    },
+    {
+      "tip": "pisarnica",
+      "naziv": "Pisarnica",
+      "obavezna": false,
+      "minBroj": 0,
+      "maxBroj": 1,
+      "roditeljTipovi": [
+        "sektor",
+        "odjeljenje",
+        "sluzba"
+      ]
+    },
+    {
+      "tip": "arhiva",
+      "naziv": "Arhiva",
+      "obavezna": false,
+      "minBroj": 0,
+      "maxBroj": 1,
+      "roditeljTipovi": [
+        "sektor",
+        "odjeljenje",
+        "sluzba"
+      ]
+    },
+    {
+      "tip": "racunovodstvo",
+      "naziv": "Računovodstvo",
+      "obavezna": false,
+      "minBroj": 0,
+      "maxBroj": 1,
+      "roditeljTipovi": [
+        "sektor",
+        "odjeljenje",
+        "sluzba"
+      ]
+    }
+  ],
+  "aktivno": true,
+  "createdAt": {
+    "$date": "2026-03-26T12:25:57.727Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-26T12:25:57.727Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c525d51acb90347c7847df"
+  },
+  "tipOrgana": "zavod",
+  "naziv": "Šablon federalnog zavoda",
+  "pravniOsnov": "Zakon o organizaciji organa uprave u FBiH, Član 7. tačka 4.",
+  "opis": "Organizacijska šema za federalne zavode kao upravne organizacije",
+  "osnovneJedinice": [
+    {
+      "tip": "sektor",
+      "naziv": "Sektor",
+      "obavezna": false,
+      "minBroj": 1,
+      "maxBroj": 2,
+      "roditeljTipovi": [
+        "zavod"
+      ]
+    },
+    {
+      "tip": "centar",
+      "naziv": "Centar",
+      "obavezna": false,
+      "minBroj": 0,
+      "maxBroj": null,
+      "roditeljTipovi": [
+        "zavod"
+      ]
+    }
+  ],
+  "unutrasnjeJedinice": [
+    {
+      "tip": "odsjek",
+      "naziv": "Odsjek",
+      "obavezna": false,
+      "minBroj": 2,
+      "maxBroj": null,
+      "roditeljTipovi": [
+        "sektor",
+        "odjeljenje"
+      ]
+    }
+  ],
+  "aktivno": true,
+  "createdAt": {
+    "$date": "2026-03-26T12:25:57.739Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-26T13:28:38.103Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69c525d51acb90347c7847e1"
+  },
+  "tipOrgana": "direkcija",
+  "naziv": "Šablon federalne direkcije",
+  "pravniOsnov": "Zakon o organizaciji organa uprave u FBiH, Član 7. tačka 4.",
+  "opis": "Organizacijska šema za federalne direkcije kao upravne organizacije",
+  "osnovneJedinice": [
+    {
+      "tip": "sektor",
+      "naziv": "Sektor",
+      "obavezna": true,
+      "minBroj": 3,
+      "maxBroj": null,
+      "roditeljTipovi": [
+        "direkcija"
+      ]
+    }
+  ],
+  "unutrasnjeJedinice": [
+    {
+      "tip": "grupa",
+      "naziv": "Grupa",
+      "obavezna": true,
+      "minBroj": 2,
+      "maxBroj": null,
+      "roditeljTipovi": [
+        "sektor",
+        "odjeljenje"
+      ]
+    }
+  ],
+  "aktivno": true,
+  "createdAt": {
+    "$date": "2026-03-26T12:25:57.742Z"
+  },
+  "updatedAt": {
+    "$date": "2026-03-26T13:24:20.199Z"
+  },
+  "__v": 0
+}]

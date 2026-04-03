@@ -1,0 +1,2327 @@
+[{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f16393"
+  },
+  "ime": "Amela",
+  "prezime": "Ždraloviić",
+  "sluzbeniEmail": "amela.zdralovic@fmeri.gov.ba",
+  "organ": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb01f0841b1acf28054"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.160Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.160Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f16399"
+  },
+  "ime": "Amil",
+  "prezime": "Kamenica",
+  "sluzbeniEmail": "amil.kamenica@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de53"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c306840568b2"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb01f0841b1acf28059"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.171Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:25.938Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f1639f"
+  },
+  "ime": "Ema",
+  "prezime": "Kolašinac",
+  "sluzbeniEmail": "ema.kolasinac@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de8f"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c3068405693a"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb01f0841b1acf2805e"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.174Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:35:23.142Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f163a3"
+  },
+  "ime": "Fadil",
+  "prezime": "Nadarević",
+  "sluzbeniEmail": "fadil.nadarevic@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de53"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c306840568b4"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb01f0841b1acf28063"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.179Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T10:23:27.457Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f163a6"
+  },
+  "ime": "Jasmina",
+  "prezime": "Pašić",
+  "sluzbeniEmail": "jasmina.pasic@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de7a"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c30684056900"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb11f0841b1acf28068"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.182Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:25.983Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f163a9"
+  },
+  "ime": "Jasna",
+  "prezime": "Vegar",
+  "sluzbeniEmail": "jasna.vegar@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de57"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c306840568bb"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb11f0841b1acf2806d"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.184Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:25.986Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f163ac"
+  },
+  "ime": "Lana",
+  "prezime": "Rizvanović",
+  "sluzbeniEmail": "lana.rizvanovic@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de7d"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c3068405690a"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb11f0841b1acf28072"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.186Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:25.992Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f163af"
+  },
+  "ime": "Nihada",
+  "prezime": "Dupovac",
+  "sluzbeniEmail": "nihada.dupovac@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de57"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c306840568bd"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb11f0841b1acf28077"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.189Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:26.015Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f163b2"
+  },
+  "ime": "Rijad",
+  "prezime": "Vrabac",
+  "sluzbeniEmail": "rijad.vrabac@fmeri.gov.ba",
+  "organ": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb11f0841b1acf2807c"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.191Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.191Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f163b5"
+  },
+  "ime": "Aida",
+  "prezime": "Jelinić",
+  "sluzbeniEmail": "aida.jelinic@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de61"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c306840568cf"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb11f0841b1acf28081"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.195Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:33:40.527Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f163b8"
+  },
+  "ime": "Alen",
+  "prezime": "Proho",
+  "sluzbeniEmail": "alen.proho@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de7a"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c306840568fb"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb11f0841b1acf28086"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.197Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:25.930Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f163bb"
+  },
+  "ime": "Amela",
+  "prezime": "Vrače",
+  "sluzbeniEmail": "amela.vrace@fmeri.gov.ba",
+  "organ": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb11f0841b1acf2808b"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.199Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.199Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f163be"
+  },
+  "ime": "Azra",
+  "prezime": "Muminagić Šuta",
+  "sluzbeniEmail": "azra.muminagic.suta@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de61"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c306840568d1"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb11f0841b1acf28090"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.201Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:25.953Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f163c1"
+  },
+  "ime": "Belma",
+  "prezime": "Selimotić",
+  "sluzbeniEmail": "belma.selimotic@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de90"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c3068405693b"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb11f0841b1acf28095"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.202Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:25.973Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f163c4"
+  },
+  "ime": "Eldar",
+  "prezime": "Hukić",
+  "sluzbeniEmail": "eldar.hukic@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de5b"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c306840568c4"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb11f0841b1acf2809a"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.204Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:25.969Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f163c7"
+  },
+  "ime": "Nermina",
+  "prezime": "Husić",
+  "sluzbeniEmail": "nermina.husic@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de5f"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c306840568c6"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb11f0841b1acf2809f"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.206Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:26.011Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f163ca"
+  },
+  "ime": "Omer",
+  "prezime": "Šator",
+  "sluzbeniEmail": "omer.sator@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de5f"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c306840568c6"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb11f0841b1acf280a4"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.208Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:26.017Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f163cd"
+  },
+  "ime": "Sanjin",
+  "prezime": "Habul",
+  "sluzbeniEmail": "sanjin.habul@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de5f"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c306840568c6"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb21f0841b1acf280a9"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.210Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:26.027Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f163d0"
+  },
+  "ime": "Amir",
+  "prezime": "Halilčević",
+  "sluzbeniEmail": "amir.halilcevic@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de66"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c306840568d7"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb21f0841b1acf280ae"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.212Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:25.940Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f163d3"
+  },
+  "ime": "Amra",
+  "prezime": "Balić",
+  "sluzbeniEmail": "amra.balic@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de6a"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c306840568d9"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb21f0841b1acf280b3"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.214Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:25.943Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f163d6"
+  },
+  "ime": "Begajeta",
+  "prezime": "Habota",
+  "sluzbeniEmail": "begajeta.habota@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de6b"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c306840568de"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb21f0841b1acf280b8"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.216Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:25.954Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f163d9"
+  },
+  "ime": "Darko",
+  "prezime": "Pranjić",
+  "sluzbeniEmail": "darko.pranjic@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de60"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c306840568ca"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb21f0841b1acf280bd"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.218Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:25.958Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f163dc"
+  },
+  "ime": "Edin",
+  "prezime": "Suljkanović",
+  "sluzbeniEmail": "edin.suljkanovic@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de6a"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf763e06e39faeafe3cccc"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb21f0841b1acf280c2"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.220Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:25.963Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f163df"
+  },
+  "ime": "Edina",
+  "prezime": "Krpo",
+  "sluzbeniEmail": "edina.krpo@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de6a"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c306840568dd"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb21f0841b1acf280c7"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.222Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:25.964Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f163e2"
+  },
+  "ime": "Sanja",
+  "prezime": "Skaramuca",
+  "sluzbeniEmail": "sanja.skaramuca@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de6b"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c306840568df"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb21f0841b1acf280cc"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.224Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:26.024Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f163e5"
+  },
+  "ime": "Sedin",
+  "prezime": "Alispahić",
+  "sluzbeniEmail": "sedin.alispahic@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de6b"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c306840568e1"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb21f0841b1acf280d1"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.226Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:26.029Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f163e8"
+  },
+  "ime": "Smilja",
+  "prezime": "Sesar",
+  "sluzbeniEmail": "smilja.sesar@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de6a"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c306840568d9"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb21f0841b1acf280d6"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.229Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:26.044Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f163eb"
+  },
+  "ime": "Amela",
+  "prezime": "Grebović",
+  "sluzbeniEmail": "amela.grebovic@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de57"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c306840568bd"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb21f0841b1acf280db"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.230Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:25.937Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f163ee"
+  },
+  "ime": "Amela",
+  "prezime": "Mikulić",
+  "sluzbeniEmail": "amela.mikulic@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de74"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c306840568f3"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb21f0841b1acf280e0"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.232Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:36:57.752Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f163f1"
+  },
+  "ime": "Andrej",
+  "prezime": "Kvesić",
+  "sluzbeniEmail": "andrej.kvesic@fmeri.gov.ba",
+  "organ": null,
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de6e"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c306840568f5"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb21f0841b1acf280e5"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.233Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:27:04.560Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f163f4"
+  },
+  "ime": "Angelina",
+  "prezime": "Zelenika",
+  "sluzbeniEmail": "angelina.zelenika@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de72"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c306840568eb"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb21f0841b1acf280ea"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.235Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:25.946Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f163f7"
+  },
+  "ime": "Bibica",
+  "prezime": "Dužević",
+  "sluzbeniEmail": "bibica.duzevic@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de74"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c306840568f4"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb31f0841b1acf280ef"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.237Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T11:29:30.687Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f163fa"
+  },
+  "ime": "Elbisa",
+  "prezime": "Zagorčić",
+  "sluzbeniEmail": "elbisa.zagorcic@fmeri.gov.ba",
+  "organ": null,
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de6e"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c306840568e7"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb31f0841b1acf280f4"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.239Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:27:04.593Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f163fd"
+  },
+  "ime": "Eldara",
+  "prezime": "Šoše",
+  "sluzbeniEmail": "eldara.sose@fmeri.gov.ba",
+  "organ": null,
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de6e"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c306840568e7"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb31f0841b1acf280f9"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.242Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:27:04.596Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f16400"
+  },
+  "ime": "Jasminka",
+  "prezime": "Jonjić",
+  "sluzbeniEmail": "jasminka.jonjic@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de73"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c306840568f2"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb31f0841b1acf280fe"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.245Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:25.985Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f16403"
+  },
+  "ime": "Jelena",
+  "prezime": "Trutina",
+  "sluzbeniEmail": "jelena.trutina@fmeri.gov.ba",
+  "organ": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb31f0841b1acf28103"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.246Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.246Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f16406"
+  },
+  "ime": "Senad",
+  "prezime": "Zekić",
+  "sluzbeniEmail": "senad.zekic@fmeri.gov.ba",
+  "organ": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb31f0841b1acf28108"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.247Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.247Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f16409"
+  },
+  "ime": "Adonisa",
+  "prezime": "Đuliman",
+  "sluzbeniEmail": "adonisa.djuliman@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de7a"
+  },
+  "radnoMjesto": null,
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb31f0841b1acf2810d"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.249Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:25.918Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f1640c"
+  },
+  "ime": "Arna",
+  "prezime": "Kurt",
+  "sluzbeniEmail": "arna.kurt@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de7a"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c306840568fb"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb31f0841b1acf28112"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.251Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:25.949Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f1640f"
+  },
+  "ime": "Lana",
+  "prezime": "Trutina",
+  "sluzbeniEmail": "lana.trutina@fmeri.gov.ba",
+  "organ": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb31f0841b1acf28117"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.252Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.252Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f16412"
+  },
+  "ime": "Magdalena",
+  "prezime": "Kordić",
+  "sluzbeniEmail": "magdalena.kordic@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de7a"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c306840568fb"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb31f0841b1acf2811c"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.254Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:25.995Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f16415"
+  },
+  "ime": "Muamer",
+  "prezime": "Ćulum",
+  "sluzbeniEmail": "muamer.culum@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de7a"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c306840568fb"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb31f0841b1acf28121"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.256Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:26.009Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f16418"
+  },
+  "ime": "Sanella",
+  "prezime": "Cero",
+  "sluzbeniEmail": "sanella.cero@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de7a"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c306840568ff"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb31f0841b1acf28126"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.258Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:26.022Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f1641b"
+  },
+  "ime": "Selma",
+  "prezime": "Stranjak",
+  "sluzbeniEmail": "selma.stranjak@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de7d"
+  },
+  "radnoMjesto": null,
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb31f0841b1acf2812b"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.261Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:26.033Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f1641e"
+  },
+  "ime": "Jasmina",
+  "prezime": "Suhonjić",
+  "sluzbeniEmail": "jasmina.suhonjic@fmeri.gov.ba",
+  "organ": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb31f0841b1acf28130"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.263Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.263Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f16421"
+  },
+  "ime": "Anita",
+  "prezime": "Šunjić",
+  "sluzbeniEmail": "anita.sunjic@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de7b"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c30684056902"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb41f0841b1acf28135"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.265Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:25.948Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f16424"
+  },
+  "ime": "Edita",
+  "prezime": "Balavac",
+  "sluzbeniEmail": "edita.balavac@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de7b"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c30684056902"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb41f0841b1acf2813a"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.266Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:25.967Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f16427"
+  },
+  "ime": "Elma",
+  "prezime": "Bešo",
+  "sluzbeniEmail": "elma.beso@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de7b"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c30684056901"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb41f0841b1acf2813f"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.267Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:32:30.198Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f1642a"
+  },
+  "ime": "Ivica",
+  "prezime": "Boban",
+  "sluzbeniEmail": "ivica.boban@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de7c"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c30684056906"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb41f0841b1acf28144"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.269Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:25.981Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f1642d"
+  },
+  "ime": "Marica",
+  "prezime": "Marković",
+  "sluzbeniEmail": "marica.markovic@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de7b"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c30684056902"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb41f0841b1acf28149"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.270Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:25.997Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f16430"
+  },
+  "ime": "Marina",
+  "prezime": "Ćuljak",
+  "sluzbeniEmail": "marina.culjak@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de7b"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c30684056901"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb41f0841b1acf2814e"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.272Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:25.999Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f16433"
+  },
+  "ime": "Semir",
+  "prezime": "Mehremić",
+  "sluzbeniEmail": "semir.mehremic@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de57"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c306840568ba"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb41f0841b1acf28153"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.274Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:26.036Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f16436"
+  },
+  "ime": "Jelena",
+  "prezime": "Marinčić",
+  "sluzbeniEmail": "jelena.marincic@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de53"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c306840568b5"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb41f0841b1acf28158"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.276Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:25.988Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f16439"
+  },
+  "ime": "Lejla",
+  "prezime": "Sarajlić-Macić",
+  "sluzbeniEmail": "lejla.sarajlic-macic@fmeri.gov.ba",
+  "organ": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb41f0841b1acf2815d"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.278Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.278Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f1643c"
+  },
+  "ime": "Fahrudin",
+  "prezime": "Smailagić",
+  "sluzbeniEmail": "fahrudin.smailagic@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c3068405690e"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb41f0841b1acf28162"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.280Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T09:35:52.943Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f1643f"
+  },
+  "ime": "Melisa",
+  "prezime": "Mahmutović",
+  "sluzbeniEmail": "melisa.mahmutovic@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de8b"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf99c0bc34cf2113997f7c"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb41f0841b1acf28167"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.282Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T10:43:33.381Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f16442"
+  },
+  "ime": "Senad",
+  "prezime": "Kurtćehajić",
+  "sluzbeniEmail": "senad.kurtcehajic@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de73"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c306840568ef"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb41f0841b1acf2816c"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.283Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:26.041Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f16445"
+  },
+  "ime": "Aida",
+  "prezime": "Ahmedović",
+  "sluzbeniEmail": "aida.ahmedovic@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de83"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c30684056917"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb41f0841b1acf28171"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.285Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:25.925Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f16448"
+  },
+  "ime": "Aida",
+  "prezime": "Todorović",
+  "sluzbeniEmail": "aida.todorovic@fmeri.gov.ba",
+  "organ": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb41f0841b1acf28176"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.286Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.286Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f1644b"
+  },
+  "ime": "Mirza",
+  "prezime": "Velagić",
+  "sluzbeniEmail": "mirza.velagic@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de83"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c30684056917"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb51f0841b1acf2817b"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.288Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:26.006Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f1644e"
+  },
+  "ime": "Nihad",
+  "prezime": "Kišić",
+  "sluzbeniEmail": "nihad.kisic@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de83"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c30684056917"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb51f0841b1acf28180"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.289Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:26.013Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f16451"
+  },
+  "ime": "Željka",
+  "prezime": "Pušić",
+  "sluzbeniEmail": "zeljka.pusic@fmeri.gov.ba",
+  "organ": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb51f0841b1acf28185"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.291Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.291Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f16454"
+  },
+  "ime": "Asaf",
+  "prezime": "Resulović",
+  "sluzbeniEmail": "asaf.resulovic@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de82"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c30684056911"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb51f0841b1acf2818a"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.293Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:25.951Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f16457"
+  },
+  "ime": "Ivana",
+  "prezime": "Musa",
+  "sluzbeniEmail": "ivana.musa@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de82"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c30684056911"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb51f0841b1acf2818f"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.295Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:25.979Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f1645a"
+  },
+  "ime": "Vahidin",
+  "prezime": "Perenda",
+  "sluzbeniEmail": "vahidin.perenda@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de82"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c30684056911"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb51f0841b1acf28194"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.296Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:26.047Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f1645d"
+  },
+  "ime": "Ajdina",
+  "prezime": "Hasanović",
+  "sluzbeniEmail": "ajdina.hasanovic@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de84"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c3068405691f"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb51f0841b1acf28199"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.298Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:25.927Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f16460"
+  },
+  "ime": "Amira",
+  "prezime": "Brkić",
+  "sluzbeniEmail": "amira.brkic@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de84"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c30684056920"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb51f0841b1acf2819e"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.300Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:25.941Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f16463"
+  },
+  "ime": "Dino",
+  "prezime": "Delić",
+  "sluzbeniEmail": "dino.delic@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d71"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de84"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c30684056920"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb51f0841b1acf281a3"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.301Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:25.961Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f16466"
+  },
+  "ime": "Adnan",
+  "prezime": "Frljak",
+  "sluzbeniEmail": "adnan.frljak@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de8d"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf7cea06e39faeafe3d1d4"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb51f0841b1acf281a8"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.302Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:25.915Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f16469"
+  },
+  "ime": "Adnan",
+  "prezime": "Mahmutović",
+  "sluzbeniEmail": "adnan.mahmutovic@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de92"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf7cea06e39faeafe3d1e2"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb51f0841b1acf281ad"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.305Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T10:47:30.933Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f1646c"
+  },
+  "ime": "Elma",
+  "prezime": "Bošnjaković",
+  "sluzbeniEmail": "elma.bosnjakov@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de8f"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c30684056938"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb51f0841b1acf281b2"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.306Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:31:25.753Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f1646f"
+  },
+  "ime": "Lejla",
+  "prezime": "Fazlić",
+  "sluzbeniEmail": "lejla.fazlic@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de8f"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c30684056938"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb51f0841b1acf281b7"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.308Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:25.994Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f16472"
+  },
+  "ime": "Melisa",
+  "prezime": "Zahirović",
+  "sluzbeniEmail": "melisa.zahirovic@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de8b"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c30684056932"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb51f0841b1acf281bc"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.310Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T10:39:02.398Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f16475"
+  },
+  "ime": "Redžo",
+  "prezime": "Delić",
+  "sluzbeniEmail": "redzo.delic@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de8b"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c30684056931"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb51f0841b1acf281c1"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.313Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T11:32:11.702Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f16478"
+  },
+  "ime": "Suad",
+  "prezime": "Krvavac",
+  "sluzbeniEmail": "suad.krvavac@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de8a"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c3068405692d"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb61f0841b1acf281c6"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.314Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:26.045Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f1647b"
+  },
+  "ime": "Zlatan",
+  "prezime": "Bilanović",
+  "sluzbeniEmail": "zlatan.bilanovic@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c3068405692a"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb61f0841b1acf281cb"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.317Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T10:21:34.197Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f1647e"
+  },
+  "ime": "Lejla",
+  "prezime": "Jugo",
+  "sluzbeniEmail": "lejla.jugo@fmeri.gov.ba",
+  "organ": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb61f0841b1acf281d0"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.318Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.318Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f16481"
+  },
+  "ime": "Mario",
+  "prezime": "Pezer",
+  "sluzbeniEmail": "mario.pezer@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d74"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de95"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf97fabc34cf2113997bad"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb61f0841b1acf281d5"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.320Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T10:36:19.052Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bbc3692ae4676f16484"
+  },
+  "ime": "Samra",
+  "prezime": "Kadribegović",
+  "sluzbeniEmail": "samra.kadribegovic@fmeri.gov.ba",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b937bed248dd368de7a"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c306840568fb"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "slika": null,
+  "user": {
+    "$oid": "69cf6bb61f0841b1acf281da"
+  },
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T07:26:52.321Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T08:51:26.020Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf86e539e93f28f564539a"
+  },
+  "ime": "Lakić",
+  "prezime": "Vedran",
+  "jmbg": "",
+  "spol": "M",
+  "sluzbeniEmail": "vedran.lakic@fmeri.gov.ba",
+  "privatniEmail": "",
+  "telefon": "",
+  "mobilni": "",
+  "adresa": "",
+  "organ": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "organizacionaJedinica": {
+    "$oid": "69cf6b9f307aae8edacf5d6d"
+  },
+  "radnoMjesto": {
+    "$oid": "69cf6b99b5b8c306840568b0"
+  },
+  "vrstaUgovora": "neodredjeno",
+  "user": null,
+  "aktivan": true,
+  "createdAt": {
+    "$date": "2026-04-03T09:22:45.131Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T10:20:57.325Z"
+  },
+  "__v": 0
+}]

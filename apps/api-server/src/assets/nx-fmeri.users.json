@@ -1,0 +1,1921 @@
+[{
+  "_id": {
+    "$oid": "69c65ba06d66462221d2dd5a"
+  },
+  "name": "admin",
+  "email": "admin@fmeri.gov.ba",
+  "role": [
+    "admin"
+  ],
+  "slika": "1774611305516.jpg",
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$BnXw/4MJvSZMOMk/Z7q6gQ$HC/rBIrIUlmz+sx8byoEwUtGXHQZMSzGXGwMVzneBTM",
+  "createdAt": {
+    "$date": "2026-03-27T10:27:45.054Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T12:06:00.562Z"
+  },
+  "__v": 0,
+  "refreshToken": "49ca2f62ca50ceabdda5e047010d39d2a26717b09d00260186e8f11afcd4f71d",
+  "refreshTokenExpiry": {
+    "$date": "2026-04-10T12:06:00.542Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "69cf6bb01f0841b1acf28054"
+  },
+  "name": "Amela Ždraloviić",
+  "email": "amela.zdralovic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f16393"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$dJ8xW/PoUBgJ4dD2Puky8A$Ak66GqXwdyiL3yFj7PeJtqBccVRNHehJjckJYoJRcYg",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:40.818Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.166Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb01f0841b1acf28059"
+  },
+  "name": "Amil Kamenica",
+  "email": "amil.kamenica@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f16399"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$AmDSrwJFhdgEhNZUMooaRQ$TTaCsspwSgZkM9G6UlkfOc4qU6h+1HdLL6bNwviKUr0",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:40.908Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.173Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb01f0841b1acf2805e"
+  },
+  "name": "Ema Kolašinac",
+  "email": "ema.kolasinac@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f1639f"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$tMC2py5i5zri18o1DSkeXg$VBANzKmZY+FlEDiKGaPbeWUTbhTo/ar1cwaGSnZURJg",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:40.986Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.177Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb01f0841b1acf28063"
+  },
+  "name": "Fadil Nadarević",
+  "email": "fadil.nadarevic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f163a3"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$Kp6dr2URMISkuVg2PhdHbg$D+4JLffIsOfJDrLoqfZv/veRIMqJLtPhfk2eILO6Iko",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:41.057Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.181Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb11f0841b1acf28068"
+  },
+  "name": "Jasmina Pašić",
+  "email": "jasmina.pasic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f163a6"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$bjjUAtIlsceVo8Lzd34CAA$MeTiQRdLd82n5DPtVkbqC7UP1Mq6w2nOh1s51krYmCU",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:41.135Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.183Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb11f0841b1acf2806d"
+  },
+  "name": "Jasna Vegar",
+  "email": "jasna.vegar@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f163a9"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$QedSX2N3WcFYx3nIntxRTQ$H9Vj7nG7/iKOqQKqTKfpwBvV51PrMAO7cQnOXjvpt+I",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:41.204Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.185Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb11f0841b1acf28072"
+  },
+  "name": "Lana Rizvanović",
+  "email": "lana.rizvanovic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f163ac"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$Zc+/pbNNpSF4IH3FDCGXuQ$m27bbgDVEi542r/t5YVcwxGOiL2zV4GARLqokOOMvWg",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:41.287Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.187Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb11f0841b1acf28077"
+  },
+  "name": "Nihada Dupovac",
+  "email": "nihada.dupovac@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f163af"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$b3p9G4dm7P+gRVbWNFFk8A$M62RZIRTp7bJ5Sa4tIUXEJunsNJDHoEz271MuD7rr6k",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:41.362Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.190Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb11f0841b1acf2807c"
+  },
+  "name": "Rijad Vrabac",
+  "email": "rijad.vrabac@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f163b2"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$Mpm8nJTqko1xmUrvUH9O4Q$PmJFNJXkH0TZ8Cp2SbCTv091qkSgCyk2h/leYYu/4F0",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:41.436Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.192Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb11f0841b1acf28081"
+  },
+  "name": "Aida Jelinić",
+  "email": "aida.jelinic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f163b5"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$oDUNY9nj3mC6FFtThhkGHA$2gGOC2F3Anlwo4vmuHkRYwoRKINsjBc2/ApPDgfI/ro",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:41.511Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.196Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb11f0841b1acf28086"
+  },
+  "name": "Alen Proho",
+  "email": "alen.proho@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f163b8"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$D07f1zu/8SieJcctr4urTg$8FUUoQFtIbZaIYrQU8oCewMIGQbeY8Epjx4WuWAydzc",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:41.587Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.198Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb11f0841b1acf2808b"
+  },
+  "name": "Amela Vrače",
+  "email": "amela.vrace@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f163bb"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$CXqazkdKj9DHGWTYbTY+ow$+hHrFoLSXHarJfxRuzI+i5aSrylvnr7rLpgX89hKvB8",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:41.662Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.200Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb11f0841b1acf28090"
+  },
+  "name": "Azra Muminagić Šuta",
+  "email": "azra.muminagic.suta@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f163be"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$VI43ezQJYi2cMSMC6Q0S5A$CqbTJj8MllgLxiOGs0vaJmNx7i3YiAsKDhNHg8550aw",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:41.735Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.201Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb11f0841b1acf28095"
+  },
+  "name": "Belma Selimotić",
+  "email": "belma.selimotic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f163c1"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$eLAqJOotrZjA+0AAr4Of0A$RxsuNBz7+5eB8ii2tWUvnN+T2W4L/hrOw9rHMbsCQ5M",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:41.807Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.203Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb11f0841b1acf2809a"
+  },
+  "name": "Eldar Hukić",
+  "email": "eldar.hukic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f163c4"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$1gG2TtGk664cgKdYmeTbpw$yuwCyoL33bneUr42M6tpUMvnH8rSYyh0YjmeHIUsoR0",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:41.881Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.205Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb11f0841b1acf2809f"
+  },
+  "name": "Nermina Husić",
+  "email": "nermina.husic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f163c7"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$4LfhDJKSr2zXda83AFq+3A$oaHh6Os/ut+GsOOw8YJKrEHOsw5n4Vih/tDFeRA/ewk",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:41.956Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.207Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb11f0841b1acf280a4"
+  },
+  "name": "Omer Šator",
+  "email": "omer.sator@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f163ca"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$MSr3p1mYTtdS7bJABO/fvQ$mQFi/jKeGnlINGXUMgSyLyPbw+jxjGGQ4WIp3AKnBp0",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:42.038Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.209Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb21f0841b1acf280a9"
+  },
+  "name": "Sanjin Habul",
+  "email": "sanjin.habul@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f163cd"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$9WF8MDEeX5pcduniCSlguA$wx8O+183lKnsg1mEC0wYZ298L5Tt7r/dooTdoq+CqoU",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:42.108Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.211Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb21f0841b1acf280ae"
+  },
+  "name": "Amir Halilčević",
+  "email": "amir.halilcevic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f163d0"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$ug6GrpUvRNBRIN4zhOSQmQ$5FjCDzh5UocfUaJqzBq+lgBIyFJjK2AnLGhDWM9pXBU",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:42.179Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.213Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb21f0841b1acf280b3"
+  },
+  "name": "Amra Balić",
+  "email": "amra.balic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f163d3"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$AzwYCuU37LjMSTTcwI0MZA$JT/eTRT05zPcTE8hHplhuPBJxuIrDltJKVkDVj9PrfU",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:42.248Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.215Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb21f0841b1acf280b8"
+  },
+  "name": "Begajeta Habota",
+  "email": "begajeta.habota@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f163d6"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$4QMTZXjGagk6Tcn1MRQ+cQ$x1yPq5Sh71yVVtJs8E9MrlnvLehFEaWxN97uVukzO+A",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:42.320Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.217Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb21f0841b1acf280bd"
+  },
+  "name": "Darko Pranjić",
+  "email": "darko.pranjic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f163d9"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$p90AexY2g33LfIvSQgJAQg$LJqlZ47M8n1TCqyLPii5y45e/onr6z/5RQTFY1W9u8s",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:42.391Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.219Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb21f0841b1acf280c2"
+  },
+  "name": "Edin Suljkanović",
+  "email": "edin.suljkanovic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f163dc"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$osf4KZYiymXkZMc+rm3/JQ$XYn/F+piEx0ELA3MshHKKtKKIzFPYSxaysZbMVQNUjw",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:42.461Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.221Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb21f0841b1acf280c7"
+  },
+  "name": "Edina Krpo",
+  "email": "edina.krpo@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f163df"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$1l2ej5ObNroygr3JcmsMUw$3JJPi4Dv2YqfFIwIoEOytedOqAHr4XwpZOzSXrrX7z0",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:42.547Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.223Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb21f0841b1acf280cc"
+  },
+  "name": "Sanja Skaramuca",
+  "email": "sanja.skaramuca@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f163e2"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$b8vqJUEBqqgitL/A98g9vg$hHg/O/ArJ5c+JIyD/QbZdE/etYReig8VmEZ7uI6B+TE",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:42.620Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.225Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb21f0841b1acf280d1"
+  },
+  "name": "Sedin Alispahić",
+  "email": "sedin.alispahic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f163e5"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$zVxoTmlU29KABX7VCWUqmA$jLuOPjKgprB/7qj9qBJq93dFFzu107TwqfVwBE+K65c",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:42.689Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.228Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb21f0841b1acf280d6"
+  },
+  "name": "Smilja Sesar",
+  "email": "smilja.sesar@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f163e8"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$afxSnCN5oi/oNdzfOA/hog$GCbWtDhWcO5GEDlcd36KKElKKShJr4Vc/jj4tPLleQU",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:42.761Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.229Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb21f0841b1acf280db"
+  },
+  "name": "Amela Grebović",
+  "email": "amela.grebovic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f163eb"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$vmFJeHLPWJHQcd1MeY4F0g$UbU48pP/JQAhKGbacSvBo1DCMhMyVe9oWv4fw5YPxhg",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:42.830Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.231Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb21f0841b1acf280e0"
+  },
+  "name": "Amela Mikulić",
+  "email": "amela.mikulic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f163ee"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$YpEobIX9D0tNXcnAu2Q9kw$ZzMz6IKredY6ECuT66KaDgYyNJkhCYNlVu2ljV6ocy4",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:42.902Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.232Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb21f0841b1acf280e5"
+  },
+  "name": "Andrej Kvesić",
+  "email": "andrej.kvesic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f163f1"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$mLIUaU0D4ZxwsfwXLAwUog$XrTUb6r8U0NGiONA6lns1SwhqMcC8c6BTbR5oIYANYc",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:42.971Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.234Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb21f0841b1acf280ea"
+  },
+  "name": "Angelina Zelenika",
+  "email": "angelina.zelenika@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f163f4"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$wo15767yWMxILQxiM3RK9A$qEp805/ZdP/Plil8T7RIJFMoEzn2MipEiHbbJ+UPAug",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:43.043Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.236Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb31f0841b1acf280ef"
+  },
+  "name": "Bibica Dužević",
+  "email": "bibica.duzevic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f163f7"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$Yi6Vc4qzPlFe0iCmOPNSeA$U9aJydITWPf3PpJp2VGzlfeoFCtRkiRNqIrCBWgg/ws",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:43.115Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.238Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb31f0841b1acf280f4"
+  },
+  "name": "Elbisa Zagorčić",
+  "email": "elbisa.zagorcic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f163fa"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$pSVFJ9+ag3pm+jZgk3tjHw$FLpRZV6KCYVNo5BBjrZfQSZwO/WVFJejYGkFx8PjseQ",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:43.186Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.240Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb31f0841b1acf280f9"
+  },
+  "name": "Eldara Šoše",
+  "email": "eldara.sose@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f163fd"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$tBNt6ZC3mgZXisvzGbmZvg$q6YUDV/AP5hQc6zXSRNCVpTde7w7zqJtvq2CIReg1Nw",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:43.257Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.243Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb31f0841b1acf280fe"
+  },
+  "name": "Jasminka Jonjić",
+  "email": "jasminka.jonjic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f16400"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$L05b/QnL7Tdln6ftUkGYVg$6pIFZgMSsDTdSJN2hOrfKG3eqU/ZEFT0zBIvvB5JmHs",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:43.331Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.245Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb31f0841b1acf28103"
+  },
+  "name": "Jelena Trutina",
+  "email": "jelena.trutina@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f16403"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$nQr2nmYRPa2HAP/tchxXYA$4koSu6fF6W4v4Y+34KENn7JXGslc2OKH1CmvoR8hKVA",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:43.402Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.247Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb31f0841b1acf28108"
+  },
+  "name": "Senad Zekić",
+  "email": "senad.zekic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f16406"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$3zEnd70tvWWYQtHW1d7jQQ$w7BOyGGIeQRAp9ANyfVDVvbfj60TTtSR6jAdzec9UPU",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:43.474Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.248Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb31f0841b1acf2810d"
+  },
+  "name": "Adonisa Đuliman",
+  "email": "adonisa.djuliman@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f16409"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$JD7CqiQIpYUUOSkZ8fiX9w$PVkfFzAcl+E0+k1b/dxTkgCpOJmXSpv1xVPbqleKrhU",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:43.547Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.250Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb31f0841b1acf28112"
+  },
+  "name": "Arna Kurt",
+  "email": "arna.kurt@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f1640c"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$H8TmGjanYDo3+qRWxldJeA$MfFOWjCGMvBOH0/T2rDqPE5mUvS6lLwmEqk3jsMxLTM",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:43.628Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.252Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb31f0841b1acf28117"
+  },
+  "name": "Lana Trutina",
+  "email": "lana.trutina@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f1640f"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$oHja+P7cn9hVJuA6ILyg5w$H1E6ULJIcjco6kNX1xwSOMHfxBcyJx14GpyfvHBt4ag",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:43.709Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.253Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb31f0841b1acf2811c"
+  },
+  "name": "Magdalena Kordić",
+  "email": "magdalena.kordic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f16412"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$k2StVaUw7Ke8CaAn8s3aBw$AlxRAC9D9iskrq6L5St8lVd7jrnoJTH9T3xvCaaaPLw",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:43.775Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.255Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb31f0841b1acf28121"
+  },
+  "name": "Muamer Ćulum",
+  "email": "muamer.culum@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f16415"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$VxzIDBGdQxEvSLG8+sgpRQ$nHWnioFYtCG3gPKmxXmFPeV2ztdpjNG1mALQAXuSWag",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:43.841Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.257Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb31f0841b1acf28126"
+  },
+  "name": "Sanella Cero",
+  "email": "sanella.cero@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f16418"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$y9w9L896XSIp7GmEHmcvMw$Uvi+W1onybGSDkKLinWQynA1LwJxDnBdW0YUfMyE/w0",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:43.908Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.260Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb31f0841b1acf2812b"
+  },
+  "name": "Selma Stranjak",
+  "email": "selma.stranjak@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f1641b"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$1hp4tWX/8XRasnrsGnFrNw$AJ+rji7ztjROERECIgwj30vrtCVLHDygJys2VL0VUis",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:43.980Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.262Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb31f0841b1acf28130"
+  },
+  "name": "Jasmina Suhonjić",
+  "email": "jasmina.suhonjic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f1641e"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$dkOopiC5VciZMoeHGqCk4Q$nqfSjod7Am/+JUpoknRZrnwhpxZJvwcyMJBkdnhqYkE",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:44.048Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.264Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb41f0841b1acf28135"
+  },
+  "name": "Anita Šunjić",
+  "email": "anita.sunjic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f16421"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$AgZq4HXWTFd8tpBNZp/FOQ$cEf4cD/5gLwM5ZcgX6k9cz1zb8HoUFtdo2widRGYy14",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:44.115Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.265Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb41f0841b1acf2813a"
+  },
+  "name": "Edita Balavac",
+  "email": "edita.balavac@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f16424"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$g47Y1cEnb0ZMw3x09WIy0g$q6cElyk5XJ9SK8rpfdvr+UzQpiCAbqlhaOjgESA50dA",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:44.190Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.267Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb41f0841b1acf2813f"
+  },
+  "name": "Elma Bešo",
+  "email": "elma.beso@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f16427"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$fXt/UVrOqGEger6vFJ1uGQ$kemWSLFfJe/Uz3svCa/8vGubz8ylmMph83oh/JBr8Us",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:44.263Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.268Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb41f0841b1acf28144"
+  },
+  "name": "Ivica Boban",
+  "email": "ivica.boban@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f1642a"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$4Rky0A7yveUksyMdCTWrgA$oETtbDpwxl4eRsBdQikw9sxeraOeZq5jXFZRF/C8Eec",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:44.331Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.269Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb41f0841b1acf28149"
+  },
+  "name": "Marica Marković",
+  "email": "marica.markovic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f1642d"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$xTYexrTAyhcQ8EvdZNhfHg$e+oOCM4p8Brkl7CISNMTrphKdv7cpql0Hoc8UWH39OI",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:44.401Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.271Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb41f0841b1acf2814e"
+  },
+  "name": "Marina Ćuljak",
+  "email": "marina.culjak@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f16430"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$zAH30r3XKXofoRGX1Tiggw$A5+PLZhM/667Oltv3zpnZZpyrL2h1nSRCm+x8CA+xo4",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:44.473Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.273Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb41f0841b1acf28153"
+  },
+  "name": "Semir Mehremić",
+  "email": "semir.mehremic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f16433"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$2c13WgEZFz/23OqfZBV2fA$A8G0cItQfO/XOaMbA6x/+7io4GQjOnX+7m6m2t2F8kw",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:44.542Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.275Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb41f0841b1acf28158"
+  },
+  "name": "Jelena Marinčić",
+  "email": "jelena.marincic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f16436"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$mkVetDV/tvNIeTS1RCMNUg$8pJ55i+2jBU9cjeiJ5ZKQCwJ7PnTQWXHajc6hncV7Fg",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:44.612Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.277Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb41f0841b1acf2815d"
+  },
+  "name": "Lejla Sarajlić-Macić",
+  "email": "lejla.sarajlic-macic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f16439"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$i6d/h+iXjomuigSbn2VoMw$Apxvtgcc3tuBSDHkLFdZ50FnuqUxRpXFYL6SYXidDjo",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:44.680Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.279Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb41f0841b1acf28162"
+  },
+  "name": "Fahrudin Smailagić",
+  "email": "fahrudin.smailagic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f1643c"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$AjxL4ZE26svWZUbEHkuDyg$g+TqDBsQZE37LkvU5p8IK87T/0sv4SvmThvBqJIS5L4",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:44.748Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.281Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb41f0841b1acf28167"
+  },
+  "name": "Melisa Mahmutović",
+  "email": "melisa.mahmutovic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f1643f"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$naOXLUM7JdB28F0px41kfw$cgXo45mdP2ixZwwvUX4Ge/f9xciP7rB7aNQbJzCYsSc",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:44.816Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.282Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb41f0841b1acf2816c"
+  },
+  "name": "Senad Kurtćehajić",
+  "email": "senad.kurtcehajic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f16442"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$2whYfX8f9KhmPkh8i/Z/vA$3XGngKNdRVcz7Bvb5Ul+4ukWgccH4Y/vsUucAi9zuuA",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:44.886Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.284Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb41f0841b1acf28171"
+  },
+  "name": "Aida Ahmedović",
+  "email": "aida.ahmedovic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f16445"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$RZ0NrLe5XKYW+I3JwFExYA$owGyiu/Mn3/HVYv2WWaEftDitqK8VlDhMn9Q+COwCIA",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:44.956Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.285Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb41f0841b1acf28176"
+  },
+  "name": "Aida Todorović",
+  "email": "aida.todorovic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f16448"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$uL78zPDfLwl5eUUyVUzJ6g$pH9N5WtrjE+JZknfAk2xE2YruT7Z+BLEvUirzzfVNI8",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:45.024Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.286Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb51f0841b1acf2817b"
+  },
+  "name": "Mirza Velagić",
+  "email": "mirza.velagic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f1644b"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$Ep5mhXhEbtolO04CkCIAig$ZGeypqsp4nyNsXey4TRrqq+Eyr+jgC06+eNa7mgDABI",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:45.092Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.288Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb51f0841b1acf28180"
+  },
+  "name": "Nihad Kišić",
+  "email": "nihad.kisic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f1644e"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$LgIBpIzlJSmHpLe+Y8DEsg$fmg9p9Py2st1XscA51pkbSMst2EDnLtd0Hr0RxbfbH8",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:45.162Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.290Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb51f0841b1acf28185"
+  },
+  "name": "Željka Pušić",
+  "email": "zeljka.pusic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f16451"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$jWnpxTmiKjThs8kwlSxm2Q$mPHkXjKfBkFBKAz1FjFx4MWrGPgwUp0IZGCwsf7BeYc",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:45.229Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.292Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb51f0841b1acf2818a"
+  },
+  "name": "Asaf Resulović",
+  "email": "asaf.resulovic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f16454"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$cA8q9oPdGR9yJMJOw9J3kQ$LCOf1OasNO8AA20ubGFdVHGRJRiwaghrDl01rV6WrwE",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:45.299Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.294Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb51f0841b1acf2818f"
+  },
+  "name": "Ivana Musa",
+  "email": "ivana.musa@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f16457"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$xtl1nd7/gPbXXd2rd1hAzw$bEilREp8EctUz5bVSKYOJb/wv2DlNhIV24auNfuSeaQ",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:45.369Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.296Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb51f0841b1acf28194"
+  },
+  "name": "Vahidin Perenda",
+  "email": "vahidin.perenda@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f1645a"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$EuB60dfN0+h8fCrLvq5ilA$Hf2HL1IXYvmnJxe2nzRPIK0MF/AeZnDLhb+kjxvH/GY",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:45.437Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.297Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb51f0841b1acf28199"
+  },
+  "name": "Ajdina Hasanović",
+  "email": "ajdina.hasanovic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f1645d"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$lG3kmpfh+kk4lwjAkOjh9A$OoSOo04eQumDqKGdUCfcsUKjKW8WLKyfhUREQoU4lBY",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:45.505Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.299Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb51f0841b1acf2819e"
+  },
+  "name": "Amira Brkić",
+  "email": "amira.brkic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f16460"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$J2Yf/UGVKUaHvGQ40+Lg4w$Fgtdvkuun94HSDKYIn9kKqIJbsLrSDpf3URnhGszTls",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:45.574Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.300Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb51f0841b1acf281a3"
+  },
+  "name": "Dino Delić",
+  "email": "dino.delic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f16463"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$XKGTvQAn7AJpfd/EKXA8NQ$Oac+AhqxDGnIMf39GiEpvnn3uMKHWG1t+HePGz8XMig",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:45.644Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.301Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb51f0841b1acf281a8"
+  },
+  "name": "Adnan Frljak",
+  "email": "adnan.frljak@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f16466"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$8E6pNJ98cHAN+3OQx0DGGA$fqmJDwfG9ou984d6ijdNIcfzUl+wxCs0Y0D70OGk0Z8",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:45.713Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.303Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb51f0841b1acf281ad"
+  },
+  "name": "Adnan Mahmutović",
+  "email": "adnan.mahmutovic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f16469"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$1rzQWFM2GqMaLeYgfqjVuw$SFSBzVTNN5IlJvTfKmD7lEw1Fp+i3330ABLBAkZKVVk",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:45.781Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.306Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb51f0841b1acf281b2"
+  },
+  "name": "Elma Bošnjaković",
+  "email": "elma.bosnjakov@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f1646c"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$vjvPPbvF+6mnPeS5dKhoww$BRvByarPsUk6WXYM+polhjJaDaTey1ZhpmicUYmc6KA",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:45.849Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.307Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb51f0841b1acf281b7"
+  },
+  "name": "Lejla Fazlić",
+  "email": "lejla.fazlic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f1646f"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$4mlQ+3oN4ezZEBRT7EwiHw$U7lBrI7vn1yQjlVNb4SxQfcXaKcXJYnmoc7PtcrxK8M",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:45.917Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.309Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb51f0841b1acf281bc"
+  },
+  "name": "Melisa Zahirović",
+  "email": "melisa.zahirovic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f16472"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$NhtPn6zPedUcfpLcyVIPRw$rHiicW0/6jgbNNCzu0HlVp1PS9urIBe1zVnnVCI312Q",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:45.985Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.312Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb51f0841b1acf281c1"
+  },
+  "name": "Redžo Delić",
+  "email": "redzo.delic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f16475"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$eEilSHD6bqW+NqcKup1CqA$ZqRy4i5XX/kAyhdF/H+UXFoAH1ARMSQUSaWx+Nc3t4c",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:46.054Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.313Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb61f0841b1acf281c6"
+  },
+  "name": "Suad Krvavac",
+  "email": "suad.krvavac@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f16478"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$Gla2PG442lT/a4JmZQRnNg$ag7C1FCyhZgYbWC/Bv23aGrL8mVePe5UKTcbaPHl18g",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:46.125Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.316Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb61f0841b1acf281cb"
+  },
+  "name": "Zlatan Bilanović",
+  "email": "zlatan.bilanovic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f1647b"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$D7NVRCbkJwsWQCUmn7MlRw$rj41+xYnAt2g91JRmqG2ekFJ/2mCIlv7oj1raZDWgkc",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:46.194Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.317Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb61f0841b1acf281d0"
+  },
+  "name": "Lejla Jugo",
+  "email": "lejla.jugo@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f1647e"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$C8I3HENwXRNRGhHUFhEYhw$accl96HKWOIC2b3o6oyXj0qEmrTatVKO/9g/YyZxfyo",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:46.262Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.319Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb61f0841b1acf281d5"
+  },
+  "name": "Mario Pezer",
+  "email": "mario.pezer@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f16481"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$bIFgtPBG16ujR4vDH6tswA$sCQqu2Al4Fe+w0sRMrgcsou7pAUi94fN/CzmDJdUksw",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:46.330Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.320Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69cf6bb61f0841b1acf281da"
+  },
+  "name": "Samra Kadribegović",
+  "email": "samra.kadribegovic@fmeri.gov.ba",
+  "role": [
+    "user"
+  ],
+  "slika": null,
+  "organizacionaJedinica": null,
+  "radnoMjesto": null,
+  "zaposlenik": {
+    "$oid": "69cf6bbc3692ae4676f16484"
+  },
+  "hash": "$argon2id$v=19$m=65536,t=3,p=4$v4qfcNmZ7ZBo/ESj4npsUw$XI8xzi/CvsA/97ASa61zjqKT7q9KMAqfXy3Bc72GY34",
+  "createdAt": {
+    "$date": "2026-04-03T07:26:46.405Z"
+  },
+  "updatedAt": {
+    "$date": "2026-04-03T07:26:52.322Z"
+  },
+  "__v": 0
+}]
