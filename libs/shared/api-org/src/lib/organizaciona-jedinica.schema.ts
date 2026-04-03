@@ -3,9 +3,10 @@ import { Document, Schema, Model, model, Types } from 'mongoose';
 export type TipJedinice =
   | 'ministarstvo'
   | 'kabinet'
-  | 'zavod' // ← umjesto upravna_organizacija
-  | 'direkcija' // ← novo
+  | 'zavod'
+  | 'direkcija'
   | 'sektor'
+  | 'sluzba' // ← dodaj
   | 'odsjek'
   | 'grupa'
   | 'centar';
@@ -39,9 +40,10 @@ const organizacionaJedinicaSchema = new Schema<IOrganizacionaJedinica>(
       enum: [
         'ministarstvo',
         'kabinet',
-        'zavod', // ← novo
-        'direkcija', // ← novo
+        'zavod',
+        'direkcija',
         'sektor',
+        'sluzba',
         'odsjek',
         'grupa',
         'centar',

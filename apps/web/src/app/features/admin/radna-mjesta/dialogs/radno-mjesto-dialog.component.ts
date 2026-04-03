@@ -20,6 +20,7 @@ import {
   KATEGORIJA_NAZIV,
   PozicijaKljuc,
 } from '../../../../core/models/org.models';
+import { catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-radno-mjesto-dialog',
@@ -304,12 +305,15 @@ export class RadnoMjestoDialogComponent implements OnInit {
 
   private ucitajPozicije(kategorija: string, callback?: () => void) {
     this.ucitavaPozicije = true;
-    this.orgService.getPozicijeByKategorija(kategorija).subscribe((data) => {
-      this.pozicije = data;
-      this.ucitavaPozicije = false;
-      this.cdr.detectChanges();
-      if (callback) callback();
-    });
+    this.orgService
+      .getPozicijeByKategorija(kategorija)
+      .pipe(catchError(() => of([])))
+      .subscribe((data) => {
+        this.pozicije = data;
+        this.ucitavaPozicije = false;
+        this.cdr.detectChanges();
+        if (callback) callback();
+      });
   }
 
   spremi() {

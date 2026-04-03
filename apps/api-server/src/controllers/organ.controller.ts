@@ -258,3 +258,23 @@ export const addRadnoMjestoOrganu = async (req: Request, res: Response) => {
     return res.status(400).json({ error: getErrorMessage(error) });
   }
 };
+
+export const getRadnaMjestaOrgana = async (req: Request, res: Response) => {
+  try {
+    const organJedinica = await OrganizacionaJedinica.findOne({
+      organ: req.params['id'],
+      tip: { $in: ['ministarstvo', 'zavod', 'direkcija'] },
+    }).lean();
+
+    if (!organJedinica) return res.json([]);
+
+    const radnaMjesta = await RadnoMjesto.find({
+      organizacionaJedinica: organJedinica._id,
+      aktivno: true,
+    }).lean();
+
+    return res.json(radnaMjesta);
+  } catch (error) {
+    return res.status(500).json({ error: getErrorMessage(error) });
+  }
+};

@@ -18,6 +18,7 @@ const seed = async () => {
   const fajlovi = [
     'platni-razredi-sluzbenik.json',
     'platni-razredi-namjestenik.json',
+    'platni-razredi-izabrani.json', // ← dodaj
   ];
 
   for (const fajl of fajlovi) {

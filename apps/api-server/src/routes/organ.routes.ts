@@ -11,6 +11,7 @@ router.get('/', organController.getOrgani);
 router.get('/:id', organController.getOrgan);
 router.get('/:id/struktura', organController.getOrganStruktura);
 router.get('/u-sastavu/:organId', organController.getOrganiUSastavu);
+router.get('/:id/radna-mjesta', organController.getRadnaMjestaOrgana);
 
 // Admin endpointi
 router.post('/', requireRole('admin'), organController.createOrgan);

@@ -1,0 +1,79 @@
+[
+  {
+    "kljuc": "ministar",
+    "naziv": "Federalni ministar",
+    "naziv_alternativni": [
+      "Ministar"
+    ],
+    "opis": "Rukovodi federalnim ministarstvom i odgovoran je Vladi Federacije BiH za rad ministarstva",
+    "pravniOsnov": "Čl. 5. Zakona o ministarstvima i drugim organima uprave FBiH, Čl. 7. Zakona o plaćama i naknadama u organima vlasti FBiH",
+    "kategorija": "izabrani_duznosnik",
+    "uvjetiKonkursa": {
+      "stucnaSprema": "VSS",
+      "bolonja": ["I ciklus", "II ciklus", "III ciklus"],
+      "minRadnoIskustvo": 0,
+      "stucniIspit": false,
+      "posebniUvjeti": [],
+      "opciUvjeti": [
+        "Državljanstvo BiH",
+        "Min. 18 godina",
+        "Zdravstvena sposobnost"
+      ]
+    },
+    "radnoVrijeme": {
+      "satniSedmicno": 40,
+      "godisnjiOdmor": 30,
+      "placeniDopust": 7
+    },
+    "odgovornost": {
+      "odgovaraKome": "Vlada Federacije BiH",
+      "rukovodiCime": "Federalno ministarstvo"
+    },
+    "dodaci": {
+      "naZnanje": false,
+      "maxPosebniUvjeti": 0,
+      "maxRadniStaz": 0
+    },
+    "razred": "I",
+    "koeficijent": 9.00
+  },
+  {
+    "kljuc": "savjetnik_ministra",
+    "naziv": "Savjetnik ministra",
+    "naziv_alternativni": [
+      "Savjetnik predsjedavajućeg doma Parlamenta Federacije",
+      "Savjetnik nosioca izvršnih funkcija"
+    ],
+    "opis": "Pruža stručnu i savjetodavnu podršku ministru u oblastima iz nadležnosti ministarstva",
+    "pravniOsnov": "Čl. 7. Zakona o plaćama i naknadama u organima vlasti FBiH — Razred XI, koeficijent 6,40",
+    "kategorija": "izabrani_duznosnik",
+    "uvjetiKonkursa": {
+      "stucnaSprema": "VSS",
+      "bolonja": ["I ciklus", "II ciklus", "III ciklus"],
+      "minRadnoIskustvo": 0,
+      "stucniIspit": false,
+      "posebniUvjeti": [],
+      "opciUvjeti": [
+        "Državljanstvo BiH",
+        "Min. 18 godina",
+        "Zdravstvena sposobnost"
+      ]
+    },
+    "radnoVrijeme": {
+      "satniSedmicno": 40,
+      "godisnjiOdmor": 30,
+      "placeniDopust": 7
+    },
+    "odgovornost": {
+      "odgovaraKome": "Ministar",
+      "rukovodiCime": null
+    },
+    "dodaci": {
+      "naZnanje": false,
+      "maxPosebniUvjeti": 0,
+      "maxRadniStaz": 0
+    },
+    "razred": "XI",
+    "koeficijent": 6.40
+  }
+]

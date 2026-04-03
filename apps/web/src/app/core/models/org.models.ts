@@ -5,6 +5,7 @@ export type TipJedinice =
   | 'zavod'
   | 'direkcija'
   | 'sektor'
+  | 'sluzba'    // ← dodaj
   | 'odsjek'
   | 'grupa'
   | 'centar';
@@ -15,6 +16,7 @@ export const TIP_JEDINICE_NAZIV: Record<TipJedinice, string> = {
   zavod: 'Zavod',
   direkcija: 'Direkcija',
   sektor: 'Sektor',
+  sluzba: 'Služba',
   odsjek: 'Odsjek',
   grupa: 'Grupa',
   centar: 'Centar',

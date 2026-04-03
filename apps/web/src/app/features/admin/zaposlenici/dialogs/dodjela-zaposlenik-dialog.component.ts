@@ -182,17 +182,43 @@ export class DodjelaZaposlenikDialogComponent implements OnInit {
   onJedinicaChange(jedinicaId: string | null) {
     this.form.patchValue({ radnoMjesto: null });
     this.radnaMjesta = [];
-    if (jedinicaId) this.ucitajRadnaMjesta(jedinicaId);
+    if (!jedinicaId) return;
+
+    const jeOrgan = this.organi.some((o) => o._id === jedinicaId);
+    if (jeOrgan) {
+      this.ucitavaRM = true;
+      this.orgService.getRadnaMjestaOrgana(jedinicaId).subscribe((data) => {
+        this.radnaMjesta = data;
+        this.ucitavaRM = false;
+        this.cdr.detectChanges();
+      });
+    } else {
+      this.ucitajRadnaMjesta(jedinicaId);
+    }
   }
 
   private ucitajJedinice(organId: string, callback?: () => void) {
     this.orgService.getOrganStruktura(organId).subscribe((s) => {
-      // Flatten sve jedinice
       const lista: OrganizacionaJedinica[] = [];
+
+      // Dodaj root jedinicu organa (ministarstvo/zavod/direkcija)
+      lista.push({
+        _id: s.organ._id,
+        naziv: `${s.organ.naziv} (direktno)`,
+        tip: s.organ.vrstaOrgana as any,
+        nadredjenaJedinica: null,
+        aktivna: true,
+        redoslijed: 0,
+      } as unknown as OrganizacionaJedinica);
+
+      // Dodaj OOJ i UOJ s indentacijom
       for (const ooj of s.osnovneJedinice) {
         lista.push(ooj as unknown as OrganizacionaJedinica);
         for (const uoj of ooj.unutrasnje) {
-          lista.push(uoj as unknown as OrganizacionaJedinica);
+          lista.push({
+            ...uoj,
+            naziv: `  ↳ ${uoj.naziv}`,
+          } as unknown as OrganizacionaJedinica);
         }
       }
       this.jedinice = lista;

@@ -274,4 +274,22 @@ export class OrgService {
       data,
     );
   }
+
+  getRadnaMjestaZaJedinicu(jedinicaId: string): Observable<RadnoMjesto[]> {
+    return this.http.get<RadnoMjesto[]>(
+      `${this.apiUrl}/radna-mjesta?organizacionaJedinica=${jedinicaId}`,
+    );
+  }
+
+  getRadnaMjestaZaOrgan(organId: string): Observable<RadnoMjesto[]> {
+    return this.http.get<RadnoMjesto[]>(
+      `http://localhost:3000/api/zaposlenici/../organi/${organId}/radna-mjesta`,
+    );
+  }
+
+  getRadnaMjestaOrgana(organId: string): Observable<RadnoMjesto[]> {
+    return this.http.get<RadnoMjesto[]>(
+      `${this.organiUrl}/${organId}/radna-mjesta`,
+    );
+  }
 }
