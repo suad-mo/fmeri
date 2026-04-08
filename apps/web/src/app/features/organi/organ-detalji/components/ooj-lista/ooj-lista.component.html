@@ -1,0 +1,94 @@
+<div class="sekcija-label">
+  <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+  Organizacijske jedinice
+  <span class="cnt">{{ ooj().length }}</span>
+</div>
+
+<div class="ooj-lista">
+  @for (jedinica of ooj(); track jedinica._id) {
+    <div class="ooj-panel">
+
+      <!-- OOJ trigger -->
+      <div class="ooj-trigger"
+  (click)="toggleOoj(jedinica._id)"
+  (keydown.enter)="toggleOoj(jedinica._id)"
+  (keydown.space)="toggleOoj(jedinica._id)"
+  role="button"
+  tabindex="0">
+        <div class="ooj-ikona">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <span class="ooj-naziv">{{ jedinica.naziv }}</span>
+        <span class="ooj-meta">{{ getBrojRMuOOJ(jedinica) }} RM</span>
+        @if (jeAdmin()) {
+          <button class="ic-btn" matTooltip="Dodaj radno mjesto"
+            (click)="dodajOOJRm.emit(jedinica); $event.stopPropagation()">
+            <mat-icon>work</mat-icon>
+          </button>
+          <button class="ic-btn" matTooltip="Dodaj unutrašnju jedinicu"
+            (click)="dodajUOJ.emit(jedinica); $event.stopPropagation()">
+            <mat-icon>create_new_folder</mat-icon>
+          </button>
+          <button class="ic-btn" matTooltip="Uredi jedinicu"
+            (click)="urediOOJ.emit(jedinica); $event.stopPropagation()">
+            <mat-icon>edit</mat-icon>
+          </button>
+        }
+        <svg class="chevron" [class.open]="isOpen(jedinica._id)"
+          viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </div>
+
+      <!-- OOJ body -->
+      @if (isOpen(jedinica._id)) {
+        <div class="ooj-body">
+
+          <!-- RM direktno u OOJ -->
+          @if (jedinica.radnaMjesta.length > 0) {
+            <div class="ooj-direktna-rm">
+              @for (rm of jedinica.radnaMjesta; track rm._id) {
+                <app-rm-row
+                  [rm]="rm"
+                  [jeAdmin]="jeAdmin()"
+                  [apiUrl]="apiUrl()"
+                  (dodijeli)="dodijeli.emit($event)"
+                  (premjesti)="premjesti.emit($event)"
+                  (deaktiviraj)="deaktiviraj.emit($event)"
+                />
+              }
+            </div>
+          }
+
+          <!-- UOJ lista -->
+          @for (uoj of jedinica.unutrasnje; track uoj._id) {
+            <div class="uoj-blok">
+              <div class="uoj-header">
+                <div class="uoj-ikona">
+                  <svg viewBox="0 0 24 24"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
+                </div>
+                <span class="uoj-naziv">{{ uoj.naziv }}</span>
+                <span class="ooj-meta">{{ uoj.radnaMjesta.length }} RM</span>
+                @if (jeAdmin()) {
+                  <button class="ic-btn" matTooltip="Dodaj radno mjesto"
+                    (click)="dodajUOJRm.emit(uoj); $event.stopPropagation()">
+                    <mat-icon>work</mat-icon>
+                  </button>
+                }
+              </div>
+              @for (rm of uoj.radnaMjesta; track rm._id) {
+                <app-rm-row
+                  [rm]="rm"
+                  [jeAdmin]="jeAdmin()"
+                  [apiUrl]="apiUrl()"
+                  (dodijeli)="dodijeli.emit($event)"
+                  (premjesti)="premjesti.emit($event)"
+                  (deaktiviraj)="deaktiviraj.emit($event)"
+                />
+              }
+            </div>
+          }
+
+        </div>
+      }
+    </div>
+  }
+</div>

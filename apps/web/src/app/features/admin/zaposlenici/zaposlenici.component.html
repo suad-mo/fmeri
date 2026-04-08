@@ -6,7 +6,11 @@
   <div class="header-actions">
     <mat-form-field appearance="outline" class="pretraga-field">
       <mat-label>Pretraži</mat-label>
-      <input matInput [(ngModel)]="pretraga" placeholder="Ime, email, org. jedinica..."/>
+      <input
+        matInput
+        [(ngModel)]="pretraga"
+        placeholder="Ime, email, org. jedinica..."
+      />
       <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
     <button mat-flat-button color="primary" (click)="uredi(undefined)">
@@ -18,19 +22,23 @@
 
 @if (isLoading()) {
   <div class="loading-wrapper">
-    <mat-spinner diameter="40"/>
+    <mat-spinner diameter="40" />
   </div>
 } @else {
   <div class="table-card">
     <table mat-table [dataSource]="filtrirani()">
-
       <ng-container matColumnDef="zaposlenik">
         <th mat-header-cell *matHeaderCellDef>Zaposlenik</th>
-        <td mat-cell *matCellDef="let z">
+        <td
+          mat-cell
+          *matCellDef="let z"
+          [routerLink]="['/zaposlenici', z._id]"
+          style="cursor: pointer"
+        >
           <div class="zaposlenik-cell">
             <div class="avatar">
               @if (z.slika) {
-                <img [src]="apiUrl + '/' + z.slika" [alt]="z.ime"/>
+                <img [src]="apiUrl + '/' + z.slika" [alt]="z.ime" />
               } @else {
                 <mat-icon>person</mat-icon>
               }
@@ -79,10 +87,10 @@
           @if (z.radnoMjesto) {
             <div>
               <span class="rm-naziv">{{ z.radnoMjesto.naziv }}</span>
-              <br>
+              <br />
               <small class="razred">
-                Razred {{ z.radnoMjesto.platniRazred }}
-                — {{ z.radnoMjesto.koeficijent }}
+                Razred {{ z.radnoMjesto.platniRazred }} —
+                {{ z.radnoMjesto.koeficijent }}
               </small>
             </div>
           } @else {
@@ -103,24 +111,30 @@
       <ng-container matColumnDef="akcije">
         <th mat-header-cell *matHeaderCellDef>Akcije</th>
         <td mat-cell *matCellDef="let z">
-          <button mat-icon-button matTooltip="Dodjeli org/RM"
-            color="primary" (click)="dodjelaRM(z)">
+          <button
+            mat-icon-button
+            matTooltip="Dodjeli org/RM"
+            color="primary"
+            (click)="dodjelaRM(z)"
+          >
             <mat-icon>assignment_ind</mat-icon>
           </button>
-          <button mat-icon-button matTooltip="Uredi"
-            (click)="uredi(z)">
+          <button mat-icon-button matTooltip="Uredi" (click)="uredi(z)">
             <mat-icon>edit</mat-icon>
           </button>
-          <button mat-icon-button matTooltip="Deaktiviraj"
-            color="warn" (click)="obrisi(z)">
+          <button
+            mat-icon-button
+            matTooltip="Deaktiviraj"
+            color="warn"
+            (click)="obrisi(z)"
+          >
             <mat-icon>block</mat-icon>
           </button>
         </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="kolone"></tr>
-      <tr mat-row *matRowDef="let row; columns: kolone;"></tr>
-
+      <tr mat-row *matRowDef="let row; columns: kolone"></tr>
     </table>
 
     <div class="table-footer">

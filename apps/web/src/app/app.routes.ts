@@ -1,48 +1,85 @@
 import { Routes } from '@angular/router';
 import { authGuard } from './core/guards/auth.guard';
+import { roleGuard } from './core/guards/role.guard';
 
 export const appRoutes: Routes = [
+  // ── Javne rute ──────────────────────────────────────
   {
-    path: 'auth',
+    path: 'login',
+    loadComponent: () =>
+      import('./features/auth/login/login.component').then(
+        (m) => m.LoginComponent,
+      ),
+  },
+
+  // ── Zaštićene rute (svi prijavljeni) ────────────────
+  {
+    path: '',
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./features/layout/main-layout.component').then(
+        (m) => m.MainLayoutComponent,
+      ),
     children: [
+      // Dashboard
       {
-        path: 'login',
+        path: 'dashboard',
         loadComponent: () =>
-          import('./features/auth/login/login.component').then(
-            (m) => m.LoginComponent,
+          import('./features/dashboard/dashboard.component').then(
+            (m) => m.DashboardComponent,
+          ),
+      },
+      // Organi — svi prijavljeni vide
+      {
+        path: 'organi',
+        loadComponent: () =>
+          import('./features/organi/organi-lista.component').then(
+            (m) => m.OrganiListaComponent,
           ),
       },
       {
-        path: 'register',
+        path: 'organi/:organId',
         loadComponent: () =>
-          import('./features/auth/register/register.component').then(
-            (m) => m.RegisterComponent,
+          import(
+            './features/organi/organ-detalji/organ-detalji.component'
+          ).then((m) => m.OrganDetaljiComponent),
+      },
+      // Zaposlenici — svi vide
+      {
+        path: 'zaposlenici',
+        loadComponent: () =>
+          import('./features/admin/zaposlenici/zaposlenici.component').then(
+            (m) => m.ZaposleniciComponent,
           ),
       },
+      {
+        path: 'zaposlenici/:id',
+        loadComponent: () =>
+          import(
+            './features/admin/zaposlenici/zaposlenik-detalji/zaposlenik-detalji.component'
+          ).then((m) => m.ZaposlenikDetaljiComponent),
+      },
+      // Profil — vlastiti profil
+      {
+        path: 'profil',
+        loadComponent: () =>
+          import('./features/profil/profil.component').then(
+            (m) => m.ProfilComponent,
+          ),
+      },
+      // ── Admin rute (samo admin) ──────────────────────
+      {
+        path: 'admin',
+        canActivate: [roleGuard(['admin'])],
+        loadChildren: () =>
+          import('./features/admin/admin.routes').then((m) => m.adminRoutes),
+      },
+      // Default redirect
+      { path: '', redirectTo: 'organi', pathMatch: 'full' },
     ],
   },
-  {
-    path: 'dashboard',
-    canActivate: [authGuard],
-    loadComponent: () =>
-      import('./features/dashboard/dashboard.component').then(
-        (m) => m.DashboardComponent,
-      ),
-  },
-  {
-    path: 'admin',
-    canActivate: [authGuard],
-    loadChildren: () =>
-      import('./features/admin/admin.routes').then((m) => m.adminRoutes),
-  },
-  { path: '', redirectTo: 'auth/login', pathMatch: 'full' },
-  {
-    path: 'profil',
-    loadComponent: () =>
-      import('./features/profil/profil.component').then(
-        (m) => m.ProfilComponent,
-      ),
-    canActivate: [authGuard],
-  },
-  { path: '**', redirectTo: 'auth/login' },
+
+  // Stare rute — redirect zbog kompatibilnosti
+  { path: 'auth/login', redirectTo: 'login', pathMatch: 'full' },
+  { path: '**', redirectTo: 'login' },
 ];

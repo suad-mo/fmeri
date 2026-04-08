@@ -17,11 +17,13 @@ import {
   VRSTA_UGOVORA_NAZIV,
   VrstaUgovora,
 } from '../../../core/models/org.models';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-zaposlenici',
   standalone: true,
   imports: [
+    RouterLink,
     MatTableModule,
     MatButtonModule,
     MatIconModule,

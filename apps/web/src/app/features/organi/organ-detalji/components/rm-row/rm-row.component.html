@@ -1,0 +1,50 @@
+<div class="rm-kartica">
+  <div class="rm-header">
+    <div class="rm-kategorija-bar rm-bar-{{ rm().kategorijaZaposlenog }}"></div>
+    <span class="rm-naziv">{{ rm().naziv }}</span>
+    <span class="rm-broj"
+      [class.popunjeno]="rm().zaposlenici.length >= rm().brojIzvrsilaca"
+      [class.upraznjeno]="rm().zaposlenici.length < rm().brojIzvrsilaca">
+      {{ rm().zaposlenici.length }}/{{ rm().brojIzvrsilaca }}
+    </span>
+    @if (jeAdmin()) {
+      <div class="rm-akcije">
+        <button class="ic-btn ic-dodijeli"
+          matTooltip="Dodijeli zaposlenika"
+          (click)="onDodijeli($event)">
+          <mat-icon>person_add</mat-icon>
+        </button>
+        <button class="ic-btn ic-premjesti"
+          matTooltip="Premjesti u drugu org. jedinicu"
+          (click)="premjesti.emit(rm())">
+          <mat-icon>drive_file_move</mat-icon>
+        </button>
+        <button class="ic-btn ic-deaktiviraj"
+          matTooltip="Deaktiviraj"
+          (click)="deaktiviraj.emit(rm())">
+          <mat-icon>block</mat-icon>
+        </button>
+      </div>
+    }
+  </div>
+
+  @if (rm().zaposlenici.length > 0) {
+    <div class="zaposlenik-lista">
+      @for (z of rm().zaposlenici; track z._id) {
+        <div class="zaposlenik-red">
+          @if (z.slika) {
+            <div class="zaposlenik-avatar">
+              <img [src]="apiUrl() + '/' + z.slika" [alt]="z.ime"/>
+            </div>
+          }
+          <span class="zaposlenik-ime">{{ z.ime }} {{ z.prezime }}</span>
+        </div>
+      }
+    </div>
+  } @else {
+    <div class="upraznjeno-red">
+      <mat-icon>person_outline</mat-icon>
+      Upražnjeno radno mjesto
+    </div>
+  }
+</div>

@@ -1,0 +1,189 @@
+<div class="zap-detalji-page">
+
+  @if (isLoading()) {
+    <div class="loading-wrapper">
+      <mat-spinner diameter="40"/>
+    </div>
+  } @else if (zaposlenik(); as z) {
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <button mat-button (click)="nazad()">
+        <mat-icon>arrow_back</mat-icon>
+        Zaposlenici
+      </button>
+      <mat-icon class="bc-sep">chevron_right</mat-icon>
+      <span>{{ z.prezime }} {{ z.ime }}</span>
+    </div>
+
+    <!-- Header kartica -->
+    <div class="zap-header">
+      <div class="zap-avatar-wrap">
+        @if (z.slika) {
+          <img class="zap-avatar" [src]="apiUrl + '/' + z.slika" [alt]="z.ime"/>
+        } @else {
+          <div class="zap-avatar-initials">
+            {{ z.ime[0] }}{{ z.prezime[0] }}
+          </div>
+        }
+      </div>
+      <div class="zap-naziv-blok">
+        <h1>{{ z.prezime }} {{ z.ime }}</h1>
+        @if (z.radnoMjesto) {
+          <p class="zap-pozicija">{{ z.radnoMjesto.naziv }}</p>
+        }
+        <div class="zap-tagovi">
+          @if (z.vrstaUgovora) {
+            <span class="tag tag-ugovor tag-{{ z.vrstaUgovora }}">
+              {{ getVrstaUgovoraNaziv(z.vrstaUgovora) }}
+            </span>
+          }
+          @if (z.radnoMjesto?.kategorijaZaposlenog) {
+            <span class="tag tag-kategorija">
+              {{ getKategorijaNaziv(z.radnoMjesto!.kategorijaZaposlenog) }}
+            </span>
+          }
+          <span class="tag" [class.tag-aktivan]="z.aktivan" [class.tag-neaktivan]="!z.aktivan">
+            {{ z.aktivan ? 'Aktivan' : 'Neaktivan' }}
+          </span>
+        </div>
+      </div>
+      @if (jeAdmin()) {
+        <div class="zap-akcije">
+          <button mat-stroked-button (click)="dodjelaRM()">
+            <mat-icon>assignment_ind</mat-icon>
+            Dodjeli RM
+          </button>
+          <button mat-stroked-button (click)="uredi()">
+            <mat-icon>edit</mat-icon>
+            Uredi
+          </button>
+          <button mat-stroked-button color="warn" (click)="obrisi()">
+            <mat-icon>block</mat-icon>
+            Deaktiviraj
+          </button>
+        </div>
+      }
+    </div>
+
+    <mat-divider/>
+
+    <!-- Info grid -->
+    <div class="info-grid">
+
+      <!-- Kontakt -->
+      <div class="info-kartica">
+        <div class="info-naslov">
+          <mat-icon>contact_mail</mat-icon>
+          Kontakt
+        </div>
+        <div class="info-redovi">
+          @if (z.sluzbeniEmail) {
+            <div class="info-red">
+              <span class="info-label">Službeni email</span>
+              <span class="info-value">{{ z.sluzbeniEmail }}</span>
+            </div>
+          }
+          @if (z.privatniEmail) {
+            <div class="info-red">
+              <span class="info-label">Privatni email</span>
+              <span class="info-value">{{ z.privatniEmail }}</span>
+            </div>
+          }
+          @if (z.telefon) {
+            <div class="info-red">
+              <span class="info-label">Telefon</span>
+              <span class="info-value">{{ z.telefon }}</span>
+            </div>
+          }
+          @if (z.mobilni) {
+            <div class="info-red">
+              <span class="info-label">Mobilni</span>
+              <span class="info-value">{{ z.mobilni }}</span>
+            </div>
+          }
+          @if (z.adresa) {
+            <div class="info-red">
+              <span class="info-label">Adresa</span>
+              <span class="info-value">{{ z.adresa }}</span>
+            </div>
+          }
+        </div>
+      </div>
+
+      <!-- Organizacija -->
+      <div class="info-kartica">
+        <div class="info-naslov">
+          <mat-icon>account_balance</mat-icon>
+          Organizacija
+        </div>
+        <div class="info-redovi">
+          @if (z.organ) {
+            <div class="info-red">
+              <span class="info-label">Organ</span>
+              <a class="info-link" [routerLink]="['/organi', z.organ._id]">
+                {{ z.organ.naziv }}
+              </a>
+            </div>
+          }
+          @if (z.organizacionaJedinica) {
+            <div class="info-red">
+              <span class="info-label">Org. jedinica</span>
+              <span class="info-value">{{ z.organizacionaJedinica.naziv }}</span>
+            </div>
+          }
+          @if (z.radnoMjesto) {
+            <div class="info-red">
+              <span class="info-label">Radno mjesto</span>
+              <span class="info-value">{{ z.radnoMjesto.naziv }}</span>
+            </div>
+            <div class="info-red">
+              <span class="info-label">Platni razred</span>
+              <span class="info-value">
+                {{ z.radnoMjesto.platniRazred }} — koef. {{ z.radnoMjesto.koeficijent }}
+              </span>
+            </div>
+          }
+          @if (!z.organ && !z.organizacionaJedinica && !z.radnoMjesto) {
+            <p class="nije-dodijeljeno">Nije dodijeljen organu</p>
+          }
+        </div>
+      </div>
+
+      <!-- Lični podaci -->
+      <div class="info-kartica">
+        <div class="info-naslov">
+          <mat-icon>badge</mat-icon>
+          Lični podaci
+        </div>
+        <div class="info-redovi">
+          @if (z.datumRodjenja) {
+            <div class="info-red">
+              <span class="info-label">Datum rođenja</span>
+              <span class="info-value">{{ z.datumRodjenja | slice:0:10 }}</span>
+            </div>
+          }
+          @if (z.spol) {
+            <div class="info-red">
+              <span class="info-label">Spol</span>
+              <span class="info-value">{{ z.spol === 'M' ? 'Muški' : 'Ženski' }}</span>
+            </div>
+          }
+          @if (z.datumZaposlenja) {
+            <div class="info-red">
+              <span class="info-label">Datum zaposlenja</span>
+              <span class="info-value">{{ z.datumZaposlenja | slice:0:10 }}</span>
+            </div>
+          }
+          @if (z.user) {
+            <div class="info-red">
+              <span class="info-label">Korisnički nalog</span>
+              <span class="tag tag-aktivan">Ima nalog</span>
+            </div>
+          }
+        </div>
+      </div>
+
+    </div>
+  }
+</div>
