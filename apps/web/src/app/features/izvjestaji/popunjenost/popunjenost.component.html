@@ -1,0 +1,155 @@
+<div class="pop-page">
+  <div class="page-header">
+    <div>
+      <h1>Izvještaj o popunjenosti</h1>
+      <p>Pregled popunjenosti radnih mjesta po organima i org. jedinicama</p>
+    </div>
+    <div class="header-akcije">
+      <button mat-stroked-button (click)="downloadExcel()">
+        <mat-icon>table_view</mat-icon>
+        Excel
+      </button>
+      <button mat-flat-button color="primary" (click)="downloadPDF()">
+        <mat-icon>picture_as_pdf</mat-icon>
+        PDF
+      </button>
+    </div>
+  </div>
+
+  @if (isLoading()) {
+    <div class="loading-wrapper">
+      <mat-spinner diameter="40" />
+    </div>
+  } @else {
+    <!-- Sumarni red -->
+    <div class="sumarni-red">
+      <div class="sumarni-kartica">
+        <span class="sum-broj">{{ ukupnoSistem().ukupnoRM }}</span>
+        <span class="sum-label">Ukupno RM</span>
+      </div>
+      <div class="sumarni-kartica">
+        <span class="sum-broj zelena">{{ ukupnoSistem().popunjeno }}</span>
+        <span class="sum-label">Popunjeno</span>
+      </div>
+      <div class="sumarni-kartica">
+        <span class="sum-broj crvena">{{ ukupnoSistem().upraznjeno }}</span>
+        <span class="sum-label">Upražnjeno</span>
+      </div>
+      <div class="sumarni-kartica posto-kartica">
+        <span class="sum-broj" [class]="getProgressBoja(ukupnoSistem().posto)">
+          {{ ukupnoSistem().posto }}%
+        </span>
+        <span class="sum-label">Popunjenost sistema</span>
+        <div class="progress-bar-wrap">
+          <div
+            class="progress-bar"
+            [class]="getProgressBoja(ukupnoSistem().posto)"
+            [style.width.%]="ukupnoSistem().posto"
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Organi lista -->
+    <div class="organi-lista">
+      @for (organ of podaci(); track organ.organId) {
+        <div class="organ-panel">
+          <!-- Organ header -->
+          <button class="organ-trigger" (click)="toggleOrgan(organ.organId)">
+            <div class="organ-ikona ikona-{{ organ.vrstaOrgana }}">
+              <mat-icon>account_balance</mat-icon>
+            </div>
+            <div class="organ-naziv-blok">
+              <span class="organ-naziv">{{ organ.naziv }}</span>
+              @if (organ.skraceniNaziv) {
+                <span class="organ-skraceni">{{ organ.skraceniNaziv }}</span>
+              }
+            </div>
+            <div class="organ-brojevi">
+              <span class="broj-rm">{{ organ.ukupnoRM }} RM</span>
+              <span class="broj-pop zelena">{{ organ.popunjeno }} pop.</span>
+              <span class="broj-upr crvena">{{ organ.upraznjeno }} upr.</span>
+            </div>
+            <div class="organ-posto-wrap">
+              <span class="posto-broj" [class]="getProgressBoja(organ.posto)">
+                {{ organ.posto }}%
+              </span>
+              <div class="progress-bar-wrap mini">
+                <div
+                  class="progress-bar"
+                  [class]="getProgressBoja(organ.posto)"
+                  [style.width.%]="organ.posto"
+                ></div>
+              </div>
+            </div>
+            <mat-icon class="chevron" [class.open]="isOpen(organ.organId)">
+              chevron_right
+            </mat-icon>
+          </button>
+
+          <!-- Organ detalji — OOJ lista -->
+          @if (isOpen(organ.organId)) {
+            <div class="organ-body">
+              <table class="oj-tabela">
+                <thead>
+                  <tr>
+                    <th>Org. jedinica</th>
+                    <th class="text-right">Ukupno RM</th>
+                    <th class="text-right">Popunjeno</th>
+                    <th class="text-right">Upražnjeno</th>
+                    <th class="text-right">Popunjenost</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @for (j of organ.poJedinicama; track j.jedinicaId) {
+                    <tr [class.unutrasnja]="j.nivoJedinice === 'unutrasnja'">
+                      <td>
+                        @if (j.nivoJedinice === 'unutrasnja') {
+                          <span class="indent">↳</span>
+                        }
+                        <span class="oj-naziv">{{ j.naziv }}</span>
+                        <span class="oj-tip">{{ j.tip }}</span>
+                      </td>
+                      <td class="text-right">{{ j.ukupnoRM }}</td>
+                      <td class="text-right zelena">{{ j.popunjeno }}</td>
+                      <td class="text-right" [class.crvena]="j.upraznjeno > 0">
+                        {{ j.upraznjeno }}
+                      </td>
+                      <td class="text-right">
+                        <div class="inline-progress">
+                          <span
+                            class="posto-mali"
+                            [class]="getProgressBoja(j.posto)"
+                          >
+                            {{ j.posto }}%
+                          </span>
+                          <div class="progress-bar-wrap mini">
+                            <div
+                              class="progress-bar"
+                              [class]="getProgressBoja(j.posto)"
+                              [style.width.%]="j.posto"
+                            ></div>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="text-right">
+                        <a
+                          mat-icon-button
+                          [routerLink]="['/organi', organ.organId]"
+                          matTooltip="Otvori organ"
+                        >
+                          <mat-icon>open_in_new</mat-icon>
+                        </a>
+                      </td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  }
+</div>

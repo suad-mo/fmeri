@@ -34,6 +34,7 @@
     "@types/mongoose-unique-validator": "^1.0.9",
     "@types/multer": "^2.1.0",
     "@types/node": "20.19.9",
+    "@types/pdfkit": "^0.17.5",
     "@typescript-eslint/utils": "^8.40.0",
     "angular-eslint": "^21.0.1",
     "esbuild": "^0.19.2",
@@ -66,12 +67,14 @@
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
     "dotenv": "^17.3.1",
+    "exceljs": "^4.4.0",
     "express": "^4.21.2",
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.3.0",
     "mongoose-unique-validator": "^6.1.0",
     "multer": "^2.1.1",
     "ng-apexcharts": "^2.3.0",
+    "pdfkit": "^0.18.0",
     "rxjs": "~7.8.0",
     "zod": "^4.3.6"
   }

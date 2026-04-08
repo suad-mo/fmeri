@@ -1,0 +1,482 @@
+import { Request, Response } from 'express';
+import PDFDocument from 'pdfkit';
+import ExcelJS from 'exceljs';
+import {
+  Organ,
+  OrganizacionaJedinica,
+  RadnoMjesto,
+  Zaposlenik,
+} from '@nx-fmeri/api-org';
+import { getErrorMessage } from '../helpers/error.helper';
+import path from 'path';
+
+// Helper funkcija — dodaj na vrh fajla ili unutar getPopunjenostPodaci
+const skrati = (tekst: string, maxChars: number): string => {
+  return tekst.length > maxChars
+    ? tekst.substring(0, maxChars - 3) + '...'
+    : tekst;
+};
+
+// ── Helper — dohvati popunjenost za sve organe ────────
+const getPopunjenostPodaci = async () => {
+  const organi = await Organ.find({ aktivan: true })
+    .sort({ redoslijed: 1 })
+    .lean();
+
+  return Promise.all(
+    organi.map(async (organ) => {
+      const jedinice = await OrganizacionaJedinica.find({
+        organ: organ._id,
+        aktivna: true,
+      }).lean();
+
+      const radnaMjesta = await RadnoMjesto.find({
+        organizacionaJedinica: { $in: jedinice.map((j) => j._id) },
+        aktivno: true,
+      }).lean();
+
+      const zaposlenici = await Zaposlenik.find({
+        organ: organ._id,
+        aktivan: true,
+      })
+        .select('radnoMjesto')
+        .lean();
+
+      const rmSaBrojem = radnaMjesta.map((rm) => {
+        const popunjeno = zaposlenici.filter(
+          (z) => z.radnoMjesto?.toString() === rm._id.toString(),
+        ).length;
+        return {
+          ...rm,
+          popunjeno,
+          upraznjeno: Math.max(0, rm.brojIzvrsilaca - popunjeno),
+        };
+      });
+
+      const ukupnoRM = rmSaBrojem.reduce((s, rm) => s + rm.brojIzvrsilaca, 0);
+      const ukupnoPopunjeno = rmSaBrojem.reduce((s, rm) => s + rm.popunjeno, 0);
+
+      const poJedinicama = jedinice
+        .map((j) => {
+          const rmJ = rmSaBrojem.filter(
+            (rm) => rm.organizacionaJedinica?.toString() === j._id.toString(),
+          );
+          const ukupno = rmJ.reduce((s, rm) => s + rm.brojIzvrsilaca, 0);
+          const popunjeno = rmJ.reduce((s, rm) => s + rm.popunjeno, 0);
+          return {
+            naziv: j.naziv,
+            tip: j.tip,
+            nivoJedinice: j.nivoJedinice,
+            ukupnoRM: ukupno,
+            popunjeno,
+            upraznjeno: Math.max(0, ukupno - popunjeno),
+            posto: ukupno > 0 ? Math.round((popunjeno / ukupno) * 100) : 0,
+          };
+        })
+        .filter((j) => j.ukupnoRM > 0);
+
+      return {
+        naziv: organ.naziv,
+        skraceniNaziv: organ.skraceniNaziv,
+        vrstaOrgana: organ.vrstaOrgana,
+        ukupnoRM,
+        popunjeno: ukupnoPopunjeno,
+        upraznjeno: Math.max(0, ukupnoRM - ukupnoPopunjeno),
+        posto:
+          ukupnoRM > 0 ? Math.round((ukupnoPopunjeno / ukupnoRM) * 100) : 0,
+        poJedinicama,
+      };
+    }),
+  );
+};
+
+// ── GET /api/izvjestaj/popunjenost/pdf ────────────────
+export const popunjenostPDF = async (req: Request, res: Response) => {
+  try {
+    const podaci = await getPopunjenostPodaci();
+    const datum = new Date().toLocaleDateString('bs-BA');
+
+    // const doc = new PDFDocument({ margin: 40, size: 'A4' });
+
+    res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader(
+      'Content-Disposition',
+      `attachment; filename="popunjenost-${datum}.pdf"`,
+    );
+
+    // Na početku popunjenostPDF funkcije, prije doc.pipe(res):
+    // const fontsDir = path.join(__dirname, '../assets/fonts');
+
+    const fontsDir = path.resolve('apps/api-server/src/assets/fonts');
+
+    const doc = new PDFDocument({ margin: 40, size: 'A4' });
+
+    doc.registerFont('Regular', path.join(fontsDir, 'DejaVuSans.ttf'));
+    doc.registerFont('Bold', path.join(fontsDir, 'DejaVuSans-Bold.ttf'));
+
+    doc.pipe(res);
+
+    // ── Naslov ──────────────────────────────────────
+    doc
+      .fontSize(18)
+      .font('Bold')
+      .text('Izvještaj o popunjenosti radnih mjesta', { align: 'center' });
+
+    doc
+      .fontSize(10)
+      .font('Regular')
+      .fillColor('#666')
+      .text(
+        `Federalno ministarstvo energije, rudarstva i industrije — ${datum}`,
+        { align: 'center' },
+      );
+
+    doc.moveDown(1.5);
+
+    // ── Sumarni podaci ──────────────────────────────
+    const ukupnoRM = podaci.reduce((s, o) => s + o.ukupnoRM, 0);
+    const ukupnoPop = podaci.reduce((s, o) => s + o.popunjeno, 0);
+    const ukupnoUpr = ukupnoRM - ukupnoPop;
+    const posto = ukupnoRM > 0 ? Math.round((ukupnoPop / ukupnoRM) * 100) : 0;
+
+    doc
+      .fontSize(11)
+      .font('Bold')
+      .fillColor('#000')
+      .text('Sumarni pregled sistema', { underline: true });
+    doc.moveDown(0.5);
+
+    const sumCol = 120;
+    doc.fontSize(10).font('Regular').fillColor('#333');
+    doc.text(`Ukupno radnih mjesta:`, 40, doc.y, {
+      continued: true,
+      width: sumCol,
+    });
+    doc.font('Bold').text(`${ukupnoRM}`);
+    doc
+      .font('Regular')
+      .text(`Popunjeno:`, 40, doc.y, { continued: true, width: sumCol });
+    doc.font('Bold').fillColor('#38a169').text(`${ukupnoPop}`);
+    doc
+      .font('Regular')
+      .fillColor('#333')
+      .text(`Upražnjeno:`, 40, doc.y, { continued: true, width: sumCol });
+    doc.font('Bold').fillColor('#e53e3e').text(`${ukupnoUpr}`);
+    doc
+      .font('Regular')
+      .fillColor('#333')
+      .text(`Popunjenost:`, 40, doc.y, { continued: true, width: sumCol });
+    doc
+      .font('Bold')
+      .fillColor(posto >= 80 ? '#38a169' : posto >= 50 ? '#d69e2e' : '#e53e3e')
+      .text(`${posto}%`);
+
+    doc.fillColor('#000').moveDown(1.5);
+
+    // ── Po organima ─────────────────────────────────
+    for (const organ of podaci) {
+      if (organ.ukupnoRM === 0) continue;
+
+      // Nova stranica ako nema mjesta
+      if (doc.y > 700) doc.addPage();
+
+      // Organ header — sivi pravokutnik
+      const headerY = doc.y;
+      // doc.rect(40, headerY, 515, 28).fill('#e8edf2');
+      doc.rect(40, headerY, 515, 26).fill('#e8edf2');
+      const organNaziv = organ.skraceniNaziv
+        ? `${organ.naziv} (${organ.skraceniNaziv})`
+        : organ.naziv;
+
+      // Organ header — manji font da stane u jedan red
+      doc
+        .fontSize(9)
+        .font('Bold')
+        .fillColor('#1a202c')
+        .text(organNaziv, 46, headerY + 9, {
+          width: 295,
+          lineBreak: false,
+          ellipsis: true,
+        });
+
+      // Stats desno — podigni malo
+      doc
+        .fontSize(8.5)
+        .font('Regular')
+        .fillColor('#4a5568')
+        .text(
+          `${organ.ukupnoRM} RM  |  ${organ.popunjeno} pop.  |  ${organ.upraznjeno} upr.  |  ${organ.posto}%`,
+          345,
+          headerY + 9,
+          { width: 205, align: 'right', lineBreak: false },
+        );
+
+      // doc.y = headerY + 36;
+      doc.y = headerY + 34;
+
+      // Tabela header
+      const colX = [46, 310, 365, 420, 475];
+      const colW = [260, 52, 52, 52, 60];
+      const thY = doc.y;
+
+      doc.rect(40, thY, 515, 18).fill('#f7fafc');
+
+      doc.fontSize(7.5).font('Bold').fillColor('#718096');
+      doc.text('Org. jedinica', colX[0], thY + 5, {
+        width: colW[0],
+        lineBreak: false,
+      });
+      doc.text('Ukupno', colX[1], thY + 5, {
+        width: colW[1],
+        align: 'right',
+        lineBreak: false,
+      });
+      doc.text('Pop.', colX[2], thY + 5, {
+        width: colW[2],
+        align: 'right',
+        lineBreak: false,
+      });
+      doc.text('Upr.', colX[3], thY + 5, {
+        width: colW[3],
+        align: 'right',
+        lineBreak: false,
+      });
+      doc.text('%', colX[4], thY + 5, {
+        width: colW[4],
+        align: 'right',
+        lineBreak: false,
+      });
+
+      doc.y = thY + 22;
+
+      // Jedinice redovi
+      for (const j of organ.poJedinicama) {
+        if (doc.y > 750) {
+          doc.addPage();
+        }
+
+        const rowY = doc.y;
+        const isUnutrasnja = j.nivoJedinice === 'unutrasnja';
+
+        // Alternativna pozadina za unutrašnje
+        if (isUnutrasnja) {
+          doc.rect(40, rowY, 515, 16).fill('#fafafa');
+        }
+
+        const nazivIndent = isUnutrasnja ? colX[0] + 10 : colX[0];
+        const nazivWidth = isUnutrasnja ? colW[0] - 10 : colW[0];
+        const prefix = isUnutrasnja ? '↳ ' : '';
+
+        doc
+          .fontSize(8)
+          .font(isUnutrasnja ? 'Regular' : 'Bold')
+          .fillColor('#2d3748')
+          .text(
+            `${prefix}${skrati(j.naziv, isUnutrasnja ? 52 : 58)}`,
+            nazivIndent,
+            rowY + 4,
+            { width: nazivWidth, lineBreak: false },
+          );
+
+        doc
+          .font('Regular')
+          .fillColor('#2d3748')
+          .text(`${j.ukupnoRM}`, colX[1], rowY + 4, {
+            width: colW[1],
+            align: 'right',
+            lineBreak: false,
+          });
+
+        doc.fillColor('#38a169').text(`${j.popunjeno}`, colX[2], rowY + 4, {
+          width: colW[2],
+          align: 'right',
+          lineBreak: false,
+        });
+
+        doc
+          .fillColor(j.upraznjeno > 0 ? '#e53e3e' : '#718096')
+          .text(`${j.upraznjeno}`, colX[3], rowY + 4, {
+            width: colW[3],
+            align: 'right',
+            lineBreak: false,
+          });
+
+        const postoColor =
+          j.posto >= 80 ? '#38a169' : j.posto >= 50 ? '#d69e2e' : '#e53e3e';
+        doc.fillColor(postoColor).text(`${j.posto}%`, colX[4], rowY + 4, {
+          width: colW[4],
+          align: 'right',
+          lineBreak: false,
+        });
+
+        // Separator linija
+        // Separator linija — promijeni rowY + 16 u rowY + 20
+        doc
+          .moveTo(40, rowY + 20)
+          .lineTo(555, rowY + 20)
+          .strokeColor('#e2e8f0')
+          .lineWidth(0.5)
+          .stroke();
+
+        doc.y = rowY + 20; //18;
+      }
+
+      // doc.moveDown(1.2);
+      // Razmak između organa — osim nakon zadnjeg
+      if (organ !== podaci[podaci.length - 1]) {
+        doc.moveDown(1.2);
+      }
+    }
+
+    // ── Footer ──────────────────────────────────────
+    doc
+      .fontSize(8)
+      .fillColor('#999')
+      .text(
+        `Generisano: ${new Date().toLocaleString('bs-BA')}`,
+        40,
+        doc.page.height - 40,
+        { align: 'center', width: 515 },
+      );
+
+    // Ukloni zadnju stranicu ako je prazna
+    const pageRange = doc.bufferedPageRange();
+    if (pageRange.count > 1) {
+      // Provjeri da li je zadnja stranica prazna
+      if (doc.y < 100) {
+        // Ne možemo ukloniti stranicu u pdfkitu
+        // Umjesto toga, footer stavi na predzadnju stranicu
+      }
+    }
+
+    doc.end();
+  } catch (error) {
+    res.status(500).json({ error: getErrorMessage(error) });
+  }
+};
+
+// ── GET /api/izvjestaj/popunjenost/excel ──────────────
+export const popunjenostExcel = async (req: Request, res: Response) => {
+  try {
+    const podaci = await getPopunjenostPodaci();
+    const datum = new Date().toLocaleDateString('bs-BA');
+
+    const workbook = new ExcelJS.Workbook();
+    workbook.creator = 'FMERI HR System';
+    workbook.created = new Date();
+
+    const sheet = workbook.addWorksheet('Popunjenost', {
+      pageSetup: { paperSize: 9, orientation: 'landscape' },
+    });
+
+    // Kolone
+    sheet.columns = [
+      { header: 'Organ', key: 'organ', width: 35 },
+      { header: 'Org. jedinica', key: 'jedinica', width: 45 },
+      { header: 'Tip', key: 'tip', width: 14 },
+      { header: 'Nivo', key: 'nivo', width: 12 },
+      { header: 'Ukupno RM', key: 'ukupno', width: 12 },
+      { header: 'Popunjeno', key: 'popunjeno', width: 12 },
+      { header: 'Upražnjeno', key: 'upraznjeno', width: 12 },
+      { header: 'Popunjenost %', key: 'posto', width: 14 },
+    ];
+
+    // Header stil
+    sheet.getRow(1).eachCell((cell) => {
+      cell.font = { bold: true, color: { argb: 'FFFFFFFF' } };
+      cell.fill = {
+        type: 'pattern',
+        pattern: 'solid',
+        fgColor: { argb: 'FF4A5568' },
+      };
+      cell.alignment = { horizontal: 'center', vertical: 'middle' };
+      cell.border = {
+        bottom: { style: 'thin', color: { argb: 'FF000000' } },
+      };
+    });
+    sheet.getRow(1).height = 22;
+
+    // Podaci
+    for (const organ of podaci) {
+      if (organ.ukupnoRM === 0) continue;
+
+      // Organ sumarni red
+      const organRow = sheet.addRow({
+        organ: organ.naziv,
+        jedinica: '',
+        tip: organ.vrstaOrgana,
+        nivo: 'organ',
+        ukupno: organ.ukupnoRM,
+        popunjeno: organ.popunjeno,
+        upraznjeno: organ.upraznjeno,
+        posto: organ.posto,
+      });
+
+      organRow.eachCell((cell) => {
+        cell.font = { bold: true };
+        cell.fill = {
+          type: 'pattern',
+          pattern: 'solid',
+          fgColor: { argb: 'FFF7FAFC' },
+        };
+      });
+
+      // Jedinice
+      for (const j of organ.poJedinicama) {
+        const indent =
+          j.nivoJedinice === 'unutrasnja' ? `    ↳ ${j.naziv}` : j.naziv;
+        const row = sheet.addRow({
+          organ: '',
+          jedinica: indent,
+          tip: j.tip,
+          nivo: j.nivoJedinice,
+          ukupno: j.ukupnoRM,
+          popunjeno: j.popunjeno,
+          upraznjeno: j.upraznjeno,
+          posto: j.posto,
+        });
+
+        // Boja % kolone
+        const postoCell = row.getCell('posto');
+        postoCell.font = {
+          bold: true,
+          color: {
+            argb:
+              j.posto >= 80
+                ? 'FF38A169'
+                : j.posto >= 50
+                  ? 'FFD69E2E'
+                  : 'FFE53E3E',
+          },
+        };
+
+        // Crvena za upražnjeno
+        if (j.upraznjeno > 0) {
+          row.getCell('upraznjeno').font = {
+            color: { argb: 'FFE53E3E' },
+          };
+        }
+      }
+
+      // Prazni red između organa
+      sheet.addRow({});
+    }
+
+    // Freeze header
+    sheet.views = [{ state: 'frozen', ySplit: 1 }];
+
+    res.setHeader(
+      'Content-Type',
+      'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+    );
+    res.setHeader(
+      'Content-Disposition',
+      `attachment; filename="popunjenost-${datum}.xlsx"`,
+    );
+
+    await workbook.xlsx.write(res);
+    res.end();
+  } catch (error) {
+    res.status(500).json({ error: getErrorMessage(error) });
+  }
+};

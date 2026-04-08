@@ -147,6 +147,99 @@ export const getOrganiUSastavu = async (req: Request, res: Response) => {
   }
 };
 
+// ── GET /api/organi/popunjenost ───────────────────────
+export const getPopunjenost = async (req: Request, res: Response) => {
+  try {
+    const organi = await Organ.find({ aktivan: true })
+      .sort({ redoslijed: 1 })
+      .lean();
+
+    const rezultati = await Promise.all(
+      organi.map(async (organ) => {
+        const jedinice = await OrganizacionaJedinica.find({
+          organ: organ._id,
+          aktivna: true,
+        }).lean();
+
+        const radnaMjesta = await RadnoMjesto.find({
+          organizacionaJedinica: { $in: jedinice.map((j) => j._id) },
+          aktivno: true,
+        }).lean();
+
+        const zaposlenici = await Zaposlenik.find({
+          organ: organ._id,
+          aktivan: true,
+        })
+          .select('radnoMjesto')
+          .lean();
+
+        // Izračunaj popunjenost po RM
+        const rmSaBrojem = radnaMjesta.map((rm) => {
+          const popunjeno = zaposlenici.filter(
+            (z) => z.radnoMjesto?.toString() === rm._id.toString(),
+          ).length;
+          return {
+            rmId: rm._id,
+            naziv: rm.naziv,
+            organizacionaJedinica: rm.organizacionaJedinica,
+            kategorijaZaposlenog: rm.kategorijaZaposlenog,
+            brojIzvrsilaca: rm.brojIzvrsilaca,
+            popunjeno,
+            upraznjeno: Math.max(0, rm.brojIzvrsilaca - popunjeno),
+          };
+        });
+
+        const ukupnoRM = rmSaBrojem.reduce((s, rm) => s + rm.brojIzvrsilaca, 0);
+        const ukupnoPopunjeno = rmSaBrojem.reduce(
+          (s, rm) => s + rm.popunjeno,
+          0,
+        );
+
+        // Grupiranje po OJ
+        const poJedinicama = jedinice
+          .map((j) => {
+            const rmJedinice = rmSaBrojem.filter(
+              (rm) => rm.organizacionaJedinica?.toString() === j._id.toString(),
+            );
+            const ukupno = rmJedinice.reduce(
+              (s, rm) => s + rm.brojIzvrsilaca,
+              0,
+            );
+            const popunjeno = rmJedinice.reduce((s, rm) => s + rm.popunjeno, 0);
+            return {
+              jedinicaId: j._id,
+              naziv: j.naziv,
+              tip: j.tip,
+              nivoJedinice: j.nivoJedinice,
+              ukupnoRM: ukupno,
+              popunjeno,
+              upraznjeno: Math.max(0, ukupno - popunjeno),
+              posto: ukupno > 0 ? Math.round((popunjeno / ukupno) * 100) : 0,
+            };
+          })
+          .filter((j) => j.ukupnoRM > 0);
+
+        return {
+          organId: organ._id,
+          naziv: organ.naziv,
+          skraceniNaziv: organ.skraceniNaziv,
+          vrstaOrgana: organ.vrstaOrgana,
+          ukupnoRM,
+          popunjeno: ukupnoPopunjeno,
+          upraznjeno: Math.max(0, ukupnoRM - ukupnoPopunjeno),
+          posto:
+            ukupnoRM > 0 ? Math.round((ukupnoPopunjeno / ukupnoRM) * 100) : 0,
+          poJedinicama,
+        };
+      }),
+    );
+
+    return res.json(rezultati);
+  } catch (error) {
+    return res.status(500).json({ error: getErrorMessage(error) });
+  }
+};
+
 // ── POST /api/organi ──────────────────────────────────
 export const createOrgan = async (req: Request, res: Response) => {
   try {
@@ -287,7 +380,7 @@ export const dodjelaZaposlenikaNaRM = async (req: Request, res: Response) => {
     // Ukloni zaposlenika s prethodnog RM ako postoji
     await Zaposlenik.updateMany(
       { radnoMjesto: req.params['rmId'] },
-      { $set: { radnoMjesto: null } }
+      { $set: { radnoMjesto: null } },
     );
 
     if (zaposlenikId) {
@@ -312,7 +405,7 @@ export const updateJedinica = async (req: Request, res: Response) => {
     const jedinica = await OrganizacionaJedinica.findByIdAndUpdate(
       req.params['jedinicaId'],
       { $set: req.body },
-      { new: true, runValidators: true }
+      { new: true, runValidators: true },
     ).lean();
     if (!jedinica) {
       return res.status(404).json({ message: 'Org. jedinica nije pronađena.' });

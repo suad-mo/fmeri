@@ -5,7 +5,7 @@ export type TipJedinice =
   | 'zavod'
   | 'direkcija'
   | 'sektor'
-  | 'sluzba'    // ← dodaj
+  | 'sluzba' // ← dodaj
   | 'odsjek'
   | 'grupa'
   | 'centar';
@@ -286,7 +286,8 @@ export interface UnutrasnjaJedinicaDetalji extends OrganizacionaJedinica {
 export interface OrganStruktura {
   organ: Organ;
   radnaMjesta: RadnoMjestoDetalji[];
-  zaposleniciUOrganu: {        // ← dodaj
+  zaposleniciUOrganu: {
+    // ← dodaj
     _id: string;
     ime: string;
     prezime: string;
@@ -306,9 +307,9 @@ export type VrstaUgovora =
 
 export const VRSTA_UGOVORA_NAZIV: Record<VrstaUgovora, string> = {
   neodredjeno: 'Neodređeno',
-  odredjeno:   'Određeno',
-  pripravnik:  'Pripravnik',
-  volonter:    'Volonter',
+  odredjeno: 'Određeno',
+  pripravnik: 'Pripravnik',
+  volonter: 'Volonter',
 };
 
 export interface Zaposlenik {
@@ -356,4 +357,28 @@ export interface ZaposlenikDTO {
   radnoMjesto?: string;
   datumZaposlenja?: string;
   vrstaUgovora?: VrstaUgovora;
+}
+
+// U org.models.ts dodaj interface
+export interface PopunjenostJedinice {
+  jedinicaId: string;
+  naziv: string;
+  tip: string;
+  nivoJedinice: string;
+  ukupnoRM: number;
+  popunjeno: number;
+  upraznjeno: number;
+  posto: number;
+}
+
+export interface PopunjenostOrgana {
+  organId: string;
+  naziv: string;
+  skraceniNaziv?: string;
+  vrstaOrgana: string;
+  ukupnoRM: number;
+  popunjeno: number;
+  upraznjeno: number;
+  posto: number;
+  poJedinicama: PopunjenostJedinice[];
 }

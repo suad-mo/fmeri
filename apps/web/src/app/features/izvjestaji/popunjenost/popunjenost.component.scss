@@ -1,0 +1,270 @@
+.pop-page {
+  padding: 1.5rem;
+  max-width: 1100px;
+}
+
+.page-header {
+  margin-bottom: 1.5rem;
+
+  h1 { font-size: 1.3rem; font-weight: 600; margin: 0 0 0.25rem; }
+  p  { font-size: 0.82rem; color: var(--color-text-secondary); margin: 0; }
+}
+
+.loading-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 3rem;
+}
+
+/* Sumarni red */
+.sumarni-red {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.sumarni-kartica {
+  background: var(--color-background-card);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sum-broj {
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.sum-label {
+  font-size: 0.72rem;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Progress bar */
+.progress-bar-wrap {
+  height: 6px;
+  background: var(--color-background-secondary);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 6px;
+
+  &.mini {
+    height: 4px;
+    width: 80px;
+    margin-top: 3px;
+  }
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.4s ease;
+
+  &.progress-zelena { background: #38a169; }
+  &.progress-zuta   { background: #d69e2e; }
+  &.progress-crvena { background: #e53e3e; }
+}
+
+/* Boje teksta */
+.zelena { color: #38a169; }
+.crvena { color: #e53e3e; }
+.progress-zelena { color: #38a169; }
+.progress-zuta   { color: #d69e2e; }
+.progress-crvena { color: #e53e3e; }
+
+/* Organ panel */
+.organi-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.organ-panel {
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--color-background-card);
+}
+
+.organ-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition: background 0.12s;
+
+  &:hover { background: var(--color-background-secondary); }
+}
+
+.organ-ikona {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  mat-icon { font-size: 20px; width: 20px; height: 20px; color: white; }
+
+  &.ikona-ministarstvo         { background: linear-gradient(135deg, #667eea, #764ba2); }
+  &.ikona-upravna_organizacija { background: linear-gradient(135deg, #ed8936, #dd6b20); }
+  &.ikona-uprava               { background: linear-gradient(135deg, #48bb78, #38a169); }
+  &.ikona-ustanova             { background: linear-gradient(135deg, #4299e1, #3182ce); }
+}
+
+.organ-naziv-blok {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.organ-naziv {
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.organ-skraceni {
+  font-size: 0.72rem;
+  color: var(--color-text-secondary);
+}
+
+.organ-brojevi {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+  font-size: 0.78rem;
+
+  .broj-rm  { color: var(--color-text-secondary); }
+}
+
+.organ-posto-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-shrink: 0;
+  min-width: 100px;
+}
+
+.posto-broj {
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.chevron {
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+  color: var(--color-text-tertiary);
+  transition: transform 0.18s;
+  flex-shrink: 0;
+
+  &.open { transform: rotate(90deg); }
+}
+
+/* OJ tabela */
+.organ-body {
+  border-top: 1px solid var(--color-border);
+  background: var(--color-background-secondary);
+  padding: 0;
+}
+
+.oj-tabela {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+
+  th {
+    padding: 8px 16px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-text-secondary);
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-background-secondary);
+  }
+
+  td {
+    padding: 8px 16px;
+    border-bottom: 0.5px solid var(--color-border);
+    vertical-align: middle;
+  }
+
+  tr:last-child td { border-bottom: none; }
+
+  tr.unutrasnja td { background: var(--color-background-primary); }
+  tr.unutrasnja:hover td { background: var(--color-background-secondary); }
+}
+
+.text-right { text-align: right; }
+
+.indent {
+  color: var(--color-text-tertiary);
+  margin-right: 4px;
+  font-size: 0.75rem;
+}
+
+.oj-naziv {
+  font-weight: 500;
+  margin-right: 6px;
+}
+
+.oj-tip {
+  font-size: 0.7rem;
+  color: var(--color-text-tertiary);
+  text-transform: capitalize;
+}
+
+.inline-progress {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.posto-mali {
+  font-size: 0.78rem;
+  font-weight: 600;
+  min-width: 36px;
+  text-align: right;
+}
+
+.posto-kartica .progress-bar-wrap {
+  margin-top: 8px;
+}
+
+.header-akcije {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+
+  h1 { font-size: 1.3rem; font-weight: 600; margin: 0 0 0.25rem; }
+  p  { font-size: 0.82rem; color: var(--color-text-secondary); margin: 0; }
+}

@@ -8,6 +8,8 @@ router.use(protect);
 
 // Javni (autentificirani) endpointi
 router.get('/', organController.getOrgani);
+// ── Popunjenost — MORA biti prije /:id ───────────────
+router.get('/popunjenost', organController.getPopunjenost);
 router.get('/:id', organController.getOrgan);
 router.get('/:id/struktura', organController.getOrganStruktura);
 router.get('/u-sastavu/:organId', organController.getOrganiUSastavu);

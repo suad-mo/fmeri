@@ -13,14 +13,19 @@ import { AuthService } from '../../core/services/auth.service';
   selector: 'app-main-layout',
   standalone: true,
   imports: [
-    RouterOutlet, RouterLink, RouterLinkActive,
-    MatSidenavModule, MatListModule, MatIconModule,
-    MatToolbarModule, MatButtonModule, MatTooltipModule,
+    RouterOutlet,
+    RouterLink,
+    RouterLinkActive,
+    MatSidenavModule,
+    MatListModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatTooltipModule,
     MatDividerModule,
   ],
   template: `
     <mat-sidenav-container class="app-container">
-
       <!-- ── Sidebar ──────────────────────────────────── -->
       <mat-sidenav mode="side" opened class="app-sidenav">
         <div class="sidenav-header">
@@ -31,7 +36,7 @@ import { AuthService } from '../../core/services/auth.service';
           <small class="user-info">{{ authService.currentUser()?.name }}</small>
         </div>
 
-        <mat-divider/>
+        <mat-divider />
 
         <!-- Glavne rute — svi korisnici -->
         <mat-nav-list class="nav-lista">
@@ -55,22 +60,46 @@ import { AuthService } from '../../core/services/auth.service';
 
         <!-- Admin rute — samo admin -->
         @if (jeAdmin()) {
-          <mat-divider/>
+          <mat-divider />
           <div class="nav-sekcija-naziv">Administracija</div>
           <mat-nav-list class="nav-lista">
-            <a mat-list-item routerLink="/admin/org-jedinice" routerLinkActive="aktivan">
+            <a
+              mat-list-item
+              routerLink="/admin/org-jedinice"
+              routerLinkActive="aktivan"
+            >
               <mat-icon matListItemIcon>account_tree</mat-icon>
               <span matListItemTitle>Org. jedinice</span>
             </a>
-            <a mat-list-item routerLink="/admin/radna-mjesta" routerLinkActive="aktivan">
+            <a
+              mat-list-item
+              routerLink="/admin/radna-mjesta"
+              routerLinkActive="aktivan"
+            >
               <mat-icon matListItemIcon>work</mat-icon>
               <span matListItemTitle>Radna mjesta</span>
             </a>
-            <a mat-list-item routerLink="/admin/korisnici" routerLinkActive="aktivan">
+            <a
+              mat-list-item
+              routerLink="/izvjestaji/popunjenost"
+              routerLinkActive="aktivan"
+            >
+              <mat-icon matListItemIcon>assessment</mat-icon>
+              <span matListItemTitle>Popunjenost</span>
+            </a>
+            <a
+              mat-list-item
+              routerLink="/admin/korisnici"
+              routerLinkActive="aktivan"
+            >
               <mat-icon matListItemIcon>manage_accounts</mat-icon>
               <span matListItemTitle>Korisnici</span>
             </a>
-            <a mat-list-item routerLink="/admin/sabloni" routerLinkActive="aktivan">
+            <a
+              mat-list-item
+              routerLink="/admin/sabloni"
+              routerLinkActive="aktivan"
+            >
               <mat-icon matListItemIcon>description</mat-icon>
               <span matListItemTitle>Šabloni</span>
             </a>
@@ -79,13 +108,16 @@ import { AuthService } from '../../core/services/auth.service';
 
         <!-- Logout -->
         <div class="sidenav-footer">
-          <mat-divider/>
-          <button mat-list-item class="logout-btn" (click)="authService.logout()">
+          <mat-divider />
+          <button
+            mat-list-item
+            class="logout-btn"
+            (click)="authService.logout()"
+          >
             <mat-icon matListItemIcon>logout</mat-icon>
             <span matListItemTitle>Odjava</span>
           </button>
         </div>
-
       </mat-sidenav>
 
       <!-- ── Glavni sadržaj ────────────────────────────── -->
@@ -99,121 +131,139 @@ import { AuthService } from '../../core/services/auth.service';
             <mat-icon>home</mat-icon>
           </a>
         </div>
-        <router-outlet/>
+        <router-outlet />
       </mat-sidenav-content>
-
     </mat-sidenav-container>
   `,
-  styles: [`
-    .app-container {
-      height: 100vh;
-    }
+  styles: [
+    `
+      .app-container {
+        height: 100vh;
+      }
 
-    .app-sidenav {
-      width: 240px;
-      display: flex;
-      flex-direction: column;
-      background: var(--color-background-card);
-      border-right: 1px solid var(--color-border);
-    }
+      .app-sidenav {
+        width: 240px;
+        display: flex;
+        flex-direction: column;
+        background: var(--color-background-card);
+        border-right: 1px solid var(--color-border);
+      }
 
-    .sidenav-header {
-      padding: 1.25rem 1rem 0.75rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-    }
+      .sidenav-header {
+        padding: 1.25rem 1rem 0.75rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+      }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #667eea;
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #667eea;
 
-      mat-icon { font-size: 22px; width: 22px; height: 22px; }
-    }
+        mat-icon {
+          font-size: 22px;
+          width: 22px;
+          height: 22px;
+        }
+      }
 
-    .user-info {
-      font-size: 0.75rem;
-      color: var(--color-text-secondary);
-      padding-left: 0.25rem;
-    }
+      .user-info {
+        font-size: 0.75rem;
+        color: var(--color-text-secondary);
+        padding-left: 0.25rem;
+      }
 
-    .nav-lista {
-      padding: 0.5rem 0;
-    }
+      .nav-lista {
+        padding: 0.5rem 0;
+      }
 
-    .nav-sekcija-naziv {
-      font-size: 0.7rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: var(--color-text-secondary);
-      padding: 0.75rem 1rem 0.25rem;
-    }
+      .nav-sekcija-naziv {
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--color-text-secondary);
+        padding: 0.75rem 1rem 0.25rem;
+      }
 
-    .aktivan {
-      background: rgba(102, 126, 234, 0.1) !important;
-      color: #667eea !important;
-      border-radius: 8px;
+      .aktivan {
+        background: rgba(102, 126, 234, 0.1) !important;
+        color: #667eea !important;
+        border-radius: 8px;
 
-      mat-icon { color: #667eea !important; }
-    }
+        mat-icon {
+          color: #667eea !important;
+        }
+      }
 
-    .sidenav-footer {
-      margin-top: auto;
-      padding-bottom: 0.5rem;
-    }
+      .sidenav-footer {
+        margin-top: auto;
+        padding-bottom: 0.5rem;
+      }
 
-    .logout-btn {
-      width: 100%;
-      color: var(--color-text-secondary);
-      cursor: pointer;
+      .logout-btn {
+        width: 100%;
+        color: var(--color-text-secondary);
+        cursor: pointer;
 
-      &:hover { color: #e53e3e; }
-    }
+        &:hover {
+          color: #e53e3e;
+        }
+      }
 
-    // ── Glavni sadržaj ──────────────────────────────────
-    .app-content {
-      background: var(--color-background);
-      overflow-y: auto;
-    }
+      // ── Glavni sadržaj ──────────────────────────────────
+      .app-content {
+        background: var(--color-background);
+        overflow-y: auto;
+      }
 
-    .content-header {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 0.75rem;
-      padding: 0.5rem 1.5rem;
-      border-bottom: 1px solid var(--color-border);
-      background: var(--color-background-card);
-    }
+      .content-header {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 0.75rem;
+        padding: 0.5rem 1.5rem;
+        border-bottom: 1px solid var(--color-border);
+        background: var(--color-background-card);
+      }
 
-    .user-name {
-      font-size: 0.85rem;
-      font-weight: 500;
-    }
+      .user-name {
+        font-size: 0.85rem;
+        font-weight: 500;
+      }
 
-    .user-role-badge {
-      font-size: 0.7rem;
-      padding: 0.2rem 0.6rem;
-      border-radius: 20px;
-      font-weight: 600;
-      text-transform: uppercase;
+      .user-role-badge {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.6rem;
+        border-radius: 20px;
+        font-weight: 600;
+        text-transform: uppercase;
 
-      &.role-admin   { background: rgba(229, 62, 62, 0.1); color: #e53e3e; }
-      &.role-user    { background: rgba(102, 126, 234, 0.1); color: #667eea; }
-      &.role-resursi { background: rgba(72, 187, 120, 0.1); color: #48bb78; }
-    }
-  `],
+        &.role-admin {
+          background: rgba(229, 62, 62, 0.1);
+          color: #e53e3e;
+        }
+        &.role-user {
+          background: rgba(102, 126, 234, 0.1);
+          color: #667eea;
+        }
+        &.role-resursi {
+          background: rgba(72, 187, 120, 0.1);
+          color: #48bb78;
+        }
+      }
+    `,
+  ],
 })
 export class MainLayoutComponent {
   authService = inject(AuthService);
 
-  jeAdmin = computed(() =>
-    this.authService.currentUser()?.role.includes('admin') ?? false
+  jeAdmin = computed(
+    () => this.authService.currentUser()?.role.includes('admin') ?? false,
   );
 
   primarnaRola = computed(() => {

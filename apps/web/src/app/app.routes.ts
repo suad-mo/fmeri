@@ -38,6 +38,14 @@ export const appRoutes: Routes = [
           ),
       },
       {
+        path: 'izvjestaji/popunjenost',
+        canActivate: [authGuard],
+        loadComponent: () =>
+          import(
+            './features/izvjestaji/popunjenost/popunjenost.component'
+          ).then((m) => m.PopunjenostComponent),
+      },
+      {
         path: 'organi/:organId',
         loadComponent: () =>
           import(
