@@ -129,16 +129,15 @@ import {
       .node-row {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
-        padding: 0.35rem 1rem 0.35rem 0;
-        min-height: 44px;
-        cursor: default;
+        gap: 8px;
+        padding: 6px 12px 6px 0;
+        min-height: 40px;
         border-radius: 8px;
-        transition: background 0.15s;
+        transition: background 0.12s;
+        cursor: default;
 
         &:hover {
-          background: rgba(102, 126, 234, 0.06);
-
+          background: var(--color-background-secondary);
           .node-akcije {
             opacity: 1;
           }
@@ -146,30 +145,42 @@ import {
       }
 
       .toggle-btn {
-        width: 32px;
-        height: 32px;
-        min-width: 32px;
+        width: 28px !important;
+        height: 28px !important;
+        min-width: 28px !important;
+        flex-shrink: 0;
+
+        mat-icon {
+          font-size: 16px;
+          width: 16px;
+          height: 16px;
+        }
       }
 
       .leaf-spacer {
-        width: 32px;
-        min-width: 32px;
+        width: 28px;
+        min-width: 28px;
         display: flex;
         align-items: center;
         justify-content: center;
       }
 
       .leaf-icon {
-        font-size: 8px !important;
-        width: 8px !important;
-        height: 8px !important;
-        color: var(--text-secondary);
+        font-size: 6px !important;
+        width: 6px !important;
+        height: 6px !important;
+        color: var(--color-text-tertiary);
       }
 
       .node-naziv {
         flex: 1;
-        font-size: 0.9rem;
-        color: var(--text-primary);
+        font-size: 0.875rem;
+        font-weight: 400;
+        color: var(--color-text-primary);
+        text-align: left !important; // ← dodaj !important
+        padding: 0 !important;
+        min-width: 0;
+        justify-content: flex-start !important; // ← dodaj
 
         &.parent-naziv {
           font-weight: 600;
@@ -177,57 +188,70 @@ import {
       }
 
       .node-tip {
-        font-size: 0.75rem !important;
-        min-height: 24px !important;
-        height: 24px !important;
-        padding: 0 8px !important;
+        font-size: 0.68rem !important;
+        min-height: 20px !important;
+        height: 20px !important;
+        padding: 0 7px !important;
+        border-radius: 4px !important;
       }
 
       .node-akcije {
         display: flex;
-        gap: 0.1rem;
+        gap: 2px;
         opacity: 0;
-        transition: opacity 0.2s;
+        transition: opacity 0.15s;
+        flex-shrink: 0;
       }
 
-      .btn-add-jedinica {
-        color: #667eea !important;
+      .btn-add-jedinica mat-icon {
+        color: #667eea;
+      }
+      .btn-add-radno mat-icon {
+        color: #38a169;
       }
 
-      .btn-add-radno {
-        color: #48bb78 !important;
+      button[mat-icon-button] {
+        width: 28px !important;
+        height: 28px !important;
+        line-height: 28px !important;
+
+        mat-icon {
+          font-size: 15px;
+          width: 15px;
+          height: 15px;
+        }
       }
 
       .tip-ministarstvo {
-        background: rgba(102, 126, 234, 0.15) !important;
+        background: rgba(102, 126, 234, 0.12) !important;
         color: #667eea !important;
       }
       .tip-kabinet {
-        background: rgba(159, 122, 234, 0.15) !important;
+        background: rgba(159, 122, 234, 0.12) !important;
         color: #9f7aea !important;
       }
       .tip-zavod {
-        background: rgba(237, 137, 54, 0.15) !important;
+        background: rgba(237, 137, 54, 0.12) !important;
         color: #ed8936 !important;
       }
       .tip-direkcija {
-        background: rgba(229, 62, 62, 0.15) !important;
+        background: rgba(229, 62, 62, 0.12) !important;
         color: #e53e3e !important;
       }
       .tip-sektor {
-        background: rgba(56, 178, 172, 0.15) !important;
+        background: rgba(56, 178, 172, 0.12) !important;
         color: #38b2ac !important;
       }
       .tip-odsjek {
-        background: rgba(72, 187, 120, 0.15) !important;
+        background: rgba(72, 187, 120, 0.12) !important;
         color: #48bb78 !important;
       }
       .tip-grupa {
-        background: rgba(246, 173, 85, 0.15) !important;
+        background: rgba(246, 173, 85, 0.12) !important;
         color: #f6ad55 !important;
       }
       .tip-centar {
-        background: rgba(66, 153, 225, 0.15) !important;
+        background: rgba(66, 153, 225, 0.12) !important;
         color: #4299e1 !important;
       }
     `,

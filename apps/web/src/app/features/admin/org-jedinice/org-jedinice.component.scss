@@ -1,105 +1,5 @@
-.page-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.5rem;
-
-  h1 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 0.25rem;
-  }
-
-  p {
-    color: var(--text-secondary);
-    font-size: 0.875rem;
-  }
-}
-
-.loading-wrapper {
-  display: flex;
-  justify-content: center;
-  padding: 3rem;
-}
-
-.tree-card {
-  background: var(--bg-card);
-  backdrop-filter: blur(20px);
-  border: 1px solid var(--bg-card-border);
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  padding: 0.5rem 0;
-}
-
-.tree-node {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.4rem 1rem 0.4rem 0;
-  width: 100%;
-  min-height: 48px;
-
-  &:hover {
-    background: rgba(102, 126, 234, 0.05);
-    border-radius: 8px;
-  }
-}
-
-.parent-node {
-  .parent-naziv {
-    font-weight: 600;
-  }
-}
-
-.node-spacer {
-  width: 40px;
-  min-width: 40px;
-}
-
-.node-icon {
-  font-size: 8px;
-  width: 8px;
-  height: 8px;
-  color: var(--text-secondary);
-}
-
-.node-naziv {
-  flex: 1;
-  font-size: 0.9rem;
-  color: var(--text-primary);
-}
-
-.node-tip {
-  font-size: 0.75rem !important;
-  min-height: 24px !important;
-  height: 24px !important;
-}
-
-.node-akcije {
-  display: flex;
-  gap: 0.25rem;
-  opacity: 0;
-  transition: opacity 0.2s;
-
-  .tree-node:hover & {
-    opacity: 1;
-  }
-}
-
-// Boje po tipu
-.tip-ministarstvo { background: rgba(102, 126, 234, 0.15) !important; color: #667eea !important; }
-.tip-kabinet      { background: rgba(159, 122, 234, 0.15) !important; color: #9f7aea !important; }
-.tip-upravna      { background: rgba(237, 137, 54, 0.15) !important;  color: #ed8936 !important; }
-.tip-sektor       { background: rgba(56, 178, 172, 0.15) !important;  color: #38b2ac !important; }
-.tip-odsjek       { background: rgba(72, 187, 120, 0.15) !important;  color: #48bb78 !important; }
-.tip-grupa        { background: rgba(246, 173, 85, 0.15) !important;  color: #f6ad55 !important; }
-.tip-centar       { background: rgba(66, 153, 225, 0.15) !important;  color: #4299e1 !important; }
-
 .page-with-panel {
   display: flex;
-  gap: 0;
   height: 100%;
   overflow: hidden;
 }
@@ -108,30 +8,19 @@
   flex: 1;
   overflow-y: auto;
   padding: 1.5rem;
-  transition: all 0.3s ease;
+  transition: max-width 0.25s ease;
 
-  &.panel-open {
-    max-width: 55%;
-  }
+  &.panel-open { max-width: 58%; }
 }
 
 .page-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.5rem;
+  align-items: flex-start;
+  margin-bottom: 1.25rem;
 
-  h1 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin: 0 0 0.25rem;
-  }
-
-  p {
-    color: var(--color-text-secondary);
-    font-size: 0.8rem;
-    margin: 0;
-  }
+  h1 { font-size: 1.3rem; font-weight: 600; margin: 0 0 0.2rem; }
+  p  { font-size: 0.8rem; color: var(--color-text-secondary); margin: 0; }
 }
 
 .loading-wrapper {
@@ -142,24 +31,26 @@
 
 .tree-container {
   background: var(--color-background-card);
+  border: 1px solid var(--color-border);
   border-radius: 12px;
+  padding: 4px 0;
   overflow: hidden;
 }
 
 // ── Detalji panel ─────────────────────────────────────
 .detalji-panel {
-  width: 420px;
-  min-width: 420px;
+  width: 400px;
+  min-width: 400px;
   background: var(--color-background-card);
   border-left: 1px solid var(--color-border);
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  animation: slideIn 0.25s ease;
+  animation: slideIn 0.2s ease;
 }
 
 @keyframes slideIn {
-  from { transform: translateX(100%); opacity: 0; }
+  from { transform: translateX(20px); opacity: 0; }
   to   { transform: translateX(0);    opacity: 1; }
 }
 
@@ -167,110 +58,116 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.25rem 1rem 1rem;
+  padding: 1rem 1rem 0.75rem;
   border-bottom: 1px solid var(--color-border);
 
   h2 {
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 600;
     margin: 0;
-    color: var(--color-text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 
 .panel-loading {
   display: flex;
   justify-content: center;
-  padding: 3rem;
+  padding: 2rem;
 }
 
 .panel-stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  padding: 1rem;
+  padding: 0.75rem 1rem;
   border-bottom: 1px solid var(--color-border);
+  background: var(--color-background-secondary);
 }
 
 .panel-stat {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0.5rem;
-
-  .panel-stat-broj {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--color-text-primary);
-  }
-
-  .panel-stat-label {
-    font-size: 0.7rem;
-    color: var(--color-text-secondary);
-    text-align: center;
-  }
-
-  .text-green { color: #48bb78; }
-  .text-red   { color: #e53e3e; }
+  gap: 2px;
 }
 
-// ── Radna mjesta lista ────────────────────────────────
+.panel-stat-broj {
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.panel-stat-label {
+  font-size: 0.65rem;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  text-align: center;
+}
+
+.text-green { color: #38a169; }
+.text-red   { color: #e53e3e; }
+
+// ── RM lista u panelu ─────────────────────────────────
 .radna-mjesta-lista {
   flex: 1;
   overflow-y: auto;
-  padding: 1rem;
+  padding: 0.75rem;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 6px;
 }
 
 .rm-kartica {
   border: 1px solid var(--color-border);
-  border-radius: 10px;
+  border-radius: 8px;
   overflow: hidden;
-  transition: border-color 0.2s;
+  background: var(--color-background-card);
 
-  &.rm-popunjeno { border-color: rgba(72, 187, 120, 0.4); }
-  &.rm-slobodno  { border-color: rgba(229, 62, 62, 0.2); }
+  &.rm-popunjeno { border-left: 3px solid #38a169; }
+  &.rm-slobodno  { border-left: 3px solid #e53e3e; }
 }
 
 .rm-header {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 0.75rem;
-  background: var(--color-background-secondary);
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
 }
 
 .rm-info {
   flex: 1;
+  min-width: 0;
 
   .rm-naziv {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--color-text-primary);
+    font-size: 0.82rem;
+    font-weight: 500;
     display: block;
-    margin-bottom: 0.4rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 2px;
   }
 
   .rm-meta {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    flex-wrap: wrap;
+    gap: 5px;
   }
 }
 
 .razred-chip {
-  background: rgba(102, 126, 234, 0.12) !important;
+  background: rgba(102,126,234,0.1) !important;
   color: #667eea !important;
-  font-size: 0.7rem !important;
-  height: 20px !important;
-  min-height: 20px !important;
+  font-size: 0.65rem !important;
+  height: 18px !important;
+  min-height: 18px !important;
+  padding: 0 6px !important;
 }
 
 .kategorija-text {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   color: var(--color-text-secondary);
 }
 
@@ -278,107 +175,93 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 4px;
-  min-width: 50px;
+  gap: 3px;
+  flex-shrink: 0;
 
   .rm-broj {
-    font-size: 0.875rem;
-    font-weight: 700;
+    font-size: 0.8rem;
+    font-weight: 600;
     color: var(--color-text-secondary);
 
-    &.pun { color: #48bb78; }
-  }
-
-  .mini-progress {
-    width: 48px;
-    height: 4px;
-    background: var(--color-border);
-    border-radius: 2px;
-    overflow: hidden;
-
-    .mini-fill {
-      height: 100%;
-      background: #ed8936;
-      border-radius: 2px;
-      transition: width 0.4s;
-
-      &.fill-puno   { background: #48bb78; }
-      &.fill-prazno { background: #e2e8f0; }
-    }
+    &.pun { color: #38a169; }
   }
 }
 
-// ── Useri ─────────────────────────────────────────────
+.mini-progress {
+  width: 44px;
+  height: 3px;
+  background: var(--color-border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.mini-fill {
+  height: 100%;
+  background: #d69e2e;
+  border-radius: 2px;
+  transition: width 0.3s;
+
+  &.fill-puno   { background: #38a169; }
+  &.fill-prazno { background: var(--color-border); }
+}
+
+// Useri
 .useri-lista {
-  padding: 0.5rem 0.75rem;
+  padding: 4px 10px 8px;
+  border-top: 0.5px solid var(--color-border);
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 4px;
 }
 
 .user-row {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.35rem 0;
+  gap: 7px;
+  padding: 2px 0;
 }
 
 .user-avatar {
-  width: 32px;
-  height: 32px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
-  background: var(--color-background-secondary);
+  background: var(--color-background-info);
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   flex-shrink: 0;
-  border: 2px solid var(--color-border);
 
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+  img { width: 100%; height: 100%; object-fit: cover; }
 
   mat-icon {
-    font-size: 18px;
-    width: 18px;
-    height: 18px;
-    color: var(--color-text-secondary);
+    font-size: 13px;
+    width: 13px;
+    height: 13px;
+    color: var(--color-text-info);
   }
 }
 
 .user-info {
   display: flex;
   flex-direction: column;
+  gap: 0;
 
-  .user-name  {
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: var(--color-text-primary);
-  }
-
-  .user-email {
-    font-size: 0.75rem;
-    color: var(--color-text-secondary);
-  }
+  .user-name  { font-size: 0.78rem; font-weight: 500; }
+  .user-email { font-size: 0.7rem; color: var(--color-text-secondary); }
 }
 
 .slobodno-badge {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 0.75rem;
-  color: var(--color-text-secondary);
-  font-size: 0.8rem;
+  gap: 5px;
+  padding: 5px 10px 7px;
+  font-size: 0.75rem;
+  color: var(--color-text-tertiary);
+  font-style: italic;
+  border-top: 0.5px solid var(--color-border);
 
-  mat-icon {
-    font-size: 16px;
-    width: 16px;
-    height: 16px;
-    color: #e53e3e;
-  }
+  mat-icon { font-size: 13px; width: 13px; height: 13px; }
 }
 
 .prazna-lista {
@@ -386,16 +269,9 @@
   flex-direction: column;
   align-items: center;
   padding: 2rem;
-  color: var(--color-text-secondary);
+  color: var(--color-text-tertiary);
   text-align: center;
 
-  mat-icon {
-    font-size: 40px;
-    width: 40px;
-    height: 40px;
-    opacity: 0.3;
-    margin-bottom: 0.5rem;
-  }
-
-  p { margin: 0; font-size: 0.875rem; }
+  mat-icon { font-size: 36px; width: 36px; height: 36px; opacity: 0.3; margin-bottom: 0.5rem; }
+  p { margin: 0; font-size: 0.82rem; }
 }
