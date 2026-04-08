@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
-import { OrganizacionaJedinica } from '@nx-fmeri/api-org';
+import { OrganizacionaJedinica, Zaposlenik } from '@nx-fmeri/api-org';
 import { RadnoMjesto } from '@nx-fmeri/api-org';
 import { getErrorMessage } from '../helpers/error.helper';
-import { User } from '@nx-fmeri/api-auth';
+// import { User } from '@nx-fmeri/api-auth';
 
 // ── Organizacione jedinice ────────────────────────────────
 
@@ -89,9 +89,11 @@ export const getStablo = async (req: Request, res: Response) => {
       .lean();
 
     const mapa = new Map(
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       sve.map((j) => [j._id.toString(), { ...j, djeca: [] as any[] }]),
     );
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const stablo: any[] = [];
 
     for (const jedinica of mapa.values()) {
@@ -180,10 +182,13 @@ export const getJedinicaDetalji = async (req: Request, res: Response) => {
 
     const radnaMjestaDetalji = await Promise.all(
       radnaMjesta.map(async (rm) => {
-        const useri = await User.find({ radnoMjesto: rm._id })
-          .select('name email slika')
+        const zaposlenici = await Zaposlenik.find({
+          radnoMjesto: rm._id,
+          aktivan: true,
+        })
+          .select('ime prezime sluzbeniEmail slika')
           .lean();
-        return { ...rm, useri };
+        return { ...rm, zaposlenici };
       }),
     );
 
@@ -191,7 +196,9 @@ export const getJedinicaDetalji = async (req: Request, res: Response) => {
       jedinica,
       radnaMjesta: radnaMjestaDetalji,
       ukupnoMjesta: radnaMjesta.reduce((s, rm) => s + rm.brojIzvrsilaca, 0),
-      popunjeno: radnaMjestaDetalji.reduce((s, rm) => s + rm.useri.length, 0),
+      popunjeno: radnaMjestaDetalji.reduce(
+        (s, rm) => s + rm.zaposlenici.length, 0
+      ),
     });
   } catch (error) {
     return res.status(500).json({ error: getErrorMessage(error) });

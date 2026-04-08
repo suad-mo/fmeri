@@ -96,9 +96,10 @@ export class OrgJediniceComponent implements OnInit {
     return KATEGORIJA_NAZIV[k as KategorijaZaposlenog] ?? k;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   getPopunjenostPostotak(rm: any): number {
     return rm.brojIzvrsilaca > 0
-      ? Math.round((rm.useri.length / rm.brojIzvrsilaca) * 100)
+      ? Math.round((rm.zaposlenici.length / rm.brojIzvrsilaca) * 100)
       : 0;
   }
 

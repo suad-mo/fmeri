@@ -78,8 +78,8 @@
           @for (rm of d.radnaMjesta; track rm._id) {
             <div
               class="rm-kartica"
-              [class.rm-popunjeno]="rm.useri.length >= rm.brojIzvrsilaca"
-              [class.rm-slobodno]="rm.useri.length === 0"
+              [class.rm-popunjeno]="rm.zaposlenici.length >= rm.brojIzvrsilaca"
+              [class.rm-slobodno]="rm.zaposlenici.length === 0"
             >
               <div class="rm-header">
                 <div class="rm-info">
@@ -96,46 +96,50 @@
                 <div class="rm-popunjenost">
                   <span
                     class="rm-broj"
-                    [class.pun]="rm.useri.length >= rm.brojIzvrsilaca"
+                    [class.pun]="rm.zaposlenici.length >= rm.brojIzvrsilaca"
                   >
-                    {{ rm.useri.length }}/{{ rm.brojIzvrsilaca }}
+                    {{ rm.zaposlenici.length }}/{{ rm.brojIzvrsilaca }}
                   </span>
                   <div class="mini-progress">
                     <div
                       class="mini-fill"
                       [style.width.%]="getPopunjenostPostotak(rm)"
-                      [class.fill-puno]="rm.useri.length >= rm.brojIzvrsilaca"
-                      [class.fill-prazno]="rm.useri.length === 0"
+                      [class.fill-puno]="
+                        rm.zaposlenici.length >= rm.brojIzvrsilaca
+                      "
+                      [class.fill-prazno]="rm.zaposlenici.length === 0"
                     ></div>
                   </div>
                 </div>
               </div>
 
               <!-- Useri na ovom radnom mjestu -->
-              @if (rm.useri.length > 0) {
+              <!-- Zaposlenici na ovom radnom mjestu -->
+              @if (rm.zaposlenici && rm.zaposlenici.length > 0) {
                 <div class="useri-lista">
-                  @for (user of rm.useri; track user._id) {
+                  @for (z of rm.zaposlenici; track z._id) {
                     <div class="user-row">
                       <div class="user-avatar">
-                        @if (user.slika) {
-                          <img
-                            [src]="apiUrl + '/' + user.slika"
-                            [alt]="user.name"
-                          />
+                        @if (z.slika) {
+                          <img [src]="apiUrl + '/' + z.slika" [alt]="z.ime" />
                         } @else {
                           <mat-icon>person</mat-icon>
                         }
                       </div>
                       <div class="user-info">
-                        <span class="user-name">{{ user.name }}</span>
-                        <span class="user-email">{{ user.email }}</span>
+                        <span class="user-name"
+                          >{{ z.ime }} {{ z.prezime }}</span
+                        >
+                        @if (z.sluzbeniEmail) {
+                          <span class="user-email">{{ z.sluzbeniEmail }}</span>
+                        }
                       </div>
                     </div>
                   }
                 </div>
               } @else {
                 <div class="slobodno-badge">
-                  <mat-icon>person_add</mat-icon>
+                  <mat-icon>person_outline</mat-icon>
                   <span>Slobodno radno mjesto</span>
                 </div>
               }
