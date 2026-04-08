@@ -218,13 +218,13 @@ export class OrgService {
     return this.http.get<Organ[]>(`${this.organiUrl}/u-sastavu/${organId}`);
   }
 
-  createOrgan(data: Partial<Organ>): Observable<Organ> {
-    return this.http.post<Organ>(this.organiUrl, data);
-  }
+  // createOrgan(data: Partial<Organ>): Observable<Organ> {
+  //   return this.http.post<Organ>(this.organiUrl, data);
+  // }
 
-  updateOrgan(id: string, data: Partial<Organ>): Observable<Organ> {
-    return this.http.patch<Organ>(`${this.organiUrl}/${id}`, data);
-  }
+  // updateOrgan(id: string, data: Partial<Organ>): Observable<Organ> {
+  //   return this.http.patch<Organ>(`${this.organiUrl}/${id}`, data);
+  // }
 
   deleteOrgan(id: string): Observable<void> {
     return this.http.delete<void>(`${this.organiUrl}/${id}`);
@@ -292,4 +292,40 @@ export class OrgService {
       `${this.organiUrl}/${organId}/radna-mjesta`,
     );
   }
+
+  // Organ CRUD
+createOrgan(data: Partial<Organ>): Observable<Organ> {
+  return this.http.post<Organ>(this.organiUrl, data);
+}
+
+updateOrgan(id: string, data: Partial<Organ>): Observable<Organ> {
+  return this.http.patch<Organ>(`${this.organiUrl}/${id}`, data);
+}
+
+// Org. jedinice
+addOsnovnaJedinica(organId: string, data: Record<string, unknown>): Observable<OrganizacionaJedinica> {
+  return this.http.post<OrganizacionaJedinica>(`${this.organiUrl}/${organId}/osnovne-jedinice`, data);
+}
+
+addUnutrasnjaJedinica(organId: string, data: Record<string, unknown>): Observable<OrganizacionaJedinica> {
+  return this.http.post<OrganizacionaJedinica>(`${this.organiUrl}/${organId}/unutrasnje-jedinice`, data);
+}
+
+updateJedinicaUOrganu(organId: string, jedinicaId: string, data: Record<string, unknown>): Observable<OrganizacionaJedinica> {
+  return this.http.patch<OrganizacionaJedinica>(`${this.organiUrl}/${organId}/jedinice/${jedinicaId}`, data);
+}
+
+// RM u organu
+addRadnoMjestoUOrganu(organId: string, data: Record<string, unknown>): Observable<RadnoMjesto> {
+  return this.http.post<RadnoMjesto>(`${this.organiUrl}/${organId}/radna-mjesta`, data);
+}
+
+// Dodjela zaposlenika na RM
+dodjelaZaposlenikaNaRM(organId: string, rmId: string, zaposlenikId: string | null): Observable<RadnoMjesto> {
+  return this.http.patch<RadnoMjesto>(
+    `${this.organiUrl}/${organId}/radna-mjesta/${rmId}/zaposlenik`,
+    { zaposlenikId }
+  );
+}
+
 }

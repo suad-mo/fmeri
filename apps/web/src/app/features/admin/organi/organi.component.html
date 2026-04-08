@@ -12,22 +12,26 @@
     </div>
   } @else {
     <div class="organi-layout">
-      <!-- Lista organa -->
+
+      <!-- ══ LISTA ORGANA ══════════════════════════════════ -->
       <div class="organi-lista">
+        <div class="organi-lista-header">
+          <span>Organi uprave</span>
+          <button mat-icon-button matTooltip="Novi organ" (click)="noviOrgan()">
+            <mat-icon>add_business</mat-icon>
+          </button>
+        </div>
+
         @for (organ of organi(); track organ._id) {
-          <div
-            class="organ-kartica"
+          <div class="organ-kartica"
             [class.aktivan]="odabraniOrgan()?._id === organ._id"
             (click)="otvoriStrukuturu(organ)"
             (keyup.enter)="otvoriStrukuturu(organ)"
             tabindex="0"
-            role="button"
-          >
+            role="button">
             <div class="organ-kartica-header">
               <div class="organ-ikona" [class]="'ikona-' + organ.vrstaOrgana">
-                <mat-icon>{{
-                  organ.uSastavu ? 'link' : 'account_balance'
-                }}</mat-icon>
+                <mat-icon>{{ organ.uSastavu ? 'link' : 'account_balance' }}</mat-icon>
               </div>
               <div class="organ-info">
                 <span class="organ-naziv">{{ organ.naziv }}</span>
@@ -46,33 +50,46 @@
         }
       </div>
 
-      <!-- Struktura organa -->
+      <!-- ══ STRUKTURA ORGANA ══════════════════════════════ -->
       <div class="organ-struktura">
         @if (strukturaLoading()) {
           <div class="loading-wrapper">
             <mat-spinner diameter="32" />
           </div>
         } @else if (odabranaStruktura(); as s) {
+
           <!-- Header -->
           <div class="struktura-header">
-            <div>
+            <div class="struktura-naslov">
               <h2>{{ s.organ.naziv }}</h2>
               @if (s.organ.nadleznost) {
                 <p class="nadleznost">{{ s.organ.nadleznost }}</p>
               }
             </div>
-            <div class="struktura-stats">
-              <div class="stat">
-                <span class="stat-broj">{{ s.osnovneJedinice.length }}</span>
-                <span class="stat-label">Org. jedinica</span>
-              </div>
-              <div class="stat">
-                <span class="stat-broj">{{ getBrojIzvrsilacaUkupno(s) }}</span>
-                <span class="stat-label">Izvršilaca</span>
+            <div class="struktura-akcije">
+              <button mat-stroked-button (click)="dodajRM(undefined, $event)" matTooltip="Dodaj radno mjesto direktno u organ">
+                <mat-icon>work</mat-icon> + RM
+              </button>
+              <button mat-stroked-button (click)="dodajOOJ($event)" matTooltip="Dodaj osnovnu org. jedinicu">
+                <mat-icon>create_new_folder</mat-icon> + OOJ
+              </button>
+              <button mat-icon-button matTooltip="Uredi organ" (click)="urediOrgan(s.organ, $event)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <div class="struktura-stats">
+                <div class="stat">
+                  <span class="stat-broj">{{ s.osnovneJedinice.length }}</span>
+                  <span class="stat-label">Org. jedinica</span>
+                </div>
+                <div class="stat">
+                  <span class="stat-broj">{{ getBrojIzvrsilacaUkupno(s) }}</span>
+                  <span class="stat-label">Izvršilaca</span>
+                </div>
               </div>
             </div>
           </div>
 
+          <!-- Zakonski osnov -->
           @if (s.organ.zakonskiOsnov?.length) {
             <div class="zakonski-osnov">
               <mat-icon>gavel</mat-icon>
@@ -80,7 +97,6 @@
             </div>
           }
 
-          <mat-divider />
           <mat-divider />
 
           <!-- Zaposlenici direktno u organu (Ministar, Direktori) -->
@@ -100,9 +116,7 @@
                     }
                   </div>
                   <div class="zaposlenik-info">
-                    <span class="zaposlenik-ime"
-                      >{{ z.ime }} {{ z.prezime }}</span
-                    >
+                    <span class="zaposlenik-ime">{{ z.ime }} {{ z.prezime }}</span>
                     <span class="zaposlenik-email">{{ z.sluzbeniEmail }}</span>
                   </div>
                 </div>
@@ -112,7 +126,6 @@
           }
 
           <!-- Radna mjesta direktno u organu -->
-          <!-- Radna mjesta direktno u organu -->
           @if (s.radnaMjesta.length > 0) {
             <div class="rm-sekcija">
               <div class="rm-sekcija-header">
@@ -120,247 +133,74 @@
                 <span>Rukovodstvo i savjetnici</span>
               </div>
               @for (rm of s.radnaMjesta; track rm._id) {
-                <div class="rm-row rm-{{ rm.kategorijaZaposlenog }}">
-                  <div class="rm-info">
-                    <span class="rm-naziv">{{ rm.naziv }}</span>
-                    <small class="rm-kategorija">
-                      {{ getKategorijaNaziv(rm.kategorijaZaposlenog) }}
-                    </small>
-                  </div>
-                  <div class="rm-razred">
-                    <span class="razred-badge">{{ rm.platniRazred }}</span>
-                    <small>{{ rm.koeficijent }}</small>
-                  </div>
-                  <span class="rm-broj">{{ rm.brojIzvrsilaca }}</span>
-                  <button
-                    mat-icon-button
-                    class="premjesti-btn"
-                    matTooltip="Premjesti u drugu org. jedinicu"
-                    (click)="premjestiRM(rm)"
-                  >
-                    <mat-icon>drive_file_move</mat-icon>
-                  </button>
-                  <button
-                    mat-icon-button
-                    class="premjesti-btn"
-                    matTooltip="Deaktiviraj"
-                    color="warn"
-                    (click)="obrisiRM(rm)"
-                  >
-                    <mat-icon>block</mat-icon>
-                  </button>
-                </div>
-                <!-- Zaposlenici na ovom RM -->
-                @if (rm.zaposlenici && rm.zaposlenici.length > 0) {
-                  <div class="zaposlenici-lista">
-                    @for (z of rm.zaposlenici; track z._id) {
-                      <div class="zaposlenik-row">
-                        <div class="zaposlenik-avatar">
-                          @if (z.slika) {
-                            <img [src]="apiUrl + '/' + z.slika" [alt]="z.ime" />
-                          } @else {
-                            <mat-icon>person</mat-icon>
-                          }
-                        </div>
-                        <div class="zaposlenik-info">
-                          <span class="zaposlenik-ime"
-                            >{{ z.ime }} {{ z.prezime }}</span
-                          >
-                          <span class="zaposlenik-email">{{
-                            z.sluzbeniEmail
-                          }}</span>
-                        </div>
-                      </div>
-                    }
-                  </div>
-                } @else {
-                  <div class="slobodno-rm">
-                    <mat-icon>person_add</mat-icon>
-                    <span>Slobodno radno mjesto</span>
-                  </div>
-                }
+                <ng-container *ngTemplateOutlet="rmRed; context: { rm: rm }"/>
               }
             </div>
             <mat-divider />
           }
 
-          <!-- Osnovne org. jedinice -->
+          <!-- ══ OSNOVNE ORG. JEDINICE ══════════════════════ -->
           <mat-accordion class="ooj-accordion">
             @for (ooj of s.osnovneJedinice; track ooj._id) {
               <mat-expansion-panel class="ooj-panel">
+
+                <!-- OOJ Header -->
                 <mat-expansion-panel-header>
                   <mat-panel-title style="flex: 1; min-width: 0">
-                    <mat-icon class="ooj-ikona tip-{{ ooj.tip }}"
-                      >folder</mat-icon
-                    >
+                    <mat-icon class="ooj-ikona tip-{{ ooj.tip }}">folder</mat-icon>
                     <div class="ooj-naziv-wrapper">
                       <div class="ooj-naziv-puni">{{ ooj.naziv }}</div>
-                      <!-- @if (ooj.naziv.length > 30) {
-                        <div class="ooj-naziv-kratki">
-                        {{ ooj.naziv | slice: 0 : 30
-                        }}{{ ooj.naziv.length > 30 ? '...' : '' }}
-                      </div>
-
-                      } -->
                     </div>
                   </mat-panel-title>
                   <mat-panel-description>
-                    {{ getBrojRMuOOJ(ooj) }} RM
+                    <span class="rm-count">{{ getBrojRMuOOJ(ooj) }} RM</span>
+                    <button mat-icon-button class="akcija-btn"
+                      matTooltip="Dodaj radno mjesto u ovu jedinicu"
+                      (click)="dodajRM(ooj, $event)">
+                      <mat-icon>work</mat-icon>
+                    </button>
+                    <button mat-icon-button class="akcija-btn"
+                      matTooltip="Dodaj unutrašnju org. jedinicu"
+                      (click)="dodajUOJ(ooj, $event)">
+                      <mat-icon>create_new_folder</mat-icon>
+                    </button>
+                    <button mat-icon-button class="akcija-btn"
+                      matTooltip="Uredi jedinicu"
+                      (click)="urediJedinicu(ooj, $event)">
+                      <mat-icon>edit</mat-icon>
+                    </button>
                   </mat-panel-description>
                 </mat-expansion-panel-header>
-                <!-- <span class="ooj-naziv-puni">{{ ooj.naziv }}</span> -->
+
                 <!-- RM direktno u OOJ -->
                 @if (ooj.radnaMjesta.length > 0) {
                   <div class="rm-sekcija">
                     @for (rm of ooj.radnaMjesta; track rm._id) {
-                      <div class="rm-row rm-{{ rm.kategorijaZaposlenog }}">
-                        <div class="rm-info">
-                          <span class="rm-naziv">{{ rm.naziv }}</span>
-                          <small class="rm-kategorija">
-                            {{ getKategorijaNaziv(rm.kategorijaZaposlenog) }}
-                          </small>
-                        </div>
-                        <div class="rm-razred">
-                          <span class="razred-badge">{{
-                            rm.platniRazred
-                          }}</span>
-                          <small>{{ rm.koeficijent }}</small>
-                        </div>
-                        <span class="rm-broj">{{ rm.brojIzvrsilaca }}</span>
-                        <button
-                          mat-icon-button
-                          class="premjesti-btn"
-                          matTooltip="Premjesti u drugu org. jedinicu"
-                          (click)="premjestiRM(rm)"
-                        >
-                          <mat-icon>drive_file_move</mat-icon>
-                        </button>
-                        <button
-                          mat-icon-button
-                          class="premjesti-btn"
-                          matTooltip="Deaktiviraj"
-                          color="warn"
-                          (click)="obrisiRM(rm)"
-                        >
-                          <mat-icon>block</mat-icon>
-                        </button>
-                      </div>
-                      <!-- Zaposlenici na ovom RM -->
-                      @if (rm.zaposlenici && rm.zaposlenici.length > 0) {
-                        <div class="zaposlenici-lista">
-                          @for (z of rm.zaposlenici; track z._id) {
-                            <div class="zaposlenik-row">
-                              <div class="zaposlenik-avatar">
-                                @if (z.slika) {
-                                  <img
-                                    [src]="apiUrl + '/' + z.slika"
-                                    [alt]="z.ime"
-                                  />
-                                } @else {
-                                  <mat-icon>person</mat-icon>
-                                }
-                              </div>
-                              <div class="zaposlenik-info">
-                                <span class="zaposlenik-ime"
-                                  >{{ z.ime }} {{ z.prezime }}</span
-                                >
-                                <span class="zaposlenik-email">{{
-                                  z.sluzbeniEmail
-                                }}</span>
-                              </div>
-                            </div>
-                          }
-                        </div>
-                      } @else {
-                        <div class="slobodno-rm">
-                          <mat-icon>person_add</mat-icon>
-                          <span>Slobodno radno mjesto</span>
-                        </div>
-                      }
+                      <ng-container *ngTemplateOutlet="rmRed; context: { rm: rm }"/>
                     }
                   </div>
                 }
 
-                <!-- Unutrašnje org. jedinice (UOJ) -->
+                <!-- ══ UNUTRAŠNJE ORG. JEDINICE ══════════════ -->
                 @for (uoj of ooj.unutrasnje; track uoj._id) {
                   <div class="uoj-blok">
                     <div class="uoj-header">
                       <mat-icon class="uoj-ikona">folder_open</mat-icon>
-                      <span>{{ uoj.naziv }}</span>
-                      <span class="uoj-count"
-                        >{{ uoj.radnaMjesta.length }} RM</span
-                      >
+                      <span class="uoj-naziv">{{ uoj.naziv }}</span>
+                      <span class="uoj-count">{{ uoj.radnaMjesta.length }} RM</span>
+                      <button mat-icon-button class="akcija-btn uoj-akcija"
+                        matTooltip="Dodaj radno mjesto"
+                        (click)="dodajRM(uoj, $event)">
+                        <mat-icon>work</mat-icon>
+                      </button>
                     </div>
+
                     @for (rm of uoj.radnaMjesta; track rm._id) {
-                      <div
-                        class="rm-row rm-uoj rm-{{ rm.kategorijaZaposlenog }}"
-                      >
-                        <div class="rm-info">
-                          <span class="rm-naziv">{{ rm.naziv }}</span>
-                          <small class="rm-kategorija">
-                            {{ getKategorijaNaziv(rm.kategorijaZaposlenog) }}
-                          </small>
-                        </div>
-                        <div class="rm-razred">
-                          <span class="razred-badge">{{
-                            rm.platniRazred
-                          }}</span>
-                          <small>{{ rm.koeficijent }}</small>
-                        </div>
-                        <span class="rm-broj">{{ rm.brojIzvrsilaca }}</span>
-                        <button
-                          mat-icon-button
-                          class="premjesti-btn"
-                          matTooltip="Premjesti u drugu org. jedinicu"
-                          (click)="premjestiRM(rm)"
-                        >
-                          <mat-icon>drive_file_move</mat-icon>
-                        </button>
-                        <button
-                          mat-icon-button
-                          class="premjesti-btn"
-                          matTooltip="Deaktiviraj"
-                          color="warn"
-                          (click)="obrisiRM(rm)"
-                        >
-                          <mat-icon>block</mat-icon>
-                        </button>
-                      </div>
-                      <!-- Zaposlenici na ovom RM -->
-                      @if (rm.zaposlenici && rm.zaposlenici.length > 0) {
-                        <div class="zaposlenici-lista">
-                          @for (z of rm.zaposlenici; track z._id) {
-                            <div class="zaposlenik-row">
-                              <div class="zaposlenik-avatar">
-                                @if (z.slika) {
-                                  <img
-                                    [src]="apiUrl + '/' + z.slika"
-                                    [alt]="z.ime"
-                                  />
-                                } @else {
-                                  <mat-icon>person</mat-icon>
-                                }
-                              </div>
-                              <div class="zaposlenik-info">
-                                <span class="zaposlenik-ime"
-                                  >{{ z.ime }} {{ z.prezime }}</span
-                                >
-                                <span class="zaposlenik-email">{{
-                                  z.sluzbeniEmail
-                                }}</span>
-                              </div>
-                            </div>
-                          }
-                        </div>
-                      } @else {
-                        <div class="slobodno-rm">
-                          <mat-icon>person_add</mat-icon>
-                          <span>Slobodno radno mjesto</span>
-                        </div>
-                      }
+                      <ng-container *ngTemplateOutlet="rmRed; context: { rm: rm, uoj: true }"/>
                     }
                   </div>
                 }
+
               </mat-expansion-panel>
             }
           </mat-accordion>
@@ -369,3 +209,65 @@
     </div>
   }
 </div>
+
+<!-- ══ TEMPLATE ZA REDNO MJESTO ══════════════════════════════ -->
+<ng-template #rmRed let-rm="rm" let-uoj="uoj">
+  <div class="rm-row rm-{{ rm.kategorijaZaposlenog }}" [class.rm-uoj]="uoj">
+    <div class="rm-info">
+      <span class="rm-naziv">{{ rm.naziv }}</span>
+      <small class="rm-kategorija">
+        {{ getKategorijaNaziv(rm.kategorijaZaposlenog) }}
+      </small>
+    </div>
+    <div class="rm-razred">
+      <span class="razred-badge">{{ rm.platniRazred }}</span>
+      <small>{{ rm.koeficijent }}</small>
+    </div>
+    <span class="rm-broj">
+      {{ rm.zaposlenici?.length ?? 0 }}/{{ rm.brojIzvrsilaca }}
+    </span>
+    <button mat-icon-button class="premjesti-btn"
+      matTooltip="Dodijeli zaposlenika"
+      color="primary"
+      (click)="dodjelaZaposlenik(rm, $event)">
+      <mat-icon>person_add</mat-icon>
+    </button>
+    <button mat-icon-button class="premjesti-btn"
+      matTooltip="Premjesti u drugu org. jedinicu"
+      (click)="premjestiRM(rm)">
+      <mat-icon>drive_file_move</mat-icon>
+    </button>
+    <button mat-icon-button class="premjesti-btn"
+      matTooltip="Deaktiviraj"
+      color="warn"
+      (click)="obrisiRM(rm)">
+      <mat-icon>block</mat-icon>
+    </button>
+  </div>
+
+  <!-- Zaposlenici na ovom RM -->
+  @if (rm.zaposlenici && rm.zaposlenici.length > 0) {
+    <div class="zaposlenici-lista">
+      @for (z of rm.zaposlenici; track z._id) {
+        <div class="zaposlenik-row">
+          <div class="zaposlenik-avatar">
+            @if (z.slika) {
+              <img [src]="apiUrl + '/' + z.slika" [alt]="z.ime" />
+            } @else {
+              <mat-icon>person</mat-icon>
+            }
+          </div>
+          <div class="zaposlenik-info">
+            <span class="zaposlenik-ime">{{ z.ime }} {{ z.prezime }}</span>
+            <span class="zaposlenik-email">{{ z.sluzbeniEmail }}</span>
+          </div>
+        </div>
+      }
+    </div>
+  } @else {
+    <div class="slobodno-rm">
+      <mat-icon>person_add</mat-icon>
+      <span>Slobodno radno mjesto</span>
+    </div>
+  }
+</ng-template>

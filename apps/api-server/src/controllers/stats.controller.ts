@@ -1,7 +1,10 @@
 import { Request, Response } from 'express';
-import { User } from '@nx-fmeri/api-auth';
-import { OrganizacionaJedinica, RadnoMjesto } from '@nx-fmeri/api-org';
+// import { User } from '@nx-fmeri/api-auth';
+import { OrganizacionaJedinica, RadnoMjesto, Zaposlenik } from '@nx-fmeri/api-org';
 import { getErrorMessage } from '../helpers/error.helper';
+
+
+
 
 // GET /api/stats/dashboard
 export const getDashboard = async (req: Request, res: Response) => {
@@ -12,10 +15,10 @@ export const getDashboard = async (req: Request, res: Response) => {
       ukupnoRadnihMjesta,
       zaposleniciSaRadnimMjestom,
     ] = await Promise.all([
-      User.countDocuments({ role: 'user' }),
+      Zaposlenik.countDocuments({ aktivan: true }),
       OrganizacionaJedinica.countDocuments({ aktivna: true }),
       RadnoMjesto.countDocuments({ aktivno: true }),
-      User.countDocuments({ role: 'user', radnoMjesto: { $ne: null } }),
+      Zaposlenik.countDocuments({ aktivan: true, radnoMjesto: { $ne: null } }),
     ]);
 
     return res.json({
@@ -23,9 +26,9 @@ export const getDashboard = async (req: Request, res: Response) => {
       ukupnoJedinica,
       ukupnoRadnihMjesta,
       zaposleniciSaRadnimMjestom,
-      zaposleniciSaDodjeljenim: Math.round(
-        (zaposleniciSaRadnimMjestom / ukupnoZaposlenika) * 100,
-      ),
+      zaposleniciSaDodjeljenim: ukupnoZaposlenika > 0
+        ? Math.round((zaposleniciSaRadnimMjestom / ukupnoZaposlenika) * 100)
+        : 0,
     });
   } catch (error) {
     return res.status(500).json({ error: getErrorMessage(error) });
@@ -35,8 +38,8 @@ export const getDashboard = async (req: Request, res: Response) => {
 // GET /api/stats/zaposlenici-po-sektoru
 export const getZaposleniciPoSektoru = async (req: Request, res: Response) => {
   try {
-    const rezultat = await User.aggregate([
-      { $match: { role: 'user', organizacionaJedinica: { $ne: null } } },
+    const rezultat = await Zaposlenik.aggregate([
+      { $match: { aktivan: true, organizacionaJedinica: { $ne: null } } },
       {
         $lookup: {
           from: 'organizacionajedinicas',
@@ -70,8 +73,8 @@ export const getZaposleniciPoSektoru = async (req: Request, res: Response) => {
 // GET /api/stats/platni-razredi
 export const getPlatniRazrediStats = async (req: Request, res: Response) => {
   try {
-    const rezultat = await User.aggregate([
-      { $match: { role: 'user', radnoMjesto: { $ne: null } } },
+    const rezultat = await Zaposlenik.aggregate([
+      { $match: { aktivan: true, radnoMjesto: { $ne: null } } },
       {
         $lookup: {
           from: 'radnamjestos',
@@ -134,19 +137,19 @@ const REDOSLIJED_JEDINICA = [
   'Federalna direkcija za namjensku industriju',
 ];
 
-// Na kraju getSistematizacija, prije return res.json(rezultat):
-
 // GET /api/stats/sistematizacija
 export const getSistematizacija = async (req: Request, res: Response) => {
   try {
     const radnaMjesta = await RadnoMjesto.find({ aktivno: true })
-      .populate('organizacionaJedinica', 'naziv tipJedinice')
+      .populate('organizacionaJedinica', 'naziv tip')
       .lean();
 
-    // Za svako radno mjesto provjeri koliko korisnika je dodijeljeno
     const rezultat = await Promise.all(
       radnaMjesta.map(async (rm) => {
-        const popunjeno = await User.countDocuments({ radnoMjesto: rm._id });
+        const popunjeno = await Zaposlenik.countDocuments({
+          radnoMjesto: rm._id,
+          aktivan: true,
+        });
         return {
           _id: rm._id,
           naziv: rm.naziv,
@@ -165,8 +168,9 @@ export const getSistematizacija = async (req: Request, res: Response) => {
                 ? 'djelimicno'
                 : 'slobodno',
         };
-      }),
+      })
     );
+
     rezultat.sort((a, b) => {
       const aNaziv = (a.organizacionaJedinica as any)?.naziv ?? '';
       const bNaziv = (b.organizacionaJedinica as any)?.naziv ?? '';

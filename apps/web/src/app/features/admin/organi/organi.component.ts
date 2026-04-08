@@ -17,9 +17,15 @@ import {
   KategorijaZaposlenog,
   OsnovnaJedinicaDetalji,
   RadnoMjestoDetalji,
+  UnutrasnjaJedinicaDetalji,
 } from '../../../core/models/org.models';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { PremjestiRmDialogComponent } from './dialogs/premjesti-rm-dialog.component';
+import { NgTemplateOutlet } from '@angular/common';
+import { OrganDialogComponent } from './dialogs/organ-dialog.component';
+import { OrganJedinicaDialogComponent } from './dialogs/organ-jedinica-dialog.component';
+import { OrganRmDialogComponent } from './dialogs/organ-rm-dialog.component';
+import { DodjelaRmZaposlenikDialogComponent } from './dialogs/dodjela-rm-zaposlenik-dialog.component';
 // import { SlicePipe } from '@angular/common';
 
 @Component({
@@ -35,6 +41,7 @@ import { PremjestiRmDialogComponent } from './dialogs/premjesti-rm-dialog.compon
     MatDividerModule,
     MatExpansionModule,
     MatDialogModule,
+    NgTemplateOutlet,
     // SlicePipe
   ],
   templateUrl: './organi.component.html',
@@ -132,4 +139,78 @@ export class OrganiComponent implements OnInit {
       this.otvoriStrukuturu(organ);
     });
   }
+
+  // U klasi dodaj metode:
+
+noviOrgan() {
+  const ref = this.dialog.open(OrganDialogComponent, {
+    width: '600px',
+    data: {},
+  });
+  ref.afterClosed().subscribe(r => { if (r) this.ngOnInit(); });
+}
+
+urediOrgan(organ: Organ, event: Event) {
+  event.stopPropagation();
+  const ref = this.dialog.open(OrganDialogComponent, {
+    width: '600px',
+    data: { organ },
+  });
+  ref.afterClosed().subscribe(r => { if (r) this.ngOnInit(); });
+}
+
+dodajOOJ(event: Event) {
+  event.stopPropagation();
+  const organ = this.odabraniOrgan();
+  if (!organ) return;
+  const ref = this.dialog.open(OrganJedinicaDialogComponent, {
+    width: '540px',
+    data: { organId: organ._id, nivo: 'osnovna' },
+  });
+  ref.afterClosed().subscribe(r => { if (r) this.otvoriStrukuturu(organ); });
+}
+
+dodajUOJ(ooj: OsnovnaJedinicaDetalji, event: Event) {
+  event.stopPropagation();
+  const organ = this.odabraniOrgan();
+  if (!organ) return;
+  const ref = this.dialog.open(OrganJedinicaDialogComponent, {
+    width: '540px',
+    data: { organId: organ._id, roditelj: ooj, nivo: 'unutrasnja' },
+  });
+  ref.afterClosed().subscribe(r => { if (r) this.otvoriStrukuturu(organ); });
+}
+
+urediJedinicu(jedinica: OsnovnaJedinicaDetalji, event: Event) {
+  event.stopPropagation();
+  const organ = this.odabraniOrgan();
+  if (!organ) return;
+  const ref = this.dialog.open(OrganJedinicaDialogComponent, {
+    width: '540px',
+    data: { organId: organ._id, jedinica, nivo: 'osnovna' },
+  });
+  ref.afterClosed().subscribe(r => { if (r) this.otvoriStrukuturu(organ); });
+}
+
+dodajRM(jedinica?: OsnovnaJedinicaDetalji | UnutrasnjaJedinicaDetalji, event?: Event) {
+  event?.stopPropagation();
+  const organ = this.odabraniOrgan();
+  if (!organ) return;
+  const ref = this.dialog.open(OrganRmDialogComponent, {
+    width: '560px',
+    data: { organId: organ._id, organNaziv: organ.naziv, jedinica },
+  });
+  ref.afterClosed().subscribe(r => { if (r) this.otvoriStrukuturu(organ); });
+}
+
+dodjelaZaposlenik(rm: RadnoMjestoDetalji, event: Event) {
+  event.stopPropagation();
+  const organ = this.odabraniOrgan();
+  if (!organ) return;
+  const ref = this.dialog.open(DodjelaRmZaposlenikDialogComponent, {
+    width: '500px',
+    data: { rm, organId: organ._id },
+  });
+  ref.afterClosed().subscribe(r => { if (r) this.otvoriStrukuturu(organ); });
+}
 }

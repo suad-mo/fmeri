@@ -278,3 +278,47 @@ export const getRadnaMjestaOrgana = async (req: Request, res: Response) => {
     return res.status(500).json({ error: getErrorMessage(error) });
   }
 };
+
+// ── PATCH /api/organi/:id/radna-mjesta/:rmId/zaposlenik ──
+export const dodjelaZaposlenikaNaRM = async (req: Request, res: Response) => {
+  try {
+    const { zaposlenikId } = req.body;
+
+    // Ukloni zaposlenika s prethodnog RM ako postoji
+    await Zaposlenik.updateMany(
+      { radnoMjesto: req.params['rmId'] },
+      { $set: { radnoMjesto: null } }
+    );
+
+    if (zaposlenikId) {
+      await Zaposlenik.findByIdAndUpdate(zaposlenikId, {
+        $set: {
+          radnoMjesto: req.params['rmId'],
+          organ: req.params['id'],
+        },
+      });
+    }
+
+    const rm = await RadnoMjesto.findById(req.params['rmId']).lean();
+    return res.json(rm);
+  } catch (error) {
+    return res.status(500).json({ error: getErrorMessage(error) });
+  }
+};
+
+// ── PATCH /api/organi/:id/jedinice/:jedinicaId ────────────
+export const updateJedinica = async (req: Request, res: Response) => {
+  try {
+    const jedinica = await OrganizacionaJedinica.findByIdAndUpdate(
+      req.params['jedinicaId'],
+      { $set: req.body },
+      { new: true, runValidators: true }
+    ).lean();
+    if (!jedinica) {
+      return res.status(404).json({ message: 'Org. jedinica nije pronađena.' });
+    }
+    return res.json(jedinica);
+  } catch (error) {
+    return res.status(400).json({ error: getErrorMessage(error) });
+  }
+};

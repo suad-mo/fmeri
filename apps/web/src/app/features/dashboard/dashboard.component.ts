@@ -39,7 +39,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatChipsModule,
     MatButtonModule,
     MatTooltipModule,
-    NgApexchartsModule,
+    NgApexchartsModule
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',

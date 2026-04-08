@@ -22,4 +22,9 @@ router.post('/:id/osnovne-jedinice', requireRole('admin'), organController.addOs
 router.post('/:id/unutrasnje-jedinice', requireRole('admin'), organController.addUnutrasnjaJedinica);
 router.post('/:id/radna-mjesta', requireRole('admin'), organController.addRadnoMjestoOrganu);
 
+// Dodjela zaposlenika na radno mjesto
+router.patch('/:id/radna-mjesta/:rmId/zaposlenik', requireRole('admin'), organController.dodjelaZaposlenikaNaRM);
+// Uređivanje org. jedinice
+router.patch('/:id/jedinice/:jedinicaId', requireRole('admin'), organController.updateJedinica);
+
 export default router;
