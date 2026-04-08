@@ -1,0 +1,79 @@
+<div class="search-wrap" #searchWrap>
+  <div class="search-input-wrap" [class.aktivan]="aktivan()">
+    <mat-icon class="search-icon">search</mat-icon>
+    <input
+      #searchInput
+      class="search-input"
+      type="text"
+      placeholder="Pretraži zaposlenike, jedinice..."
+      [value]="query()"
+      (input)="query.set($any($event.target).value); onInput()"
+      (focus)="onFocus()"
+    />
+    @if (query().length > 0) {
+      <button class="clear-btn" (click)="zatvori()">
+        <mat-icon>close</mat-icon>
+      </button>
+    }
+  </div>
+
+  @if (aktivan() && query().length >= 2) {
+    <div class="dropdown">
+      @if (isLoading()) {
+        <div class="dropdown-loading">
+          <mat-icon class="spin">refresh</mat-icon>
+          Učitavam...
+        </div>
+      } @else if (rezultati().length === 0) {
+        <div class="dropdown-empty">
+          <mat-icon>search_off</mat-icon>
+          Nema rezultata za "{{ query() }}"
+        </div>
+      } @else {
+
+        @if (zaposleniciRez().length > 0) {
+          <div class="dropdown-sekcija-label">
+            <mat-icon>people</mat-icon>
+            Zaposlenici
+          </div>
+          @for (r of zaposleniciRez(); track r.id) {
+            <button class="dropdown-item" (click)="otvoriRezultat(r.ruta)">
+              <div class="item-avatar">
+                {{ r.naslov[0] }}
+              </div>
+              <div class="item-info">
+                <span class="item-naslov">{{ r.naslov }}</span>
+                @if (r.podnaslov) {
+                  <span class="item-podnaslov">{{ r.podnaslov }}</span>
+                }
+              </div>
+              <mat-icon class="item-arrow">chevron_right</mat-icon>
+            </button>
+          }
+        }
+
+        @if (jediniceRez().length > 0) {
+          <div class="dropdown-sekcija-label">
+            <mat-icon>account_tree</mat-icon>
+            Org. jedinice
+          </div>
+          @for (r of jediniceRez(); track r.id) {
+            <button class="dropdown-item" (click)="otvoriRezultat(r.ruta)">
+              <div class="item-ikona">
+                <mat-icon>folder</mat-icon>
+              </div>
+              <div class="item-info">
+                <span class="item-naslov">{{ r.naslov }}</span>
+                @if (r.podnaslov) {
+                  <span class="item-podnaslov">{{ r.podnaslov }}</span>
+                }
+              </div>
+              <mat-icon class="item-arrow">chevron_right</mat-icon>
+            </button>
+          }
+        }
+
+      }
+    </div>
+  }
+</div>

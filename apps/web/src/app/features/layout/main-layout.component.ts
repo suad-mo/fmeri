@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDividerModule } from '@angular/material/divider';
 import { AuthService } from '../../core/services/auth.service';
+import { GlobalSearchComponent } from './global-search/global-search.component';
 
 @Component({
   selector: 'app-main-layout',
@@ -23,6 +24,7 @@ import { AuthService } from '../../core/services/auth.service';
     MatButtonModule,
     MatTooltipModule,
     MatDividerModule,
+    GlobalSearchComponent,
   ],
   template: `
     <mat-sidenav-container class="app-container">
@@ -123,6 +125,7 @@ import { AuthService } from '../../core/services/auth.service';
       <!-- ── Glavni sadržaj ────────────────────────────── -->
       <mat-sidenav-content class="app-content">
         <div class="content-header">
+          <app-global-search />
           <span class="user-role-badge" [class]="'role-' + primarnaRola()">
             {{ primarnaRola() }}
           </span>
@@ -229,6 +232,8 @@ import { AuthService } from '../../core/services/auth.service';
         padding: 0.5rem 1.5rem;
         border-bottom: 1px solid var(--color-border);
         background: var(--color-background-card);
+        position: relative; // ← dodaj
+        z-index: 100; // ← dodaj
       }
 
       .user-name {

@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { forkJoin, Observable } from 'rxjs';
 import {
   OrganizacionaJedinica,
   OrganizacionaJedinicaDTO,
@@ -361,5 +361,15 @@ export class OrgService {
   // U org.service.ts dodaj metodu
   getPopunjenost(): Observable<PopunjenostOrgana[]> {
     return this.http.get<PopunjenostOrgana[]>(`${this.organiUrl}/popunjenost`);
+  }
+
+  getPretrazivanjeData(): Observable<{
+    zaposlenici: Zaposlenik[];
+    jedinice: OrganizacionaJedinica[];
+  }> {
+    return forkJoin({
+      zaposlenici: this.getZaposlenici(),
+      jedinice: this.getJedinice(),
+    });
   }
 }
