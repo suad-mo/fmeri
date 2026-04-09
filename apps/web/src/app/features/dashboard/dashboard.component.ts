@@ -5,7 +5,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTableModule } from '@angular/material/table';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatButtonModule } from '@angular/material/button';
-import { NgApexchartsModule } from 'ng-apexcharts';
+import { ApexYAxis, NgApexchartsModule } from 'ng-apexcharts';
 import {
   ApexChart,
   ApexNonAxisChartSeries,
@@ -24,14 +24,14 @@ import {
   KATEGORIJA_NAZIV,
   KategorijaZaposlenog,
 } from '../../core/models/org.models';
-import { RouterLink } from '@angular/router';
+// import { RouterLink } from '@angular/router';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
   imports: [
-    RouterLink,
+    // RouterLink,
     MatCardModule,
     MatIconModule,
     MatProgressSpinnerModule,
@@ -39,7 +39,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatChipsModule,
     MatButtonModule,
     MatTooltipModule,
-    NgApexchartsModule
+    NgApexchartsModule,
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
@@ -51,6 +51,13 @@ export class DashboardComponent implements OnInit {
   stats = signal<DashboardStats | null>(null);
   // sistematizacija = signal<SistematizacijaItem[]>([]);
   sistematizacijaRaw = signal<SistematizacijaItem[]>([]);
+
+  popunjenost = signal<{
+    posto: number;
+    popunjeno: number;
+    ukupno: number;
+  } | null>(null);
+
   sistematizacijaGrupirana = computed(() => {
     const items = this.sistematizacijaRaw();
     const grupe = new Map<
@@ -86,14 +93,30 @@ export class DashboardComponent implements OnInit {
   barSeries: ApexAxisChartSeries = [];
   barChart: ApexChart = {
     type: 'bar',
-    height: 300,
+    height: 350,
     toolbar: { show: false },
     fontFamily: 'inherit',
     animations: { enabled: true, speed: 600 },
   };
-  barXAxis: ApexXAxis = { categories: [] };
+
   barPlotOptions: ApexPlotOptions = {
-    bar: { borderRadius: 8, columnWidth: '50%' },
+    bar: {
+      borderRadius: 6,
+      horizontal: true, // ← horizontalni
+      barHeight: '60%',
+    },
+  };
+
+  barXAxis: ApexXAxis = {
+    categories: [],
+    labels: { style: { fontSize: '11px' } },
+  };
+
+  barYAxis: ApexYAxis = {
+    labels: {
+      style: { fontSize: '11px' },
+      maxWidth: 200,
+    },
   };
   barDataLabels: ApexDataLabels = { enabled: false };
   barColors = ['#667eea'];
@@ -158,9 +181,21 @@ export class DashboardComponent implements OnInit {
       this.orgService.getZaposleniciPoSektoru().toPromise(),
       this.orgService.getPlatniRazrediStats().toPromise(),
       this.orgService.getSistematizacija().toPromise(),
-    ]).then(([stats, sektori, razredi, sistematizacija]) => {
+      this.orgService.getPopunjenost().toPromise(), // ← dodaj
+    ]).then(([stats, sektori, razredi, sistematizacija, popunjenost]) => {
       this.stats.set(stats ?? null);
       this.sistematizacijaRaw.set(sistematizacija ?? []);
+
+      // Popunjenost
+      if (popunjenost?.length) {
+        const ukupno = popunjenost.reduce((s, o) => s + o.ukupnoRM, 0);
+        const popunjeno = popunjenost.reduce((s, o) => s + o.popunjeno, 0);
+        this.popunjenost.set({
+          ukupno,
+          popunjeno,
+          posto: ukupno > 0 ? Math.round((popunjeno / ukupno) * 100) : 0,
+        });
+      }
 
       // Bar chart data
       if (sektori?.length) {
@@ -214,19 +249,19 @@ export class DashboardComponent implements OnInit {
     window.print();
   }
 
-  logout() {
-    this.authService.logout();
-  }
+  // logout() {
+  //   this.authService.logout();
+  // }
 
-  toggleTheme(): void {
-    this.isDark.set(!this.isDark());
-    const body = document.body;
-    if (this.isDark()) {
-      body.classList.add('dark-theme');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      body.classList.remove('dark-theme');
-      localStorage.setItem('theme', 'light');
-    }
-  }
+  // toggleTheme(): void {
+  //   this.isDark.set(!this.isDark());
+  //   const body = document.body;
+  //   if (this.isDark()) {
+  //     body.classList.add('dark-theme');
+  //     localStorage.setItem('theme', 'dark');
+  //   } else {
+  //     body.classList.remove('dark-theme');
+  //     localStorage.setItem('theme', 'light');
+  //   }
+  // }
 }
