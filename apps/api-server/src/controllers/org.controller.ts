@@ -83,8 +83,8 @@ export const remove = async (req: Request, res: Response) => {
 
 export const getStablo = async (req: Request, res: Response) => {
   try {
-    // Dohvati sve jedinice i kreiraj stablo u memoriji
     const sve = await OrganizacionaJedinica.find({ aktivna: true })
+      .populate('organ', 'naziv vrstaOrgana')
       .sort({ redoslijed: 1, naziv: 1 })
       .lean();
 
@@ -98,14 +98,26 @@ export const getStablo = async (req: Request, res: Response) => {
 
     for (const jedinica of mapa.values()) {
       if (!jedinica.nadredjenaJedinica) {
+        // Ima organ ali nema nadređenu — root za taj organ
         stablo.push(jedinica);
       } else {
         const roditelj = mapa.get(jedinica.nadredjenaJedinica.toString());
         if (roditelj) {
           roditelj.djeca.push(jedinica);
+        } else {
+          // Roditelj nije pronađen — dodaj kao root
+          stablo.push(jedinica);
         }
       }
     }
+
+    // Sortiraj root po organu pa po redoslijedu
+    stablo.sort((a, b) => {
+      const aOrgan = a.organ?.naziv ?? '';
+      const bOrgan = b.organ?.naziv ?? '';
+      if (aOrgan !== bOrgan) return aOrgan.localeCompare(bOrgan);
+      return (a.redoslijed ?? 0) - (b.redoslijed ?? 0);
+    });
 
     return res.json(stablo);
   } catch (error) {
@@ -197,7 +209,8 @@ export const getJedinicaDetalji = async (req: Request, res: Response) => {
       radnaMjesta: radnaMjestaDetalji,
       ukupnoMjesta: radnaMjesta.reduce((s, rm) => s + rm.brojIzvrsilaca, 0),
       popunjeno: radnaMjestaDetalji.reduce(
-        (s, rm) => s + rm.zaposlenici.length, 0
+        (s, rm) => s + rm.zaposlenici.length,
+        0,
       ),
     });
   } catch (error) {

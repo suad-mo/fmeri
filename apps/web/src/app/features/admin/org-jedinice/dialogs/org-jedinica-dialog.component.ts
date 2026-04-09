@@ -32,6 +32,11 @@ import {
     <h2 mat-dialog-title>
       {{ data.jedinica ? 'Uredi jedinicu' : 'Nova organizaciona jedinica' }}
     </h2>
+    @if (data.roditelj) {
+      <p class="subtitle">
+        U: <strong>{{ data.roditelj.naziv }}</strong>
+      </p>
+    }
 
     <mat-dialog-content>
       <form [formGroup]="form" class="dialog-form">
@@ -40,14 +45,20 @@ import {
           <input matInput formControlName="naziv" />
         </mat-form-field>
 
-        <mat-form-field appearance="outline">
-          <mat-label>Tip jedinice</mat-label>
-          <mat-select formControlName="tip">
-            @for (tip of tipovi; track tip.value) {
-              <mat-option [value]="tip.value">{{ tip.label }}</mat-option>
-            }
-          </mat-select>
-        </mat-form-field>
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>Tip jedinice</mat-label>
+            <mat-select formControlName="tip">
+              @for (tip of tipovi; track tip.value) {
+                <mat-option [value]="tip.value">{{ tip.label }}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Redoslijed</mat-label>
+            <input matInput type="number" formControlName="redoslijed" />
+          </mat-form-field>
+        </div>
 
         <mat-form-field appearance="outline">
           <mat-label>Nadređena jedinica</mat-label>
@@ -61,12 +72,7 @@ import {
 
         <mat-form-field appearance="outline">
           <mat-label>Opis</mat-label>
-          <textarea matInput formControlName="opis" rows="3"></textarea>
-        </mat-form-field>
-
-        <mat-form-field appearance="outline">
-          <mat-label>Redoslijed</mat-label>
-          <input matInput type="number" formControlName="redoslijed" />
+          <textarea matInput formControlName="opis" rows="2"></textarea>
         </mat-form-field>
       </form>
     </mat-dialog-content>
@@ -85,16 +91,25 @@ import {
   `,
   styles: [
     `
+      .subtitle {
+        color: var(--color-text-secondary);
+        font-size: 0.875rem;
+        margin: -0.5rem 1.5rem 0.5rem;
+      }
       .dialog-form {
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
-        min-width: 460px;
+        min-width: 480px;
         padding-top: 0.5rem;
-
         mat-form-field {
           width: 100%;
         }
+      }
+      .form-row {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 0.75rem;
       }
     `,
   ],

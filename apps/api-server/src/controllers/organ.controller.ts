@@ -289,10 +289,17 @@ export const addOsnovnaJedinica = async (req: Request, res: Response) => {
     if (!organ)
       return res.status(404).json({ message: 'Organ nije pronađen.' });
 
+    // Nađi organsku jedinicu (ministarstvo/zavod/direkcija)
+    const organJedinica = await OrganizacionaJedinica.findOne({
+      organ: organ._id,
+      tip: { $in: ['ministarstvo', 'zavod', 'direkcija', 'uprava'] },
+    });
+
     const jedinica = await OrganizacionaJedinica.create({
       ...req.body,
       organ: organ._id,
       nivoJedinice: 'osnovna',
+      nadredjenaJedinica: organJedinica?._id ?? null,
     });
     return res.status(201).json(jedinica);
   } catch (error) {
@@ -338,13 +345,24 @@ export const addRadnoMjestoOrganu = async (req: Request, res: Response) => {
 
     const { osnovnaJedinicaId, unutrasnjaJedinicaId, ...podaci } = req.body;
 
+    // Ako nema jedinice — nađi organsku jedinicu (ministarstvo/zavod/direkcija)
+    let organizacionaJedinica =
+      unutrasnjaJedinicaId ?? osnovnaJedinicaId ?? null;
+
+    if (!organizacionaJedinica) {
+      const organJedinica = await OrganizacionaJedinica.findOne({
+        organ: organ._id,
+        tip: { $in: ['ministarstvo', 'zavod', 'direkcija', 'uprava'] },
+      });
+      organizacionaJedinica = organJedinica?._id ?? null;
+    }
+
     const rm = await RadnoMjesto.create({
       ...podaci,
       organ: organ._id,
+      organizacionaJedinica,
       osnovnaJedinica: osnovnaJedinicaId ?? null,
       unutrasnjaJedinica: unutrasnjaJedinicaId ?? null,
-      // Backwards compatibility
-      organizacionaJedinica: unutrasnjaJedinicaId ?? osnovnaJedinicaId ?? null,
     });
     return res.status(201).json(rm);
   } catch (error) {

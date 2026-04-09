@@ -121,7 +121,7 @@ const radnoMjestoSchema = new Schema<IRadnoMjesto>(
     koeficijent: {
       type: Number,
       required: [true, 'Koeficijent je obavezan'],
-      min: 1,
+      min: 0.1,
     },
     opsisPoslova: {
       type: String,
