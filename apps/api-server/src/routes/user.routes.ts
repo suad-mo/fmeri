@@ -44,7 +44,7 @@ router.post('/me/slika', upload.single('slika'), userController.uploadSlika);
 
 // Admin
 router.get('/', requireRole('admin'), userController.getUsers);
-router.patch('/:id/dodjela', requireRole('admin'), userController.dodjelaOrgRM);
+// router.patch('/:id/dodjela', requireRole('admin'), userController.dodjelaOrgRM);
 
 router.post('/', requireRole('admin'), userController.createUser);
 router.patch('/:id/role', requireRole('admin'), userController.updateRole);

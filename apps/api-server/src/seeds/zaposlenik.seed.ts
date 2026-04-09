@@ -32,10 +32,10 @@ const seed = async () => {
         ime,
         prezime,
         sluzbeniEmail: user.email,
-        slika: user.slika ?? null,
-        organ: user.organizacionaJedinica ? null : null, // Popunit ćemo kroz update
-        organizacionaJedinica: user.organizacionaJedinica ?? null,
-        radnoMjesto: user.radnoMjesto ?? null,
+        // slika: user.slika ?? null,
+        // organ: user.organizacionaJedinica ? null : null, // Popunit ćemo kroz update
+        // organizacionaJedinica: user.organizacionaJedinica ?? null,
+        // radnoMjesto: user.radnoMjesto ?? null,
         user: user._id,
         aktivan: true,
       });

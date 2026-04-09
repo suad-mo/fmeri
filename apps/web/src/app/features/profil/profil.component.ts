@@ -11,11 +11,13 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { OrgService } from '../../core/services/org.service';
 import { UserProfil, KATEGORIJA_NAZIV, KategorijaZaposlenog } from '../../core/models/org.models';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-profil',
   standalone: true,
   imports: [
+    RouterLink,
     ReactiveFormsModule,
     MatCardModule,
     MatFormFieldModule,
