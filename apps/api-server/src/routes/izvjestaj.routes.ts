@@ -6,6 +6,8 @@ import {
   sistematizacijaPDF,
   sistematizacijaExcel,
   getPregledStrukture,
+  pregledPDF,
+  pregledExcel,
 } from '../controllers/izvjestaj.controller';
 
 const router = Router();
@@ -21,5 +23,7 @@ router.get(
   sistematizacijaExcel,
 );
 router.get('/pregled', requireRole('admin'), getPregledStrukture);
+router.get('/pregled/pdf', requireRole('admin'), pregledPDF);
+router.get('/pregled/excel', requireRole('admin'), pregledExcel);
 
 export default router;

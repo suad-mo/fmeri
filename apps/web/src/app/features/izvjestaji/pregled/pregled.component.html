@@ -1,0 +1,218 @@
+<div class="pregled-page">
+
+  <!-- Header -->
+  <div class="page-header">
+    <div>
+      <h1>Pregled organizacijske strukture</h1>
+      <p>Sistematizacija i popunjenost po organima uprave</p>
+    </div>
+    <div class="header-akcije">
+      <button mat-stroked-button (click)="downloadExcel()">
+        <mat-icon>table_view</mat-icon>
+        Excel
+      </button>
+      <button mat-flat-button color="primary" (click)="downloadPDF()">
+        <mat-icon>picture_as_pdf</mat-icon>
+        PDF
+      </button>
+    </div>
+  </div>
+
+  @if (organiLoading()) {
+    <div class="loading-wrapper"><mat-spinner diameter="40"/></div>
+  } @else {
+
+    <!-- Filter panel -->
+    <div class="filter-panel">
+      <div class="filter-organi">
+        <span class="filter-label">Organi:</span>
+        @for (f of organFilteri(); track f.organ._id) {
+          <mat-checkbox
+            [checked]="f.ukljucen"
+            (change)="f.ukljucen = $event.checked; ucitaj()">
+            {{ f.organ.skraceniNaziv ?? f.organ.naziv }}
+          </mat-checkbox>
+        }
+      </div>
+      <div class="filter-opcije">
+        <mat-checkbox
+          [checked]="saJedinicama()"
+          (change)="saJedinicama.set($event.checked); ucitaj()">
+          Prikaži OOJ/UOJ
+        </mat-checkbox>
+      </div>
+    </div>
+
+    @if (isLoading()) {
+      <div class="loading-wrapper"><mat-spinner diameter="32"/></div>
+    } @else {
+
+      <!-- Sumarni red -->
+      <div class="sumarni-red">
+        <div class="sum-kartica">
+          <span class="sum-broj">{{ sumarno().ukupnoRM }}</span>
+          <span class="sum-label">Radnih mjesta</span>
+        </div>
+        <div class="sum-kartica">
+          <span class="sum-broj zelena">{{ sumarno().popunjeno }}</span>
+          <span class="sum-label">Popunjeno</span>
+        </div>
+        <div class="sum-kartica">
+          <span class="sum-broj crvena">{{ sumarno().upraznjeno }}</span>
+          <span class="sum-label">Upražnjeno</span>
+        </div>
+        <div class="sum-kartica">
+          <span class="sum-broj" [class]="getBojuPostotka(sumarno().posto)">
+            {{ sumarno().posto }}%
+          </span>
+          <span class="sum-label">Popunjenost</span>
+          <div class="sum-progress">
+            <div class="sum-fill" [style.width.%]="sumarno().posto"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Organi -->
+      @for (organ of podaci(); track organ.organId) {
+        <div class="organ-blok">
+
+          <!-- Organ header -->
+          <button class="organ-trigger" (click)="toggleOrgan(organ.organId)">
+            <div class="organ-ikona ikona-{{ organ.vrstaOrgana }}">
+              <mat-icon>account_balance</mat-icon>
+            </div>
+            <div class="organ-naziv-blok">
+              <span class="organ-naziv">{{ organ.naziv }}</span>
+              @if (organ.skraceniNaziv) {
+                <span class="organ-skraceni">{{ organ.skraceniNaziv }}</span>
+              }
+            </div>
+            <div class="organ-stats">
+              <span class="stat-item">{{ organ.ukupnoRM }} RM</span>
+              <span class="stat-item zelena">{{ organ.popunjeno }} pop.</span>
+              <span class="stat-item crvena">{{ organ.upraznjeno }} upr.</span>
+              <span class="stat-posto" [class]="getBojuPostotka(organ.posto)">
+                {{ organ.posto }}%
+              </span>
+            </div>
+            <mat-icon class="chevron" [class.open]="isOrganOpen(organ.organId)">
+              chevron_right
+            </mat-icon>
+          </button>
+
+          @if (isOrganOpen(organ.organId)) {
+            <div class="organ-body">
+
+              <!-- Direktna RM u organu -->
+              @if (organ.direktnaRM.length > 0) {
+                <div class="sekcija-blok direktna">
+                  <div class="sekcija-label">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="1.5">
+                      <rect x="3" y="3" width="7" height="7" rx="1"/>
+                      <rect x="14" y="3" width="7" height="7" rx="1"/>
+                      <rect x="3" y="14" width="7" height="7" rx="1"/>
+                      <rect x="14" y="14" width="7" height="7" rx="1"/>
+                    </svg>
+                    Direktno u organu
+                    <span class="cnt">{{ organ.direktnaRM.length }} RM</span>
+                  </div>
+                  @for (rm of organ.direktnaRM; track rm._id) {
+                    <ng-container *ngTemplateOutlet="rmRed; context: { rm }"/>
+                  }
+                </div>
+              }
+
+              <!-- OOJ lista -->
+              @for (ooj of organ.osnovneJedinice; track ooj._id) {
+                <div class="ooj-blok">
+                  <button class="ooj-trigger" (click)="toggleOOJ(ooj._id)">
+                    <div class="ooj-ikona">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+                      </svg>
+                    </div>
+                    <span class="ooj-naziv">{{ ooj.naziv }}</span>
+                    <div class="ooj-stats">
+                      <span class="stat-item">{{ ooj.ukupnoRM }} RM</span>
+                      <span class="stat-item zelena">{{ ooj.popunjeno }}</span>
+                      <span class="stat-item crvena">{{ ooj.upraznjeno }}</span>
+                      <span class="stat-posto" [class]="getBojuPostotka(ooj.posto)">
+                        {{ ooj.posto }}%
+                      </span>
+                    </div>
+                    <mat-icon class="chevron-mali" [class.open]="isOOJOpen(ooj._id)">
+                      chevron_right
+                    </mat-icon>
+                  </button>
+
+                  @if (isOOJOpen(ooj._id)) {
+                    <div class="ooj-body">
+
+                      <!-- Direktna RM u OOJ -->
+                      @if (ooj.direktnaRM.length > 0) {
+                        <div class="direktna-rm-wrap">
+                          @for (rm of ooj.direktnaRM; track rm._id) {
+                            <ng-container *ngTemplateOutlet="rmRed; context: { rm }"/>
+                          }
+                        </div>
+                      }
+
+                      <!-- UOJ -->
+                      @for (uoj of ooj.unutrasnje; track uoj._id) {
+                        <div class="uoj-blok">
+                          <div class="uoj-header">
+                            <div class="uoj-ikona">
+                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/>
+                              </svg>
+                            </div>
+                            <span class="uoj-naziv">{{ uoj.naziv }}</span>
+                            <div class="ooj-stats">
+                              <span class="stat-item">{{ uoj.ukupnoRM }} RM</span>
+                              <span class="stat-item zelena">{{ uoj.popunjeno }}</span>
+                              <span class="stat-item crvena">{{ uoj.upraznjeno }}</span>
+                              <span class="stat-posto" [class]="getBojuPostotka(uoj.posto)">
+                                {{ uoj.posto }}%
+                              </span>
+                            </div>
+                          </div>
+                          @for (rm of uoj.radnaMjesta; track rm._id) {
+                            <ng-container *ngTemplateOutlet="rmRed; context: { rm, indent: true }"/>
+                          }
+                        </div>
+                      }
+
+                    </div>
+                  }
+                </div>
+              }
+
+            </div>
+          }
+        </div>
+      }
+    }
+  }
+</div>
+
+<!-- RM red template -->
+<ng-template #rmRed let-rm="rm" let-indent="indent">
+  <div class="rm-red" [class.rm-indent]="indent">
+    <div class="rm-bar rm-bar-{{ rm.kategorijaZaposlenog }}"></div>
+    <span class="rm-naziv">{{ rm.naziv }}</span>
+    <span class="rm-razred">{{ rm.platniRazred }}</span>
+    <span class="rm-broj"
+      [class.zelena]="rm.popunjeno >= rm.brojIzvrsilaca"
+      [class.crvena]="rm.popunjeno === 0">
+      {{ rm.popunjeno }}/{{ rm.brojIzvrsilaca }}
+    </span>
+    <span class="status-badge status-{{ rm.status }}">
+      {{ rm.status === 'popunjeno' ? 'Popunjeno'
+       : rm.status === 'djelimicno' ? 'Djelimično'
+       : 'Slobodno' }}
+    </span>
+  </div>
+</ng-template>

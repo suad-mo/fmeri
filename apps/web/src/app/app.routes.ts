@@ -82,6 +82,13 @@ export const appRoutes: Routes = [
             './features/izvjestaji/sistematizacija/sistematizacija.component'
           ).then((m) => m.SistematizacijaComponent),
       },
+      {
+        path: 'izvjestaji/pregled',
+        loadComponent: () =>
+          import('./features/izvjestaji/pregled/pregled.component').then(
+            (m) => m.PregledComponent,
+          ),
+      },
       // ── Admin rute (samo admin) ──────────────────────
       {
         path: 'admin',

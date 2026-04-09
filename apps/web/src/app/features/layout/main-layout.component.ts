@@ -99,6 +99,14 @@ import { GlobalSearchComponent } from './global-search/global-search.component';
             </a>
             <a
               mat-list-item
+              routerLink="/izvjestaji/pregled"
+              routerLinkActive="aktivan"
+            >
+              <mat-icon matListItemIcon>account_tree</mat-icon>
+              <span matListItemTitle>Pregled strukture</span>
+            </a>
+            <a
+              mat-list-item
               routerLink="/admin/korisnici"
               routerLinkActive="aktivan"
             >
