@@ -1,8 +1,12 @@
 <div class="page-header">
   <div>
     <h1>Upravljanje korisnicima</h1>
-    <p>Dodjela organizacione jedinice i radnog mjesta korisnicima</p>
+    <p>Kreiranje naloga, upravljanje rolama i veza sa zaposlenicima</p>
   </div>
+  <button mat-flat-button color="primary" (click)="noviKorisnik()">
+    <mat-icon>person_add</mat-icon>
+    Novi korisnik
+  </button>
 </div>
 
 @if (isLoading()) {
@@ -10,79 +14,82 @@
     <mat-spinner diameter="40"/>
   </div>
 } @else {
-  <table mat-table [dataSource]="korisnici()" class="korisnici-table">
+  <div class="table-card">
+    <table mat-table [dataSource]="korisnici()">
 
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef>Korisnik</th>
-      <td mat-cell *matCellDef="let k">
-        <div class="user-cell">
-          <div class="avatar-small">
-            @if (k.slika) {
-              <img [src]="apiUrl + '/' + k.slika" [alt]="k.name"/>
-            } @else {
-              <mat-icon>person</mat-icon>
+      <!-- Korisnik -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Korisnik</th>
+        <td mat-cell *matCellDef="let k">
+          <div class="user-cell">
+            <div class="avatar-small">
+              @if (k.slika) {
+                <img [src]="apiUrl + '/' + k.slika" [alt]="k.name"/>
+              } @else {
+                <mat-icon>person</mat-icon>
+              }
+            </div>
+            <span class="user-name">{{ k.name }}</span>
+          </div>
+        </td>
+      </ng-container>
+
+      <!-- Email -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>Email</th>
+        <td mat-cell *matCellDef="let k">
+          <span class="email">{{ k.email }}</span>
+        </td>
+      </ng-container>
+
+      <!-- Role -->
+      <ng-container matColumnDef="role">
+        <th mat-header-cell *matHeaderCellDef>Uloge</th>
+        <td mat-cell *matCellDef="let k">
+          <div class="role-chips">
+            @for (r of k.role; track r) {
+              <span class="role-chip role-{{ r }}">{{ r }}</span>
             }
           </div>
-          <span>{{ k.name }}</span>
-        </div>
-      </td>
-    </ng-container>
+        </td>
+      </ng-container>
 
-    <ng-container matColumnDef="email">
-      <th mat-header-cell *matHeaderCellDef>Email</th>
-      <td mat-cell *matCellDef="let k">{{ k.email }}</td>
-    </ng-container>
-
-    <ng-container matColumnDef="role">
-      <th mat-header-cell *matHeaderCellDef>Uloge</th>
-      <td mat-cell *matCellDef="let k">
-        <div class="role-chips">
-          @for (r of k.role; track r) {
-            <mat-chip class="role-chip role-{{ r }}">{{ r }}</mat-chip>
+      <!-- Zaposlenik veza -->
+      <ng-container matColumnDef="zaposlenik">
+        <th mat-header-cell *matHeaderCellDef>Zaposlenik</th>
+        <td mat-cell *matCellDef="let k">
+          @if (k.zaposlenik) {
+            <span class="povezan">
+              <mat-icon>link</mat-icon>
+              Povezan
+            </span>
+          } @else {
+            <span class="nije-povezan">Nije povezan</span>
           }
-        </div>
-      </td>
-    </ng-container>
+        </td>
+      </ng-container>
 
-    <ng-container matColumnDef="organizacija">
-      <th mat-header-cell *matHeaderCellDef>Org. jedinica</th>
-      <td mat-cell *matCellDef="let k">
-        @if (k.organizacionaJedinica) {
-          <span class="assigned">{{ k.organizacionaJedinica.naziv }}</span>
-        } @else {
-          <span class="unassigned">Nije dodijeljeno</span>
-        }
-      </td>
-    </ng-container>
+      <!-- Akcije -->
+      <ng-container matColumnDef="akcije">
+        <th mat-header-cell *matHeaderCellDef>Akcije</th>
+        <td mat-cell *matCellDef="let k">
+          <button mat-icon-button matTooltip="Uredi korisnika"
+            (click)="urediKorisnika(k)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button matTooltip="Poveži sa zaposlenikom"
+            color="primary" (click)="poveziZaposlenika(k)">
+            <mat-icon>link</mat-icon>
+          </button>
+          <button mat-icon-button matTooltip="Reset lozinke"
+            color="warn" (click)="resetLozinka(k)">
+            <mat-icon>lock_reset</mat-icon>
+          </button>
+        </td>
+      </ng-container>
 
-    <ng-container matColumnDef="radnoMjesto">
-      <th mat-header-cell *matHeaderCellDef>Radno mjesto</th>
-      <td mat-cell *matCellDef="let k">
-        @if (k.radnoMjesto) {
-          <div>
-            <span class="assigned">{{ k.radnoMjesto.naziv }}</span>
-            <br>
-            <small class="razred">Razred {{ k.radnoMjesto.platniRazred }}</small>
-          </div>
-        } @else {
-          <span class="unassigned">Nije dodijeljeno</span>
-        }
-      </td>
-    </ng-container>
-
-    <ng-container matColumnDef="akcije">
-      <th mat-header-cell *matHeaderCellDef>Akcije</th>
-      <td mat-cell *matCellDef="let k">
-        <button mat-icon-button color="primary"
-          matTooltip="Dodjeli org. jedinicu i radno mjesto"
-          (click)="otvoriDodjelu(k)">
-          <mat-icon>assignment_ind</mat-icon>
-        </button>
-      </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="kolone"></tr>
-    <tr mat-row *matRowDef="let row; columns: kolone;"></tr>
-
-  </table>
+      <tr mat-header-row *matHeaderRowDef="kolone"></tr>
+      <tr mat-row *matRowDef="let row; columns: kolone;"></tr>
+    </table>
+  </div>
 }

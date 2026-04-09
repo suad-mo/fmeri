@@ -10,6 +10,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { OrgService } from '../../../../core/services/org.service';
 import { Zaposlenik, ZaposlenikDTO } from '../../../../core/models/org.models';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-zaposlenik-dialog',
@@ -24,6 +25,7 @@ import { Zaposlenik, ZaposlenikDTO } from '../../../../core/models/org.models';
     MatProgressSpinnerModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatIconModule,
   ],
   template: `
     <h2 mat-dialog-title>

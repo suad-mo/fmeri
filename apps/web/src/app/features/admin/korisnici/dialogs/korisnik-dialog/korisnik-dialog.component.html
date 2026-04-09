@@ -1,0 +1,74 @@
+<h2 mat-dialog-title>
+  {{ data.korisnik ? 'Uredi korisnika' : 'Novi korisnik' }}
+</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="form" class="dialog-form">
+    <mat-form-field appearance="outline">
+      <mat-label>Ime i prezime</mat-label>
+      <input matInput formControlName="name" />
+      <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" type="email" />
+      <mat-icon matSuffix>email</mat-icon>
+    </mat-form-field>
+
+    @if (!data.korisnik) {
+      <mat-form-field appearance="outline">
+        <mat-label>Lozinka</mat-label>
+        <input
+          matInput
+          formControlName="password"
+          [type]="prikaziLozinku ? 'text' : 'password'"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          type="button"
+          (click)="prikaziLozinku = !prikaziLozinku"
+        >
+          <mat-icon>{{
+            prikaziLozinku ? 'visibility_off' : 'visibility'
+          }}</mat-icon>
+        </button>
+        <mat-hint>Minimum 8 znakova</mat-hint>
+      </mat-form-field>
+    }
+
+    <div class="role-sekcija">
+      <div class="role-label">Uloge</div>
+      @for (r of role; track r.value) {
+        <div class="role-row">
+          <mat-checkbox
+            [checked]="odabraneRole.includes(r.value)"
+            (change)="toggleRole(r.value, $event.checked)"
+          >
+            <div class="role-info">
+              <span class="role-naziv">{{ r.label }}</span>
+              <span class="role-opis">{{ r.opis }}</span>
+            </div>
+          </mat-checkbox>
+        </div>
+      }
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="ref.close()">Odustani</button>
+  <button
+    mat-flat-button
+    color="primary"
+    [disabled]="form.invalid || loading || odabraneRole.length === 0"
+    (click)="spremi()"
+  >
+    @if (loading) {
+      <mat-spinner diameter="20" />
+    } @else {
+      {{ data.korisnik ? 'Sačuvaj' : 'Kreiraj' }}
+    }
+  </button>
+</mat-dialog-actions>

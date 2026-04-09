@@ -4,6 +4,7 @@ import { protect, requireRole } from '../middlewares/auth.middleware';
 import multer from 'multer';
 import * as path from 'path';
 import * as fs from 'fs';
+// import { createUser, resetLozinka, updateRole } from '../controllers/user.controller';
 
 // Multer konfiguracija
 // user.routes.ts — uploadDir
@@ -44,5 +45,10 @@ router.post('/me/slika', upload.single('slika'), userController.uploadSlika);
 // Admin
 router.get('/', requireRole('admin'), userController.getUsers);
 router.patch('/:id/dodjela', requireRole('admin'), userController.dodjelaOrgRM);
+
+router.post('/', requireRole('admin'), userController.createUser);
+router.patch('/:id/role', requireRole('admin'), userController.updateRole);
+router.patch('/:id/reset-lozinka', requireRole('admin'), userController.resetLozinka);
+router.patch('/:id/zaposlenik', requireRole('admin'), userController.poveziZaposlenika);
 
 export default router;

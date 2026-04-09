@@ -385,4 +385,37 @@ export class OrgService {
       `http://localhost:3000/api/izvjestaj/pregled?${params}`,
     );
   }
+
+  createUser(data: {
+    name: string;
+    email: string;
+    password: string;
+    role: string[];
+  }): Observable<UserProfil> {
+    return this.http.post<UserProfil>(this.usersUrl, data);
+  }
+
+  updateUserRole(id: string, role: string[]): Observable<UserProfil> {
+    return this.http.patch<UserProfil>(`${this.usersUrl}/${id}/role`, { role });
+  }
+
+  resetUserLozinka(
+    id: string,
+    novaLozinka: string,
+  ): Observable<{ message: string }> {
+    return this.http.patch<{ message: string }>(
+      `${this.usersUrl}/${id}/reset-lozinka`,
+      { novaLozinka },
+    );
+  }
+
+  poveziZaposlenika(
+    userId: string,
+    zaposlenikId: string | null,
+  ): Observable<UserProfil> {
+    return this.http.patch<UserProfil>(
+      `${this.usersUrl}/${userId}/zaposlenik`,
+      { zaposlenikId },
+    );
+  }
 }
