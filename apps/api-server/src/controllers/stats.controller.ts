@@ -1,10 +1,11 @@
 import { Request, Response } from 'express';
 // import { User } from '@nx-fmeri/api-auth';
-import { OrganizacionaJedinica, RadnoMjesto, Zaposlenik } from '@nx-fmeri/api-org';
+import {
+  OrganizacionaJedinica,
+  RadnoMjesto,
+  Zaposlenik,
+} from '@nx-fmeri/api-org';
 import { getErrorMessage } from '../helpers/error.helper';
-
-
-
 
 // GET /api/stats/dashboard
 export const getDashboard = async (req: Request, res: Response) => {
@@ -26,9 +27,10 @@ export const getDashboard = async (req: Request, res: Response) => {
       ukupnoJedinica,
       ukupnoRadnihMjesta,
       zaposleniciSaRadnimMjestom,
-      zaposleniciSaDodjeljenim: ukupnoZaposlenika > 0
-        ? Math.round((zaposleniciSaRadnimMjestom / ukupnoZaposlenika) * 100)
-        : 0,
+      zaposleniciSaDodjeljenim:
+        ukupnoZaposlenika > 0
+          ? Math.round((zaposleniciSaRadnimMjestom / ukupnoZaposlenika) * 100)
+          : 0,
     });
   } catch (error) {
     return res.status(500).json({ error: getErrorMessage(error) });
@@ -77,7 +79,7 @@ export const getPlatniRazrediStats = async (req: Request, res: Response) => {
       { $match: { aktivan: true, radnoMjesto: { $ne: null } } },
       {
         $lookup: {
-          from: 'radnamjestos',
+          from: 'radnomjestos',
           localField: 'radnoMjesto',
           foreignField: '_id',
           as: 'rm',
@@ -168,7 +170,7 @@ export const getSistematizacija = async (req: Request, res: Response) => {
                 ? 'djelimicno'
                 : 'slobodno',
         };
-      })
+      }),
     );
 
     rezultat.sort((a, b) => {
@@ -183,4 +185,12 @@ export const getSistematizacija = async (req: Request, res: Response) => {
   } catch (error) {
     return res.status(500).json({ error: getErrorMessage(error) });
   }
+};
+
+// Privremeno u stats.controller.ts
+export const debugZaposlenici = async (req: Request, res: Response) => {
+  const z = await Zaposlenik.findOne({ aktivan: true })
+    .select('ime prezime radnoMjesto')
+    .lean();
+  return res.json(z);
 };
