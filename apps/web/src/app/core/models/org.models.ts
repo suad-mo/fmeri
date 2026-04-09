@@ -382,3 +382,52 @@ export interface PopunjenostOrgana {
   posto: number;
   poJedinicama: PopunjenostJedinice[];
 }
+
+// org.models.ts
+export interface PregledRM {
+  _id: string;
+  naziv: string;
+  kategorijaZaposlenog: KategorijaZaposlenog;
+  platniRazred: string;
+  koeficijent: number;
+  brojIzvrsilaca: number;
+  popunjeno: number;
+  upraznjeno: number;
+  status: 'popunjeno' | 'djelimicno' | 'slobodno';
+}
+
+export interface PregledUOJ {
+  _id: string;
+  naziv: string;
+  tip: string;
+  radnaMjesta: PregledRM[];
+  ukupnoRM: number;
+  popunjeno: number;
+  upraznjeno: number;
+  posto: number;
+}
+
+export interface PregledOOJ {
+  _id: string;
+  naziv: string;
+  tip: string;
+  direktnaRM: PregledRM[];
+  unutrasnje: PregledUOJ[];
+  ukupnoRM: number;
+  popunjeno: number;
+  upraznjeno: number;
+  posto: number;
+}
+
+export interface PregledOrgana {
+  organId: string;
+  naziv: string;
+  skraceniNaziv?: string;
+  vrstaOrgana: string;
+  direktnaRM: PregledRM[];
+  osnovneJedinice: PregledOOJ[];
+  ukupnoRM: number;
+  popunjeno: number;
+  upraznjeno: number;
+  posto: number;
+}

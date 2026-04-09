@@ -18,6 +18,7 @@ import {
   Zaposlenik,
   ZaposlenikDTO,
   PopunjenostOrgana,
+  PregledOrgana,
 } from '../models/org.models';
 
 @Injectable({ providedIn: 'root' })
@@ -371,5 +372,17 @@ export class OrgService {
       zaposlenici: this.getZaposlenici(),
       jedinice: this.getJedinice(),
     });
+  }
+
+  // org.service.ts
+  getPregled(
+    organiIds?: string[],
+    saJedinicama = true,
+  ): Observable<PregledOrgana[]> {
+    let params = `saJedinicama=${saJedinicama}`;
+    if (organiIds?.length) params += `&organi=${organiIds.join(',')}`;
+    return this.http.get<PregledOrgana[]>(
+      `http://localhost:3000/api/izvjestaj/pregled?${params}`,
+    );
   }
 }

@@ -763,3 +763,154 @@ export const sistematizacijaExcel = async (req: Request, res: Response) => {
     res.status(500).json({ error: getErrorMessage(error) });
   }
 };
+
+// ── GET /api/izvjestaj/pregled ────────────────────────
+export const getPregledStrukture = async (req: Request, res: Response) => {
+  try {
+    const { organi: organiParam, saJedinicama } = req.query;
+
+    // Dohvati tražene organe ili sve
+    const organFilter = organiParam
+      ? { _id: { $in: (organiParam as string).split(',') }, aktivan: true }
+      : { aktivan: true };
+
+    const organi = await Organ.find(organFilter)
+      .sort({ redoslijed: 1 })
+      .lean();
+
+    const prikaziJedinice = saJedinicama !== 'false';
+
+    const rezultat = await Promise.all(
+      organi.map(async (organ) => {
+        const jedinice = await OrganizacionaJedinica.find({
+          organ: organ._id,
+          aktivna: true,
+        })
+          .sort({ nivoJedinice: 1, redoslijed: 1 })
+          .lean();
+
+        // Helper — RM sa popunjenošću
+        const rmSaPopunjenoscu = async (jedinicaId: string) => {
+          const radnaMjesta = await RadnoMjesto.find({
+            organizacionaJedinica: jedinicaId,
+            aktivno: true,
+          }).lean();
+
+          return Promise.all(
+            radnaMjesta.map(async (rm) => {
+              const popunjeno = await Zaposlenik.countDocuments({
+                radnoMjesto: rm._id,
+                aktivan: true,
+              });
+              return {
+                _id: rm._id,
+                naziv: rm.naziv,
+                kategorijaZaposlenog: rm.kategorijaZaposlenog,
+                platniRazred: rm.platniRazred,
+                koeficijent: rm.koeficijent,
+                brojIzvrsilaca: rm.brojIzvrsilaca,
+                popunjeno,
+                upraznjeno: Math.max(0, rm.brojIzvrsilaca - popunjeno),
+                status: popunjeno >= rm.brojIzvrsilaca ? 'popunjeno'
+                  : popunjeno > 0 ? 'djelimicno' : 'slobodno',
+              };
+            })
+          );
+        };
+
+        // Osnovna jedinica organa (ministarstvo/zavod/direkcija)
+        const organJedinica = jedinice.find(j =>
+          ['ministarstvo', 'zavod', 'direkcija', 'uprava'].includes(j.tip)
+        );
+
+        // RM direktno u organu
+        const direktnaRM = organJedinica
+          ? await rmSaPopunjenoscu(organJedinica._id.toString())
+          : [];
+
+        // OOJ
+        const osnovneJedinice = jedinice.filter(j =>
+          j.nivoJedinice === 'osnovna' &&
+          !['ministarstvo', 'zavod', 'direkcija', 'uprava'].includes(j.tip)
+        );
+
+        // UOJ
+        const unutrasnje = jedinice.filter(j => j.nivoJedinice === 'unutrasnja');
+
+        const oojSaStrukturom = await Promise.all(
+          osnovneJedinice.map(async (ooj) => {
+            const rmOOJ = await rmSaPopunjenoscu(ooj._id.toString());
+
+            const uojZaOvu = prikaziJedinice
+              ? unutrasnje.filter(u =>
+                  u.nadredjenaJedinica?.toString() === ooj._id.toString()
+                )
+              : [];
+
+            const uojSaRM = await Promise.all(
+              uojZaOvu.map(async (uoj) => {
+                const rmUOJ = await rmSaPopunjenoscu(uoj._id.toString());
+                const ukupno = rmUOJ.reduce((s, r) => s + r.brojIzvrsilaca, 0);
+                const pop = rmUOJ.reduce((s, r) => s + r.popunjeno, 0);
+                return {
+                  _id: uoj._id,
+                  naziv: uoj.naziv,
+                  tip: uoj.tip,
+                  radnaMjesta: rmUOJ,
+                  ukupnoRM: ukupno,
+                  popunjeno: pop,
+                  upraznjeno: Math.max(0, ukupno - pop),
+                  posto: ukupno > 0 ? Math.round((pop / ukupno) * 100) : 0,
+                };
+              })
+            );
+
+            const rmSve = [...rmOOJ, ...uojSaRM.flatMap(u => u.radnaMjesta)];
+            const ukupno = rmSve.reduce((s, r) => s + r.brojIzvrsilaca, 0);
+            const pop = rmSve.reduce((s, r) => s + r.popunjeno, 0);
+
+            return {
+              _id: ooj._id,
+              naziv: ooj.naziv,
+              tip: ooj.tip,
+              direktnaRM: rmOOJ,
+              unutrasnje: uojSaRM,
+              ukupnoRM: ukupno,
+              popunjeno: pop,
+              upraznjeno: Math.max(0, ukupno - pop),
+              posto: ukupno > 0 ? Math.round((pop / ukupno) * 100) : 0,
+            };
+          })
+        );
+
+        // Sumarno za organ
+        const svaRM = [
+          ...direktnaRM,
+          ...oojSaStrukturom.flatMap(ooj => [
+            ...ooj.direktnaRM,
+            ...ooj.unutrasnje.flatMap(u => u.radnaMjesta),
+          ]),
+        ];
+        const ukupnoRM = svaRM.reduce((s, r) => s + r.brojIzvrsilaca, 0);
+        const ukupnoPop = svaRM.reduce((s, r) => s + r.popunjeno, 0);
+
+        return {
+          organId: organ._id,
+          naziv: organ.naziv,
+          skraceniNaziv: organ.skraceniNaziv,
+          vrstaOrgana: organ.vrstaOrgana,
+          direktnaRM,
+          osnovneJedinice: oojSaStrukturom,
+          ukupnoRM,
+          popunjeno: ukupnoPop,
+          upraznjeno: Math.max(0, ukupnoRM - ukupnoPop),
+          posto: ukupnoRM > 0 ? Math.round((ukupnoPop / ukupnoRM) * 100) : 0,
+        };
+      })
+    );
+
+    return res.json(rezultat);
+  } catch (error) {
+    return res.status(500).json({ error: getErrorMessage(error) });
+  }
+};
