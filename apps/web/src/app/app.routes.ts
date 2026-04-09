@@ -75,6 +75,13 @@ export const appRoutes: Routes = [
             (m) => m.ProfilComponent,
           ),
       },
+      {
+        path: 'izvjestaji/sistematizacija',
+        loadComponent: () =>
+          import(
+            './features/izvjestaji/sistematizacija/sistematizacija.component'
+          ).then((m) => m.SistematizacijaComponent),
+      },
       // ── Admin rute (samo admin) ──────────────────────
       {
         path: 'admin',

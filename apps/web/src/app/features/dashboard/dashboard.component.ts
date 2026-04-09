@@ -1,9 +1,7 @@
-import { Component, inject, signal, OnInit, computed } from '@angular/core';
+import { Component, inject, signal, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatTableModule } from '@angular/material/table';
-import { MatChipsModule } from '@angular/material/chips';
 import { MatButtonModule } from '@angular/material/button';
 import { ApexYAxis, NgApexchartsModule } from 'ng-apexcharts';
 import {
@@ -18,12 +16,7 @@ import {
 } from 'ng-apexcharts';
 import { OrgService } from '../../core/services/org.service';
 import { AuthService } from '../../core/services/auth.service';
-import {
-  DashboardStats,
-  SistematizacijaItem,
-  KATEGORIJA_NAZIV,
-  KategorijaZaposlenog,
-} from '../../core/models/org.models';
+import { DashboardStats } from '../../core/models/org.models';
 // import { RouterLink } from '@angular/router';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
@@ -35,8 +28,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatCardModule,
     MatIconModule,
     MatProgressSpinnerModule,
-    MatTableModule,
-    MatChipsModule,
     MatButtonModule,
     MatTooltipModule,
     NgApexchartsModule,
@@ -49,8 +40,6 @@ export class DashboardComponent implements OnInit {
   authService = inject(AuthService);
 
   stats = signal<DashboardStats | null>(null);
-  // sistematizacija = signal<SistematizacijaItem[]>([]);
-  sistematizacijaRaw = signal<SistematizacijaItem[]>([]);
 
   popunjenost = signal<{
     posto: number;
@@ -58,36 +47,8 @@ export class DashboardComponent implements OnInit {
     ukupno: number;
   } | null>(null);
 
-  sistematizacijaGrupirana = computed(() => {
-    const items = this.sistematizacijaRaw();
-    const grupe = new Map<
-      string,
-      { naziv: string; items: SistematizacijaItem[] }
-    >();
-
-    for (const item of items) {
-      const naziv = item.organizacionaJedinica?.naziv ?? 'Ostalo';
-      if (!grupe.has(naziv)) {
-        grupe.set(naziv, { naziv, items: [] });
-      }
-      grupe.get(naziv)?.items.push(item);
-    }
-
-    return Array.from(grupe.values());
-  });
-
   isLoading = signal(true);
   isDark = signal(localStorage.getItem('theme') === 'dark');
-
-  kolone = [
-    'naziv',
-    'organizacija',
-    'razred',
-    'kategorija',
-    'izvrsioci',
-    'status',
-  ];
-  koloneGrupa = ['naziv', 'razred', 'kategorija', 'izvrsioci', 'status'];
 
   // ── Bar chart ─────────────────────────────────────────
   barSeries: ApexAxisChartSeries = [];
@@ -180,11 +141,10 @@ export class DashboardComponent implements OnInit {
       this.orgService.getDashboardStats().toPromise(),
       this.orgService.getZaposleniciPoSektoru().toPromise(),
       this.orgService.getPlatniRazrediStats().toPromise(),
-      this.orgService.getSistematizacija().toPromise(),
-      this.orgService.getPopunjenost().toPromise(), // ← dodaj
-    ]).then(([stats, sektori, razredi, sistematizacija, popunjenost]) => {
+      this.orgService.getPopunjenost().toPromise(),
+    ]).then(([stats, sektori, razredi, popunjenost]) => {
+      // ← ukloni sistematizacija
       this.stats.set(stats ?? null);
-      this.sistematizacijaRaw.set(sistematizacija ?? []);
 
       // Popunjenost
       if (popunjenost?.length) {
@@ -197,13 +157,10 @@ export class DashboardComponent implements OnInit {
         });
       }
 
-      // Bar chart data
+      // Bar chart
       if (sektori?.length) {
         this.barSeries = [
-          {
-            name: 'Zaposlenici',
-            data: sektori.map((s) => s.broj),
-          },
+          { name: 'Zaposlenici', data: sektori.map((s) => s.broj) },
         ];
         this.barXAxis = {
           categories: sektori.map((s) =>
@@ -213,7 +170,7 @@ export class DashboardComponent implements OnInit {
         };
       }
 
-      // Donut chart data
+      // Donut chart
       if (razredi?.length) {
         this.donutSeries = razredi.map((r) => r.broj);
         this.donutLabels = razredi.map(
@@ -223,26 +180,6 @@ export class DashboardComponent implements OnInit {
 
       this.isLoading.set(false);
     });
-  }
-
-  getStatusBoja(status: string): string {
-    return status === 'popunjeno'
-      ? 'chip-popunjeno'
-      : status === 'djelimicno'
-        ? 'chip-djelimicno'
-        : 'chip-slobodno';
-  }
-
-  getStatusNaziv(status: string): string {
-    return status === 'popunjeno'
-      ? 'Popunjeno'
-      : status === 'djelimicno'
-        ? 'Djelimično'
-        : 'Slobodno';
-  }
-
-  getKategorijaNaziv(k: string): string {
-    return KATEGORIJA_NAZIV[k as KategorijaZaposlenog] ?? k;
   }
 
   stampaj() {
@@ -255,7 +192,7 @@ export class DashboardComponent implements OnInit {
 
   // toggleTheme(): void {
   //   this.isDark.set(!this.isDark());
-  //   const body = document.body;
+  //   constgetSt body = document.body;
   //   if (this.isDark()) {
   //     body.classList.add('dark-theme');
   //     localStorage.setItem('theme', 'dark');

@@ -480,3 +480,286 @@ export const popunjenostExcel = async (req: Request, res: Response) => {
     res.status(500).json({ error: getErrorMessage(error) });
   }
 };
+
+// ── Helper — sistematizacija podaci ──────────────────
+const getSistematizacijaPodaci = async () => {
+  const REDOSLIJED = [
+    'Federalno ministarstvo energije, rudarstva i industrije',
+    'Kabinet ministra',
+    'Sektor energije',
+    'Odsjek za elektroenergetiku',
+    'Odsjek za tečne energente, plin i termoenergetiku',
+    'Odsjek za razvoj',
+    'Sektor rudarstva',
+    'Odsjek za rudarstvo',
+    'Odsjek za geologiju',
+    'Sektor industrije',
+    'Odsjek za metalnu i elektro industriju, industriju prerade drveta, industriju građevinskog materijala i nemetala i grafičku djelatnost',
+    'Odsjek za tekstilnu, kožarsku, obućarsku, hemijsku i farmaceutsku industriju',
+    'Odsjek za analizu i praćenje stanja u privredi',
+    'Odsjek za razvoj i unapređenje privrede',
+    'Sektor za pravne, finansijske i opće poslove',
+    'Odsjek za pravne poslove i radne odnose',
+    'Odsjek za finansijsko-računovodstvene poslove',
+    'Odsjek za opće poslove',
+    'Pisarnica',
+    'Zavod za mjeriteljstvo',
+    'Centar za mjeriteljstvo Mostar',
+    'Centar za mjeriteljstvo Sarajevo',
+    'Centar za mjeriteljstvo Tuzla',
+    'Federalna direkcija za namjensku industriju',
+  ];
+
+  const radnaMjesta = await RadnoMjesto.find({ aktivno: true })
+    .populate('organizacionaJedinica', 'naziv tip')
+    .lean();
+
+  const rezultat = await Promise.all(
+    radnaMjesta.map(async (rm) => {
+      const popunjeno = await Zaposlenik.countDocuments({
+        radnoMjesto: rm._id,
+        aktivan: true,
+      });
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const ojNaziv = (rm.organizacionaJedinica as any)?.naziv ?? 'Ostalo';
+      return {
+        naziv: rm.naziv,
+        ojNaziv,
+        kategorijaZaposlenog: rm.kategorijaZaposlenog,
+        platniRazred: rm.platniRazred,
+        koeficijent: rm.koeficijent,
+        brojIzvrsilaca: rm.brojIzvrsilaca,
+        popunjeno,
+        upraznjeno: Math.max(0, rm.brojIzvrsilaca - popunjeno),
+        status: popunjeno >= rm.brojIzvrsilaca ? 'popunjeno'
+          : popunjeno > 0 ? 'djelimicno' : 'slobodno',
+      };
+    })
+  );
+
+  rezultat.sort((a, b) => {
+    const aIdx = REDOSLIJED.indexOf(a.ojNaziv);
+    const bIdx = REDOSLIJED.indexOf(b.ojNaziv);
+    return (aIdx === -1 ? 999 : aIdx) - (bIdx === -1 ? 999 : bIdx);
+  });
+
+  // Grupiraj po OJ
+  const grupe = new Map<string, typeof rezultat>();
+  for (const rm of rezultat) {
+    if (!grupe.has(rm.ojNaziv)) grupe.set(rm.ojNaziv, []);
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    grupe.get(rm.ojNaziv)!.push(rm);
+  }
+
+  return { stavke: rezultat, grupe };
+};
+
+// ── GET /api/izvjestaj/sistematizacija/pdf ────────────
+export const sistematizacijaPDF = async (req: Request, res: Response) => {
+  try {
+    const { stavke, grupe } = await getSistematizacijaPodaci();
+    const datum = new Date().toLocaleDateString('bs-BA');
+    const fontsDir = path.resolve('apps/api-server/src/assets/fonts');
+
+    const doc = new PDFDocument({ margin: 40, size: 'A4' });
+    res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader('Content-Disposition', `attachment; filename="sistematizacija-${datum}.pdf"`);
+    doc.pipe(res);
+
+    doc.registerFont('Regular', path.join(fontsDir, 'DejaVuSans.ttf'));
+    doc.registerFont('Bold', path.join(fontsDir, 'DejaVuSans-Bold.ttf'));
+
+    // Naslov
+    doc.fontSize(16).font('Bold')
+      .text('Sistematizacija radnih mjesta', { align: 'center' });
+    doc.fontSize(9).font('Regular').fillColor('#666')
+      .text(`Federalno ministarstvo energije, rudarstva i industrije — ${datum}`, { align: 'center' });
+    doc.moveDown(1);
+
+    // Sumarno
+    const ukupno = stavke.reduce((s, i) => s + i.brojIzvrsilaca, 0);
+    const popunjeno = stavke.reduce((s, i) => s + i.popunjeno, 0);
+    const posto = ukupno > 0 ? Math.round((popunjeno / ukupno) * 100) : 0;
+
+    doc.fontSize(9).font('Regular').fillColor('#333');
+    doc.text(`Ukupno radnih mjesta: `, { continued: true }).font('Bold').text(`${stavke.length}`);
+    doc.font('Regular').text(`Ukupno izvršilaca: `, { continued: true }).font('Bold').text(`${ukupno}`);
+    doc.font('Regular').text(`Popunjeno: `, { continued: true }).font('Bold').fillColor('#38a169').text(`${popunjeno}`);
+    doc.fillColor('#333').font('Regular').text(`Popunjenost: `, { continued: true })
+      .font('Bold').fillColor(posto >= 80 ? '#38a169' : posto >= 50 ? '#d69e2e' : '#e53e3e')
+      .text(`${posto}%`);
+    doc.fillColor('#000').moveDown(1);
+
+    // Po grupama
+    for (const [ojNaziv, rmLista] of grupe) {
+      if (doc.y > 680) doc.addPage();
+
+      // Grupa header
+      const gy = doc.y;
+      doc.rect(40, gy, 515, 22).fill('#e8edf2');
+      doc.fontSize(9).font('Bold').fillColor('#1a202c')
+        .text(ojNaziv, 46, gy + 6, { width: 360, lineBreak: false, ellipsis: true });
+      doc.fontSize(8).font('Regular').fillColor('#4a5568')
+        .text(`${rmLista.length} RM`, 460, gy + 7, { width: 90, align: 'right', lineBreak: false });
+      doc.y = gy + 28;
+
+      // Tabela header
+      const thY = doc.y;
+      doc.rect(40, thY, 515, 16).fill('#f7fafc');
+      doc.fontSize(7).font('Bold').fillColor('#718096');
+      doc.text('Naziv radnog mjesta', 46, thY + 4, { width: 220, lineBreak: false });
+      doc.text('Kategorija', 270, thY + 4, { width: 110, lineBreak: false });
+      doc.text('Razred', 385, thY + 4, { width: 40, align: 'center', lineBreak: false });
+      doc.text('Koef.', 428, thY + 4, { width: 35, align: 'center', lineBreak: false });
+      doc.text('Izvrš.', 466, thY + 4, { width: 35, align: 'center', lineBreak: false });
+      doc.text('Status', 504, thY + 4, { width: 50, align: 'right', lineBreak: false });
+      doc.y = thY + 18;
+
+      // Redovi
+      for (const rm of rmLista) {
+        if (doc.y > 750) doc.addPage();
+        const rowY = doc.y;
+
+        const skratiKat = (k: string) => {
+          if (k === 'izabrani_duznosnik') return 'Izabrani duž.';
+          if (k === 'rukovodeci_drzavni_sluzbenik') return 'Rukovodeći DS';
+          if (k === 'ostali_drzavni_sluzbenik') return 'Drž. službenik';
+          if (k === 'namjestenik') return 'Namještenik';
+          return k;
+        };
+
+        doc.fontSize(7.5).font('Regular').fillColor('#2d3748')
+          .text(skrati(rm.naziv, 42), 46, rowY + 3, { width: 220, lineBreak: false });
+        doc.fillColor('#718096')
+          .text(skratiKat(rm.kategorijaZaposlenog), 270, rowY + 3, { width: 110, lineBreak: false });
+        doc.fillColor('#667eea')
+          .text(rm.platniRazred, 385, rowY + 3, { width: 40, align: 'center', lineBreak: false });
+        doc.fillColor('#718096')
+          .text(`${rm.koeficijent}`, 428, rowY + 3, { width: 35, align: 'center', lineBreak: false });
+        doc.fillColor(rm.popunjeno >= rm.brojIzvrsilaca ? '#38a169' : '#e53e3e')
+          .text(`${rm.popunjeno}/${rm.brojIzvrsilaca}`, 466, rowY + 3, { width: 35, align: 'center', lineBreak: false });
+
+        const statusTekst = rm.status === 'popunjeno' ? 'Popunjeno'
+          : rm.status === 'djelimicno' ? 'Djelimično' : 'Slobodno';
+        const statusBoja = rm.status === 'popunjeno' ? '#38a169'
+          : rm.status === 'djelimicno' ? '#d69e2e' : '#e53e3e';
+        doc.fillColor(statusBoja).font('Bold')
+          .text(statusTekst, 504, rowY + 3, { width: 50, align: 'right', lineBreak: false });
+
+        doc.moveTo(40, rowY + 16).lineTo(555, rowY + 16)
+          .strokeColor('#e2e8f0').lineWidth(0.5).stroke();
+        doc.y = rowY + 18;
+      }
+
+      if (grupe.size > 1) doc.moveDown(0.8);
+    }
+
+    // Footer
+    doc.fontSize(7).fillColor('#999')
+      .text(`Generisano: ${new Date().toLocaleString('bs-BA')}`, 40,
+        doc.page.height - 35, { align: 'center', width: 515 });
+
+    doc.end();
+  } catch (error) {
+    res.status(500).json({ error: getErrorMessage(error) });
+  }
+};
+
+// ── GET /api/izvjestaj/sistematizacija/excel ──────────
+export const sistematizacijaExcel = async (req: Request, res: Response) => {
+  try {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { stavke, grupe } = await getSistematizacijaPodaci();
+    const datum = new Date().toLocaleDateString('bs-BA');
+
+    const workbook = new ExcelJS.Workbook();
+    workbook.creator = 'FMERI HR System';
+    const sheet = workbook.addWorksheet('Sistematizacija', {
+      pageSetup: { paperSize: 9, orientation: 'landscape' },
+    });
+
+    sheet.columns = [
+      { header: 'Org. jedinica', key: 'oj', width: 35 },
+      { header: 'Naziv radnog mjesta', key: 'naziv', width: 45 },
+      { header: 'Kategorija', key: 'kategorija', width: 22 },
+      { header: 'Razred', key: 'razred', width: 10 },
+      { header: 'Koeficijent', key: 'koef', width: 12 },
+      { header: 'Br. izvršilaca', key: 'ukupno', width: 14 },
+      { header: 'Popunjeno', key: 'popunjeno', width: 12 },
+      { header: 'Upražnjeno', key: 'upraznjeno', width: 12 },
+      { header: 'Status', key: 'status', width: 14 },
+    ];
+
+    // Header stil
+    sheet.getRow(1).eachCell((cell) => {
+      cell.font = { bold: true, color: { argb: 'FFFFFFFF' } };
+      cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF4A5568' } };
+      cell.alignment = { horizontal: 'center', vertical: 'middle' };
+    });
+    sheet.getRow(1).height = 22;
+
+    const katNaziv = (k: string) => {
+      if (k === 'izabrani_duznosnik') return 'Izabrani dužnosnik';
+      if (k === 'rukovodeci_drzavni_sluzbenik') return 'Rukovodeći drž. službenik';
+      if (k === 'ostali_drzavni_sluzbenik') return 'Državni službenik';
+      if (k === 'namjestenik') return 'Namještenik';
+      return k;
+    };
+
+    const statusNaziv = (s: string) =>
+      s === 'popunjeno' ? 'Popunjeno' : s === 'djelimicno' ? 'Djelimično' : 'Slobodno';
+
+    for (const [ojNaziv, rmLista] of grupe) {
+      // OJ header red
+      const ojRow = sheet.addRow({
+        oj: ojNaziv, naziv: '', kategorija: '',
+        razred: '', koef: '', ukupno: rmLista.reduce((s, r) => s + r.brojIzvrsilaca, 0),
+        popunjeno: rmLista.reduce((s, r) => s + r.popunjeno, 0),
+        upraznjeno: rmLista.reduce((s, r) => s + r.upraznjeno, 0),
+        status: '',
+      });
+      ojRow.eachCell((cell) => {
+        cell.font = { bold: true };
+        cell.fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFE8EDF2' } };
+      });
+
+      for (const rm of rmLista) {
+        const row = sheet.addRow({
+          oj: '',
+          naziv: rm.naziv,
+          kategorija: katNaziv(rm.kategorijaZaposlenog),
+          razred: rm.platniRazred,
+          koef: rm.koeficijent,
+          ukupno: rm.brojIzvrsilaca,
+          popunjeno: rm.popunjeno,
+          upraznjeno: rm.upraznjeno,
+          status: statusNaziv(rm.status),
+        });
+
+        const statusCell = row.getCell('status');
+        statusCell.font = {
+          bold: true,
+          color: { argb: rm.status === 'popunjeno' ? 'FF38A169'
+            : rm.status === 'djelimicno' ? 'FFD69E2E' : 'FFE53E3E' },
+        };
+
+        if (rm.upraznjeno > 0) {
+          row.getCell('upraznjeno').font = { color: { argb: 'FFE53E3E' } };
+        }
+        row.getCell('popunjeno').font = {
+          color: { argb: rm.popunjeno > 0 ? 'FF38A169' : 'FF718096' },
+        };
+      }
+
+      sheet.addRow({});
+    }
+
+    sheet.views = [{ state: 'frozen', ySplit: 1 }];
+    res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    res.setHeader('Content-Disposition', `attachment; filename="sistematizacija-${datum}.xlsx"`);
+    await workbook.xlsx.write(res);
+    res.end();
+  } catch (error) {
+    res.status(500).json({ error: getErrorMessage(error) });
+  }
+};

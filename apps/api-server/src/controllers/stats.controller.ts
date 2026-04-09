@@ -174,7 +174,9 @@ export const getSistematizacija = async (req: Request, res: Response) => {
     );
 
     rezultat.sort((a, b) => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const aNaziv = (a.organizacionaJedinica as any)?.naziv ?? '';
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const bNaziv = (b.organizacionaJedinica as any)?.naziv ?? '';
       const aIdx = REDOSLIJED_JEDINICA.indexOf(aNaziv);
       const bIdx = REDOSLIJED_JEDINICA.indexOf(bNaziv);

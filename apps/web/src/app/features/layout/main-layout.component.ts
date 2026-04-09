@@ -91,6 +91,14 @@ import { GlobalSearchComponent } from './global-search/global-search.component';
             </a>
             <a
               mat-list-item
+              routerLink="/izvjestaji/sistematizacija"
+              routerLinkActive="aktivan"
+            >
+              <mat-icon matListItemIcon>assignment</mat-icon>
+              <span matListItemTitle>Sistematizacija</span>
+            </a>
+            <a
+              mat-list-item
               routerLink="/admin/korisnici"
               routerLinkActive="aktivan"
             >

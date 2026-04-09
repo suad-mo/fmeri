@@ -1,0 +1,222 @@
+.sist-page {
+  padding: 1.5rem;
+  max-width: 1200px;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.25rem;
+
+  h1 { font-size: 1.3rem; font-weight: 600; margin: 0 0 0.2rem; }
+  p  { font-size: 0.8rem; color: var(--color-text-secondary); margin: 0; }
+}
+
+.header-akcije {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.loading-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 3rem;
+}
+
+/* Sumarni red */
+.sumarni-red {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin-bottom: 1.25rem;
+}
+
+.sum-kartica {
+  background: var(--color-background-secondary);
+  border-radius: var(--border-radius-md);
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.sum-broj {
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.sum-label {
+  font-size: 0.68rem;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.sum-progress {
+  height: 3px;
+  background: var(--color-border-tertiary);
+  border-radius: 2px;
+  margin-top: 6px;
+  overflow: hidden;
+}
+
+.sum-fill {
+  height: 100%;
+  background: #38a169;
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+.zelena { color: #38a169; }
+.zuta   { color: #d69e2e; }
+.crvena { color: #e53e3e; }
+
+/* Filteri */
+.filteri {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1rem;
+
+  .pretraga-field { width: 280px; }
+  .status-field   { width: 160px; }
+}
+
+.rezultati-info {
+  font-size: 0.78rem;
+  color: var(--color-text-secondary);
+  margin-left: auto;
+}
+
+/* Grupa */
+.grupa-blok {
+  margin-bottom: 1rem;
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+}
+
+.grupa-header {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 14px;
+  background: var(--color-background-secondary);
+  border-bottom: 0.5px solid var(--color-border-tertiary);
+
+  svg { stroke: #667eea; flex-shrink: 0; }
+}
+
+.grupa-naziv {
+  font-size: 0.85rem;
+  font-weight: 600;
+  flex: 1;
+  color: var(--color-text-primary);
+}
+
+.grupa-cnt {
+  font-size: 0.72rem;
+  color: var(--color-text-secondary);
+}
+
+/* Tabela */
+.sist-tabela {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  background: var(--color-background-primary);
+
+  th {
+    padding: 8px 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-text-secondary);
+    border-bottom: 0.5px solid var(--color-border-tertiary);
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 8px 12px;
+    border-bottom: 0.5px solid var(--color-border-tertiary);
+    vertical-align: middle;
+  }
+
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: var(--color-background-secondary); }
+}
+
+.text-center { text-align: center !important; }
+
+.rm-naziv-cell {
+  font-weight: 500;
+  max-width: 320px;
+}
+
+.kategorija-cell {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+}
+
+.razred-pill {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: rgba(102, 126, 234, 0.1);
+  color: #667eea;
+}
+
+.koef {
+  font-size: 0.78rem;
+  color: var(--color-text-secondary);
+}
+
+.izvrsioci-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.izvrsioci-broj {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.mini-bar {
+  width: 48px;
+  height: 3px;
+  background: var(--color-border-tertiary);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.mini-fill {
+  height: 100%;
+  border-radius: 2px;
+
+  &.fill-popunjeno  { background: #38a169; }
+  &.fill-djelimicno { background: #d69e2e; }
+  &.fill-slobodno   { background: #e53e3e; }
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  white-space: nowrap;
+
+  &.status-popunjeno  { background: rgba(72,187,120,0.12); color: #38a169; }
+  &.status-djelimicno { background: rgba(214,158,46,0.12); color: #d69e2e; }
+  &.status-slobodno   { background: rgba(229,62,62,0.12);  color: #e53e3e; }
+}
