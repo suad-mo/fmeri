@@ -167,19 +167,11 @@ export interface UserProfil {
   email: string;
   role: string[];
   slika?: string;
-  zaposlenik?: string; // ← ostaje
-  // organizacionaJedinica?: {
-  //   _id: string;
-  //   naziv: string;
-  //   tipJedinice: string;
-  // };
-  // radnoMjesto?: {
-  //   _id: string;
-  //   naziv: string;
-  //   pozicijaKljuc: string;
-  //   platniRazred: string;
-  //   koeficijent: number;
-  // };
+  zaposlenik?: {
+    _id: string;
+    ime: string;
+    prezime: string;
+  } | null;
 }
 
 // ── Dashboard / Statistike ────────────────────────────

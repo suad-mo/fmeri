@@ -11,7 +11,11 @@ export interface AuthResponse {
   role: string[];
   token: string;
   expiresIn: number;
-  // refreshToken više nije u response body
+  zaposlenik?: {
+    _id: string;
+    ime: string;
+    prezime: string;
+  } | null;
 }
 
 @Injectable({ providedIn: 'root' })

@@ -78,6 +78,10 @@
     width: 46px; // ← smanji s 56px
     height: 46px;
     border-radius: 12px;
+    display: flex; // ← dodaj
+    align-items: center; // ← zamijeni align-content
+    justify-content: center; // ← dodaj
+    flex-shrink: 0;
 
     mat-icon {
       font-size: 22px; // ← smanji s 26px
@@ -87,10 +91,18 @@
   }
 }
 
-.stat-blue   .stat-icon { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-.stat-green  .stat-icon { background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); }
-.stat-purple .stat-icon { background: linear-gradient(135deg, #8e2de2 0%, #4a00e0 100%); }
-.stat-orange .stat-icon { background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%); }
+.stat-blue .stat-icon {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+.stat-green .stat-icon {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+}
+.stat-purple .stat-icon {
+  background: linear-gradient(135deg, #8e2de2 0%, #4a00e0 100%);
+}
+.stat-orange .stat-icon {
+  background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);
+}
 
 // ── Grafikoni ─────────────────────────────────────────
 .charts-grid {
@@ -147,14 +159,19 @@
     opacity: 0.2;
   }
 
-  p { margin: 0; font-size: 0.875rem; }
+  p {
+    margin: 0;
+    font-size: 0.875rem;
+  }
 }
 
 // ── Grupirana tabela ──────────────────────────────────
 .table-card {
   border-radius: 16px !important;
 
-  mat-card-header { padding: 1.25rem 1.25rem 0; }
+  mat-card-header {
+    padding: 1.25rem 1.25rem 0;
+  }
 
   mat-card-title {
     display: flex;
@@ -164,7 +181,9 @@
     font-weight: 600 !important;
   }
 
-  mat-card-content { padding: 1rem 0 0 !important; }
+  mat-card-content {
+    padding: 1rem 0 0 !important;
+  }
 }
 
 .grupa-header {
@@ -172,11 +191,17 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.6rem 1rem;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.08), rgba(118, 75, 162, 0.05));
+  background: linear-gradient(
+    135deg,
+    rgba(102, 126, 234, 0.08),
+    rgba(118, 75, 162, 0.05)
+  );
   border-left: 3px solid #667eea;
   margin-top: 0.5rem;
 
-  &:first-child { margin-top: 0; }
+  &:first-child {
+    margin-top: 0;
+  }
 
   .grupa-icon {
     font-size: 16px;
@@ -204,8 +229,14 @@
   background: transparent !important;
   margin-bottom: 0.5rem;
 
-  th { font-size: 0.75rem; color: var(--color-text-secondary); font-weight: 600; }
-  td { font-size: 0.85rem; }
+  th {
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    font-weight: 600;
+  }
+  td {
+    font-size: 0.85rem;
+  }
 }
 
 // Platni razred badge
@@ -252,9 +283,15 @@
       border-radius: 2px;
       transition: width 0.5s ease;
 
-      &.fill-popunjeno  { background: #48bb78; }
-      &.fill-djelimicno { background: #ed8936; }
-      &.fill-slobodno   { background: #e2e8f0; }
+      &.fill-popunjeno {
+        background: #48bb78;
+      }
+      &.fill-djelimicno {
+        background: #ed8936;
+      }
+      &.fill-slobodno {
+        background: #e2e8f0;
+      }
     }
   }
 }
@@ -267,7 +304,7 @@
   font-size: 0.75rem;
   font-weight: 600;
 
-  &.status-popunjeno  {
+  &.status-popunjeno {
     background: rgba(72, 187, 120, 0.15);
     color: #38a169;
   }
@@ -275,7 +312,7 @@
     background: rgba(237, 137, 54, 0.15);
     color: #c05621;
   }
-  &.status-slobodno   {
+  &.status-slobodno {
     background: rgba(229, 62, 62, 0.1);
     color: #c53030;
   }
@@ -283,11 +320,23 @@
 
 // ── Print ─────────────────────────────────────────────
 @media print {
-  .no-print { display: none !important; }
-  .dashboard-page { padding: 0; max-width: 100%; }
-  .stats-grid { grid-template-columns: repeat(4, 1fr); }
-  .charts-grid { grid-template-columns: repeat(2, 1fr); }
-  mat-card { box-shadow: none !important; border: 1px solid #e2e8f0 !important; }
+  .no-print {
+    display: none !important;
+  }
+  .dashboard-page {
+    padding: 0;
+    max-width: 100%;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .charts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  mat-card {
+    box-shadow: none !important;
+    border: 1px solid #e2e8f0 !important;
+  }
 }
 
 .stat-teal .stat-icon {

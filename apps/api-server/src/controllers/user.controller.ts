@@ -10,6 +10,7 @@ export const getMe = async (req: Request, res: Response) => {
     const user = await User.findById(req.user?.id)
       // .populate('organizacionaJedinica', 'naziv tipJedinice')
       // .populate('radnoMjesto', 'naziv pozicijaKljuc platniRazred koeficijent')
+      .populate('zaposlenik', '_id ime prezime') // ← dodaj populate
       .select('-hash -refreshToken -resetToken')
       .lean();
 

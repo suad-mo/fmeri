@@ -33,9 +33,9 @@ import { GlobalSearchComponent } from './global-search/global-search.component';
         <div class="sidenav-header">
           <div class="logo">
             <mat-icon>account_balance</mat-icon>
-            <span>FMERI</span>
+            <span>Vlada FBiH</span>
           </div>
-          <small class="user-info">{{ authService.currentUser()?.name }}</small>
+          <!-- <small class="user-info">{{ authService.currentUser()?.name }}</small> -->
         </div>
 
         <mat-divider />
@@ -125,7 +125,7 @@ import { GlobalSearchComponent } from './global-search/global-search.component';
         }
 
         <!-- Logout -->
-        <div class="sidenav-footer">
+        <!-- <div class="sidenav-footer">
           <mat-divider />
           <button
             mat-list-item
@@ -135,7 +135,7 @@ import { GlobalSearchComponent } from './global-search/global-search.component';
             <mat-icon matListItemIcon>logout</mat-icon>
             <span matListItemTitle>Odjava</span>
           </button>
-        </div>
+        </div> -->
       </mat-sidenav>
 
       <!-- ── Glavni sadržaj ────────────────────────────── -->
@@ -146,9 +146,15 @@ import { GlobalSearchComponent } from './global-search/global-search.component';
             {{ primarnaRola() }}
           </span>
           <span class="user-name">{{ authService.currentUser()?.name }}</span>
-          <a mat-icon-button routerLink="/">
+          <!-- <a mat-icon-button routerLink="/">
             <mat-icon>home</mat-icon>
-          </a>
+          </a> -->
+          <button
+            mat-icon-button
+            (click)="authService.logout()"
+          >
+            <mat-icon>logout</mat-icon>
+          </button>
         </div>
         <router-outlet />
       </mat-sidenav-content>

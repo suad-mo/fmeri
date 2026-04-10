@@ -160,7 +160,7 @@
           @if (z.datumRodjenja) {
             <div class="info-red">
               <span class="info-label">Datum rođenja</span>
-              <span class="info-value">{{ z.datumRodjenja | slice:0:10 }}</span>
+              <span class="info-value">{{ z.datumRodjenja | date:'dd.MM.yyyy' }}</span>
             </div>
           }
           @if (z.spol) {
@@ -172,7 +172,7 @@
           @if (z.datumZaposlenja) {
             <div class="info-red">
               <span class="info-label">Datum zaposlenja</span>
-              <span class="info-value">{{ z.datumZaposlenja | slice:0:10 }}</span>
+              <span class="info-value">{{ z.datumZaposlenja | date:'dd.MM.yyyy' }}</span>
             </div>
           }
           @if (z.user) {

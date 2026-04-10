@@ -50,9 +50,17 @@
             <div>
               <p class="info-label">HR profil</p>
               <p class="info-value">
-                <a routerLink="/zaposlenici" class="profil-link">
-                  Vidi zaposlenik profil
-                </a>
+                @if (profil()?.zaposlenik) {
+                  <a
+                    [routerLink]="['/zaposlenici', profil()!.zaposlenik!._id]"
+                    class="profil-link"
+                  >
+                    {{ profil()!.zaposlenik!.ime }}
+                    {{ profil()!.zaposlenik!.prezime }}
+                  </a>
+                } @else {
+                  <span class="no-assign">Nije povezan sa zaposlenikom</span>
+                }
               </p>
             </div>
           </div>

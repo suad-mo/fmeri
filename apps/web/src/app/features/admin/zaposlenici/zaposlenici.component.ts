@@ -18,6 +18,7 @@ import {
   VrstaUgovora,
 } from '../../../core/models/org.models';
 import { RouterLink } from '@angular/router';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-zaposlenici',
@@ -41,23 +42,42 @@ import { RouterLink } from '@angular/router';
 export class ZaposleniciComponent implements OnInit {
   private orgService = inject(OrgService);
   private dialog = inject(MatDialog);
+  private authService = inject(AuthService);
 
   zaposlenici = signal<Zaposlenik[]>([]);
   isLoading = signal(true);
   pretraga = signal('');
 
+  jeAdmin = computed(
+    () => this.authService.currentUser()?.role.includes('admin') ?? false,
+  );
+
   readonly apiUrl = 'http://localhost:3000/uploads/slike';
 
-  kolone = ['zaposlenik', 'kontakt', 'organizacija', 'radnoMjesto', 'ugovor', 'akcije'];
+  kolone = computed(() => {
+    if (this.jeAdmin()) {
+      return [
+        'zaposlenik',
+        'kontakt',
+        'organizacija',
+        'radnoMjesto',
+        'ugovor',
+        'akcije',
+      ];
+    } else {
+      return ['zaposlenik', 'kontakt', 'organizacija', 'radnoMjesto', 'ugovor'];
+    }
+  });
 
   filtrirani = computed(() => {
     const p = this.pretraga().toLowerCase();
     if (!p) return this.zaposlenici();
-    return this.zaposlenici().filter(z =>
-      `${z.ime} ${z.prezime}`.toLowerCase().includes(p) ||
-      z.sluzbeniEmail?.toLowerCase().includes(p) ||
-      z.organizacionaJedinica?.naziv.toLowerCase().includes(p) ||
-      z.radnoMjesto?.naziv.toLowerCase().includes(p)
+    return this.zaposlenici().filter(
+      (z) =>
+        `${z.ime} ${z.prezime}`.toLowerCase().includes(p) ||
+        z.sluzbeniEmail?.toLowerCase().includes(p) ||
+        z.organizacionaJedinica?.naziv.toLowerCase().includes(p) ||
+        z.radnoMjesto?.naziv.toLowerCase().includes(p),
     );
   });
 
@@ -91,11 +111,12 @@ export class ZaposleniciComponent implements OnInit {
           width: '600px',
           data: { zaposlenik },
         });
-        ref.afterClosed().subscribe(r => { if (r) this.ucitaj(); });
-      }
+        ref.afterClosed().subscribe((r) => {
+          if (r) this.ucitaj();
+        });
+      },
     );
   }
-
 
   dodjelaRM(zaposlenik: Zaposlenik) {
     import('./dialogs/dodjela-zaposlenik-dialog.component').then(
@@ -104,13 +125,18 @@ export class ZaposleniciComponent implements OnInit {
           width: '550px',
           data: { zaposlenik },
         });
-        ref.afterClosed().subscribe(r => { if (r) this.ucitaj(); });
-      }
+        ref.afterClosed().subscribe((r) => {
+          if (r) this.ucitaj();
+        });
+      },
     );
   }
 
   obrisi(zaposlenik: Zaposlenik) {
-    if (!confirm(`Deaktivirati "${zaposlenik.ime} ${zaposlenik.prezime}"?`)) return;
-    this.orgService.deleteZaposlenik(zaposlenik._id).subscribe(() => this.ucitaj());
+    if (!confirm(`Deaktivirati "${zaposlenik.ime} ${zaposlenik.prezime}"?`))
+      return;
+    this.orgService
+      .deleteZaposlenik(zaposlenik._id)
+      .subscribe(() => this.ucitaj());
   }
 }

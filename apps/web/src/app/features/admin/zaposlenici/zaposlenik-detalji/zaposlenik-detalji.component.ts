@@ -13,14 +13,14 @@ import {
   KATEGORIJA_NAZIV, KategorijaZaposlenog,
   VRSTA_UGOVORA_NAZIV, VrstaUgovora,
 } from '../../../../core/models/org.models';
-import { SlicePipe } from '@angular/common';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-zaposlenik-detalji',
   standalone: true,
   imports: [
     RouterLink,
-    SlicePipe,
+    DatePipe,
     MatIconModule, MatButtonModule,
     MatProgressSpinnerModule, MatTooltipModule,
     MatDialogModule, MatDividerModule,

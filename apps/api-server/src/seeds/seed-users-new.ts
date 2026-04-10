@@ -30,7 +30,13 @@ const seed = async () => {
   }
 
   console.log(`✅ Korisnici seeded: ${data.length}`);
-
+  // Postavi default lozinku za sve korisnike
+  const sviUseri = await User.find({});
+  for (const user of sviUseri) {
+    await user.setPassword('Fmeri2026!');
+    await user.save();
+  }
+  console.log(`✅ Lozinka postavljena za ${sviUseri.length} korisnika`);
   // Na kraju seed funkcije, prije disconnect:
   const adminUser = await User.findOne({ email: 'admin@fmeri.gov.ba' });
   if (adminUser) {
