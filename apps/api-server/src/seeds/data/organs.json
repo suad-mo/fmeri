@@ -1,0 +1,59 @@
+[
+  {
+    "_id": "69d58d70b8009f8cebf099ab",
+    "naziv": "Federalno ministarstvo energije, rudarstva i industrije",
+    "vrstaOrgana": "ministarstvo",
+    "skraceniNaziv": "FMERI",
+    "nadleznost": "Energetika, rudarstvo, geološka istraživanja i industrija",
+    "opis": "Federalno ministarstvo energije, rudarstva i industrije",
+    "zakonskiOsnov": [
+      "Zakon o ministarstvima i drugim organima uprave FBiH",
+      "Zakon o organizaciji organa uprave FBiH"
+    ],
+    "uSastavu": false,
+    "nadredjeniOrgan": null,
+    "aktivan": true,
+    "redoslijed": 1,
+    "createdAt": "2026-04-07T23:04:16.610Z",
+    "updatedAt": "2026-04-09T15:10:08.995Z",
+    "__v": 0
+  },
+  {
+    "_id": "69d58d70b8009f8cebf099af",
+    "naziv": "Zavod za mjeriteljstvo",
+    "vrstaOrgana": "upravna_organizacija",
+    "skraceniNaziv": "FZM",
+    "nadleznost": "Mjeriteljstvo, verifikacija mjerila i kontrola plemenitih metala",
+    "opis": "Federalni zavod za mjeriteljstvo — upravna organizacija u sastavu FMERI",
+    "zakonskiOsnov": [
+      "Zakon o mjeriteljstvu FBiH",
+      "Zakon o organizaciji organa uprave FBiH — Čl. 19"
+    ],
+    "uSastavu": true,
+    "nadredjeniOrgan": "69d58d70b8009f8cebf099ab",
+    "aktivan": true,
+    "redoslijed": 2,
+    "createdAt": "2026-04-07T23:04:16.616Z",
+    "updatedAt": "2026-04-08T09:02:59.781Z",
+    "__v": 0
+  },
+  {
+    "_id": "69d58d70b8009f8cebf099b3",
+    "naziv": "Federalna direkcija za namjensku industriju",
+    "vrstaOrgana": "upravna_organizacija",
+    "skraceniNaziv": "FDNI",
+    "nadleznost": "Planiranje, koordinacija, proizvodnja, remont i promet naoružanja i vojne opreme u Feredaciji BiH.",
+    "opis": "Federalna direkcija za namjensku industriju — upravna organizacija u sastavu FMERI",
+    "zakonskiOsnov": [
+      "Zakon o organizaciji organa uprave FBiH — Čl. 19",
+      "Zakon o proizvodnji i prometu naoružanja i vojne opreme u FBiH"
+    ],
+    "uSastavu": true,
+    "nadredjeniOrgan": "69d58d70b8009f8cebf099ab",
+    "aktivan": true,
+    "redoslijed": 3,
+    "createdAt": "2026-04-07T23:04:16.621Z",
+    "updatedAt": "2026-04-08T14:52:24.455Z",
+    "__v": 0
+  }
+]
