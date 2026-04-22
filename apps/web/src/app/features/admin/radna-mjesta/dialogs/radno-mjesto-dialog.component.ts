@@ -18,7 +18,9 @@ import {
   KategorijaZaposlenog,
   PlatniRazredPozicija,
   KATEGORIJA_NAZIV,
+  PozicijaKljuc,
 } from '../../../../core/models/org.models';
+import { catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-radno-mjesto-dialog',
@@ -303,12 +305,15 @@ export class RadnoMjestoDialogComponent implements OnInit {
 
   private ucitajPozicije(kategorija: string, callback?: () => void) {
     this.ucitavaPozicije = true;
-    this.orgService.getPozicijeByKategorija(kategorija).subscribe((data) => {
-      this.pozicije = data;
-      this.ucitavaPozicije = false;
-      this.cdr.detectChanges();
-      if (callback) callback();
-    });
+    this.orgService
+      .getPozicijeByKategorija(kategorija)
+      .pipe(catchError(() => of([])))
+      .subscribe((data) => {
+        this.pozicije = data;
+        this.ucitavaPozicije = false;
+        this.cdr.detectChanges();
+        if (callback) callback();
+      });
   }
 
   spremi() {
@@ -318,7 +323,7 @@ export class RadnoMjestoDialogComponent implements OnInit {
       naziv: raw.naziv as string,
       organizacionaJedinica: raw.organizacionaJedinica as string,
       kategorijaZaposlenog: raw.kategorijaZaposlenog as KategorijaZaposlenog,
-      pozicijaKljuc: raw.pozicijaKljuc as string,
+      pozicijaKljuc: raw.pozicijaKljuc as PozicijaKljuc,
       platniRazred: raw.platniRazred as string,
       koeficijent: Number(raw.koeficijent),
       opsisPoslova: raw.opsisPoslova as string,

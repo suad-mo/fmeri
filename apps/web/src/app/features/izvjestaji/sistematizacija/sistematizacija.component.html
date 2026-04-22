@@ -1,0 +1,143 @@
+<div class="sist-page">
+
+  <!-- Header -->
+  <div class="page-header">
+    <div>
+      <h1>Sistematizacija radnih mjesta</h1>
+      <p>Popunjenost radnih mjesta prema aktu o unutrašnjoj organizaciji</p>
+    </div>
+    <div class="header-akcije">
+      <button mat-stroked-button (click)="downloadExcel()">
+        <mat-icon>table_view</mat-icon>
+        Excel
+      </button>
+      <button mat-flat-button color="primary" (click)="downloadPDF()">
+        <mat-icon>picture_as_pdf</mat-icon>
+        PDF
+      </button>
+    </div>
+  </div>
+
+  @if (isLoading()) {
+    <div class="loading-wrapper"><mat-spinner diameter="40"/></div>
+  } @else {
+
+    <!-- Sumarni red -->
+    <div class="sumarni-red">
+      <div class="sum-kartica">
+        <span class="sum-broj">{{ sumarno().ukupnoRM }}</span>
+        <span class="sum-label">Radnih mjesta</span>
+      </div>
+      <div class="sum-kartica">
+        <span class="sum-broj">{{ sumarno().ukupnoIzvrsilaca }}</span>
+        <span class="sum-label">Izvršilaca</span>
+      </div>
+      <div class="sum-kartica">
+        <span class="sum-broj zelena">{{ sumarno().popunjeno }}</span>
+        <span class="sum-label">Popunjeno</span>
+      </div>
+      <div class="sum-kartica">
+        <span class="sum-broj crvena">{{ sumarno().upraznjeno }}</span>
+        <span class="sum-label">Upražnjeno</span>
+      </div>
+      <div class="sum-kartica">
+        <span class="sum-broj" [class.zelena]="sumarno().posto >= 80"
+          [class.zuta]="sumarno().posto >= 50 && sumarno().posto < 80"
+          [class.crvena]="sumarno().posto < 50">
+          {{ sumarno().posto }}%
+        </span>
+        <span class="sum-label">Popunjenost</span>
+        <div class="sum-progress">
+          <div class="sum-fill" [style.width.%]="sumarno().posto"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filteri -->
+    <div class="filteri">
+      <mat-form-field appearance="outline" class="pretraga-field">
+        <mat-label>Pretraži</mat-label>
+        <input matInput [value]="pretraga()"
+          (input)="pretraga.set($any($event.target).value)"
+          placeholder="Naziv RM ili org. jedinice..."/>
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="status-field">
+        <mat-label>Status</mat-label>
+        <mat-select [value]="filterStatus()"
+          (selectionChange)="filterStatus.set($event.value)">
+          <mat-option value="sve">Svi</mat-option>
+          <mat-option value="popunjeno">Popunjeno</mat-option>
+          <mat-option value="djelimicno">Djelimično</mat-option>
+          <mat-option value="slobodno">Slobodno</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <span class="rezultati-info">
+        {{ filtrirane().length }} od {{ stavke().length }} radnih mjesta
+      </span>
+    </div>
+
+    <!-- Grupirane stavke -->
+    @for (grupa of grupirane(); track grupa.naziv) {
+      <div class="grupa-blok">
+        <div class="grupa-header">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="1.5">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+          </svg>
+          <span class="grupa-naziv">{{ grupa.naziv }}</span>
+          <span class="grupa-cnt">{{ grupa.items.length }} RM</span>
+        </div>
+
+        <table class="sist-tabela">
+          <thead>
+            <tr>
+              <th>Naziv radnog mjesta</th>
+              <th>Kategorija</th>
+              <th class="text-center">Razred</th>
+              <th class="text-center">Koef.</th>
+              <th class="text-center">Izvršioci</th>
+              <th class="text-center">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (rm of grupa.items; track rm._id) {
+              <tr>
+                <td class="rm-naziv-cell">{{ rm.naziv }}</td>
+                <td class="kategorija-cell">
+                  {{ getKategorijaNaziv(rm.kategorijaZaposlenog) }}
+                </td>
+                <td class="text-center">
+                  <span class="razred-pill">{{ rm.platniRazred }}</span>
+                </td>
+                <td class="text-center koef">{{ rm.koeficijent }}</td>
+                <td class="text-center">
+                  <div class="izvrsioci-wrap">
+                    <span class="izvrsioci-broj"
+                      [class.zelena]="rm.popunjeno >= rm.brojIzvrsilaca"
+                      [class.crvena]="rm.popunjeno === 0">
+                      {{ rm.popunjeno }}/{{ rm.brojIzvrsilaca }}
+                    </span>
+                    <div class="mini-bar">
+                      <div class="mini-fill"
+                        [class]="'fill-' + rm.status"
+                        [style.width.%]="rm.brojIzvrsilaca > 0 ?
+                          (rm.popunjeno / rm.brojIzvrsilaca * 100) : 0">
+                      </div>
+                    </div>
+                  </div>
+                </td>
+                <td class="text-center">
+                  <span class="status-badge" [class]="getStatusBoja(rm.status)">
+                    {{ getStatusNaziv(rm.status) }}
+                  </span>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    }
+  }
+</div>

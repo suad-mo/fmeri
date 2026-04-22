@@ -3,12 +3,15 @@ import { Document, Schema, Model, model, Types } from 'mongoose';
 export type TipJedinice =
   | 'ministarstvo'
   | 'kabinet'
-  | 'zavod' // ← umjesto upravna_organizacija
-  | 'direkcija' // ← novo
+  | 'zavod'
+  | 'direkcija'
   | 'sektor'
+  | 'sluzba' // ← dodaj
   | 'odsjek'
   | 'grupa'
   | 'centar';
+
+export type NivoJedinice = 'osnovna' | 'unutrasnja';
 
 export interface IOrganizacionaJedinica extends Document {
   naziv: string;
@@ -16,8 +19,13 @@ export interface IOrganizacionaJedinica extends Document {
   nadredjenaJedinica: Types.ObjectId | null;
   rukovodilac?: Types.ObjectId;
   opis?: string;
+  nadleznost?: string; // ← novo
+  zakonskiOsnov?: string[]; // ← novo
+  organ: Types.ObjectId; // ← novo — veza na Organ
+  nivoJedinice: NivoJedinice; // ← novo
   aktivna: boolean;
   redoslijed: number;
+  uSastavu: boolean; // ← ovo je bilo ranije
 }
 
 const organizacionaJedinicaSchema = new Schema<IOrganizacionaJedinica>(
@@ -32,9 +40,10 @@ const organizacionaJedinicaSchema = new Schema<IOrganizacionaJedinica>(
       enum: [
         'ministarstvo',
         'kabinet',
-        'zavod', // ← novo
-        'direkcija', // ← novo
+        'zavod',
+        'direkcija',
         'sektor',
+        'sluzba',
         'odsjek',
         'grupa',
         'centar',
@@ -55,6 +64,27 @@ const organizacionaJedinicaSchema = new Schema<IOrganizacionaJedinica>(
       type: String,
       trim: true,
     },
+    nadleznost: {
+      type: String,
+      trim: true,
+    },
+    zakonskiOsnov: [
+      {
+        type: String,
+        trim: true,
+      },
+    ],
+    organ: {
+      type: Schema.Types.ObjectId,
+      ref: 'Organ',
+      required: false,
+      default: null,
+    },
+    nivoJedinice: {
+      type: String,
+      enum: ['osnovna', 'unutrasnja'],
+      default: 'osnovna',
+    },
     aktivna: {
       type: Boolean,
       default: true,
@@ -62,6 +92,10 @@ const organizacionaJedinicaSchema = new Schema<IOrganizacionaJedinica>(
     redoslijed: {
       type: Number,
       default: 0,
+    },
+    uSastavu: {
+      type: Boolean,
+      default: false,
     },
   },
   { timestamps: true },

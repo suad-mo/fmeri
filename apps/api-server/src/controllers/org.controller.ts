@@ -1,7 +1,8 @@
 import { Request, Response } from 'express';
-import { OrganizacionaJedinica } from '@nx-fmeri/api-org';
+import { OrganizacionaJedinica, Zaposlenik } from '@nx-fmeri/api-org';
 import { RadnoMjesto } from '@nx-fmeri/api-org';
 import { getErrorMessage } from '../helpers/error.helper';
+// import { User } from '@nx-fmeri/api-auth';
 
 // ── Organizacione jedinice ────────────────────────────────
 
@@ -23,7 +24,9 @@ export const getById = async (req: Request, res: Response) => {
       .populate('nadredjenaJedinica', 'naziv tip')
       .populate('rukovodilac', 'name email');
     if (!jedinica) {
-      return res.status(404).json({ message: 'Organizaciona jedinica nije pronađena.' });
+      return res
+        .status(404)
+        .json({ message: 'Organizaciona jedinica nije pronađena.' });
     }
     return res.json(jedinica);
   } catch (error) {
@@ -46,10 +49,12 @@ export const update = async (req: Request, res: Response) => {
     const jedinica = await OrganizacionaJedinica.findByIdAndUpdate(
       req.params.id,
       req.body,
-      { new: true, runValidators: true }
+      { new: true, runValidators: true },
     );
     if (!jedinica) {
-      return res.status(404).json({ message: 'Organizaciona jedinica nije pronađena.' });
+      return res
+        .status(404)
+        .json({ message: 'Organizaciona jedinica nije pronađena.' });
     }
     return res.json(jedinica);
   } catch (error) {
@@ -63,10 +68,12 @@ export const remove = async (req: Request, res: Response) => {
     const jedinica = await OrganizacionaJedinica.findByIdAndUpdate(
       req.params.id,
       { aktivna: false },
-      { new: true }
+      { new: true },
     );
     if (!jedinica) {
-      return res.status(404).json({ message: 'Organizaciona jedinica nije pronađena.' });
+      return res
+        .status(404)
+        .json({ message: 'Organizaciona jedinica nije pronađena.' });
     }
     return res.json({ message: 'Organizaciona jedinica deaktivirana.' });
   } catch (error) {
@@ -76,25 +83,41 @@ export const remove = async (req: Request, res: Response) => {
 
 export const getStablo = async (req: Request, res: Response) => {
   try {
-    // Dohvati sve jedinice i kreiraj stablo u memoriji
     const sve = await OrganizacionaJedinica.find({ aktivna: true })
+      .populate('organ', 'naziv vrstaOrgana')
       .sort({ redoslijed: 1, naziv: 1 })
       .lean();
 
-    const mapa = new Map(sve.map((j) => [j._id.toString(), { ...j, djeca: [] as any[] }]));
+    const mapa = new Map(
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      sve.map((j) => [j._id.toString(), { ...j, djeca: [] as any[] }]),
+    );
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const stablo: any[] = [];
 
     for (const jedinica of mapa.values()) {
       if (!jedinica.nadredjenaJedinica) {
+        // Ima organ ali nema nadređenu — root za taj organ
         stablo.push(jedinica);
       } else {
         const roditelj = mapa.get(jedinica.nadredjenaJedinica.toString());
         if (roditelj) {
           roditelj.djeca.push(jedinica);
+        } else {
+          // Roditelj nije pronađen — dodaj kao root
+          stablo.push(jedinica);
         }
       }
     }
+
+    // Sortiraj root po organu pa po redoslijedu
+    stablo.sort((a, b) => {
+      const aOrgan = a.organ?.naziv ?? '';
+      const bOrgan = b.organ?.naziv ?? '';
+      if (aOrgan !== bOrgan) return aOrgan.localeCompare(bOrgan);
+      return (a.redoslijed ?? 0) - (b.redoslijed ?? 0);
+    });
 
     return res.json(stablo);
   } catch (error) {
@@ -134,7 +157,7 @@ export const updateRadnoMjesto = async (req: Request, res: Response) => {
     const mjesto = await RadnoMjesto.findByIdAndUpdate(
       req.params.id,
       req.body,
-      { new: true, runValidators: true }
+      { new: true, runValidators: true },
     );
     if (!mjesto) {
       return res.status(404).json({ message: 'Radno mjesto nije pronađeno.' });
@@ -149,6 +172,47 @@ export const removeRadnoMjesto = async (req: Request, res: Response) => {
   try {
     await RadnoMjesto.findByIdAndUpdate(req.params.id, { aktivno: false });
     return res.json({ message: 'Radno mjesto deaktivirano.' });
+  } catch (error) {
+    return res.status(500).json({ error: getErrorMessage(error) });
+  }
+};
+
+// GET /api/org/jedinice/:id/detalji
+export const getJedinicaDetalji = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+
+    const jedinica = await OrganizacionaJedinica.findById(id).lean();
+    if (!jedinica) {
+      return res.status(404).json({ message: 'Jedinica nije pronađena.' });
+    }
+
+    const radnaMjesta = await RadnoMjesto.find({
+      organizacionaJedinica: id,
+      aktivno: true,
+    }).lean();
+
+    const radnaMjestaDetalji = await Promise.all(
+      radnaMjesta.map(async (rm) => {
+        const zaposlenici = await Zaposlenik.find({
+          radnoMjesto: rm._id,
+          aktivan: true,
+        })
+          .select('ime prezime sluzbeniEmail slika')
+          .lean();
+        return { ...rm, zaposlenici };
+      }),
+    );
+
+    return res.json({
+      jedinica,
+      radnaMjesta: radnaMjestaDetalji,
+      ukupnoMjesta: radnaMjesta.reduce((s, rm) => s + rm.brojIzvrsilaca, 0),
+      popunjeno: radnaMjestaDetalji.reduce(
+        (s, rm) => s + rm.zaposlenici.length,
+        0,
+      ),
+    });
   } catch (error) {
     return res.status(500).json({ error: getErrorMessage(error) });
   }

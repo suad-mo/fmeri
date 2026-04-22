@@ -1,17 +1,12 @@
 .page-header {
-  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.25rem;
+  padding: 1.5rem 1.5rem 0;
 
-  h1 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--color-text-primary);
-    margin-bottom: 0.25rem;
-  }
-
-  p {
-    color: var(--color-text-secondary);
-    font-size: 0.875rem;
-  }
+  h1 { font-size: 1.3rem; font-weight: 600; margin: 0 0 0.2rem; }
+  p  { font-size: 0.8rem; color: var(--color-text-secondary); margin: 0; }
 }
 
 .loading-wrapper {
@@ -20,79 +15,81 @@
   padding: 3rem;
 }
 
-.korisnici-table {
-  width: 100%;
-  background: var(--color-background-card);
-  border-radius: 12px;
+.table-card {
+  margin: 1rem 1.5rem;
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
   overflow: hidden;
+  background: var(--color-background-primary);
+}
+
+table {
+  width: 100%;
 }
 
 .user-cell {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 10px;
+  padding: 4px 0;
 }
 
 .avatar-small {
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  background: var(--color-background-secondary);
+  background: rgba(102, 126, 234, 0.12);
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   flex-shrink: 0;
 
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+  img { width: 100%; height: 100%; object-fit: cover; }
 
   mat-icon {
-    font-size: 20px;
-    width: 20px;
-    height: 20px;
-    color: var(--color-text-secondary);
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    color: #667eea;
   }
 }
 
+.user-name { font-size: 0.875rem; font-weight: 500; }
+
+.email { font-size: 0.82rem; color: var(--color-text-secondary); }
+
 .role-chips {
   display: flex;
-  gap: 0.25rem;
+  gap: 4px;
   flex-wrap: wrap;
 }
 
 .role-chip {
-  font-size: 0.7rem !important;
-  min-height: 22px !important;
-  height: 22px !important;
-  padding: 0 6px !important;
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+
+  &.role-admin   { background: rgba(229,62,62,0.1);   color: #e53e3e; }
+  &.role-user    { background: rgba(102,126,234,0.1); color: #667eea; }
+  &.role-resursi { background: rgba(72,187,120,0.1);  color: #38a169; }
 }
 
-.role-admin {
-  background: rgba(229, 62, 62, 0.15) !important;
-  color: #e53e3e !important;
+.povezan {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.78rem;
+  color: #38a169;
+
+  mat-icon { font-size: 14px; width: 14px; height: 14px; }
 }
 
-.role-user {
-  background: rgba(102, 126, 234, 0.15) !important;
-  color: #667eea !important;
-}
-
-.assigned {
-  color: var(--color-text-primary);
-  font-size: 0.875rem;
-}
-
-.unassigned {
-  color: var(--color-text-secondary);
-  font-size: 0.875rem;
+.nije-povezan {
+  font-size: 0.78rem;
+  color: var(--color-text-tertiary);
   font-style: italic;
-}
-
-.razred {
-  color: var(--color-text-secondary);
-  font-size: 0.75rem;
 }

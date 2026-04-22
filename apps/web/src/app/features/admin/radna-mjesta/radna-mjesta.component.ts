@@ -9,10 +9,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { OrgService } from '../../../core/services/org.service';
 import {
   RadnoMjesto,
-  POZICIJA_NAZIV,
-  STATUS_NAZIV,
-  PozicijaRadnogMjesta,
-  StatusSluzbenika,
   KATEGORIJA_NAZIV,
   KategorijaZaposlenog,
 } from '../../../core/models/org.models';
@@ -39,32 +35,11 @@ export class RadnaMjestaComponent implements OnInit {
 
   mjesta = signal<RadnoMjesto[]>([]);
   isLoading = signal(true);
-  pozicijaNaziv = POZICIJA_NAZIV;
-  statusNaziv = STATUS_NAZIV;
-  kategorijaZaposlenog = KATEGORIJA_NAZIV;
 
-  kolone = [
-    'naziv',
-    'pozicija',
-    'organizacionaJedinica',
-    'kategorija',
-    'broj',
-    'akcije',
-  ];
-
-  getStatusNaziv(status: string): string {
-    return this.statusNaziv[status as StatusSluzbenika] ?? status;
-  }
+  kolone = ['naziv', 'pozicija', 'organizacionaJedinica', 'kategorija', 'broj', 'akcije'];
 
   getKategorijaNaziv(kategorija: string): string {
-    return (
-      this.kategorijaZaposlenog[kategorija as KategorijaZaposlenog] ??
-      kategorija
-    );
-  }
-
-  getPozicijaNaziv(pozicija: string): string {
-    return this.pozicijaNaziv[pozicija as PozicijaRadnogMjesta] ?? pozicija;
+    return KATEGORIJA_NAZIV[kategorija as KategorijaZaposlenog] ?? kategorija;
   }
 
   ngOnInit() {

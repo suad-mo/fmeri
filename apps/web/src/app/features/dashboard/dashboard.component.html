@@ -1,102 +1,226 @@
-<div class="dashboard-page">
-
-  <!-- Navbar -->
-  <nav class="dashboard-nav">
-    <div class="nav-brand">
-      <div class="nav-logo">
-        <mat-icon>dashboard</mat-icon>
-      </div>
-      <span class="nav-title">MyApp</span>
+<div class="dashboard-page" id="print-area">
+  <!-- Header -->
+  <div class="page-header no-print">
+    <div>
+      <h1>Dashboard</h1>
+      <p>Federalno ministarstvo energije, rudarstva i industrije</p>
     </div>
-
-    <div class="nav-actions">
-      <span class="nav-welcome">
-        Zdravo, <strong>{{ authService.currentUser()?.name }}</strong>
-      </span>
-      <button mat-stroked-button routerLink="/admin" class="admin-btn">
-  <mat-icon>admin_panel_settings</mat-icon>
-  Admin panel
-</button>
-      <button
-        mat-stroked-button
-        class="logout-btn"
-        (click)="logout()"
-        matTooltip="Odjava">
-        <mat-icon>logout</mat-icon>
-        Odjava
+    <div class="header-actions">
+      <button mat-flat-button color="primary" (click)="stampaj()">
+        <mat-icon>print</mat-icon>
+        Štampaj / PDF
       </button>
     </div>
-  </nav>
+  </div>
 
-  <!-- Sadržaj -->
-  <main class="dashboard-main">
+  @if (isLoading()) {
+    <div class="loading-wrapper">
+      <mat-spinner diameter="40" />
+    </div>
+  } @else if (stats(); as s) {
+    <!-- Statistike kartice -->
+    <div class="stats-grid">
+      <mat-card class="stat-card stat-blue">
+        <mat-card-content>
+          <div class="stat-icon"><mat-icon>people</mat-icon></div>
+          <div class="stat-info">
+            <span class="stat-broj">{{ s.ukupnoZaposlenika }}</span>
+            <span class="stat-label">Ukupno zaposlenika</span>
+          </div>
+        </mat-card-content>
+      </mat-card>
 
-    <!-- Profil kartica -->
-    <div class="profile-card">
-      <div class="profile-avatar">
-        {{ authService.currentUser()?.name?.charAt(0)?.toUpperCase() }}
-      </div>
+      <mat-card class="stat-card stat-green">
+        <mat-card-content>
+          <div class="stat-icon"><mat-icon>account_tree</mat-icon></div>
+          <div class="stat-info">
+            <span class="stat-broj">{{ s.ukupnoJedinica }}</span>
+            <span class="stat-label">Org. jedinica</span>
+          </div>
+        </mat-card-content>
+      </mat-card>
 
-      <div class="profile-info">
-        <h1 class="profile-name">{{ authService.currentUser()?.name }}</h1>
-        <p class="profile-email">
-          <mat-icon>email</mat-icon>
-          {{ authService.currentUser()?.email }}
-        </p>
+      <mat-card class="stat-card stat-purple">
+        <mat-card-content>
+          <div class="stat-icon"><mat-icon>work</mat-icon></div>
+          <div class="stat-info">
+            <span class="stat-broj">{{ s.ukupnoRadnihMjesta }}</span>
+            <span class="stat-label">Radnih mjesta</span>
+          </div>
+        </mat-card-content>
+      </mat-card>
 
-        <div class="profile-roles">
-          @for (role of authService.currentUser()?.role; track role) {
-            <mat-chip class="role-chip">
-              <mat-icon matChipAvatar>verified_user</mat-icon>
-              {{ role }}
-            </mat-chip>
-          } @empty {
-            <mat-chip class="role-chip">
-              <mat-icon matChipAvatar>person</mat-icon>
-              Korisnik
-            </mat-chip>
+      <mat-card class="stat-card stat-orange">
+        <mat-card-content>
+          <div class="stat-icon"><mat-icon>assignment_ind</mat-icon></div>
+          <div class="stat-info">
+            <span class="stat-broj">{{ s.zaposleniciSaDodjeljenim }}%</span>
+            <span class="stat-label">Dodijeljeno radno mjesto</span>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      @if (popunjenost(); as p) {
+        <mat-card class="stat-card stat-teal">
+          <mat-card-content>
+            <div class="stat-icon">
+              <mat-icon>donut_large</mat-icon>
+            </div>
+            <div class="stat-info">
+              <span class="stat-broj">{{ p.posto }}%</span>
+              <span class="stat-label">Popunjenost sistema</span>
+              <div class="pop-progress">
+                <div class="pop-fill" [style.width.%]="p.posto"></div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      }
+    </div>
+
+    <!-- Grafikoni -->
+    <div class="charts-grid">
+      <mat-card class="chart-card">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon class="card-icon">bar_chart</mat-icon>
+            Zaposlenici po sektoru
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          @if (barSeries.length > 0) {
+            <apx-chart
+              [series]="barSeries"
+              [chart]="barChart"
+              [xaxis]="barXAxis"
+              [yaxis]="barYAxis"
+              [plotOptions]="barPlotOptions"
+              [dataLabels]="barDataLabels"
+              [colors]="barColors"
+              [fill]="barFill"
+            >
+            </apx-chart>
+          } @else {
+            <div class="no-data">
+              <mat-icon>bar_chart</mat-icon>
+              <p>Nema podataka</p>
+            </div>
           }
-        </div>
-      </div>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="chart-card">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon class="card-icon">donut_large</mat-icon>
+            Raspored po platnim razredima
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          @if (donutSeries.length > 0) {
+            <apx-chart
+              [series]="donutSeries"
+              [chart]="donutChart"
+              [labels]="donutLabels"
+              [legend]="donutLegend"
+              [colors]="donutColors"
+              [responsive]="donutResponsive"
+              [plotOptions]="donutPlotOptions"
+            >
+            </apx-chart>
+          } @else {
+            <div class="no-data">
+              <mat-icon>donut_large</mat-icon>
+              <p>Nema podataka</p>
+            </div>
+          }
+        </mat-card-content>
+      </mat-card>
     </div>
 
-    <!-- Info kartice -->
-    <div class="info-grid">
+    <!-- Grupirana sistematizacija -->
+    <!-- <mat-card class="table-card">
+      <mat-card-header>
+        <mat-card-title>
+          <mat-icon class="card-icon">assignment</mat-icon>
+          Pregled sistematizacije
+        </mat-card-title>
+        <mat-card-subtitle>
+          Popunjenost radnih mjesta prema aktu o unutrašnjoj organizaciji
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        @for (grupa of sistematizacijaGrupirana(); track grupa.naziv) {
+          <div class="grupa-header">
+            <mat-icon class="grupa-icon">account_tree</mat-icon>
+            <span>{{ grupa.naziv }}</span>
+            <span class="grupa-count"
+              >{{ grupa.items.length }} radnih mjesta</span
+            >
+          </div>
+          <table
+            mat-table
+            [dataSource]="grupa.items"
+            class="sistematizacija-table"
+          >
+            <ng-container matColumnDef="naziv">
+              <th mat-header-cell *matHeaderCellDef>Naziv radnog mjesta</th>
+              <td mat-cell *matCellDef="let rm">{{ rm.naziv }}</td>
+            </ng-container>
 
-      <div class="info-card">
-        <div class="info-icon">
-          <mat-icon>fingerprint</mat-icon>
-        </div>
-        <div class="info-content">
-          <span class="info-label">Korisnički ID</span>
-          <span class="info-value">{{ authService.currentUser()?.id }}</span>
-        </div>
-      </div>
+            <ng-container matColumnDef="razred">
+              <th mat-header-cell *matHeaderCellDef>Razred</th>
+              <td mat-cell *matCellDef="let rm">
+                <span class="razred-badge razred-{{ rm.platniRazred }}">
+                  {{ rm.platniRazred }}
+                </span>
+                <small class="koef">({{ rm.koeficijent }})</small>
+              </td>
+            </ng-container>
 
-      <div class="info-card">
-        <div class="info-icon">
-          <mat-icon>schedule</mat-icon>
-        </div>
-        <div class="info-content">
-          <span class="info-label">Sesija ističe za</span>
-          <span class="info-value">{{ (authService.currentUser()?.expiresIn ?? 0) / 1000 / 60 }} min</span>
-        </div>
-      </div>
+            <ng-container matColumnDef="kategorija">
+              <th mat-header-cell *matHeaderCellDef>Kategorija</th>
+              <td mat-cell *matCellDef="let rm">
+                <small>{{ getKategorijaNaziv(rm.kategorijaZaposlenog) }}</small>
+              </td>
+            </ng-container>
 
-      <div class="info-card">
-        <div class="info-icon">
-          <mat-icon>security</mat-icon>
-        </div>
-        <div class="info-content">
-          <span class="info-label">Status</span>
-          <span class="info-value status-active">
-            <span class="status-dot"></span>
-            Aktivan
-          </span>
-        </div>
-      </div>
+            <ng-container matColumnDef="izvrsioci">
+              <th mat-header-cell *matHeaderCellDef>Izvršioci</th>
+              <td mat-cell *matCellDef="let rm">
+                <div class="izvrsioci-bar">
+                  <span class="izvrsioci-text"
+                    >{{ rm.popunjeno }} / {{ rm.brojIzvrsilaca }}</span
+                  >
+                  <div class="progress-bar">
+                    <div
+                      class="progress-fill"
+                      [style.width.%]="
+                        rm.brojIzvrsilaca > 0
+                          ? (rm.popunjeno / rm.brojIzvrsilaca) * 100
+                          : 0
+                      "
+                      [class]="'fill-' + rm.status"
+                    ></div>
+                  </div>
+                </div>
+              </td>
+            </ng-container>
 
-    </div>
+            <ng-container matColumnDef="status">
+              <th mat-header-cell *matHeaderCellDef>Status</th>
+              <td mat-cell *matCellDef="let rm">
+                <span class="status-badge status-{{ rm.status }}">
+                  {{ getStatusNaziv(rm.status) }}
+                </span>
+              </td>
+            </ng-container>
 
-  </main>
+            <tr mat-header-row *matHeaderRowDef="koloneGrupa"></tr>
+            <tr mat-row *matRowDef="let row; columns: koloneGrupa"></tr>
+          </table>
+        }
+      </mat-card-content>
+    </mat-card> -->
+  }
 </div>

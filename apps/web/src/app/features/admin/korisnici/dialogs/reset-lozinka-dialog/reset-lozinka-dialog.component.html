@@ -1,0 +1,42 @@
+<h2 mat-dialog-title>Reset lozinke</h2>
+<p class="subtitle">
+  Korisnik: <strong>{{ data.korisnik.name }}</strong>
+</p>
+
+<mat-dialog-content>
+  <form [formGroup]="form" class="dialog-form">
+    <mat-form-field appearance="outline">
+      <mat-label>Nova lozinka</mat-label>
+      <input
+        matInput
+        formControlName="novaLozinka"
+        [type]="prikazi ? 'text' : 'password'"
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        type="button"
+        (click)="prikazi = !prikazi"
+      >
+        <mat-icon>{{ prikazi ? 'visibility_off' : 'visibility' }}</mat-icon>
+      </button>
+      <mat-hint>Minimum 8 znakova</mat-hint>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="ref.close()">Odustani</button>
+  <button
+    mat-flat-button
+    color="warn"
+    [disabled]="form.invalid || loading"
+    (click)="spremi()"
+  >
+    @if (loading) {
+      <mat-spinner diameter="20" />
+    } @else {
+      Resetuj lozinku
+    }
+  </button>
+</mat-dialog-actions>

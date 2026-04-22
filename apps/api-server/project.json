@@ -109,7 +109,129 @@
       "options": {
         "command": "npx ts-node -r tsconfig-paths/register --project apps/api-server/tsconfig.app.json apps/api-server/src/seeds/users.seed.ts"
       }
+    },
+    "seed-users-fmeri": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx ts-node -r tsconfig-paths/register --project apps/api-server/tsconfig.app.json apps/api-server/src/seeds/users-fmeri.seed.ts"
+      }
+    },
+    "seed-dodjela": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx ts-node -r tsconfig-paths/register --project apps/api-server/tsconfig.app.json apps/api-server/src/seeds/dodjela-korisnici.seed.ts"
+      }
+    },
+    "seed-organ": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx ts-node -r tsconfig-paths/register --project apps/api-server/tsconfig.app.json apps/api-server/src/seeds/organ.seed.ts"
+      }
+    },
+    "seed-fdni-raspored": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx ts-node -r tsconfig-paths/register --project apps/api-server/tsconfig.app.json apps/api-server/src/seeds/fdni-rm-raspored.seed.ts"
+      }
+    },
+    "seed-zavod-raspored": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx ts-node -r tsconfig-paths/register --project apps/api-server/tsconfig.app.json apps/api-server/src/seeds/zavod-raspored.seed.ts"
+      }
+    },
+    "seed-zaposlenik": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx ts-node -r tsconfig-paths/register --project apps/api-server/tsconfig.app.json apps/api-server/src/seeds/zaposlenik.seed.ts"
+      }
+    },
+    "export-dodjela": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx ts-node -r tsconfig-paths/register --project apps/api-server/tsconfig.app.json apps/api-server/src/seeds/export-dodjela.ts"
+      }
+    },
+    "seed-fmeri": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx ts-node -r tsconfig-paths/register --project apps/api-server/tsconfig.app.json apps/api-server/src/seeds/seed-fmeri.ts"
+      }
+    },
+    "seed-zavod": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx ts-node -r tsconfig-paths/register --project apps/api-server/tsconfig.app.json apps/api-server/src/seeds/seed-zavod.ts"
+      }
+    },
+    "seed-fdni": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx ts-node -r tsconfig-paths/register --project apps/api-server/tsconfig.app.json apps/api-server/src/seeds/seed-fdni.ts"
+      }
+    },
+    "seed-dodjela-novo": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx ts-node -r tsconfig-paths/register --project apps/api-server/tsconfig.app.json apps/api-server/src/seeds/seed-dodjela.ts"
+      }
+    },
+    "seed-organs-new": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx ts-node -r tsconfig-paths/register --project apps/api-server/tsconfig.app.json apps/api-server/src/seeds/seed-organs-new.ts"
+      }
+    },
+    "seed-jedinice-new": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx ts-node -r tsconfig-paths/register --project apps/api-server/tsconfig.app.json apps/api-server/src/seeds/seed-jedinice-new.ts"
+      }
+    },
+    "seed-radna-mjesta-new": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx ts-node -r tsconfig-paths/register --project apps/api-server/tsconfig.app.json apps/api-server/src/seeds/seed-radna-mjesta-new.ts"
+      }
+    },
+    "seed-zaposlenici-new": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx ts-node -r tsconfig-paths/register --project apps/api-server/tsconfig.app.json apps/api-server/src/seeds/seed-zaposlenici-new.ts"
+      }
+    },
+    "seed-users-new": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx ts-node -r tsconfig-paths/register --project apps/api-server/tsconfig.app.json apps/api-server/src/seeds/seed-users-new.ts"
+      }
+    },
+    "seed-all-new": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "npx ts-node -r tsconfig-paths/register --project apps/api-server/tsconfig.app.json apps/api-server/src/seeds/seed-organs-new.ts",
+          "npx ts-node -r tsconfig-paths/register --project apps/api-server/tsconfig.app.json apps/api-server/src/seeds/seed-jedinice-new.ts",
+          "npx ts-node -r tsconfig-paths/register --project apps/api-server/tsconfig.app.json apps/api-server/src/seeds/seed-radna-mjesta-new.ts",
+          "npx ts-node -r tsconfig-paths/register --project apps/api-server/tsconfig.app.json apps/api-server/src/seeds/seed-zaposlenici-new.ts",
+          "npx ts-node -r tsconfig-paths/register --project apps/api-server/tsconfig.app.json apps/api-server/src/seeds/seed-users-new.ts"
+        ],
+        "parallel": false
+      }
+    },
+    "seed-reset-admin": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx ts-node -r tsconfig-paths/register --project apps/api-server/tsconfig.app.json apps/api-server/src/seeds/seed-reset-admin.ts"
+      }
+    },
+    "seed-reset-passwords": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx ts-node -r tsconfig-paths/register --project apps/api-server/tsconfig.app.json apps/api-server/src/seeds/seed-reset-passwords.ts"
+      }
     }
+
   },
   "tags": []
 }

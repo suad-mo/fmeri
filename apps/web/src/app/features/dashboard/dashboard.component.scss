@@ -1,235 +1,360 @@
 .dashboard-page {
-  min-height: 100vh;
-  background: var(--bg-primary);
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1.5rem;
 }
 
-// ── Navbar ────────────────────────────────────────────────
-.dashboard-nav {
+// ── Header ────────────────────────────────────────────
+.page-header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 1rem 2rem;
-  background: var(--bg-card);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--bg-card-border);
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  align-items: center;
+  margin-bottom: 2rem;
+
+  h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0 0 0.25rem;
+    letter-spacing: -0.5px;
+  }
+
+  p {
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+    margin: 0;
+  }
 }
 
-.nav-brand {
+.header-actions {
   display: flex;
+  gap: 0.5rem;
   align-items: center;
-  gap: 0.75rem;
+  flex-wrap: wrap;
+}
 
-  .nav-logo {
-    width: 40px;
-    height: 40px;
-    background: var(--gradient);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.loading-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 4rem;
+}
+
+// ── Stat kartice ──────────────────────────────────────
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stat-card {
+  .stat-broj {
+    font-size: 1.6rem; // ← smanji s 2rem
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.72rem; // ← smanji
+    color: var(--color-text-secondary);
+    margin-top: 0.3rem;
+    font-weight: 500;
+  }
+
+  mat-card-content {
+    padding: 1rem !important; // ← smanji s 1.5rem
+    gap: 0.75rem;
+  }
+
+  .stat-icon {
+    width: 46px; // ← smanji s 56px
+    height: 46px;
+    border-radius: 12px;
+    display: flex; // ← dodaj
+    align-items: center; // ← zamijeni align-content
+    justify-content: center; // ← dodaj
+    flex-shrink: 0;
 
     mat-icon {
-      color: white;
-      font-size: 20px;
-      width: 20px;
-      height: 20px;
+      font-size: 22px; // ← smanji s 26px
+      width: 22px;
+      height: 22px;
     }
-  }
-
-  .nav-title {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--text-primary);
   }
 }
 
-.nav-actions {
-  display: flex;
-  align-items: center;
+.stat-blue .stat-icon {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+.stat-green .stat-icon {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+}
+.stat-purple .stat-icon {
+  background: linear-gradient(135deg, #8e2de2 0%, #4a00e0 100%);
+}
+.stat-orange .stat-icon {
+  background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);
+}
+
+// ── Grafikoni ─────────────────────────────────────────
+.charts-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
   gap: 1rem;
+  margin-bottom: 1.5rem;
 
-  .nav-welcome {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-
-    strong {
-      color: var(--text-primary);
-    }
-  }
-
-  .logout-btn {
-    border-radius: 10px;
-    gap: 0.25rem;
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
   }
 }
 
-// ── Main ──────────────────────────────────────────────────
-.dashboard-main {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem 1.5rem;
+.chart-card {
+  border-radius: 16px !important;
+
+  mat-card-header {
+    padding: 1.25rem 1.25rem 0;
+  }
+
+  mat-card-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+  }
+
+  mat-card-content {
+    padding: 0.5rem 0.5rem 0 !important;
+  }
+}
+
+.card-icon {
+  color: #667eea;
+  font-size: 20px !important;
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.no-data {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-}
-
-// ── Profil kartica ────────────────────────────────────────
-.profile-card {
-  background: var(--bg-card);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--bg-card-border);
-  border-radius: 24px;
-  padding: 2rem;
-  box-shadow: var(--shadow);
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-
-  @media (max-width: 600px) {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
-.profile-avatar {
-  width: 80px;
-  height: 80px;
-  min-width: 80px;
-  background: var(--gradient);
-  border-radius: 50%;
-  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
-  font-weight: 700;
-  color: white;
+  padding: 3rem;
+  color: var(--color-text-secondary);
+
+  mat-icon {
+    font-size: 48px;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 0.5rem;
+    opacity: 0.2;
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.875rem;
+  }
 }
 
-.profile-info {
+// ── Grupirana tabela ──────────────────────────────────
+.table-card {
+  border-radius: 16px !important;
+
+  mat-card-header {
+    padding: 1.25rem 1.25rem 0;
+  }
+
+  mat-card-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+  }
+
+  mat-card-content {
+    padding: 1rem 0 0 !important;
+  }
+}
+
+.grupa-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  background: linear-gradient(
+    135deg,
+    rgba(102, 126, 234, 0.08),
+    rgba(118, 75, 162, 0.05)
+  );
+  border-left: 3px solid #667eea;
+  margin-top: 0.5rem;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  .grupa-icon {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    color: #667eea;
+  }
+
+  span {
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: var(--color-text-primary);
+    flex: 1;
+  }
+
+  .grupa-count {
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    font-weight: 400;
+  }
+}
+
+.sistematizacija-table {
+  width: 100%;
+  background: transparent !important;
+  margin-bottom: 0.5rem;
+
+  th {
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    font-weight: 600;
+  }
+  td {
+    font-size: 0.85rem;
+  }
+}
+
+// Platni razred badge
+.razred-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.75rem;
+  background: rgba(102, 126, 234, 0.12);
+  color: #667eea;
+  margin-right: 0.25rem;
+}
+
+.koef {
+  color: var(--color-text-secondary);
+  font-size: 0.75rem;
+}
+
+// Progress bar za izvršioce
+.izvrsioci-bar {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  flex: 1;
+  gap: 3px;
+  min-width: 80px;
 
-  .profile-name {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text-primary);
+  .izvrsioci-text {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
   }
 
-  .profile-email {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-
-    mat-icon {
-      font-size: 16px;
-      width: 16px;
-      height: 16px;
-    }
-  }
-
-  .profile-roles {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    margin-top: 0.25rem;
-  }
-}
-
-// ── Info grid ─────────────────────────────────────────────
-.info-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
-}
-
-.info-card {
-  background: var(--bg-card);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--bg-card-border);
-  border-radius: 16px;
-  padding: 1.25rem 1.5rem;
-  box-shadow: var(--shadow);
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 40px rgba(31, 38, 135, 0.2);
-  }
-
-  .info-icon {
-    width: 44px;
-    height: 44px;
-    min-width: 44px;
-    background: var(--gradient);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    mat-icon {
-      color: white;
-      font-size: 20px;
-      width: 20px;
-      height: 20px;
-    }
-  }
-
-  .info-content {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
+  .progress-bar {
+    height: 4px;
+    background: var(--color-background-secondary);
+    border-radius: 2px;
     overflow: hidden;
 
-    .info-label {
-      font-size: 0.75rem;
-      color: var(--text-secondary);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      font-weight: 500;
-    }
+    .progress-fill {
+      height: 100%;
+      border-radius: 2px;
+      transition: width 0.5s ease;
 
-    .info-value {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      &.fill-popunjeno {
+        background: #48bb78;
+      }
+      &.fill-djelimicno {
+        background: #ed8936;
+      }
+      &.fill-slobodno {
+        background: #e2e8f0;
+      }
     }
   }
 }
 
-// ── Status ────────────────────────────────────────────────
-.status-active {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  color: #48bb78 !important;
+// Status badge
+.status-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
 
-  .status-dot {
-    width: 8px;
-    height: 8px;
-    min-width: 8px;
-    background: #48bb78;
-    border-radius: 50%;
-    animation: pulse 2s infinite;
+  &.status-popunjeno {
+    background: rgba(72, 187, 120, 0.15);
+    color: #38a169;
+  }
+  &.status-djelimicno {
+    background: rgba(237, 137, 54, 0.15);
+    color: #c05621;
+  }
+  &.status-slobodno {
+    background: rgba(229, 62, 62, 0.1);
+    color: #c53030;
   }
 }
 
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
+// ── Print ─────────────────────────────────────────────
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  .dashboard-page {
+    padding: 0;
+    max-width: 100%;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .charts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  mat-card {
+    box-shadow: none !important;
+    border: 1px solid #e2e8f0 !important;
+  }
+}
+
+.stat-teal .stat-icon {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+}
+
+.pop-progress {
+  width: 100%;
+  height: 4px;
+  background: var(--color-background-secondary);
+  border-radius: 2px;
+  margin-top: 6px;
+  overflow: hidden;
+}
+
+.pop-fill {
+  height: 100%;
+  background: #38a169;
+  border-radius: 2px;
+  transition: width 0.5s ease;
 }

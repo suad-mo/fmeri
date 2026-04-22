@@ -1,30 +1,62 @@
-# version: '3.8'
 services:
-  # API Server
-  # api-server:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile
-  #   ports:
-  #     - "3000:3000"
-  #   environment:
-  #     - MONGODB_URI=mongodb://mongodb:27017/api-server-db
-  #     - JWT_SECRET=${JWT_SECRET}
-  #     - EXPIRES_IN_MS=${EXPIRES_IN_MS}
-  #   depends_on:
-  #     - mongodb
 
-  # MongoDB Baza podataka
+  # ─── MONGODB ───────────────────────────────────────────
   mongodb:
-    image: mongo:latest
-    container_name: mongodb
     ports:
       - "27017:27017"
+    image: mongo:7
+    container_name: nx-fmeri-db
+    restart: unless-stopped
+    env_file: .env.production
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
+      MONGO_INITDB_DATABASE: nx-fmeri
     volumes:
-      # Lijeva strana: potanja na Windowsu
-      # Desna strana: putanja unutar kontejnera (ne mijenjati)
-      - ./docker-data/db:/data/db
-    # Preporučujem dodavanje restart politike
-    restart: always
-#volumes:
- # mongo-data:
+      - mongodb_data:/data/db
+    networks:
+      - fmeri-network
+
+  # ─── API SERVER ────────────────────────────────────────
+  api:
+    build:
+      context: .
+      dockerfile: apps/api-server/Dockerfile
+    container_name: nx-fmeri-api
+    restart: unless-stopped
+    env_file: .env.production
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+    expose:
+      - "3000"
+    depends_on:
+      - mongodb
+    volumes:
+      - ./docker-data/uploads:/app/uploads
+      - api_assets:/app/assets
+    networks:
+      - fmeri-network
+
+  # ─── WEB (Angular + Nginx) ─────────────────────────────
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    container_name: nx-fmeri-web
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      - api
+    networks:
+      - fmeri-network
+
+volumes:
+  mongodb_data:
+  # api_uploads:
+  api_assets:
+
+networks:
+  fmeri-network:
+    driver: bridge

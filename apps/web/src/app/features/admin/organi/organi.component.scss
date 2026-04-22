@@ -1,0 +1,552 @@
+.organi-page {
+  padding: 1.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-header {
+  margin-bottom: 1.5rem;
+  h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 0.25rem;
+  }
+  p {
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+    margin: 0;
+  }
+}
+
+.loading-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 3rem;
+}
+
+// ── Layout ────────────────────────────────────────────
+.organi-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 1rem;
+  flex: 1;
+  overflow: hidden;
+}
+
+// ── Lista organa ──────────────────────────────────────
+.organi-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow-y: auto;
+}
+
+.organ-kartica {
+  padding: 0.75rem;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  transition: all 0.2s;
+  background: var(--color-background-card);
+
+  &:hover {
+    border-color: #667eea;
+  }
+
+  &.aktivan {
+    border-color: #667eea;
+    background: rgba(102, 126, 234, 0.06);
+  }
+}
+
+.organ-kartica-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.organ-ikona {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  mat-icon {
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+    color: white;
+  }
+
+  &.ikona-ministarstvo {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+  }
+  &.ikona-upravna_organizacija {
+    background: linear-gradient(135deg, #ed8936, #dd6b20);
+  }
+  &.ikona-uprava {
+    background: linear-gradient(135deg, #48bb78, #38a169);
+  }
+  &.ikona-ustanova {
+    background: linear-gradient(135deg, #4299e1, #3182ce);
+  }
+}
+
+.organ-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  .organ-naziv {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    line-height: 1.3;
+  }
+
+  .organ-skraceni {
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+  }
+}
+
+.organ-meta {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.vrsta-chip {
+  font-size: 0.7rem !important;
+  height: 20px !important;
+  min-height: 20px !important;
+
+  &.vrsta-ministarstvo {
+    background: rgba(102, 126, 234, 0.15) !important;
+    color: #667eea !important;
+  }
+  &.vrsta-upravna_organizacija {
+    background: rgba(237, 137, 54, 0.15) !important;
+    color: #ed8936 !important;
+  }
+}
+
+.sastav-chip {
+  font-size: 0.7rem !important;
+  height: 20px !important;
+  min-height: 20px !important;
+  background: rgba(72, 187, 120, 0.15) !important;
+  color: #48bb78 !important;
+}
+
+// ── Struktura organa ──────────────────────────────────
+.organ-struktura {
+  overflow-y: auto;
+  background: var(--color-background-card);
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+
+.struktura-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+
+  h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 0.25rem;
+  }
+
+  .nadleznost {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+}
+
+.struktura-stats {
+  display: flex;
+  gap: 1rem;
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .stat-broj {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #667eea;
+    }
+    .stat-label {
+      font-size: 0.7rem;
+      color: var(--color-text-secondary);
+    }
+  }
+}
+
+.zakonski-osnov {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(102, 126, 234, 0.06);
+  border-radius: 6px;
+  margin: 0.75rem 0;
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+
+  mat-icon {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    color: #667eea;
+  }
+}
+
+// ── Radna mjesta ──────────────────────────────────────
+.rm-sekcija {
+  padding: 0.5rem 0;
+}
+
+.rm-sekcija-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  mat-icon {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.rm-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  margin-bottom: 0.25rem;
+  border-left: 3px solid transparent;
+
+  &.rm-izabrani_duznosnik {
+    border-left-color: #e53e3e;
+    background: rgba(229, 62, 62, 0.04);
+  }
+  &.rm-rukovodeci_drzavni_sluzbenik {
+    border-left-color: #667eea;
+    background: rgba(102, 126, 234, 0.04);
+  }
+  &.rm-ostali_drzavni_sluzbenik {
+    border-left-color: #48bb78;
+    background: rgba(72, 187, 120, 0.04);
+  }
+  &.rm-namjestenik {
+    border-left-color: #ed8936;
+    background: rgba(237, 137, 54, 0.04);
+  }
+
+  &.rm-uoj {
+    margin-left: 1rem;
+  }
+}
+
+.rm-info {
+  flex: 1;
+
+  .rm-naziv {
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: block;
+  }
+  .rm-kategorija {
+    font-size: 0.72rem;
+    color: var(--color-text-secondary);
+  }
+}
+
+.rm-razred {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 50px;
+
+  .razred-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #667eea;
+  }
+
+  small {
+    font-size: 0.7rem;
+    color: var(--color-text-secondary);
+  }
+}
+
+.rm-broj {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  min-width: 20px;
+  text-align: center;
+}
+
+// ── OOJ accordion ─────────────────────────────────────
+.ooj-accordion {
+  margin-top: 0.75rem;
+}
+
+.ooj-panel {
+  margin-bottom: 0.5rem !important;
+  border-radius: 8px !important;
+
+  ::ng-deep .mat-expansion-panel-header {
+    padding: 0 1rem;
+  }
+
+  ::ng-deep .mat-expansion-panel-header-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    overflow: hidden;
+  }
+
+  ::ng-deep .mat-expansion-panel-header-description {
+  justify-content: flex-end;
+  flex-grow: 0;
+  min-width: 60px;
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+}
+
+  ::ng-deep .mat-panel-title {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 2px;
+
+    .ooj-naziv-wrapper {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .ooj-naziv-kratki {
+      font-size: 0.875rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .ooj-naziv-puni {
+      font-size: 0.30rem;
+      font-weight: 200;
+      color: var(--color-text-secondary);
+      white-space: normal;
+      // line-height: 1.3;
+    }
+
+    // .ooj-naziv-kratki {
+    //   font-size: 0.875rem;
+    //   font-weight: 600;
+    //   white-space: nowrap;
+    //   overflow: hidden;
+    //   text-overflow: ellipsis;
+    //   max-width: 350px;
+    // }
+
+    // .ooj-naziv-puni {
+    //   font-size: 0.75rem;
+    //   font-weight: 400;
+    //   color: var(--color-text-secondary);
+    //   white-space: nowrap;
+    //   overflow: hidden;
+    //   text-overflow: ellipsis;
+    //   max-width: 350px;
+    // }
+  }
+}
+
+.ooj-ikona {
+  font-size: 18px !important;
+  width: 18px !important;
+  height: 18px !important;
+  margin-right: 0.5rem;
+  color: #667eea;
+}
+
+// ── UOJ ───────────────────────────────────────────────
+.uoj-blok {
+  margin: 0.5rem 0 0.5rem 0.5rem;
+  border-left: 2px solid var(--color-border);
+  padding-left: 0.75rem;
+}
+
+.uoj-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+
+  .uoj-ikona {
+    font-size: 16px !important;
+    width: 16px !important;
+    height: 16px !important;
+    color: #48bb78;
+  }
+
+  .uoj-count {
+    font-size: 0.75rem;
+    font-weight: 400;
+    margin-left: auto;
+  }
+}
+
+.premjesti-btn {
+  opacity: 0;
+  transition: opacity 0.2s;
+  width: 28px !important;
+  height: 28px !important;
+
+  mat-icon {
+    font-size: 18px !important;
+    width: 18px !important;
+    height: 18px !important;
+    color: #667eea;
+  }
+}
+
+.rm-row:hover .premjesti-btn {
+  opacity: 1;
+}
+
+// ── Zaposlenici uz RM ─────────────────────────────────
+.zaposlenici-lista {
+  padding: 0.25rem 0.75rem 0.5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  border-left: 2px solid rgba(102, 126, 234, 0.2);
+  margin: 0 0.75rem 0.25rem 1.5rem;
+}
+
+.zaposlenik-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0;
+}
+
+.zaposlenik-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-background-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid var(--color-border);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  mat-icon {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    color: var(--color-text-secondary);
+  }
+}
+
+.zaposlenik-info {
+  display: flex;
+  flex-direction: column;
+
+  .zaposlenik-ime {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+  }
+
+  .zaposlenik-email {
+    font-size: 0.72rem;
+    color: var(--color-text-secondary);
+  }
+}
+
+.slobodno-rm {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.75rem 0.5rem 2.5rem;
+  color: var(--color-text-secondary);
+  font-size: 0.78rem;
+
+  mat-icon {
+    font-size: 14px;
+    width: 14px;
+    height: 14px;
+    color: #e53e3e;
+  }
+}
+
+.organi-lista-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.25rem 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.struktura-akcije {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.akcija-btn {
+  width: 28px !important;
+  height: 28px !important;
+  opacity: 0;
+  transition: opacity 0.2s;
+
+  mat-icon {
+    font-size: 16px !important;
+    width: 16px !important;
+    height: 16px !important;
+  }
+}
+
+.mat-expansion-panel-header:hover .akcija-btn {
+  opacity: 1;
+}
+
+.rm-count {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  margin-right: 0.5rem;
+}

@@ -12,8 +12,8 @@ export interface AuthJSON {
   token: string;
   expiresIn: number;
   slika: string | null;
-  organizacionaJedinica: string | null;
-  radnoMjesto: string | null;
+  // organizacionaJedinica: string | null;
+  // radnoMjesto: string | null;
 }
 
 export interface IUser extends Document {
@@ -23,8 +23,9 @@ export interface IUser extends Document {
   role: string[];
   slika?: string; // putanja do profilne slike
   // Dodjela od strane admina
-  organizacionaJedinica?: Types.ObjectId; // ref → OrganizacionaJedinica
-  radnoMjesto?: Types.ObjectId; // ref → RadnoMjesto
+  // organizacionaJedinica?: Types.ObjectId; // ref → OrganizacionaJedinica
+  // radnoMjesto?: Types.ObjectId; // ref → RadnoMjesto
+  zaposlenik?: Types.ObjectId; // ref → Zaposlenik
   resetToken?: string;
   resetTokenExpiration?: Date;
   refreshToken?: string; // ← novo
@@ -58,14 +59,19 @@ const userSchema: Schema<IUser> = new Schema<IUser>(
     hash: { type: String },
     role: [{ type: String }],
     slika: { type: String, default: null },
-    organizacionaJedinica: {
+    // organizacionaJedinica: {
+    //   type: Schema.Types.ObjectId,
+    //   ref: 'OrganizacionaJedinica',
+    //   default: null,
+    // },
+    // radnoMjesto: {
+    //   type: Schema.Types.ObjectId,
+    //   ref: 'RadnoMjesto',
+    //   default: null,
+    // },
+    zaposlenik: {
       type: Schema.Types.ObjectId,
-      ref: 'OrganizacionaJedinica',
-      default: null,
-    },
-    radnoMjesto: {
-      type: Schema.Types.ObjectId,
-      ref: 'RadnoMjesto',
+      ref: 'Zaposlenik',
       default: null,
     },
     resetToken: { type: String },
@@ -133,8 +139,8 @@ const userSchema: Schema<IUser> = new Schema<IUser>(
           token: this.generateJWT(),
           expiresIn,
           slika: this.slika || null,
-          organizacionaJedinica: this.organizacionaJedinica?.toString() || null,
-          radnoMjesto: this.radnoMjesto?.toString() || null,
+          // organizacionaJedinica: this.organizacionaJedinica?.toString() || null,
+          // radnoMjesto: this.radnoMjesto?.toString() || null,
           // refreshToken se setuje kao cookie u controlleru
         };
       },

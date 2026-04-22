@@ -1,6 +1,10 @@
 import * as dotenv from 'dotenv';
 import * as path from 'path';
-dotenv.config({ path: path.join(__dirname, '../../../.env') });
+
+// Učitaj .env samo u development
+if (process.env['NODE_ENV'] !== 'production') {
+  dotenv.config({ path: path.join(__dirname, '../../../.env') });
+}
 
 const REQUIRED_ENV = ['JWT_SECRET', 'JWT_REFRESH_SECRET', 'MONGODB_URI'] as const;
 for (const key of REQUIRED_ENV) {
@@ -19,7 +23,11 @@ import cookieParser from 'cookie-parser';
 import refRoutes from './routes/ref.routes';
 import sablonRoutes from './routes/sablon.routes';
 import userRoutes from './routes/user.routes';
+import statsRoutes from './routes/stats.routes';
+import zaposlenikRoutes from './routes/zaposlenik.routes';
 
+import organRoutes from './routes/organ.routes';
+import izvjestajRoutes from './routes/izvjestaj.routes';
 const app = express();
 
 // Statički fajlovi za slike
@@ -41,6 +49,10 @@ app.use('/api/org', orgRoutes);
 app.use('/api/ref', refRoutes);
 app.use('/api/sablon', sablonRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/stats', statsRoutes);
+app.use('/api/organi', organRoutes);
+app.use('/api/zaposlenici', zaposlenikRoutes);
+app.use('/api/izvjestaj', izvjestajRoutes);
 
 const mongoUri = process.env['MONGODB_URI'] as string;
 const port = process.env['PORT'] || 3000;

@@ -1,0 +1,100 @@
+.subtitle {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  margin: -0.5rem 1.5rem 0.5rem;
+}
+.dialog-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-width: 460px;
+  padding-top: 0.5rem;
+  mat-form-field {
+    width: 100%;
+  }
+}
+.loading {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+.zaposlenici-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 320px;
+  overflow-y: auto;
+}
+.zaposlenik-red {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 0.5px solid var(--color-border-tertiary);
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: var(--border-radius-md);
+  border: 0.5px solid var(--color-border-tertiary);
+  cursor: pointer;
+  transition: background 0.12s;
+
+  &:hover {
+    background: var(--color-background-secondary);
+  }
+  &.odabran {
+    border-color: #667eea;
+    background: rgba(102, 126, 234, 0.06);
+  }
+}
+.z-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(102, 126, 234, 0.12);
+  color: #667eea;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+  flex-shrink: 0;
+
+  &.none {
+    background: var(--color-background-secondary);
+    color: var(--color-text-tertiary);
+    mat-icon {
+      font-size: 16px;
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+.z-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.z-ime {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+.z-rm {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+}
+.check {
+  color: #667eea;
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+}
+.prazno {
+  font-size: 0.82rem;
+  color: var(--color-text-tertiary);
+  text-align: center;
+  padding: 1rem;
+  font-style: italic;
+}

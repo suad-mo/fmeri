@@ -1,13 +1,9 @@
 import { Document, Schema, Model, model, Types } from 'mongoose';
 
-// Kategorije direktno iz zakona
-export type KategorijaZaposlenog =
-  | 'rukovodeci_drzavni_sluzbenik'  // Član 6a ZDS
-  | 'ostali_drzavni_sluzbenik'       // Član 6b ZDS
-  | 'namjestenik';                   // Zakon o namještenicima
-
-// Ključevi pozicija iz referentnih podataka (api-ref)
 export type PozicijaKljuc =
+  // Izabrani dužnosnici
+  | 'ministar'
+  | 'savjetnik_ministra'
   // Rukovodeći državni službenici
   | 'sekretar_vlade'
   | 'rukovodilac_samostalne_uprave'
@@ -34,12 +30,23 @@ export type PozicijaKljuc =
   | 'visi_referent'
   | 'referent'
   | 'pomocni_radnik'
-  // Posebni (van standardnih razreda)
+  // Posebni
   | 'ostalo';
+
+export type KategorijaZaposlenog =
+  | 'izabrani_duznosnik'
+  | 'rukovodeci_drzavni_sluzbenik'
+  | 'ostali_drzavni_sluzbenik'
+  | 'namjestenik';
 
 export interface IRadnoMjesto extends Document {
   naziv: string;
   organizacionaJedinica: Types.ObjectId;
+
+  // Interface
+  organ: Types.ObjectId; // ← novo
+  osnovnaJedinica?: Types.ObjectId; // ← novo (nullable)
+  unutrasnjaJedinica?: Types.ObjectId; // ← novo (nullable)
 
   // Klasifikacija po zakonu
   kategorijaZaposlenog: KategorijaZaposlenog;
@@ -76,9 +83,27 @@ const radnoMjestoSchema = new Schema<IRadnoMjesto>(
       ref: 'OrganizacionaJedinica',
       required: [true, 'Organizaciona jedinica je obavezna'],
     },
+    // Schema
+    organ: {
+      type: Schema.Types.ObjectId,
+      ref: 'Organ',
+      required: false,
+      default: null,
+    },
+    osnovnaJedinica: {
+      type: Schema.Types.ObjectId,
+      ref: 'OrganizacionaJedinica',
+      default: null,
+    },
+    unutrasnjaJedinica: {
+      type: Schema.Types.ObjectId,
+      ref: 'OrganizacionaJedinica',
+      default: null,
+    },
     kategorijaZaposlenog: {
       type: String,
       enum: [
+        'izabrani_duznosnik',          // ← dodaj
         'rukovodeci_drzavni_sluzbenik',
         'ostali_drzavni_sluzbenik',
         'namjestenik',
@@ -96,7 +121,7 @@ const radnoMjestoSchema = new Schema<IRadnoMjesto>(
     koeficijent: {
       type: Number,
       required: [true, 'Koeficijent je obavezan'],
-      min: 1,
+      min: 0.1,
     },
     opsisPoslova: {
       type: String,
@@ -117,7 +142,7 @@ const radnoMjestoSchema = new Schema<IRadnoMjesto>(
       default: true,
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 radnoMjestoSchema.index({ organizacionaJedinica: 1 });
@@ -127,5 +152,5 @@ radnoMjestoSchema.index({ platniRazred: 1 });
 
 export const RadnoMjesto: Model<IRadnoMjesto> = model<IRadnoMjesto>(
   'RadnoMjesto',
-  radnoMjestoSchema
+  radnoMjestoSchema,
 );

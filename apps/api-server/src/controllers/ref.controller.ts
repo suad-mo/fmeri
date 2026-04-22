@@ -30,6 +30,7 @@ export const getPozicije = async (req: Request, res: Response) => {
       rukovodeci_drzavni_sluzbenik: 'drzavni_sluzbenik',
       ostali_drzavni_sluzbenik: 'drzavni_sluzbenik',
       namjestenik: 'namjestenik',
+      izabrani_duznosnik: 'izabrani_duznosnik', // ← dodaj
     };
 
     const dbKategorija = kategorija

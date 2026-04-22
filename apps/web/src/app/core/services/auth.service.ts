@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
 
 export interface AuthResponse {
   id: string;
@@ -11,12 +12,16 @@ export interface AuthResponse {
   role: string[];
   token: string;
   expiresIn: number;
-  // refreshToken više nije u response body
+  zaposlenik?: {
+    _id: string;
+    ime: string;
+    prezime: string;
+  } | null;
 }
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private readonly apiUrl = 'http://localhost:3000/api/auth';
+  private readonly apiUrl = `${environment.apiUrl}/auth`;
 
   private _currentUser = signal<AuthResponse | null>(this.loadFromStorage());
   currentUser = this._currentUser.asReadonly();

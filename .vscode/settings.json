@@ -1,3 +1,4 @@
 {
-    "nxConsole.nxWorkspacePath": ""
+    "nxConsole.nxWorkspacePath": "",
+     "angular.experimental-ivy-prompt": false
 }

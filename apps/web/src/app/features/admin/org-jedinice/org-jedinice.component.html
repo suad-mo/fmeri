@@ -1,30 +1,159 @@
-<div class="page-header">
-  <div>
-    <h1>Organizacione jedinice</h1>
-    <p>Struktura organizacije</p>
-  </div>
-  <button mat-flat-button color="primary" (click)="otvoriDijalog()">
-    <mat-icon>add</mat-icon>
-    Nova jedinica
-  </button>
-</div>
+<div class="page-with-panel">
+  <!-- Lijeva strana: tree view -->
+  <div class="tree-side" [class.panel-open]="panelOtvoren()">
+    <div class="page-header">
+      <div>
+        <h1>Organizacijska struktura</h1>
+        <p>Kliknite na naziv jedinice za pregled radnih mjesta</p>
+      </div>
+      <button mat-flat-button color="primary" (click)="otvoriDijalog()">
+        <mat-icon>add</mat-icon>
+        Nova jedinica
+      </button>
+    </div>
 
-@if (isLoading()) {
-  <div class="loading-wrapper">
-    <mat-spinner diameter="40" />
-  </div>
-} @else {
-  <div class="tree-card">
-    @for (node of stablo(); track node._id) {
-      <app-org-tree-node
-        [node]="node"
-        [nivo]="0"
-        (editClicked)="otvoriDijalog($any($event))"
-        (deleteClicked)="obrisi($any($event))"
-        (addJedinicaClicked)="dodajPodredjenuJedinicu($any($event))"
-        (addRadnoMjestoClicked)="dodajRadnoMjesto($any($event))"
-      >
-      </app-org-tree-node>
+    @if (isLoading()) {
+      <div class="loading-wrapper">
+        <mat-spinner diameter="40" />
+      </div>
+    } @else {
+      <div class="tree-container">
+        @for (node of stablo(); track node._id) {
+          <app-org-tree-node
+            [node]="node"
+            [nivo]="0"
+            (editClicked)="otvoriDijalog($event)"
+            (deleteClicked)="obrisi($event)"
+            (addJedinicaClicked)="dodajPodredjenuJedinicu($event)"
+            (addRadnoMjestoClicked)="dodajRadnoMjesto($event)"
+            (detaljiClicked)="otvoriDetalje($event)"
+          >
+          </app-org-tree-node>
+        }
+      </div>
     }
   </div>
-}
+
+  <!-- Desna strana: detalji panel -->
+  @if (panelOtvoren()) {
+    <div class="detalji-panel">
+      <div class="panel-header">
+        <h2>{{ odabranaJedinica()?.jedinica?.naziv ?? 'Učitavam...' }}</h2>
+        <button mat-icon-button (click)="zatvoriPanel()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+
+      @if (panelLoading()) {
+        <div class="panel-loading">
+          <mat-spinner diameter="32" />
+        </div>
+      } @else if (odabranaJedinica(); as d) {
+        <!-- Sumarni info -->
+        <div class="panel-stats">
+          <div class="panel-stat">
+            <span class="panel-stat-broj">{{ d.radnaMjesta.length }}</span>
+            <span class="panel-stat-label">Radnih mjesta</span>
+          </div>
+          <div class="panel-stat">
+            <span class="panel-stat-broj">{{ d.ukupnoMjesta }}</span>
+            <span class="panel-stat-label">Izvršilaca</span>
+          </div>
+          <div class="panel-stat">
+            <span class="panel-stat-broj text-green">{{ d.popunjeno }}</span>
+            <span class="panel-stat-label">Popunjeno</span>
+          </div>
+          <div class="panel-stat">
+            <span class="panel-stat-broj text-red">{{
+              d.ukupnoMjesta - d.popunjeno
+            }}</span>
+            <span class="panel-stat-label">Slobodno</span>
+          </div>
+        </div>
+
+        <mat-divider />
+
+        <!-- Radna mjesta -->
+        <div class="radna-mjesta-lista">
+          @for (rm of d.radnaMjesta; track rm._id) {
+            <div
+              class="rm-kartica"
+              [class.rm-popunjeno]="rm.zaposlenici.length >= rm.brojIzvrsilaca"
+              [class.rm-slobodno]="rm.zaposlenici.length === 0"
+            >
+              <div class="rm-header">
+                <div class="rm-info">
+                  <span class="rm-naziv">{{ rm.naziv }}</span>
+                  <div class="rm-meta">
+                    <mat-chip class="razred-chip"
+                      >Razred {{ rm.platniRazred }}</mat-chip
+                    >
+                    <small class="kategorija-text">{{
+                      getKategorijaNaziv(rm.kategorijaZaposlenog)
+                    }}</small>
+                  </div>
+                </div>
+                <div class="rm-popunjenost">
+                  <span
+                    class="rm-broj"
+                    [class.pun]="rm.zaposlenici.length >= rm.brojIzvrsilaca"
+                  >
+                    {{ rm.zaposlenici.length }}/{{ rm.brojIzvrsilaca }}
+                  </span>
+                  <div class="mini-progress">
+                    <div
+                      class="mini-fill"
+                      [style.width.%]="getPopunjenostPostotak(rm)"
+                      [class.fill-puno]="
+                        rm.zaposlenici.length >= rm.brojIzvrsilaca
+                      "
+                      [class.fill-prazno]="rm.zaposlenici.length === 0"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Useri na ovom radnom mjestu -->
+              <!-- Zaposlenici na ovom radnom mjestu -->
+              @if (rm.zaposlenici && rm.zaposlenici.length > 0) {
+                <div class="useri-lista">
+                  @for (z of rm.zaposlenici; track z._id) {
+                    <div class="user-row">
+                      <div class="user-avatar">
+                        @if (z.slika) {
+                          <img [src]="apiUrl + '/' + z.slika" [alt]="z.ime" />
+                        } @else {
+                          <mat-icon>person</mat-icon>
+                        }
+                      </div>
+                      <div class="user-info">
+                        <span class="user-name"
+                          >{{ z.ime }} {{ z.prezime }}</span
+                        >
+                        @if (z.sluzbeniEmail) {
+                          <span class="user-email">{{ z.sluzbeniEmail }}</span>
+                        }
+                      </div>
+                    </div>
+                  }
+                </div>
+              } @else {
+                <div class="slobodno-badge">
+                  <mat-icon>person_outline</mat-icon>
+                  <span>Slobodno radno mjesto</span>
+                </div>
+              }
+            </div>
+          }
+
+          @if (d.radnaMjesta.length === 0) {
+            <div class="prazna-lista">
+              <mat-icon>work_off</mat-icon>
+              <p>Nema radnih mjesta u ovoj jedinici</p>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  }
+</div>

@@ -69,7 +69,8 @@ export class SabloniComponent implements OnInit {
 
   uredi(sablon: GlobalniSablon) {
     const ref = this.dialog.open(SablonDialogComponent, {
-      width: '700px',
+      width: '640px',
+      maxWidth: '95vw', // ← dodaj
       data: { sablon },
     });
     ref.afterClosed().subscribe((rezultat) => {

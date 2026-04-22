@@ -1,0 +1,80 @@
+<h2 mat-dialog-title>Poveži sa zaposlenikom</h2>
+<p class="subtitle">
+  Korisnik: <strong>{{ data.korisnik.name }}</strong>
+</p>
+
+<mat-dialog-content>
+  <div class="dialog-form">
+    <!-- Pretraga -->
+    <mat-form-field appearance="outline">
+      <mat-label>Pretraži zaposlenika</mat-label>
+      <input matInput [(ngModel)]="pretraga" placeholder="Ime, prezime..." />
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+
+    <!-- Lista zaposlenika -->
+    @if (isLoading()) {
+      <div class="loading"><mat-spinner diameter="24" /></div>
+    } @else {
+      <div class="zaposlenici-lista">
+        <!-- Opcija "Ukloni vezu" -->
+        <!-- Opcija "Ukloni vezu" -->
+        <button
+          class="zaposlenik-red"
+          [class.odabran]="odabranId === null"
+          (click)="odabranId = null"
+        >
+          <div class="z-avatar none">
+            <mat-icon>link_off</mat-icon>
+          </div>
+          <div class="z-info">
+            <span class="z-ime">Bez veze</span>
+            <span class="z-rm">Ukloni vezu sa zaposlenikom</span>
+          </div>
+          @if (odabranId === null) {
+            <mat-icon class="check">check_circle</mat-icon>
+          }
+        </button>
+
+        @for (z of filtrirani(); track z._id) {
+          <button
+            class="zaposlenik-red"
+            [class.odabran]="odabranId === z._id"
+            (click)="odabranId = z._id"
+          >
+            <div class="z-avatar">{{ z.ime[0] }}{{ z.prezime[0] }}</div>
+            <div class="z-info">
+              <span class="z-ime">{{ z.ime }} {{ z.prezime }}</span>
+              <span class="z-rm">{{
+                z.radnoMjesto?.naziv ?? 'Bez radnog mjesta'
+              }}</span>
+            </div>
+            @if (odabranId === z._id) {
+              <mat-icon class="check">check_circle</mat-icon>
+            }
+          </button>
+        }
+
+        @if (filtrirani().length === 0 && pretraga.length > 0) {
+          <div class="prazno">Nema rezultata za "{{ pretraga }}"</div>
+        }
+      </div>
+    }
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="ref.close()">Odustani</button>
+  <button
+    mat-flat-button
+    color="primary"
+    [disabled]="loading"
+    (click)="spremi()"
+  >
+    @if (loading) {
+      <mat-spinner diameter="20" />
+    } @else {
+      Sačuvaj vezu
+    }
+  </button>
+</mat-dialog-actions>
