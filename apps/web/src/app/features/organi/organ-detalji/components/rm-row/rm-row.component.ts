@@ -3,6 +3,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { RadnoMjestoDetalji, KATEGORIJA_NAZIV, KategorijaZaposlenog } from '../../../../../core/models/org.models';
+import { environment } from '../../../../../../environments/environment.production';
 
 @Component({
   selector: 'app-rm-row',
@@ -15,7 +16,7 @@ import { RadnoMjestoDetalji, KATEGORIJA_NAZIV, KategorijaZaposlenog } from '../.
 export class RmRowComponent {
   rm = input.required<RadnoMjestoDetalji>();
   jeAdmin = input<boolean>(false);
-  apiUrl = input<string>('http://localhost:3000/uploads/slike');
+  apiUrl = input<string>(environment.uploadsUrl);
 
   dodijeli = output<RadnoMjestoDetalji>();
   premjesti = output<RadnoMjestoDetalji>();

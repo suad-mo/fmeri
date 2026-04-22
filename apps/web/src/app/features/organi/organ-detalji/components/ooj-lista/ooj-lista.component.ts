@@ -8,6 +8,7 @@ import {
   RadnoMjestoDetalji,
 } from '../../../../../core/models/org.models';
 import { RmRowComponent } from '../rm-row/rm-row.component';
+import { environment } from '../../../../../../environments/environment.production';
 
 @Component({
   selector: 'app-ooj-lista',
@@ -23,7 +24,7 @@ import { RmRowComponent } from '../rm-row/rm-row.component';
 export class OojListaComponent {
   ooj = input.required<OsnovnaJedinicaDetalji[]>();
   jeAdmin = input<boolean>(false);
-  apiUrl = input<string>('http://localhost:3000/uploads/slike');
+  apiUrl = input<string>(environment.uploadsUrl);
 
   dodajOOJRm  = output<OsnovnaJedinicaDetalji>();
   dodajUOJ    = output<OsnovnaJedinicaDetalji>();

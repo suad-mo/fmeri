@@ -1,6 +1,10 @@
 import * as dotenv from 'dotenv';
 import * as path from 'path';
-dotenv.config({ path: path.join(__dirname, '../../../.env') });
+
+// Učitaj .env samo u development
+if (process.env['NODE_ENV'] !== 'production') {
+  dotenv.config({ path: path.join(__dirname, '../../../.env') });
+}
 
 const REQUIRED_ENV = ['JWT_SECRET', 'JWT_REFRESH_SECRET', 'MONGODB_URI'] as const;
 for (const key of REQUIRED_ENV) {

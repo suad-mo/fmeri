@@ -15,6 +15,7 @@ import {
   // PregledRM,
 } from '../../../core/models/org.models';
 import { NgTemplateOutlet } from '@angular/common';
+import { environment } from '../../../../environments/environment.production';
 
 interface OrganFilter {
   organ: Organ;
@@ -25,10 +26,14 @@ interface OrganFilter {
   selector: 'app-pregled',
   standalone: true,
   imports: [
-    MatIconModule, MatButtonModule,
-    MatProgressSpinnerModule, MatTooltipModule,
-    MatCheckboxModule, FormsModule,
-    MatSelectModule, MatFormFieldModule,
+    MatIconModule,
+    MatButtonModule,
+    MatProgressSpinnerModule,
+    MatTooltipModule,
+    MatCheckboxModule,
+    FormsModule,
+    MatSelectModule,
+    MatFormFieldModule,
     NgTemplateOutlet,
   ],
   templateUrl: './pregled.component.html',
@@ -62,7 +67,9 @@ export class PregledComponent implements OnInit {
     this.orgService.getOrgani().subscribe({
       next: (organi) => {
         this.organi.set(organi);
-        this.organFilteri.set(organi.map(o => ({ organ: o, ukljucen: true })));
+        this.organFilteri.set(
+          organi.map((o) => ({ organ: o, ukljucen: true })),
+        );
         this.organiLoading.set(false);
         this.ucitaj();
       },
@@ -71,8 +78,8 @@ export class PregledComponent implements OnInit {
 
   ucitaj() {
     const ukljuceni = this.organFilteri()
-      .filter(f => f.ukljucen)
-      .map(f => f.organ._id);
+      .filter((f) => f.ukljucen)
+      .map((f) => f.organ._id);
 
     if (!ukljuceni.length) {
       this.podaci.set([]);
@@ -84,7 +91,7 @@ export class PregledComponent implements OnInit {
       next: (data) => {
         this.podaci.set(data);
         // Otvori sve organe po defaultu
-        const ids = new Set(data.map(o => o.organId));
+        const ids = new Set(data.map((o) => o.organId));
         this.otvoreniOrgani.set(ids);
         this.isLoading.set(false);
       },
@@ -93,7 +100,7 @@ export class PregledComponent implements OnInit {
   }
 
   toggleOrgan(id: string) {
-    this.otvoreniOrgani.update(set => {
+    this.otvoreniOrgani.update((set) => {
       const next = new Set(set);
       // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       next.has(id) ? next.delete(id) : next.add(id);
@@ -102,7 +109,7 @@ export class PregledComponent implements OnInit {
   }
 
   toggleOOJ(id: string) {
-    this.otvoreneOOJ.update(set => {
+    this.otvoreneOOJ.update((set) => {
       const next = new Set(set);
       // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       next.has(id) ? next.delete(id) : next.add(id);
@@ -110,28 +117,37 @@ export class PregledComponent implements OnInit {
     });
   }
 
-  isOrganOpen(id: string) { return this.otvoreniOrgani().has(id); }
-  isOOJOpen(id: string) { return this.otvoreneOOJ().has(id); }
+  isOrganOpen(id: string) {
+    return this.otvoreniOrgani().has(id);
+  }
+  isOOJOpen(id: string) {
+    return this.otvoreneOOJ().has(id);
+  }
 
   getBojuPostotka(posto: number): string {
     return posto >= 80 ? 'zelena' : posto >= 50 ? 'zuta' : 'crvena';
   }
 
   downloadPDF() {
-    const ids = this.organFilteri().filter(f => f.ukljucen).map(f => f.organ._id);
+    const ids = this.organFilteri()
+      .filter((f) => f.ukljucen)
+      .map((f) => f.organ._id);
     const jed = this.saJedinicama();
+
     window.open(
-      `http://localhost:3000/api/izvjestaj/pregled/pdf?organi=${ids.join(',')}&saJedinicama=${jed}`,
-      '_blank'
+      `${environment.apiUrl}/izvjestaj/pregled/pdf?organi=${ids.join(',')}&saJedinicama=${jed}`,
+      '_blank',
     );
   }
 
   downloadExcel() {
-    const ids = this.organFilteri().filter(f => f.ukljucen).map(f => f.organ._id);
+    const ids = this.organFilteri()
+      .filter((f) => f.ukljucen)
+      .map((f) => f.organ._id);
     const jed = this.saJedinicama();
     window.open(
-      `http://localhost:3000/api/izvjestaj/pregled/excel?organi=${ids.join(',')}&saJedinicama=${jed}`,
-      '_blank'
+      `${environment.apiUrl}/izvjestaj/pregled/excel?organi=${ids.join(',')}&saJedinicama=${jed}`,
+      '_blank',
     );
   }
 }

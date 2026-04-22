@@ -18,7 +18,8 @@ import {
   VrstaUgovora,
 } from '../../../core/models/org.models';
 import { RouterLink } from '@angular/router';
-import { AuthService } from 'src/app/core/services/auth.service';
+import { AuthService } from '../../../../app/core/services/auth.service';
+import { environment } from '../../../../environments/environment.production';
 
 @Component({
   selector: 'app-zaposlenici',
@@ -52,7 +53,7 @@ export class ZaposleniciComponent implements OnInit {
     () => this.authService.currentUser()?.role.includes('admin') ?? false,
   );
 
-  readonly apiUrl = 'http://localhost:3000/uploads/slike';
+  readonly apiUrl = environment.uploadsUrl;
 
   kolone = computed(() => {
     if (this.jeAdmin()) {

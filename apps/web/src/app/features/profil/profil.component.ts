@@ -12,6 +12,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { OrgService } from '../../core/services/org.service';
 import { UserProfil, KATEGORIJA_NAZIV, KategorijaZaposlenog } from '../../core/models/org.models';
 import { RouterLink } from '@angular/router';
+import { environment } from '../../../environments/environment.production';
 
 @Component({
   selector: 'app-profil',
@@ -42,7 +43,7 @@ export class ProfilComponent implements OnInit {
   uploadLoading = signal(false);
   lozinkaLoading = signal(false);
 
-  readonly apiUrl = 'http://localhost:3000/uploads/slike';
+  readonly apiUrl = environment.uploadsUrl;
 
   lozinkaForm = this.fb.group({
     trenutnaLozinka: ['', Validators.required],

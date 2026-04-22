@@ -8,7 +8,9 @@
   "targets": {
     "build": {
       "executor": "@angular/build:application",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/web",
         "browser": "apps/web/src/main.ts",
@@ -20,10 +22,18 @@
             "input": "apps/web/public"
           }
         ],
-        "styles": ["apps/web/src/styles.scss"]
+        "styles": [
+          "apps/web/src/styles.scss"
+        ]
       },
       "configurations": {
         "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/web/src/environments/environment.ts",
+              "with": "apps/web/src/environments/environment.production.ts"
+            }
+          ],
           "budgets": [
             {
               "type": "initial",

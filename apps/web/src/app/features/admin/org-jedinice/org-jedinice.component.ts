@@ -16,6 +16,7 @@ import {
 import { OrgJedinicaDialogComponent } from './dialogs/org-jedinica-dialog.component';
 import { OrgTreeNodeComponent } from './org-tree-node.component';
 import { MatDividerModule } from '@angular/material/divider';
+import { environment } from '../../../../environments/environment.production';
 // import { MatDivider } from "@angular/material/divider";
 
 @Component({
@@ -48,7 +49,7 @@ export class OrgJediniceComponent implements OnInit {
   jedinicePlana = signal<OrganizacionaJedinica[]>([]);
   isLoading = signal(true);
   // novo
-  readonly apiUrl = 'http://localhost:3000/uploads/slike';
+  readonly apiUrl = environment.uploadsUrl;
 
   // ngOnInit() {
   //   this.ucitaj();

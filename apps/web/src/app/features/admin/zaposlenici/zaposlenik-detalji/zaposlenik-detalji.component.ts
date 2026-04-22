@@ -14,6 +14,7 @@ import {
   VRSTA_UGOVORA_NAZIV, VrstaUgovora,
 } from '../../../../core/models/org.models';
 import { DatePipe } from '@angular/common';
+import { environment } from '../../../../../environments/environment.production';
 
 @Component({
   selector: 'app-zaposlenik-detalji',
@@ -38,7 +39,7 @@ export class ZaposlenikDetaljiComponent implements OnInit {
   zaposlenik = signal<Zaposlenik | null>(null);
   isLoading = signal(true);
 
-  readonly apiUrl = 'http://localhost:3000/uploads/slike';
+  readonly apiUrl = environment.uploadsUrl;
 
   jeAdmin = computed(() =>
     this.authService.currentUser()?.role.includes('admin') ?? false

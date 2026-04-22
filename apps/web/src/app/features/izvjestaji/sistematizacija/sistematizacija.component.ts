@@ -13,15 +13,20 @@ import {
   KATEGORIJA_NAZIV,
   KategorijaZaposlenog,
 } from '../../../core/models/org.models';
+import { environment } from '../../../../environments/environment.production';
 
 @Component({
   selector: 'app-sistematizacija',
   standalone: true,
   imports: [
-    MatIconModule, MatButtonModule,
-    MatProgressSpinnerModule, MatTooltipModule,
-    FormsModule, MatFormFieldModule,
-    MatInputModule, MatSelectModule,
+    MatIconModule,
+    MatButtonModule,
+    MatProgressSpinnerModule,
+    MatTooltipModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
   ],
   templateUrl: './sistematizacija.component.html',
   styleUrl: './sistematizacija.component.scss',
@@ -37,8 +42,9 @@ export class SistematizacijaComponent implements OnInit {
   filtrirane = computed(() => {
     const p = this.pretraga().toLowerCase();
     const s = this.filterStatus();
-    return this.stavke().filter(item => {
-      const matchPretraga = !p ||
+    return this.stavke().filter((item) => {
+      const matchPretraga =
+        !p ||
         item.naziv.toLowerCase().includes(p) ||
         item.organizacionaJedinica?.naziv.toLowerCase().includes(p);
       const matchStatus = s === 'sve' || item.status === s;
@@ -47,7 +53,10 @@ export class SistematizacijaComponent implements OnInit {
   });
 
   grupirane = computed(() => {
-    const grupe = new Map<string, { naziv: string; items: SistematizacijaItem[] }>();
+    const grupe = new Map<
+      string,
+      { naziv: string; items: SistematizacijaItem[] }
+    >();
     for (const item of this.filtrirane()) {
       const naziv = item.organizacionaJedinica?.naziv ?? 'Ostalo';
       if (!grupe.has(naziv)) grupe.set(naziv, { naziv, items: [] });
@@ -84,22 +93,32 @@ export class SistematizacijaComponent implements OnInit {
   }
 
   getStatusBoja(status: string): string {
-    return status === 'popunjeno' ? 'status-popunjeno'
-      : status === 'djelimicno' ? 'status-djelimicno'
-      : 'status-slobodno';
+    return status === 'popunjeno'
+      ? 'status-popunjeno'
+      : status === 'djelimicno'
+        ? 'status-djelimicno'
+        : 'status-slobodno';
   }
 
   getStatusNaziv(status: string): string {
-    return status === 'popunjeno' ? 'Popunjeno'
-      : status === 'djelimicno' ? 'Djelimično'
-      : 'Slobodno';
+    return status === 'popunjeno'
+      ? 'Popunjeno'
+      : status === 'djelimicno'
+        ? 'Djelimično'
+        : 'Slobodno';
   }
 
   downloadPDF() {
-    window.open('http://localhost:3000/api/izvjestaj/sistematizacija/pdf', '_blank');
+    window.open(
+      `${environment.apiUrl}/izvjestaj/sistematizacija/pdf`,
+      '_blank',
+    );
   }
 
   downloadExcel() {
-    window.open('http://localhost:3000/api/izvjestaj/sistematizacija/excel', '_blank');
+    window.open(
+      `${environment.apiUrl}/izvjestaj/sistematizacija/excel`,
+      '_blank',
+    );
   }
 }

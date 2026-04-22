@@ -9,6 +9,7 @@ import {
   PopunjenostOrgana,
   PopunjenostJedinice,
 } from '../../../core/models/org.models';
+import { environment } from '../../../../environments/environment.production';
 
 @Component({
   selector: 'app-popunjenost',
@@ -42,7 +43,7 @@ export class PopunjenostComponent implements OnInit {
     };
   });
 
-  readonly apiUrl = 'http://localhost:3000/api';
+  readonly apiUrl = environment.apiUrl;
 
   downloadPDF() {
     window.open(`${this.apiUrl}/izvjestaj/popunjenost/pdf`, '_blank');

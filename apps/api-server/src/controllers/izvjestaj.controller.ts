@@ -107,7 +107,12 @@ export const popunjenostPDF = async (req: Request, res: Response) => {
     // Na početku popunjenostPDF funkcije, prije doc.pipe(res):
     // const fontsDir = path.join(__dirname, '../assets/fonts');
 
-    const fontsDir = path.resolve('apps/api-server/src/assets/fonts');
+    // const fontsDir = path.resolve('apps/api-server/src/assets/fonts');
+
+    const fontsDir =
+      process.env['NODE_ENV'] === 'production'
+        ? path.join(process.cwd(), 'assets/fonts')
+        : path.resolve('apps/api-server/src/assets/fonts');
 
     const doc = new PDFDocument({ margin: 40, size: 'A4' });
 
@@ -706,20 +711,16 @@ export const sistematizacijaPDF = async (req: Request, res: Response) => {
             width: 110,
             lineBreak: false,
           });
-        doc
-          .fillColor('#667eea')
-          .text(rm.platniRazred, 385, rowY + 3, {
-            width: 40,
-            align: 'center',
-            lineBreak: false,
-          });
-        doc
-          .fillColor('#718096')
-          .text(`${rm.koeficijent}`, 428, rowY + 3, {
-            width: 35,
-            align: 'center',
-            lineBreak: false,
-          });
+        doc.fillColor('#667eea').text(rm.platniRazred, 385, rowY + 3, {
+          width: 40,
+          align: 'center',
+          lineBreak: false,
+        });
+        doc.fillColor('#718096').text(`${rm.koeficijent}`, 428, rowY + 3, {
+          width: 35,
+          align: 'center',
+          lineBreak: false,
+        });
         doc
           .fillColor(rm.popunjeno >= rm.brojIzvrsilaca ? '#38a169' : '#e53e3e')
           .text(`${rm.popunjeno}/${rm.brojIzvrsilaca}`, 466, rowY + 3, {
@@ -1182,13 +1183,11 @@ export const pregledPDF = async (req: Request, res: Response) => {
             width: 240 - indent,
             lineBreak: false,
           });
-        doc
-          .fillColor('#667eea')
-          .text(rm.platniRazred, 295, rowY + 3, {
-            width: 30,
-            align: 'center',
-            lineBreak: false,
-          });
+        doc.fillColor('#667eea').text(rm.platniRazred, 295, rowY + 3, {
+          width: 30,
+          align: 'center',
+          lineBreak: false,
+        });
         doc
           .fillColor(rm.popunjeno >= rm.brojIzvrsilaca ? '#38a169' : '#e53e3e')
           .text(`${rm.popunjeno}/${rm.brojIzvrsilaca}`, 330, rowY + 3, {

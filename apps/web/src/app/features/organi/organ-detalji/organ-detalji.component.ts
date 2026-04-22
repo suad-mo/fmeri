@@ -19,6 +19,7 @@ import {
 } from '../../../core/models/org.models';
 import { RmRowComponent } from './components/rm-row/rm-row.component';
 import { OojListaComponent } from './components/ooj-lista/ooj-lista.component';
+import { environment } from '../../../../environments/environment.production';
 
 @Component({
   selector: 'app-organ-detalji',
@@ -42,7 +43,7 @@ export class OrganDetaljiComponent implements OnInit {
   struktura = signal<OrganStruktura | null>(null);
   isLoading = signal(true);
 
-  readonly apiUrl = 'http://localhost:3000/uploads/slike';
+  readonly apiUrl = environment.uploadsUrl;
 
   jeAdmin = computed(() =>
     this.authService.currentUser()?.role.includes('admin') ?? false

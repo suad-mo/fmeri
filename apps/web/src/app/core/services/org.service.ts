@@ -20,17 +20,19 @@ import {
   PopunjenostOrgana,
   PregledOrgana,
 } from '../models/org.models';
+import { environment } from '../../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class OrgService {
   private http = inject(HttpClient);
-  private readonly apiUrl = 'http://localhost:3000/api/org';
-  private readonly refUrl = 'http://localhost:3000/api/ref';
-  private readonly sablonUrl = 'http://localhost:3000/api/sablon';
-  private readonly usersUrl = 'http://localhost:3000/api/users';
-  private readonly statsUrl = 'http://localhost:3000/api/stats';
-  private readonly organiUrl = 'http://localhost:3000/api/organi';
-  private readonly zaposlenikUrl = 'http://localhost:3000/api/zaposlenici';
+
+  private readonly apiUrl = `${environment.apiUrl}/org`;
+  private readonly refUrl = `${environment.apiUrl}/ref`;
+  private readonly sablonUrl = `${environment.apiUrl}/sablon`;
+  private readonly usersUrl = `${environment.apiUrl}/users`;
+  private readonly statsUrl = `${environment.apiUrl}/stats`;
+  private readonly organiUrl = `${environment.apiUrl}/organi`;
+  private readonly zaposlenikUrl = `${environment.apiUrl}/zaposlenici`;
 
   // Vlastiti profil
   getMe(): Observable<UserProfil> {
@@ -283,12 +285,6 @@ export class OrgService {
     );
   }
 
-  getRadnaMjestaZaOrgan(organId: string): Observable<RadnoMjesto[]> {
-    return this.http.get<RadnoMjesto[]>(
-      `http://localhost:3000/api/zaposlenici/../organi/${organId}/radna-mjesta`,
-    );
-  }
-
   getRadnaMjestaOrgana(organId: string): Observable<RadnoMjesto[]> {
     return this.http.get<RadnoMjesto[]>(
       `${this.organiUrl}/${organId}/radna-mjesta`,
@@ -382,7 +378,7 @@ export class OrgService {
     let params = `saJedinicama=${saJedinicama}`;
     if (organiIds?.length) params += `&organi=${organiIds.join(',')}`;
     return this.http.get<PregledOrgana[]>(
-      `http://localhost:3000/api/izvjestaj/pregled?${params}`,
+      `${environment.apiUrl}/izvjestaj/pregled?${params}`,
     );
   }
 

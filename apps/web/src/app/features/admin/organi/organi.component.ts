@@ -26,6 +26,7 @@ import { OrganDialogComponent } from './dialogs/organ-dialog.component';
 import { OrganJedinicaDialogComponent } from './dialogs/organ-jedinica-dialog.component';
 import { OrganRmDialogComponent } from './dialogs/organ-rm-dialog.component';
 import { DodjelaRmZaposlenikDialogComponent } from './dialogs/dodjela-rm-zaposlenik-dialog.component';
+import { environment } from '../../../../environments/environment.production';
 // import { SlicePipe } from '@angular/common';
 
 @Component({
@@ -57,7 +58,7 @@ export class OrganiComponent implements OnInit {
   isLoading = signal(true);
   strukturaLoading = signal(false);
 
-  readonly apiUrl = 'http://localhost:3000/uploads/slike';
+  readonly apiUrl = environment.uploadsUrl;
 
   ngOnInit() {
     this.orgService.getOrgani().subscribe({

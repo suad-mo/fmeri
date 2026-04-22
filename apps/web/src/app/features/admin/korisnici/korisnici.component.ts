@@ -8,6 +8,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { OrgService } from '../../../core/services/org.service';
 import { UserProfil } from '../../../core/models/org.models';
+import { environment } from '../../../../environments/environment.production';
 
 @Component({
   selector: 'app-korisnici',
@@ -29,7 +30,7 @@ export class KorisniciComponent implements OnInit {
 
   kolone = ['name', 'email', 'role', 'zaposlenik', 'akcije'];
 
-  readonly apiUrl = 'http://localhost:3000/uploads/slike';
+  readonly apiUrl = environment.uploadsUrl;
 
   ngOnInit() { this.ucitaj(); }
 
