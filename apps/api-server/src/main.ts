@@ -45,7 +45,12 @@ app.use(
 const allowedOrigins =
   process.env['NODE_ENV'] === 'production'
     ? true // U produkciji Nginx proxira, dozvolimo sve
-    : ['http://localhost:4200', 'http://localhost'];
+    : [
+        'http://localhost:4200',
+        'http://localhost',
+        'http://10.10.105.171:4200', // ← dodaj
+        'http://10.10.105.171', // ← dodaj
+      ];
 
 app.use(
   cors({
