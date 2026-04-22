@@ -1,0 +1,141 @@
+.predmeti-page {
+  padding: 1.5rem;
+  max-width: 1100px;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.25rem;
+
+  h1 { font-size: 1.3rem; font-weight: 600; margin: 0 0 0.2rem; }
+  p  { font-size: 0.8rem; color: var(--color-text-secondary); margin: 0; }
+}
+
+.filter-bar {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+
+  .search-field { flex: 1; min-width: 200px; }
+  .status-field { width: 180px; }
+}
+
+.loading-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 3rem;
+}
+
+.prazno {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem;
+  color: var(--color-text-tertiary);
+
+  mat-icon { font-size: 48px; width: 48px; height: 48px; margin-bottom: 0.5rem; }
+  p { font-size: 0.9rem; }
+}
+
+.predmeti-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.predmet-kartica {
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  background: var(--color-background-primary);
+  overflow: hidden;
+}
+
+.kartica-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-bottom: 0.5px solid var(--color-border-tertiary);
+  background: var(--color-background-secondary);
+  gap: 10px;
+}
+
+.predmet-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  flex: 1;
+}
+
+.broj-predmeta {
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-family: monospace;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: rgba(102, 126, 234, 0.1);
+  color: #667eea;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.naziv {
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.kartica-akcije {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.status-badge {
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+
+  &.status-u-radu    { background: rgba(102,126,234,0.1); color: #667eea; }
+  &.status-rijeseno  { background: rgba(72,187,120,0.1);  color: #38a169; }
+  &.status-arhivirano { background: rgba(160,174,192,0.1); color: #718096; }
+}
+
+.kartica-body {
+  padding: 10px 14px;
+}
+
+.opis {
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+  margin: 0 0 8px;
+}
+
+.meta-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+
+  mat-icon {
+    font-size: 14px;
+    width: 14px;
+    height: 14px;
+  }
+}

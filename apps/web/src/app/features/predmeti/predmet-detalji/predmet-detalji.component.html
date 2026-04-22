@@ -1,0 +1,121 @@
+<div class="detalji-page">
+
+  @if (isLoading()) {
+    <div class="loading-wrapper"><mat-spinner diameter="40"/></div>
+  } @else if (predmet(); as p) {
+
+    <!-- Header -->
+    <div class="page-header">
+      <button mat-icon-button routerLink="/predmeti" matTooltip="Nazad">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+      <div class="header-info">
+        <div class="header-top">
+          <span class="broj-predmeta">{{ p.brojPredmeta }}</span>
+          <span class="status-badge" [class]="getStatusClass(p.status)">
+            {{ statusNaziv[p.status] }}
+          </span>
+        </div>
+        <h1>{{ p.naziv }}</h1>
+        @if (p.opis) {
+          <p class="opis">{{ p.opis }}</p>
+        }
+      </div>
+    </div>
+
+    <!-- Meta info -->
+    <div class="meta-kartica">
+      <div class="meta-grid">
+        <div class="meta-item">
+          <span class="meta-label">Organ</span>
+          <span class="meta-value">{{ p.organ!.skraceniNaziv ?? p.organ!.naziv }}</span>
+        </div>
+        @if (p.organizacionaJedinica) {
+          <div class="meta-item">
+            <span class="meta-label">Org. jedinica</span>
+            <span class="meta-value">{{ p.organizacionaJedinica.naziv }}</span>
+          </div>
+        }
+        <div class="meta-item">
+          <span class="meta-label">Referent</span>
+          <span class="meta-value">{{ p.referent!.name }}</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Datum otvaranja</span>
+          <span class="meta-value">{{ p.datumOtvaranja | date:'dd.MM.yyyy' }}</span>
+        </div>
+        @if (p.datumArhiviranja) {
+          <div class="meta-item">
+            <span class="meta-label">Datum arhiviranja</span>
+            <span class="meta-value">{{ p.datumArhiviranja | date:'dd.MM.yyyy' }}</span>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Akti -->
+    <div class="akti-sekcija">
+      <div class="akti-header">
+        <h2>
+          <mat-icon>description</mat-icon>
+          Akti
+          <span class="cnt">{{ p.akti.length }}</span>
+        </h2>
+        <button mat-flat-button color="primary" (click)="dodajAkt()">
+          <mat-icon>add</mat-icon>
+          Dodaj akt
+        </button>
+      </div>
+
+      @if (p.akti.length === 0) {
+        <div class="prazno">
+          <mat-icon>description</mat-icon>
+          <p>Nema akata — dodaj prvi akt</p>
+        </div>
+      } @else {
+        <div class="akti-lista">
+          @for (akt of p.akti; track akt._id) {
+            <div class="akt-kartica">
+              <div class="akt-header">
+                <div class="akt-info">
+                  <span class="smjer-badge" [class]="getSmjerClass(akt.smjer)">
+                    <mat-icon>{{ akt.smjer === 'ulazni' ? 'south' : 'north' }}</mat-icon>
+                    {{ smjerNaziv[akt.smjer] }}
+                  </span>
+                  <span class="vrsta-badge">{{ vrstaNaziv[akt.vrsta] }}</span>
+                  @if (akt.brojAkta) {
+                    <span class="broj-akta">{{ akt.brojAkta }}</span>
+                  }
+                </div>
+                <div class="akt-akcije">
+                  <button mat-icon-button (click)="urediAkt(akt)"
+                    matTooltip="Uredi">
+                    <mat-icon>edit</mat-icon>
+                  </button>
+                  <button mat-icon-button color="warn"
+                    (click)="obrisiAkt(akt._id!)"
+                    matTooltip="Obriši">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </div>
+              </div>
+              <div class="akt-body">
+                <span class="akt-naziv">{{ akt.naziv }}</span>
+                <span class="akt-datum">{{ akt.datum | date:'dd.MM.yyyy' }}</span>
+              </div>
+              @if (akt.posiljilac) {
+                <div class="akt-posiljilac">
+                  <mat-icon>business</mat-icon>
+                  {{ akt.posiljilac }}
+                </div>
+              }
+              @if (akt.opis) {
+                <div class="akt-opis">{{ akt.opis }}</div>
+              }
+            </div>
+          }
+        </div>
+      }
+    </div>
+  }
+</div>

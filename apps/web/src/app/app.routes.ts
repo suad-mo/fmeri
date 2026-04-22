@@ -89,6 +89,20 @@ export const appRoutes: Routes = [
             (m) => m.PregledComponent,
           ),
       },
+      {
+        path: 'predmeti',
+        loadComponent: () =>
+          import('./features/predmeti/predmeti.component').then(
+            (m) => m.PredmetiComponent,
+          ),
+      },
+      {
+        path: 'predmeti/:id',
+        loadComponent: () =>
+          import(
+            './features/predmeti/predmet-detalji/predmet-detalji.component'
+          ).then((m) => m.PredmetDetaljiComponent),
+      },
       // ── Admin rute (samo admin) ──────────────────────
       {
         path: 'admin',

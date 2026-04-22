@@ -1,0 +1,111 @@
+<div class="predmeti-page">
+
+  <!-- Header -->
+  <div class="page-header">
+    <div>
+      <h1>Predmeti</h1>
+      <p>Evidencija predmeta i akata</p>
+    </div>
+    <button mat-flat-button color="primary" (click)="noviPredmet()">
+      <mat-icon>add</mat-icon>
+      Novi predmet
+    </button>
+  </div>
+
+  <!-- Filteri -->
+  <div class="filter-bar">
+    <mat-form-field appearance="outline" class="search-field">
+      <mat-label>Pretraži</mat-label>
+      <input matInput [value]="pretraga()"
+        (input)="pretraga.set($any($event.target).value)"
+        placeholder="Broj predmeta, naziv..."/>
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="status-field">
+      <mat-label>Status</mat-label>
+      <mat-select [value]="statusFilter()"
+        (selectionChange)="statusFilter.set($event.value)">
+        @for (s of statusi; track s.value) {
+          <mat-option [value]="s.value">{{ s.label }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  @if (isLoading()) {
+    <div class="loading-wrapper"><mat-spinner diameter="40"/></div>
+  } @else if (filtrirani().length === 0) {
+    <div class="prazno">
+      <mat-icon>folder_open</mat-icon>
+      <p>Nema predmeta</p>
+    </div>
+  } @else {
+    <div class="predmeti-lista">
+      @for (pred of filtrirani(); track pred._id) {
+        <div class="predmet-kartica">
+
+          <!-- Header kartice -->
+          <div class="kartica-header">
+            <div class="predmet-info">
+              <span class="broj-predmeta">{{ pred.brojPredmeta }}</span>
+              <span class="naziv">{{ pred.naziv }}</span>
+            </div>
+            <div class="kartica-akcije">
+              <span class="status-badge" [class]="getStatusClass(pred.status)">
+                {{ statusNaziv[pred.status] }}
+              </span>
+              <button mat-icon-button
+                [routerLink]="['/predmeti', pred._id]"
+                matTooltip="Detalji">
+                <mat-icon>visibility</mat-icon>
+              </button>
+              <button mat-icon-button (click)="urediPredmet(pred)"
+                matTooltip="Uredi">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button color="warn"
+                (click)="obrisiPredmet(pred._id)"
+                matTooltip="Obriši">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </div>
+
+          <!-- Info -->
+          <div class="kartica-body">
+            @if (pred.opis) {
+              <p class="opis">{{ pred.opis }}</p>
+            }
+            <div class="meta-info">
+              <span class="meta-item">
+                <mat-icon>account_balance</mat-icon>
+                {{ pred.organ.skraceniNaziv ?? pred.organ.naziv }}
+              </span>
+              @if (pred.organizacionaJedinica) {
+                <span class="meta-item">
+                  <mat-icon>account_tree</mat-icon>
+                  {{ pred.organizacionaJedinica.naziv }}
+                </span>
+              }
+              <span class="meta-item">
+                <mat-icon>person</mat-icon>
+                {{ pred.referent.name }}
+              </span>
+              <span class="meta-item">
+                <mat-icon>calendar_today</mat-icon>
+                {{ pred.datumOtvaranja | date:'dd.MM.yyyy' }}
+              </span>
+              <span class="meta-item">
+                <mat-icon>description</mat-icon>
+                {{ pred.akti.length }} akt(a)
+              </span>
+            </div>
+          </div>
+
+        </div>
+      }
+    </div>
+  }
+
+</div>

@@ -424,3 +424,63 @@ export interface PregledOrgana {
   upraznjeno: number;
   posto: number;
 }
+
+export type VrstaAkta =
+  'zahtjev' | 'rjesenje' | 'dopis' | 'odluka' | 'ugovor' | 'ostalo';
+
+export type SmjerAkta = 'ulazni' | 'izlazni';
+
+export type StatusPredmeta = 'u_radu' | 'rijeseno' | 'arhivirano';
+
+export interface IAkt {
+  _id?: string;
+  brojAkta?: string;
+  naziv: string;
+  opis?: string;
+  vrsta: VrstaAkta;
+  smjer: SmjerAkta;
+  datum: string;
+  posiljilac?: string;
+  fajl?: {
+    putanja: string;
+    originalniNaziv: string;
+    mimetype: string;
+    velicina: number;
+  };
+}
+
+export interface IPredmet {
+  _id: string;
+  brojPredmeta: string;
+  naziv: string;
+  opis?: string;
+  organ: { _id: string; naziv: string; skraceniNaziv?: string };
+  organizacionaJedinica?: { _id: string; naziv: string };
+  referent: { _id: string; name: string; email: string };
+  status: StatusPredmeta;
+  datumOtvaranja: string;
+  datumArhiviranja?: string;
+  akti: IAkt[];
+  aktivan: boolean;
+  createdAt: string;
+}
+
+export const STATUS_PREDMETA: Record<StatusPredmeta, string> = {
+  u_radu: 'U radu',
+  rijeseno: 'Riješeno',
+  arhivirano: 'Arhivirano',
+};
+
+export const VRSTA_AKTA: Record<VrstaAkta, string> = {
+  zahtjev: 'Zahtjev',
+  rjesenje: 'Rješenje',
+  dopis: 'Dopis',
+  odluka: 'Odluka',
+  ugovor: 'Ugovor',
+  ostalo: 'Ostalo',
+};
+
+export const SMJER_AKTA: Record<SmjerAkta, string> = {
+  ulazni: 'Ulazni',
+  izlazni: 'Izlazni',
+};

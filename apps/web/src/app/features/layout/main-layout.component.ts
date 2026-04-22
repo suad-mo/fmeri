@@ -46,6 +46,10 @@ import { GlobalSearchComponent } from './global-search/global-search.component';
             <mat-icon matListItemIcon>dashboard</mat-icon>
             <span matListItemTitle>Dashboard</span>
           </a>
+          <a mat-list-item routerLink="/predmeti" routerLinkActive="aktivan">
+            <mat-icon matListItemIcon>folder</mat-icon>
+            <span matListItemTitle>Predmeti</span>
+          </a>
           <a mat-list-item routerLink="/organi" routerLinkActive="aktivan">
             <mat-icon matListItemIcon>account_balance</mat-icon>
             <span matListItemTitle>Organi uprave</span>
@@ -149,10 +153,7 @@ import { GlobalSearchComponent } from './global-search/global-search.component';
           <!-- <a mat-icon-button routerLink="/">
             <mat-icon>home</mat-icon>
           </a> -->
-          <button
-            mat-icon-button
-            (click)="authService.logout()"
-          >
+          <button mat-icon-button (click)="authService.logout()">
             <mat-icon>logout</mat-icon>
           </button>
         </div>

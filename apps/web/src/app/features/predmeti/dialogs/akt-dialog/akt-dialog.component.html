@@ -1,0 +1,70 @@
+<h2 mat-dialog-title>
+  {{ data.akt ? 'Uredi akt' : 'Novi akt' }}
+</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="form" class="dialog-form">
+
+    <div class="form-row">
+      <mat-form-field appearance="outline">
+        <mat-label>Smjer</mat-label>
+        <mat-select formControlName="smjer">
+          @for (s of smjerovi; track s.value) {
+            <mat-option [value]="s.value">{{ s.label }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Vrsta akta</mat-label>
+        <mat-select formControlName="vrsta">
+          @for (v of vrste; track v.value) {
+            <mat-option [value]="v.value">{{ v.label }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Naziv akta</mat-label>
+      <input matInput formControlName="naziv"/>
+    </mat-form-field>
+
+    <div class="form-row">
+      <mat-form-field appearance="outline">
+        <mat-label>Broj akta</mat-label>
+        <input matInput formControlName="brojAkta"
+          placeholder="npr. 01-456/2026"/>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Datum</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="datum"/>
+        <mat-datepicker-toggle matSuffix [for]="picker"/>
+        <mat-datepicker #picker/>
+      </mat-form-field>
+    </div>
+
+    @if (jeUlazni) {
+      <mat-form-field appearance="outline">
+        <mat-label>Pošiljalac</mat-label>
+        <input matInput formControlName="posiljilac"
+          placeholder="Naziv institucije ili osobe"/>
+      </mat-form-field>
+    }
+
+    <mat-form-field appearance="outline">
+      <mat-label>Opis</mat-label>
+      <textarea matInput formControlName="opis" rows="2"></textarea>
+    </mat-form-field>
+
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="ref.close()">Odustani</button>
+  <button mat-flat-button color="primary"
+    [disabled]="form.invalid || loading"
+    (click)="spremi()">
+    @if (loading) { <mat-spinner diameter="20"/> }
+    @else { {{ data.akt ? 'Sačuvaj' : 'Dodaj akt' }} }
+  </button>
+</mat-dialog-actions>
