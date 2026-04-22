@@ -63,3 +63,6 @@ logs/
 
 # Build artifacts
 *.tsbuildinfo                 # ← TypeScript incremental build fajlovi
+
+# Backup files
+backup/
