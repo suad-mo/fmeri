@@ -32,6 +32,7 @@ import zaposlenikRoutes from './routes/zaposlenik.routes';
 
 import organRoutes from './routes/organ.routes';
 import izvjestajRoutes from './routes/izvjestaj.routes';
+import predmetRoutes from './routes/predmet.routes';
 const app = express();
 
 // Statički fajlovi za slike
@@ -78,6 +79,7 @@ app.use('/api/stats', statsRoutes);
 app.use('/api/organi', organRoutes);
 app.use('/api/zaposlenici', zaposlenikRoutes);
 app.use('/api/izvjestaj', izvjestajRoutes);
+app.use('/api/predmeti', predmetRoutes);
 
 const mongoUri = process.env['MONGODB_URI'] as string;
 const port = process.env['PORT'] || 3000;
