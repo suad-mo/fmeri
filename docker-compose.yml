@@ -2,8 +2,8 @@ services:
 
   # ─── MONGODB ───────────────────────────────────────────
   mongodb:
-    # ports:
-    #   - "27017:27017"
+    ports:
+      - "27018:27017"
     image: mongo:7
     container_name: nx-fmeri-db
     restart: unless-stopped
