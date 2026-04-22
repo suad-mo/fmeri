@@ -7,8 +7,18 @@ Nx monorepo, Angular 21, Node.js/Express, MongoDB/Mongoose, Docker.
 ## Struktura projekta
 ```
 apps/
-  web/          — Angular 21 frontend (port 4200)
-  api-server/   — Node.js/Express backend (port 3000)
+  web/               — Angular 21 frontend (port 4200)
+    Dockerfile       — multi-stage build (Angular + Nginx)
+  api-server/        — Node.js/Express backend (port 3000)
+    Dockerfile       — multi-stage build (Node.js)
+infra/
+  nginx/
+    nginx.conf       — Nginx konfiguracija
+scripts/
+  windows/
+    deploy.ps1       — PowerShell deploy skripta
+docker-compose.yml   — MongoDB + API + Web
+.env.production      — produkcijske varijable (nije u gitu)
 ```
 
 ## Stack
@@ -18,14 +28,28 @@ apps/
 - **Monorepo**: Nx workspace
 - **Shared libs**: `@nx-fmeri/api-org` (modeli), `@nx-fmeri/api-auth` (auth)
 
-## Pokretanje
+## Pokretanje — Development
 ```bash
-# Development
-npx nx serve web        # Frontend
-npx nx serve api-server # Backend
+npx nx serve web        # Frontend (http://localhost:4200)
+npx nx serve api-server # Backend (http://localhost:3000)
 
 # Seedovi
 npx nx run api-server:seed-all-new  # Puni bazu s podacima
+```
+
+## Pokretanje — Docker (Produkcija)
+```bash
+# Deploy (build + pokretanje)
+.\scripts\windows\deploy.ps1
+
+# Samo restart bez rebuilda
+.\scripts\windows\deploy.ps1 -SkipBuild
+
+# Deploy + seed
+.\scripts\windows\deploy.ps1 -Seed
+
+# Ručno
+docker compose --env-file .env.production up -d
 ```
 
 ## Organizacijska struktura
@@ -106,12 +130,30 @@ npx nx g @nx/angular:component apps/web/src/app/features/... --standalone --skip
 ### PDF export
 - Koristi `pdfkit` s DejaVu fontovima za bosanske karaktere
 - Fontovi se nalaze u: `apps/api-server/src/assets/fonts/`
+- U produkciji: `path.join(process.cwd(), 'assets/fonts')`
 
 ### Middleware redoslijed
 ```typescript
 router.use(protect);                              // auth middleware
 router.get('/', handler);                         // rute
 router.post('/', requireRole('admin'), handler);  // admin rute
+```
+
+### Environment varijable (Angular)
+```typescript
+// apps/web/src/environments/environment.ts (development)
+export const environment = {
+  production: false,
+  apiUrl: 'http://localhost:3000/api',
+  uploadsUrl: 'http://localhost:3000/uploads/slike',
+};
+
+// apps/web/src/environments/environment.production.ts
+export const environment = {
+  production: true,
+  apiUrl: '/api',
+  uploadsUrl: '/uploads/slike',
+};
 ```
 
 ### MongoDB kolekcije
@@ -130,8 +172,65 @@ organsablons
 ```bash
 npx nx run api-server:seed-all-new
 # Redoslijed: organs → jedinice → radna-mjesta → zaposlenici → users
-# Admin lozinka: Fmeri2026!
 # Default lozinka za sve korisnike: Fmeri2026!
+
+# Reset lozinki (potrebno nakon mongoimport u Docker)
+$env:MONGODB_URI="mongodb://user:pass@localhost:27017/nx-fmeri?authSource=admin"
+npx nx run api-server:seed-reset-passwords
+```
+
+### Docker — važne napomene
+- `_id` stringovi iz JSON exporta trebaju konverziju u ObjectId nakon mongoimport
+- Slike se čuvaju u `docker-data/uploads/` (bind mount)
+- MongoDB port `27017` eksponiran samo za development/debug
+- `NODE_ENV=production` postavljen u `docker-compose.yml` i `Dockerfile`
+
+### Docker — mongoimport workflow
+```bash
+# 1. Kopiraj JSON u container
+docker cp apps/api-server/src/seeds/data/. nx-fmeri-db:/seeds/
+
+# 2. Import kolekcija redom
+docker exec nx-fmeri-db mongoimport --uri "mongodb://user:pass@localhost:27017/nx-fmeri?authSource=admin" --collection organs --file /seeds/organs.json --jsonArray
+docker exec nx-fmeri-db mongoimport --uri "..." --collection organizacionajedinicas --file /seeds/organizacionajedinicas.json --jsonArray
+docker exec nx-fmeri-db mongoimport --uri "..." --collection radnomjestos --file /seeds/radnomjestos.json --jsonArray
+docker exec nx-fmeri-db mongoimport --uri "..." --collection zaposleniks --file /seeds/zaposleniks.json --jsonArray
+docker exec nx-fmeri-db mongoimport --uri "..." --collection users --file /seeds/users.json --jsonArray
+
+# 3. Konvertuj _id i reference u mongosh
+db.users.find({}).forEach(function(doc) {
+  if (typeof doc._id === 'string') {
+    const newDoc = Object.assign({}, doc, { _id: ObjectId(doc._id) });
+    db.users.insertOne(newDoc);
+    db.users.deleteOne({ _id: doc._id });
+  }
+});
+
+db.organizacionajedinicas.find({}).forEach(function(doc) {
+  const update = {};
+  if (typeof doc.organ === 'string') update.organ = ObjectId(doc.organ);
+  if (typeof doc.nadredjenaJedinica === 'string') update.nadredjenaJedinica = ObjectId(doc.nadredjenaJedinica);
+  if (Object.keys(update).length > 0) db.organizacionajedinicas.updateOne({ _id: doc._id }, { $set: update });
+});
+
+db.radnomjestos.find({}).forEach(function(doc) {
+  const update = {};
+  if (typeof doc.organ === 'string') update.organ = ObjectId(doc.organ);
+  if (typeof doc.organizacionaJedinica === 'string') update.organizacionaJedinica = ObjectId(doc.organizacionaJedinica);
+  if (Object.keys(update).length > 0) db.radnomjestos.updateOne({ _id: doc._id }, { $set: update });
+});
+
+db.zaposleniks.find({}).forEach(function(doc) {
+  const update = {};
+  if (typeof doc.organ === 'string') update.organ = ObjectId(doc.organ);
+  if (typeof doc.organizacionaJedinica === 'string') update.organizacionaJedinica = ObjectId(doc.organizacionaJedinica);
+  if (typeof doc.radnoMjesto === 'string') update.radnoMjesto = ObjectId(doc.radnoMjesto);
+  if (typeof doc.user === 'string') update.user = ObjectId(doc.user);
+  if (Object.keys(update).length > 0) db.zaposleniks.updateOne({ _id: doc._id }, { $set: update });
+});
+
+# 4. Reset lozinki
+npx nx run api-server:seed-reset-passwords
 ```
 
 ### Dvije okoline (posao/laptop)

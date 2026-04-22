@@ -4,7 +4,7 @@ Sve izmjene ovog projekta bit će dokumentovane u ovom fajlu.
 Format baziran na [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Verzionisanje prati [Semantic Versioning](https://semver.org/).
 
-## [1.0.0] - 2026-04-20
+## [1.0.0] - 2026-04-22
 
 ### Added
 
@@ -25,6 +25,7 @@ Verzionisanje prati [Semantic Versioning](https://semver.org/).
 - `DashboardComponent` — statistike, grafikoni (ApexCharts)
 - `GlobalSearchComponent` — globalna pretraga zaposlenika i org. jedinica
 - `MainLayoutComponent` — glavni layout s navigacijom
+- Angular environment varijable (`environment.ts`, `environment.production.ts`)
 
 #### Izvještaji
 - `PopunjenostComponent` — izvještaj popunjenosti po organima
@@ -58,7 +59,18 @@ Verzionisanje prati [Semantic Versioning](https://semver.org/).
 - `seed-zaposlenici-new` — 80 zaposlenika
 - `seed-users-new` — 80 korisnika s default lozinkom
 - `seed-reset-admin` — reset admin lozinke
+- `seed-reset-passwords` — reset lozinki za sve korisnike
 - `seed-all-new` — pokreće sve seedove redom
+
+#### Docker
+- `apps/api-server/Dockerfile` — multi-stage build za API server
+- `apps/web/Dockerfile` — multi-stage build za Angular + Nginx
+- `docker-compose.yml` — MongoDB, API i Web servisi s named volumes
+- `infra/nginx/nginx.conf` — Nginx konfiguracija s API proxyjem
+- `scripts/windows/deploy.ps1` — PowerShell skripta za deployment
+- Named volumes za MongoDB data i assets
+- Bind mount za uploads folder (`docker-data/uploads`)
+- MongoDB zaštićen s autentifikacijom
 
 ### Changed
 - User model očišćen — uklonjena `organizacionaJedinica` i `radnoMjesto` polja
@@ -66,6 +78,9 @@ Verzionisanje prati [Semantic Versioning](https://semver.org/).
 - `getJedinicaDetalji` — koristi Zaposlenik umjesto User model
 - `addOsnovnaJedinica` — automatski postavlja `nadredjenaJedinica`
 - `getStablo` — poboljšano sortiranje po organu
+- `main.ts` — dotenv se učitava samo u development okruženju
+- Svi hardkodirani `http://localhost:3000` URL-ovi zamijenjeni s environment varijablama
+- Dockerfilovi premješteni u `apps/api-server/` i `apps/web/`
 
 ### Fixed
 - Dupli AdminLayoutComponent sidebar uklonjen
@@ -74,6 +89,8 @@ Verzionisanje prati [Semantic Versioning](https://semver.org/).
 - Datumi — `DatePipe` umjesto `slice` za ispravno prikazivanje
 - Bosanski karakteri u PDF — DejaVu font
 - `radnomjestos` naziv kolekcije u MongoDB agregacijama
+- `uploadsUrl` ispravno postavljen na `/uploads/slike`
+- MongoDB `_id` konverzija iz stringa u ObjectId pri importu
 
 ## [0.1.0] - 2026-03-23
 
