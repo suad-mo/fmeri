@@ -5,19 +5,53 @@ import { User } from '@nx-fmeri/api-auth';
 import { getErrorMessage } from '../helpers/error.helper';
 
 // Cookie opcije
+// const accessTokenCookieOptions = {
+//   httpOnly: true,
+//   secure: process.env['NODE_ENV'] === 'production', // HTTPS u produkciji
+//   sameSite: 'strict' as const,
+//   maxAge: 60 * 60 * 1000, // 1h
+// };
+
+// const refreshTokenCookieOptions = {
+//   httpOnly: true,
+//   secure: process.env['NODE_ENV'] === 'production',
+//   sameSite: 'strict' as const,
+//   maxAge: 7 * 24 * 60 * 60 * 1000, // 7 dana
+//   path: '/api/auth/refresh', // Samo za refresh endpoint
+// };
+
+// const accessTokenCookieOptions = {
+//   httpOnly: true,
+//   secure: process.env['NODE_ENV'] === 'production',
+//   sameSite: (process.env['NODE_ENV'] === 'production' ? 'lax' : 'strict') as
+//     | 'lax'
+//     | 'strict',
+//   maxAge: 60 * 60 * 1000,
+// };
+
+// const refreshTokenCookieOptions = {
+//   httpOnly: true,
+//   secure: process.env['NODE_ENV'] === 'production',
+//   sameSite: (process.env['NODE_ENV'] === 'production' ? 'lax' : 'strict') as
+//     | 'lax'
+//     | 'strict',
+//   maxAge: 7 * 24 * 60 * 60 * 1000,
+//   path: '/api/auth/refresh',
+// };
+
 const accessTokenCookieOptions = {
   httpOnly: true,
-  secure: process.env['NODE_ENV'] === 'production', // HTTPS u produkciji
-  sameSite: 'strict' as const,
-  maxAge: 60 * 60 * 1000, // 1h
+  secure: false, // ← samo za HTTPS produkciju, ne za lokalni pristup
+  sameSite: 'lax' as const,
+  maxAge: 60 * 60 * 1000,
 };
 
 const refreshTokenCookieOptions = {
   httpOnly: true,
-  secure: process.env['NODE_ENV'] === 'production',
-  sameSite: 'strict' as const,
-  maxAge: 7 * 24 * 60 * 60 * 1000, // 7 dana
-  path: '/api/auth/refresh', // Samo za refresh endpoint
+  secure: false, // ← isto
+  sameSite: 'lax' as const,
+  maxAge: 7 * 24 * 60 * 60 * 1000,
+  path: '/api/auth/refresh',
 };
 
 export const register = async (req: Request, res: Response) => {
@@ -108,7 +142,9 @@ export const refresh = async (req: Request, res: Response) => {
 
     return res.json(authData);
   } catch {
-    return res.status(401).json({ message: 'Refresh token nije validan ili je istekao.' });
+    return res
+      .status(401)
+      .json({ message: 'Refresh token nije validan ili je istekao.' });
   }
 };
 

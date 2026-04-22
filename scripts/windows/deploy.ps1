@@ -47,6 +47,19 @@ if (-not $SkipBuild) {
 Write-Host "⏹️  Zaustavljanje kontejnera..." -ForegroundColor Cyan
 docker compose --env-file .env.production down
 
+# 4b. Obriši stare image-e (samo ako nije SkipBuild)
+if (-not $SkipBuild) {
+    Write-Host "Brisanje starih image-a..." -ForegroundColor Cyan
+    $images = @("nx-fmeri-api", "nx-fmeri-web")
+    foreach ($img in $images) {
+        $exists = docker image ls --format "{{.Repository}}" | Select-String $img
+        if ($exists) {
+            docker image rm $img 2>&1 | Out-Null
+            Write-Host "   Obrisan: $img" -ForegroundColor Gray
+        }
+    }
+}
+
 # 5. Pokreni kontejnere
 Write-Host "📦 Pokretanje kontejnera..." -ForegroundColor Cyan
 docker compose --env-file .env.production up -d

@@ -6,7 +6,11 @@ if (process.env['NODE_ENV'] !== 'production') {
   dotenv.config({ path: path.join(__dirname, '../../../.env') });
 }
 
-const REQUIRED_ENV = ['JWT_SECRET', 'JWT_REFRESH_SECRET', 'MONGODB_URI'] as const;
+const REQUIRED_ENV = [
+  'JWT_SECRET',
+  'JWT_REFRESH_SECRET',
+  'MONGODB_URI',
+] as const;
 for (const key of REQUIRED_ENV) {
   if (!process.env[key]) {
     console.error(`FATALNA GREŠKA: ${key} nije definisan u .env fajlu!`);
@@ -15,7 +19,7 @@ for (const key of REQUIRED_ENV) {
 }
 
 import express from 'express';
-import cors from 'cors';          // ← novo
+import cors from 'cors'; // ← novo
 import mongoose from 'mongoose';
 import authRoutes from './routes/auth.routes';
 import orgRoutes from './routes/org.routes';
@@ -32,15 +36,31 @@ const app = express();
 
 // Statički fajlovi za slike
 // Zamijeni postojeću liniju za statičke fajlove
-app.use('/uploads', express.static(path.join(__dirname, '../../../../uploads')));
+app.use(
+  '/uploads',
+  express.static(path.join(__dirname, '../../../../uploads')),
+);
 
 // ← CORS konfiguracija
-app.use(cors({
-  origin: 'http://localhost:4200',
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true,
-}));
+const allowedOrigins =
+  process.env['NODE_ENV'] === 'production'
+    ? true // U produkciji Nginx proxira, dozvolimo sve
+    : ['http://localhost:4200', 'http://localhost'];
+
+app.use(
+  cors({
+    origin: allowedOrigins,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+  }),
+);
+// app.use(cors({
+//   origin: 'http://localhost:4200',
+//   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+//   allowedHeaders: ['Content-Type', 'Authorization'],
+//   credentials: true,
+// }));
 
 app.use(express.json());
 app.use(cookieParser());
