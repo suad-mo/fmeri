@@ -29,6 +29,8 @@ export class PredmetDetaljiComponent implements OnInit {
   private orgService = inject(OrgService);
   private dialog = inject(MatDialog);
 
+  // readonly aktiFajlUrl = `${environment.apiUrl.replace('/api', '')}/uploads/akti`;
+
   predmet = signal<IPredmet | null>(null);
   isLoading = signal(true);
 
