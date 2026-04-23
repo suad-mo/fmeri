@@ -493,12 +493,13 @@ export interface IAkt {
   smjer: SmjerAkta;
   datum: string;
   posiljilac?: string;
-  fajl?: {
+  fajlovi: {           // ← zamijeni fajl s fajlovi
+    _id: string;
     putanja: string;
     originalniNaziv: string;
     mimetype: string;
     velicina: number;
-  };
+  }[];
 }
 
 export interface IPredmet {

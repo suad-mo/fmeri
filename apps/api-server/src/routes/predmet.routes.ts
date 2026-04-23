@@ -13,6 +13,7 @@ import {
   updateAkt,
   deleteAkt,
   uploadAktFajl,
+  deleteFajl,
 } from '../controllers/predmet.controller';
 
 // Multer konfiguracija za akte
@@ -63,6 +64,9 @@ router.patch('/:id/akti/:aktId', updateAkt);
 router.delete('/:id/akti/:aktId', deleteAkt);
 
 // Upload fajla za akt
+// router.post('/:id/akti/:aktId/fajl', upload.single('fajl'), uploadAktFajl);
+
 router.post('/:id/akti/:aktId/fajl', upload.single('fajl'), uploadAktFajl);
+router.delete('/:id/akti/:aktId/fajlovi/:fajlId', deleteFajl);
 
 export default router;

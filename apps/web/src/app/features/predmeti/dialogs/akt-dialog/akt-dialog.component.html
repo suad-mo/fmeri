@@ -72,25 +72,45 @@
 
   <!-- Upload fajla -->
   <div class="upload-sekcija">
-    <div class="upload-label">Prilog (opciono)</div>
-    @if (data.akt?.fajl) {
-      <div class="postojeci-fajl">
-        <mat-icon>attach_file</mat-icon>
-        <span>{{ data.akt!.fajl!.originalniNaziv }}</span>
+    <div class="upload-label">Prilozi (opciono)</div>
+
+    @if (data.akt?.fajlovi?.length) {
+      <div class="postojeci-fajlovi">
+        @for (f of data.akt?.fajlovi; track f._id) {
+          <div class="postojeci-fajl">
+            <mat-icon>attach_file</mat-icon>
+            <span>{{ f.originalniNaziv }}</span>
+          </div>
+        }
       </div>
     }
+
     <label class="upload-btn">
       <mat-icon>upload_file</mat-icon>
-      {{ fajlOdabran ? fajlOdabran.name : 'Odaberi fajl' }}
+      @if (fajloviOdabrani.length > 0) {
+        {{ fajloviOdabrani.length }} fajl(ova) odabrano
+      } @else {
+        Odaberi fajlove
+      }
       <input
         type="file"
         hidden
+        multiple
         accept=".pdf,.jpg,.jpeg,.png,.doc,.docx,.xls,.xlsx"
         (change)="onFajlChange($event)"
       />
     </label>
+
+    @if (fajloviOdabrani.length > 0) {
+      <div class="odabrani-fajlovi">
+        @for (f of fajloviOdabrani; track f.name) {
+          <span class="odabrani-fajl">{{ f.name }}</span>
+        }
+      </div>
+    }
+
     <span class="upload-hint"
-      >PDF, JPG, PNG, DOC, DOCX, XLS, XLSX — max 10MB</span
+      >PDF, JPG, PNG, DOC, DOCX, XLS, XLSX — max 10MB po fajlu</span
     >
   </div>
 </mat-dialog-content>

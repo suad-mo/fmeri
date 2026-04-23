@@ -295,3 +295,16 @@ h1 {
     height: 14px;
   }
 }
+
+.fajlovi-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 4px 12px 8px;
+}
+
+.fajl-red {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

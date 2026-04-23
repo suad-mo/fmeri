@@ -477,4 +477,14 @@ export class OrgService {
       formData,
     );
   }
+
+  deleteFajl(
+    predmetId: string,
+    aktId: string,
+    fajlId: string,
+  ): Observable<IPredmet> {
+    return this.http.delete<IPredmet>(
+      `${environment.apiUrl}/predmeti/${predmetId}/akti/${aktId}/fajlovi/${fajlId}`,
+    );
+  }
 }

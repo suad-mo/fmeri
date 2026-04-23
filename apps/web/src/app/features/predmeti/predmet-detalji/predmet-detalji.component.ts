@@ -8,8 +8,11 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialog } from '@angular/material/dialog';
 import { OrgService } from '../../../core/services/org.service';
 import {
-  IPredmet, IAkt,
-  STATUS_PREDMETA, VRSTA_AKTA, SMJER_AKTA,
+  IPredmet,
+  IAkt,
+  STATUS_PREDMETA,
+  VRSTA_AKTA,
+  SMJER_AKTA,
   ULOGA_AKTA,
 } from '../../../core/models/org.models';
 import { environment } from '../../../../environments/environment';
@@ -18,9 +21,12 @@ import { environment } from '../../../../environments/environment';
   selector: 'app-predmet-detalji',
   standalone: true,
   imports: [
-    RouterLink, DatePipe,
-    MatButtonModule, MatIconModule,
-    MatProgressSpinnerModule, MatTooltipModule,
+    RouterLink,
+    DatePipe,
+    MatButtonModule,
+    MatIconModule,
+    MatProgressSpinnerModule,
+    MatTooltipModule,
   ],
   templateUrl: './predmet-detalji.component.html',
   styleUrl: './predmet-detalji.component.scss',
@@ -30,7 +36,7 @@ export class PredmetDetaljiComponent implements OnInit {
   private orgService = inject(OrgService);
   private dialog = inject(MatDialog);
 
-  // readonly aktiFajlUrl = `${environment.apiUrl.replace('/api', '')}/uploads/akti`;
+  readonly aktiFajlUrl = environment.aktiUrl;
 
   predmet = signal<IPredmet | null>(null);
   isLoading = signal(true);
@@ -52,7 +58,10 @@ export class PredmetDetaljiComponent implements OnInit {
   ucitaj(id: string) {
     this.isLoading.set(true);
     this.orgService.getPredmet(id).subscribe({
-      next: (data) => { this.predmet.set(data); this.isLoading.set(false); },
+      next: (data) => {
+        this.predmet.set(data);
+        this.isLoading.set(false);
+      },
       error: () => this.isLoading.set(false),
     });
   }
@@ -67,8 +76,10 @@ export class PredmetDetaljiComponent implements OnInit {
           maxWidth: '95vw',
           data: { predmetId: predmet._id },
         });
-        ref.afterClosed().subscribe(r => { if (r) this.ucitaj(predmet._id); });
-      }
+        ref.afterClosed().subscribe((r) => {
+          if (r) this.ucitaj(predmet._id);
+        });
+      },
     );
   }
 
@@ -82,8 +93,10 @@ export class PredmetDetaljiComponent implements OnInit {
           maxWidth: '95vw',
           data: { predmetId: predmet._id, akt },
         });
-        ref.afterClosed().subscribe(r => { if (r) this.ucitaj(predmet._id); });
-      }
+        ref.afterClosed().subscribe((r) => {
+          if (r) this.ucitaj(predmet._id);
+        });
+      },
     );
   }
 
@@ -91,9 +104,9 @@ export class PredmetDetaljiComponent implements OnInit {
     const predmet = this.predmet();
     if (!predmet) return;
     if (!confirm('Obrisati akt?')) return;
-    this.orgService.deleteAkt(predmet._id, aktId).subscribe(
-      () => this.ucitaj(predmet._id)
-    );
+    this.orgService
+      .deleteAkt(predmet._id, aktId)
+      .subscribe(() => this.ucitaj(predmet._id));
   }
 
   getStatusClass(status: string): string {
@@ -107,5 +120,14 @@ export class PredmetDetaljiComponent implements OnInit {
 
   getSmjerClass(smjer: string): string {
     return smjer === 'ulazni' ? 'smjer-ulazni' : 'smjer-izlazni';
+  }
+
+  obrisiAktFajl(aktId: string, fajlId: string) {
+    const predmet = this.predmet();
+    if (!predmet) return;
+    if (!confirm('Obrisati fajl?')) return;
+    this.orgService
+      .deleteFajl(predmet._id, aktId, fajlId)
+      .subscribe(() => this.ucitaj(predmet._id));
   }
 }

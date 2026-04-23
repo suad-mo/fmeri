@@ -20,7 +20,7 @@ import {
   ULOGA_AKTA,
   UlogaAkta,
 } from '../../../../core/models/org.models';
-import { MatIconModule } from "@angular/material/icon";
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-akt-dialog',
@@ -35,8 +35,8 @@ import { MatIconModule } from "@angular/material/icon";
     MatProgressSpinnerModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatIconModule
-],
+    MatIconModule,
+  ],
   templateUrl: './akt-dialog.component.html',
   styleUrl: './akt-dialog.component.scss',
 })
@@ -49,6 +49,7 @@ export class AktDialogComponent implements OnInit {
   loading = false;
 
   fajlOdabran: File | null = null;
+  fajloviOdabrani: File[] = [];
   uploadLoading = false;
 
   vrste = Object.entries(VRSTA_AKTA).map(([value, label]) => ({
@@ -56,7 +57,10 @@ export class AktDialogComponent implements OnInit {
     label,
   }));
 
-  uloge = Object.entries(ULOGA_AKTA).map(([value, label]) => ({ value, label }));
+  uloge = Object.entries(ULOGA_AKTA).map(([value, label]) => ({
+    value,
+    label,
+  }));
 
   smjerovi = Object.entries(SMJER_AKTA).map(([value, label]) => ({
     value,
@@ -103,7 +107,7 @@ export class AktDialogComponent implements OnInit {
       naziv: raw.naziv ?? '',
       brojAkta: raw.brojAkta ?? undefined,
       vrsta: raw.vrsta as IAkt['vrsta'],
-      uloga: raw.uloga as UlogaAkta ?? 'ostalo',
+      uloga: (raw.uloga as UlogaAkta) ?? 'ostalo',
       smjer: raw.smjer as IAkt['smjer'],
       datum: raw.datum?.toISOString() ?? '',
       posiljilac: raw.posiljilac ?? undefined,
@@ -116,22 +120,36 @@ export class AktDialogComponent implements OnInit {
 
     request$.subscribe({
       next: (predmet) => {
-        // Ako ima fajl — uploada ga
-        if (this.fajlOdabran) {
+        if (this.fajloviOdabrani.length > 0) {
           const akti = predmet.akti;
           const aktId = this.data.akt?._id ?? akti[akti.length - 1]._id;
-          this.orgService
-            .uploadAktFajl(this.data.predmetId, aktId, this.fajlOdabran)
-            .subscribe({
-              next: () => {
-                this.loading = false;
-                this.ref.close(true);
-              },
-              error: () => {
-                this.loading = false;
-                this.ref.close(true);
-              },
+
+          import('rxjs').then(({ from }) => {
+            import('rxjs/operators').then(({ concatMap }) => {
+              from(this.fajloviOdabrani)
+                .pipe(
+                  concatMap((fajl) =>
+                    this.orgService.uploadAktFajl(
+                      this.data.predmetId,
+                      aktId,
+                      fajl,
+                    ),
+                  ),
+                )
+                .subscribe({
+                  // eslint-disable-next-line @typescript-eslint/no-empty-function
+                  next: () => {},
+                  error: () => {
+                    this.loading = false;
+                    this.ref.close(true);
+                  },
+                  complete: () => {
+                    this.loading = false;
+                    this.ref.close(true);
+                  },
+                });
             });
+          });
         } else {
           this.loading = false;
           this.ref.close(true);
@@ -146,7 +164,7 @@ export class AktDialogComponent implements OnInit {
   onFajlChange(event: Event) {
     const input = event.target as HTMLInputElement;
     if (input.files?.length) {
-      this.fajlOdabran = input.files[0];
+      this.fajloviOdabrani = Array.from(input.files);
     }
   }
 }

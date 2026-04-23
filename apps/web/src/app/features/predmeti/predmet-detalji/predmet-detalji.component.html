@@ -121,16 +121,31 @@
                 }}</span>
               </div>
 
-              @if (akt.fajl) {
-                <a
-                  class="fajl-link"
-                  [href]="environment.aktiUrl + '/' + akt.fajl.putanja"
-                  target="_blank"
-                >
-                  <mat-icon>attach_file</mat-icon>
-                  {{ akt.fajl.originalniNaziv }}
-                </a>
+              @if (akt.fajlovi?.length) {
+                <div class="fajlovi-lista">
+                  @for (fajl of akt.fajlovi; track fajl._id) {
+                    <div class="fajl-red">
+                      <a
+                        class="fajl-link"
+                        [href]="aktiFajlUrl + '/' + fajl.putanja"
+                        target="_blank"
+                      >
+                        <mat-icon>attach_file</mat-icon>
+                        {{ fajl.originalniNaziv }}
+                      </a>
+                      <button
+                        mat-icon-button
+                        color="warn"
+                        (click)="obrisiAktFajl(akt._id, fajl._id)"
+                        matTooltip="Obriši fajl"
+                      >
+                        <mat-icon>close</mat-icon>
+                      </button>
+                    </div>
+                  }
+                </div>
               }
+
               @if (akt.posiljilac) {
                 <div class="akt-posiljilac">
                   <mat-icon>business</mat-icon>

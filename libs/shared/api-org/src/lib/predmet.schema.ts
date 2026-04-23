@@ -33,16 +33,17 @@ export interface IAkt {
   naziv: string;
   opis?: string;
   vrsta: VrstAkta;
-  uloga: UlogaAkta; // ← dodaj
+  uloga: UlogaAkta;
   smjer: SmjerAkta;
   datum: Date;
   posiljilac?: string;
-  fajl?: {
+  fajlovi: {
+    _id?: Types.ObjectId; // ← dodaj
     putanja: string;
     originalniNaziv: string;
     mimetype: string;
     velicina: number;
-  };
+  }[];
 }
 
 export interface IPredmet extends Document {
@@ -102,11 +103,16 @@ const aktSchema = new Schema<IAkt>(
     },
     datum: { type: Date, required: true },
     posiljilac: { type: String, trim: true },
-    fajl: {
-      putanja: { type: String },
-      originalniNaziv: { type: String },
-      mimetype: { type: String },
-      velicina: { type: Number },
+    fajlovi: {
+      type: [
+        {
+          putanja: { type: String },
+          originalniNaziv: { type: String },
+          mimetype: { type: String },
+          velicina: { type: Number },
+        },
+      ],
+      default: [],
     },
   },
   { timestamps: true },
