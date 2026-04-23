@@ -1,5 +1,4 @@
 <div class="predmeti-page">
-
   <!-- Header -->
   <div class="page-header">
     <div>
@@ -16,16 +15,21 @@
   <div class="filter-bar">
     <mat-form-field appearance="outline" class="search-field">
       <mat-label>Pretraži</mat-label>
-      <input matInput [value]="pretraga()"
+      <input
+        matInput
+        [value]="pretraga()"
         (input)="pretraga.set($any($event.target).value)"
-        placeholder="Broj predmeta, naziv..."/>
+        placeholder="Broj predmeta, naziv..."
+      />
       <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="status-field">
       <mat-label>Status</mat-label>
-      <mat-select [value]="statusFilter()"
-        (selectionChange)="statusFilter.set($event.value)">
+      <mat-select
+        [value]="statusFilter()"
+        (selectionChange)="statusFilter.set($event.value)"
+      >
         @for (s of statusi; track s.value) {
           <mat-option [value]="s.value">{{ s.label }}</mat-option>
         }
@@ -34,7 +38,7 @@
   </div>
 
   @if (isLoading()) {
-    <div class="loading-wrapper"><mat-spinner diameter="40"/></div>
+    <div class="loading-wrapper"><mat-spinner diameter="40" /></div>
   } @else if (filtrirani().length === 0) {
     <div class="prazno">
       <mat-icon>folder_open</mat-icon>
@@ -43,30 +47,41 @@
   } @else {
     <div class="predmeti-lista">
       @for (pred of filtrirani(); track pred._id) {
+        <!-- <div>Prioritet: {{ pred.prioritet }}</div> -->
         <div class="predmet-kartica">
-
           <!-- Header kartice -->
           <div class="kartica-header">
             <div class="predmet-info">
               <span class="broj-predmeta">{{ pred.brojPredmeta }}</span>
               <span class="naziv">{{ pred.naziv }}</span>
+              <span class="prioritet-badge prioritet-{{ pred.prioritet }}">
+                {{ pred.prioritet | titlecase }}
+              </span>
             </div>
             <div class="kartica-akcije">
               <span class="status-badge" [class]="getStatusClass(pred.status)">
                 {{ statusNaziv[pred.status] }}
               </span>
-              <button mat-icon-button
+              <button
+                mat-icon-button
                 [routerLink]="['/predmeti', pred._id]"
-                matTooltip="Detalji">
+                matTooltip="Detalji"
+              >
                 <mat-icon>visibility</mat-icon>
               </button>
-              <button mat-icon-button (click)="urediPredmet(pred)"
-                matTooltip="Uredi">
+              <button
+                mat-icon-button
+                (click)="urediPredmet(pred)"
+                matTooltip="Uredi"
+              >
                 <mat-icon>edit</mat-icon>
               </button>
-              <button mat-icon-button color="warn"
+              <button
+                mat-icon-button
+                color="warn"
                 (click)="obrisiPredmet(pred._id)"
-                matTooltip="Obriši">
+                matTooltip="Obriši"
+              >
                 <mat-icon>delete</mat-icon>
               </button>
             </div>
@@ -94,7 +109,7 @@
               </span>
               <span class="meta-item">
                 <mat-icon>calendar_today</mat-icon>
-                {{ pred.datumOtvaranja | date:'dd.MM.yyyy' }}
+                {{ pred.datumOtvaranja | date: 'dd.MM.yyyy' }}
               </span>
               <span class="meta-item">
                 <mat-icon>description</mat-icon>
@@ -102,10 +117,8 @@
               </span>
             </div>
           </div>
-
         </div>
       }
     </div>
   }
-
 </div>

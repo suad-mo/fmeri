@@ -10,6 +10,7 @@ import { OrgService } from '../../../core/services/org.service';
 import {
   IPredmet, IAkt,
   STATUS_PREDMETA, VRSTA_AKTA, SMJER_AKTA,
+  ULOGA_AKTA,
 } from '../../../core/models/org.models';
 import { environment } from '../../../../environments/environment';
 
@@ -39,6 +40,8 @@ export class PredmetDetaljiComponent implements OnInit {
   smjerNaziv = SMJER_AKTA;
 
   environment = environment;
+
+  ulogaNaziv = ULOGA_AKTA;
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');

@@ -17,6 +17,8 @@ import {
   IAkt,
   VRSTA_AKTA,
   SMJER_AKTA,
+  ULOGA_AKTA,
+  UlogaAkta,
 } from '../../../../core/models/org.models';
 import { MatIconModule } from "@angular/material/icon";
 
@@ -53,6 +55,9 @@ export class AktDialogComponent implements OnInit {
     value,
     label,
   }));
+
+  uloge = Object.entries(ULOGA_AKTA).map(([value, label]) => ({ value, label }));
+
   smjerovi = Object.entries(SMJER_AKTA).map(([value, label]) => ({
     value,
     label,
@@ -62,6 +67,7 @@ export class AktDialogComponent implements OnInit {
     naziv: ['', Validators.required],
     brojAkta: [''],
     vrsta: ['', Validators.required],
+    uloga: ['ostalo', Validators.required],
     smjer: ['', Validators.required],
     datum: [new Date(), Validators.required],
     posiljilac: [''],
@@ -75,6 +81,7 @@ export class AktDialogComponent implements OnInit {
         naziv: a.naziv,
         brojAkta: a.brojAkta ?? '',
         vrsta: a.vrsta,
+        uloga: a.uloga ?? 'ostalo',
         smjer: a.smjer,
         datum: new Date(a.datum),
         posiljilac: a.posiljilac ?? '',
@@ -96,6 +103,7 @@ export class AktDialogComponent implements OnInit {
       naziv: raw.naziv ?? '',
       brojAkta: raw.brojAkta ?? undefined,
       vrsta: raw.vrsta as IAkt['vrsta'],
+      uloga: raw.uloga as UlogaAkta ?? 'ostalo',
       smjer: raw.smjer as IAkt['smjer'],
       datum: raw.datum?.toISOString() ?? '',
       posiljilac: raw.posiljilac ?? undefined,

@@ -4,12 +4,14 @@
 
 <mat-dialog-content>
   <form [formGroup]="form" class="dialog-form">
-
     <div class="form-row">
       <mat-form-field appearance="outline">
         <mat-label>Broj predmeta</mat-label>
-        <input matInput formControlName="brojPredmeta"
-          placeholder="npr. 01-123/2026"/>
+        <input
+          matInput
+          formControlName="brojPredmeta"
+          placeholder="npr. 01-123/2026"
+        />
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Status</mat-label>
@@ -19,11 +21,19 @@
           }
         </mat-select>
       </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Prioritet</mat-label>
+        <mat-select formControlName="prioritet">
+          @for (p of prioriteti; track p.value) {
+            <mat-option [value]="p.value">{{ p.label }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
     </div>
 
     <mat-form-field appearance="outline">
       <mat-label>Naziv predmeta</mat-label>
-      <input matInput formControlName="naziv"/>
+      <input matInput formControlName="naziv" />
     </mat-form-field>
 
     <mat-form-field appearance="outline">
@@ -45,29 +55,40 @@
     <div class="form-row">
       <mat-form-field appearance="outline">
         <mat-label>Datum otvaranja</mat-label>
-        <input matInput [matDatepicker]="picker1"
-          formControlName="datumOtvaranja"/>
-        <mat-datepicker-toggle matSuffix [for]="picker1"/>
-        <mat-datepicker #picker1/>
+        <input
+          matInput
+          [matDatepicker]="picker1"
+          formControlName="datumOtvaranja"
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker1" />
+        <mat-datepicker #picker1 />
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Datum arhiviranja</mat-label>
-        <input matInput [matDatepicker]="picker2"
-          formControlName="datumArhiviranja"/>
-        <mat-datepicker-toggle matSuffix [for]="picker2"/>
-        <mat-datepicker #picker2/>
+        <input
+          matInput
+          [matDatepicker]="picker2"
+          formControlName="datumArhiviranja"
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker2" />
+        <mat-datepicker #picker2 />
       </mat-form-field>
     </div>
-
   </form>
 </mat-dialog-content>
 
 <mat-dialog-actions align="end">
   <button mat-button (click)="ref.close()">Odustani</button>
-  <button mat-flat-button color="primary"
+  <button
+    mat-flat-button
+    color="primary"
     [disabled]="form.invalid || loading"
-    (click)="spremi()">
-    @if (loading) { <mat-spinner diameter="20"/> }
-    @else { {{ data.predmet ? 'Sačuvaj' : 'Kreiraj' }} }
+    (click)="spremi()"
+  >
+    @if (loading) {
+      <mat-spinner diameter="20" />
+    } @else {
+      {{ data.predmet ? 'Sačuvaj' : 'Kreiraj' }}
+    }
   </button>
 </mat-dialog-actions>

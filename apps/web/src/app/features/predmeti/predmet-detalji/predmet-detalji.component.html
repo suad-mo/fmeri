@@ -89,6 +89,9 @@
                     {{ smjerNaziv[akt.smjer] }}
                   </span>
                   <span class="vrsta-badge">{{ vrstaNaziv[akt.vrsta] }}</span>
+                  @if (akt.uloga) {
+                    <span class="uloga-badge">{{ ulogaNaziv[akt.uloga] }}</span>
+                  }
                   @if (akt.brojAkta) {
                     <span class="broj-akta">{{ akt.brojAkta }}</span>
                   }

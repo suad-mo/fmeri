@@ -10,7 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialog } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
-import { DatePipe } from '@angular/common';
+import { DatePipe, TitleCasePipe } from '@angular/common';
 import { OrgService } from '../../core/services/org.service';
 import { IPredmet, StatusPredmeta, STATUS_PREDMETA } from '../../core/models/org.models';
 
@@ -18,7 +18,7 @@ import { IPredmet, StatusPredmeta, STATUS_PREDMETA } from '../../core/models/org
   selector: 'app-predmeti',
   standalone: true,
   imports: [
-    RouterLink, FormsModule, DatePipe,
+    RouterLink, FormsModule, DatePipe, TitleCasePipe,
     MatButtonModule, MatIconModule, MatChipsModule,
     MatProgressSpinnerModule, MatTooltipModule,
     MatInputModule, MatFormFieldModule, MatSelectModule,

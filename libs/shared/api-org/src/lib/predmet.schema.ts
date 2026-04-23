@@ -1,11 +1,27 @@
 import { Schema, model, Document, Types } from 'mongoose';
 
+export type PrioritetPredmeta = 'redovno' | 'vazno' | 'urgentno';
+
+export type UlogaAkta =
+  | 'osnovni'
+  | 'zavrsni'
+  | 'prilog'
+  | 'zahtjev_za_misljenje'
+  | 'misljenje'
+  | 'obavijest'
+  | 'ostalo';
+
 export type VrstAkta =
   | 'zahtjev'
   | 'rjesenje'
   | 'dopis'
   | 'odluka'
   | 'ugovor'
+  | 'izvjestaj'
+  | 'zakljucak'
+  | 'zapisnik'
+  | 'obavijest'
+  | 'suglasnost'
   | 'ostalo';
 
 export type SmjerAkta = 'ulazni' | 'izlazni';
@@ -17,25 +33,26 @@ export interface IAkt {
   naziv: string;
   opis?: string;
   vrsta: VrstAkta;
+  uloga: UlogaAkta; // ← dodaj
   smjer: SmjerAkta;
   datum: Date;
-  posiljilac?: string; // samo za ulazne
+  posiljilac?: string;
   fajl?: {
     putanja: string;
     originalniNaziv: string;
     mimetype: string;
     velicina: number;
   };
-  createdAt?: Date;
 }
 
 export interface IPredmet extends Document {
   brojPredmeta: string;
   naziv: string;
   opis?: string;
+  prioritet: PrioritetPredmeta; // ← dodaj
   organ: Types.ObjectId;
   organizacionaJedinica?: Types.ObjectId;
-  referent: Types.ObjectId; // User
+  referent: Types.ObjectId;
   status: StatusPredmeta;
   datumOtvaranja: Date;
   datumArhiviranja?: Date;
@@ -50,8 +67,33 @@ const aktSchema = new Schema<IAkt>(
     opis: { type: String, trim: true },
     vrsta: {
       type: String,
-      enum: ['zahtjev', 'rjesenje', 'dopis', 'odluka', 'ugovor', 'ostalo'],
+      enum: [
+        'zahtjev',
+        'rjesenje',
+        'dopis',
+        'odluka',
+        'ugovor',
+        'izvjestaj',
+        'zakljucak',
+        'zapisnik',
+        'obavijest',
+        'suglasnost',
+        'ostalo',
+      ],
       required: true,
+    },
+    uloga: {
+      type: String,
+      enum: [
+        'osnovni',
+        'zavrsni',
+        'prilog',
+        'zahtjev_za_misljenje',
+        'misljenje',
+        'obavijest',
+        'ostalo',
+      ],
+      default: 'ostalo',
     },
     smjer: {
       type: String,
@@ -67,7 +109,7 @@ const aktSchema = new Schema<IAkt>(
       velicina: { type: Number },
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 const predmetSchema = new Schema<IPredmet>(
@@ -83,6 +125,11 @@ const predmetSchema = new Schema<IPredmet>(
       trim: true,
     },
     opis: { type: String, trim: true },
+    prioritet: {
+      type: String,
+      enum: ['redovno', 'vazno', 'urgentno'],
+      default: 'redovno',
+    },
     organ: {
       type: Schema.Types.ObjectId,
       ref: 'Organ',
@@ -110,7 +157,7 @@ const predmetSchema = new Schema<IPredmet>(
     akti: [aktSchema],
     aktivan: { type: Boolean, default: true },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 export const Predmet = model<IPredmet>('Predmet', predmetSchema);

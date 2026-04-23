@@ -216,6 +216,15 @@ h1 {
   color: var(--color-text-secondary);
 }
 
+.uloga-badge {
+  font-size: 0.7rem;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: rgba(72, 187, 120, 0.1);
+  border: 0.5px solid var(--color-border-tertiary);
+  color: #38a169;
+}
+
 .broj-akta {
   font-size: 0.72rem;
   font-family: monospace;

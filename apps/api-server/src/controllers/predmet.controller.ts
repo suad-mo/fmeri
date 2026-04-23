@@ -9,9 +9,7 @@ import * as fs from 'fs';
 import { IZaposlenik } from '@nx-fmeri/api-org';
 
 const dohvatiKontekstUsera = async (userId: string) => {
-  const user = await User.findById(userId)
-    .populate('zaposlenik')
-    .lean();
+  const user = await User.findById(userId).populate('zaposlenik').lean();
 
   if (!user?.zaposlenik) return null;
 
@@ -66,7 +64,8 @@ export const getPredmet = async (req: Request, res: Response) => {
       .populate('referent', 'name email')
       .lean();
 
-    if (!predmet) return res.status(404).json({ message: 'Predmet nije pronađen.' });
+    if (!predmet)
+      return res.status(404).json({ message: 'Predmet nije pronađen.' });
     return res.json(predmet);
   } catch (error) {
     return res.status(500).json({ error: getErrorMessage(error) });
@@ -76,6 +75,7 @@ export const getPredmet = async (req: Request, res: Response) => {
 // POST /api/predmeti
 export const createPredmet = async (req: Request, res: Response) => {
   try {
+     console.log('Body:', req.body); // ← dodaj
     const userId = req.user?.id;
     if (!userId) return res.status(401).json({ message: 'Neautorizovan.' });
 
@@ -83,7 +83,8 @@ export const createPredmet = async (req: Request, res: Response) => {
 
     // Ako user nema zaposlenika (npr. admin), uzmi organ iz requesta
     const organ = kontekst?.organ ?? req.body.organ;
-    const organizacionaJedinica = kontekst?.organizacionaJedinica ?? req.body.organizacionaJedinica;
+    const organizacionaJedinica =
+      kontekst?.organizacionaJedinica ?? req.body.organizacionaJedinica;
 
     if (!organ) {
       return res.status(400).json({ message: 'Organ je obavezan.' });
@@ -102,19 +103,46 @@ export const createPredmet = async (req: Request, res: Response) => {
   }
 };
 
+// Helper — provjeri da li je user vlasnik predmeta
+const provjeriVlasnistvo = async (
+  predmetId: string,
+  userId: string,
+  isAdmin: boolean,
+) => {
+  if (isAdmin) return true;
+  const predmet = await Predmet.findById(predmetId).lean();
+  return predmet?.referent.toString() === userId;
+};
+
 // PATCH /api/predmeti/:id
 export const updatePredmet = async (req: Request, res: Response) => {
   try {
+    const userId = req.user?.id;
+    const isAdmin = req.user?.role?.includes('admin');
+    if (!userId) return res.status(401).json({ message: 'Neautorizovan.' });
+
+    const dozvoljeno = await provjeriVlasnistvo(
+      req.params['id'],
+      userId,
+      isAdmin ?? false,
+    );
+    if (!dozvoljeno) {
+      return res
+        .status(403)
+        .json({ message: 'Nemate pravo izmjene ovog predmeta.' });
+    }
+
     const predmet = await Predmet.findByIdAndUpdate(
       req.params['id'],
       { ...req.body },
-      { new: true, runValidators: true }
+      { new: true, runValidators: true },
     )
       .populate('organ', 'naziv skraceniNaziv')
       .populate('organizacionaJedinica', 'naziv')
       .populate('referent', 'name email');
 
-    if (!predmet) return res.status(404).json({ message: 'Predmet nije pronađen.' });
+    if (!predmet)
+      return res.status(404).json({ message: 'Predmet nije pronađen.' });
     return res.json(predmet);
   } catch (error) {
     return res.status(400).json({ error: getErrorMessage(error) });
@@ -124,6 +152,21 @@ export const updatePredmet = async (req: Request, res: Response) => {
 // DELETE /api/predmeti/:id — soft delete
 export const deletePredmet = async (req: Request, res: Response) => {
   try {
+    const userId = req.user?.id;
+    const isAdmin = req.user?.role?.includes('admin');
+    if (!userId) return res.status(401).json({ message: 'Neautorizovan.' });
+
+    const dozvoljeno = await provjeriVlasnistvo(
+      req.params['id'],
+      userId,
+      isAdmin ?? false,
+    );
+    if (!dozvoljeno) {
+      return res
+        .status(403)
+        .json({ message: 'Nemate pravo brisanja ovog predmeta.' });
+    }
+
     await Predmet.findByIdAndUpdate(req.params['id'], { aktivan: false });
     return res.json({ message: 'Predmet obrisan.' });
   } catch (error) {
@@ -134,8 +177,18 @@ export const deletePredmet = async (req: Request, res: Response) => {
 // POST /api/predmeti/:id/akti — dodaj akt
 export const addAkt = async (req: Request, res: Response) => {
   try {
+    const userId = req.user?.id;
+    const isAdmin = req.user?.role?.includes('admin');
+    if (!userId) return res.status(401).json({ message: 'Neautorizovan.' });
+
+    const dozvoljeno = await provjeriVlasnistvo(req.params['id'], userId, isAdmin ?? false);
+    if (!dozvoljeno) {
+      return res.status(403).json({ message: 'Nemate pravo izmjene ovog predmeta.' });
+    }
+
     const predmet = await Predmet.findById(req.params['id']);
-    if (!predmet) return res.status(404).json({ message: 'Predmet nije pronađen.' });
+    if (!predmet)
+      return res.status(404).json({ message: 'Predmet nije pronađen.' });
 
     predmet.akti.push(req.body);
     await predmet.save();
@@ -149,8 +202,18 @@ export const addAkt = async (req: Request, res: Response) => {
 // PATCH /api/predmeti/:id/akti/:aktId — uredi akt
 export const updateAkt = async (req: Request, res: Response) => {
   try {
+    const userId = req.user?.id;
+    const isAdmin = req.user?.role?.includes('admin');
+    if (!userId) return res.status(401).json({ message: 'Neautorizovan.' });
+
+    const dozvoljeno = await provjeriVlasnistvo(req.params['id'], userId, isAdmin ?? false);
+    if (!dozvoljeno) {
+      return res.status(403).json({ message: 'Nemate pravo izmjene ovog predmeta.' });
+    }
+
     const predmet = await Predmet.findById(req.params['id']);
-    if (!predmet) return res.status(404).json({ message: 'Predmet nije pronađen.' });
+    if (!predmet)
+      return res.status(404).json({ message: 'Predmet nije pronađen.' });
 
     const akt = predmet.akti.id(req.params['aktId']);
     if (!akt) return res.status(404).json({ message: 'Akt nije pronađen.' });
@@ -167,8 +230,17 @@ export const updateAkt = async (req: Request, res: Response) => {
 // DELETE /api/predmeti/:id/akti/:aktId — obriši akt
 export const deleteAkt = async (req: Request, res: Response) => {
   try {
+    const userId = req.user?.id;
+    const isAdmin = req.user?.role?.includes('admin');
+    if (!userId) return res.status(401).json({ message: 'Neautorizovan.' });
+
+    const dozvoljeno = await provjeriVlasnistvo(req.params['id'], userId, isAdmin ?? false);
+    if (!dozvoljeno) {
+      return res.status(403).json({ message: 'Nemate pravo izmjene ovog predmeta.' });
+    }
     const predmet = await Predmet.findById(req.params['id']);
-    if (!predmet) return res.status(404).json({ message: 'Predmet nije pronađen.' });
+    if (!predmet)
+      return res.status(404).json({ message: 'Predmet nije pronađen.' });
 
     predmet.akti.pull({ _id: req.params['aktId'] });
     await predmet.save();
@@ -182,19 +254,33 @@ export const deleteAkt = async (req: Request, res: Response) => {
 // POST /api/predmeti/:id/akti/:aktId/fajl
 export const uploadAktFajl = async (req: Request, res: Response) => {
   try {
+    const userId = req.user?.id;
+    const isAdmin = req.user?.role?.includes('admin');
+    if (!userId) return res.status(401).json({ message: 'Neautorizovan.' });
+
+    const dozvoljeno = await provjeriVlasnistvo(req.params['id'], userId, isAdmin ?? false);
+    if (!dozvoljeno) {
+      return res.status(403).json({ message: 'Nemate pravo izmjene ovog predmeta.' });
+    }
+
     if (!req.file) {
       return res.status(400).json({ message: 'Fajl nije uploadovan.' });
     }
 
     const predmet = await Predmet.findById(req.params['id']);
-    if (!predmet) return res.status(404).json({ message: 'Predmet nije pronađen.' });
+    if (!predmet)
+      return res.status(404).json({ message: 'Predmet nije pronađen.' });
 
     const akt = predmet.akti.id(req.params['aktId']);
     if (!akt) return res.status(404).json({ message: 'Akt nije pronađen.' });
 
     // Obriši stari fajl ako postoji
     if (akt.fajl?.putanja) {
-      const stariPath = path.join(__dirname, '../../../../../uploads/akti', akt.fajl.putanja);
+      const stariPath = path.join(
+        __dirname,
+        '../../../../../uploads/akti',
+        akt.fajl.putanja,
+      );
       if (fs.existsSync(stariPath)) fs.unlinkSync(stariPath);
     }
 

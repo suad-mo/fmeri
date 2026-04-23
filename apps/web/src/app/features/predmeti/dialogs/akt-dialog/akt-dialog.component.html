@@ -21,6 +21,14 @@
           }
         </mat-select>
       </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Uloga akta</mat-label>
+        <mat-select formControlName="uloga">
+          @for (u of uloge; track u.value) {
+            <mat-option [value]="u.value">{{ u.label }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
     </div>
 
     <mat-form-field appearance="outline">
