@@ -433,7 +433,7 @@ export type SmjerAkta = 'ulazni' | 'izlazni';
 export type StatusPredmeta = 'u_radu' | 'rijeseno' | 'arhivirano';
 
 export interface IAkt {
-  _id?: string;
+  _id: string;  // ← mora biti tu
   brojAkta?: string;
   naziv: string;
   opis?: string;

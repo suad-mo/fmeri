@@ -16,7 +16,9 @@
   margin-bottom: 1.25rem;
 }
 
-.header-info { flex: 1; }
+.header-info {
+  flex: 1;
+}
 
 .header-top {
   display: flex;
@@ -53,9 +55,18 @@ h1 {
   padding: 2px 8px;
   border-radius: 4px;
 
-  &.status-u-radu     { background: rgba(102,126,234,0.1); color: #667eea; }
-  &.status-rijeseno   { background: rgba(72,187,120,0.1);  color: #38a169; }
-  &.status-arhivirano { background: rgba(160,174,192,0.1); color: #718096; }
+  &.status-u-radu {
+    background: rgba(102, 126, 234, 0.1);
+    color: #667eea;
+  }
+  &.status-rijeseno {
+    background: rgba(72, 187, 120, 0.1);
+    color: #38a169;
+  }
+  &.status-arhivirano {
+    background: rgba(160, 174, 192, 0.1);
+    color: #718096;
+  }
 }
 
 .meta-kartica {
@@ -91,7 +102,8 @@ h1 {
   font-weight: 500;
 }
 
-.akti-sekcija { }
+.akti-sekcija {
+}
 
 .akti-header {
   display: flex;
@@ -107,7 +119,11 @@ h1 {
     font-weight: 600;
     margin: 0;
 
-    mat-icon { font-size: 20px; width: 20px; height: 20px; }
+    mat-icon {
+      font-size: 20px;
+      width: 20px;
+      height: 20px;
+    }
   }
 }
 
@@ -127,8 +143,15 @@ h1 {
   padding: 3rem;
   color: var(--color-text-tertiary);
 
-  mat-icon { font-size: 40px; width: 40px; height: 40px; margin-bottom: 0.5rem; }
-  p { font-size: 0.85rem; }
+  mat-icon {
+    font-size: 40px;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 0.5rem;
+  }
+  p {
+    font-size: 0.85rem;
+  }
 }
 
 .akti-lista {
@@ -168,10 +191,20 @@ h1 {
   padding: 2px 7px;
   border-radius: 4px;
 
-  mat-icon { font-size: 12px; width: 12px; height: 12px; }
+  mat-icon {
+    font-size: 12px;
+    width: 12px;
+    height: 12px;
+  }
 
-  &.smjer-ulazni  { background: rgba(72,187,120,0.1);  color: #38a169; }
-  &.smjer-izlazni { background: rgba(102,126,234,0.1); color: #667eea; }
+  &.smjer-ulazni {
+    background: rgba(72, 187, 120, 0.1);
+    color: #38a169;
+  }
+  &.smjer-izlazni {
+    background: rgba(102, 126, 234, 0.1);
+    color: #667eea;
+  }
 }
 
 .vrsta-badge {
@@ -220,7 +253,11 @@ h1 {
   font-size: 0.75rem;
   color: var(--color-text-secondary);
 
-  mat-icon { font-size: 13px; width: 13px; height: 13px; }
+  mat-icon {
+    font-size: 13px;
+    width: 13px;
+    height: 13px;
+  }
 }
 
 .akt-opis {
@@ -228,4 +265,24 @@ h1 {
   font-size: 0.78rem;
   color: var(--color-text-secondary);
   font-style: italic;
+}
+
+.fajl-link {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px 8px;
+  font-size: 0.78rem;
+  color: #667eea;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  mat-icon {
+    font-size: 14px;
+    width: 14px;
+    height: 14px;
+  }
 }

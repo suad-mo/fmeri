@@ -464,4 +464,17 @@ export class OrgService {
       `${environment.apiUrl}/predmeti/${predmetId}/akti/${aktId}`,
     );
   }
+
+  uploadAktFajl(
+    predmetId: string,
+    aktId: string,
+    fajl: File,
+  ): Observable<IPredmet> {
+    const formData = new FormData();
+    formData.append('fajl', fajl);
+    return this.http.post<IPredmet>(
+      `${environment.apiUrl}/predmeti/${predmetId}/akti/${aktId}/fajl`,
+      formData,
+    );
+  }
 }

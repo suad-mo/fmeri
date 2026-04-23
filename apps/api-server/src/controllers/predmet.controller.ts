@@ -2,6 +2,8 @@ import { Request, Response } from 'express';
 import { Predmet } from '@nx-fmeri/api-org';
 import { User } from '@nx-fmeri/api-auth';
 import { getErrorMessage } from '../helpers/error.helper';
+import path from 'path';
+import * as fs from 'fs';
 
 // Helper — dohvati organ i OJ iz usera
 import { IZaposlenik } from '@nx-fmeri/api-org';
@@ -171,6 +173,39 @@ export const deleteAkt = async (req: Request, res: Response) => {
     predmet.akti.pull({ _id: req.params['aktId'] });
     await predmet.save();
 
+    return res.json(predmet);
+  } catch (error) {
+    return res.status(500).json({ error: getErrorMessage(error) });
+  }
+};
+
+// POST /api/predmeti/:id/akti/:aktId/fajl
+export const uploadAktFajl = async (req: Request, res: Response) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ message: 'Fajl nije uploadovan.' });
+    }
+
+    const predmet = await Predmet.findById(req.params['id']);
+    if (!predmet) return res.status(404).json({ message: 'Predmet nije pronađen.' });
+
+    const akt = predmet.akti.id(req.params['aktId']);
+    if (!akt) return res.status(404).json({ message: 'Akt nije pronađen.' });
+
+    // Obriši stari fajl ako postoji
+    if (akt.fajl?.putanja) {
+      const stariPath = path.join(__dirname, '../../../../../uploads/akti', akt.fajl.putanja);
+      if (fs.existsSync(stariPath)) fs.unlinkSync(stariPath);
+    }
+
+    akt.fajl = {
+      putanja: req.file.filename,
+      originalniNaziv: req.file.originalname,
+      mimetype: req.file.mimetype,
+      velicina: req.file.size,
+    };
+
+    await predmet.save();
     return res.json(predmet);
   } catch (error) {
     return res.status(500).json({ error: getErrorMessage(error) });

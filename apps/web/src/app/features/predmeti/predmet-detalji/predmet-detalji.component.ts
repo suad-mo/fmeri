@@ -11,6 +11,7 @@ import {
   IPredmet, IAkt,
   STATUS_PREDMETA, VRSTA_AKTA, SMJER_AKTA,
 } from '../../../core/models/org.models';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-predmet-detalji',
@@ -34,6 +35,8 @@ export class PredmetDetaljiComponent implements OnInit {
   statusNaziv = STATUS_PREDMETA;
   vrstaNaziv = VRSTA_AKTA;
   smjerNaziv = SMJER_AKTA;
+
+  environment = environment;
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
