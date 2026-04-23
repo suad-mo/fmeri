@@ -1,6 +1,7 @@
 .predmeti-page {
   padding: 1.5rem;
   max-width: 1100px;
+  margin: 0 auto; // ← dodaj
 }
 
 .page-header {
@@ -9,8 +10,16 @@
   align-items: flex-start;
   margin-bottom: 1.25rem;
 
-  h1 { font-size: 1.3rem; font-weight: 600; margin: 0 0 0.2rem; }
-  p  { font-size: 0.8rem; color: var(--color-text-secondary); margin: 0; }
+  h1 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0 0 0.2rem;
+  }
+  p {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
 }
 
 .filter-bar {
@@ -19,8 +28,16 @@
   margin-bottom: 1rem;
   flex-wrap: wrap;
 
-  .search-field { flex: 1; min-width: 200px; }
-  .status-field { width: 180px; }
+  .search-field {
+    flex: 1;
+    min-width: 200px;
+  }
+  .status-field {
+    width: 160px;
+  }
+  .prioritet-field {
+    width: 160px;
+  } // ← dodaj
 }
 
 .loading-wrapper {
@@ -36,8 +53,15 @@
   padding: 4rem;
   color: var(--color-text-tertiary);
 
-  mat-icon { font-size: 48px; width: 48px; height: 48px; margin-bottom: 0.5rem; }
-  p { font-size: 0.9rem; }
+  mat-icon {
+    font-size: 48px;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 0.5rem;
+  }
+  p {
+    font-size: 0.9rem;
+  }
 }
 
 .predmeti-lista {
@@ -105,9 +129,18 @@
   border-radius: 4px;
   white-space: nowrap;
 
-  &.status-u-radu    { background: rgba(102,126,234,0.1); color: #667eea; }
-  &.status-rijeseno  { background: rgba(72,187,120,0.1);  color: #38a169; }
-  &.status-arhivirano { background: rgba(160,174,192,0.1); color: #718096; }
+  &.status-u-radu {
+    background: rgba(102, 126, 234, 0.1);
+    color: #667eea;
+  }
+  &.status-rijeseno {
+    background: rgba(72, 187, 120, 0.1);
+    color: #38a169;
+  }
+  &.status-arhivirano {
+    background: rgba(160, 174, 192, 0.1);
+    color: #718096;
+  }
 }
 
 .kartica-body {
@@ -147,7 +180,16 @@
   border-radius: 4px;
   text-transform: uppercase;
 
-  &.prioritet-redovno  { background: rgba(160,174,192,0.1); color: #718096; }
-  &.prioritet-vazno    { background: rgba(214,158,46,0.1);  color: #d69e2e; }
-  &.prioritet-urgentno { background: rgba(229,62,62,0.1);   color: #e53e3e; }
+  &.prioritet-redovno {
+    background: rgba(160, 174, 192, 0.1);
+    color: #718096;
+  }
+  &.prioritet-vazno {
+    background: rgba(214, 158, 46, 0.1);
+    color: #d69e2e;
+  }
+  &.prioritet-urgentno {
+    background: rgba(229, 62, 62, 0.1);
+    color: #e53e3e;
+  }
 }

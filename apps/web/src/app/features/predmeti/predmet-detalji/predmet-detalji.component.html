@@ -13,6 +13,9 @@
           <span class="status-badge" [class]="getStatusClass(p.status)">
             {{ statusNaziv[p.status] }}
           </span>
+          <span class="prioritet-badge prioritet-{{ p.prioritet }}">
+            {{ p.prioritet | titlecase }}
+          </span>
         </div>
         <h1>{{ p.naziv }}</h1>
         @if (p.opis) {
@@ -65,10 +68,12 @@
           Akti
           <span class="cnt">{{ p.akti.length }}</span>
         </h2>
-        <button mat-flat-button color="primary" (click)="dodajAkt()">
-          <mat-icon>add</mat-icon>
-          Dodaj akt
-        </button>
+        @if (jeVlasnik(p)) {
+          <button mat-flat-button color="primary" (click)="dodajAkt()">
+            <mat-icon>add</mat-icon>
+            Dodaj akt
+          </button>
+        }
       </div>
 
       @if (p.akti.length === 0) {
@@ -80,6 +85,7 @@
         <div class="akti-lista">
           @for (akt of p.akti; track akt._id) {
             <div class="akt-kartica">
+              <!-- Akt header -->
               <div class="akt-header">
                 <div class="akt-info">
                   <span class="smjer-badge" [class]="getSmjerClass(akt.smjer)">
@@ -97,23 +103,27 @@
                   }
                 </div>
                 <div class="akt-akcije">
-                  <button
-                    mat-icon-button
-                    (click)="urediAkt(akt)"
-                    matTooltip="Uredi"
-                  >
-                    <mat-icon>edit</mat-icon>
-                  </button>
-                  <button
-                    mat-icon-button
-                    color="warn"
-                    (click)="obrisiAkt(akt._id!)"
-                    matTooltip="Obriši"
-                  >
-                    <mat-icon>delete</mat-icon>
-                  </button>
+                  @if (jeVlasnik(p)) {
+                    <button
+                      mat-icon-button
+                      (click)="urediAkt(akt)"
+                      matTooltip="Uredi"
+                    >
+                      <mat-icon>edit</mat-icon>
+                    </button>
+                    <button
+                      mat-icon-button
+                      color="warn"
+                      (click)="obrisiAkt(akt._id!)"
+                      matTooltip="Obriši"
+                    >
+                      <mat-icon>delete</mat-icon>
+                    </button>
+                  }
                 </div>
               </div>
+
+              <!-- Naziv i datum -->
               <div class="akt-body">
                 <span class="akt-naziv">{{ akt.naziv }}</span>
                 <span class="akt-datum">{{
@@ -121,7 +131,21 @@
                 }}</span>
               </div>
 
-              @if (akt.fajlovi?.length) {
+              <!-- Pošiljalac -->
+              @if (akt.posiljilac) {
+                <div class="akt-posiljilac">
+                  <mat-icon>business</mat-icon>
+                  {{ akt.posiljilac }}
+                </div>
+              }
+
+              <!-- Opis -->
+              @if (akt.opis) {
+                <div class="akt-opis">{{ akt.opis }}</div>
+              }
+
+              <!-- Fajlovi — na dnu -->
+              @if (akt.fajlovi && akt.fajlovi.length > 0) {
                 <div class="fajlovi-lista">
                   @for (fajl of akt.fajlovi; track fajl._id) {
                     <div class="fajl-red">
@@ -133,27 +157,19 @@
                         <mat-icon>attach_file</mat-icon>
                         {{ fajl.originalniNaziv }}
                       </a>
-                      <button
-                        mat-icon-button
-                        color="warn"
-                        (click)="obrisiAktFajl(akt._id, fajl._id)"
-                        matTooltip="Obriši fajl"
-                      >
-                        <mat-icon>close</mat-icon>
-                      </button>
+                      @if (jeVlasnik(p)) {
+                        <button
+                          mat-icon-button
+                          color="warn"
+                          (click)="obrisiAktFajl(akt._id, fajl._id)"
+                          matTooltip="Obriši fajl"
+                        >
+                          <mat-icon>close</mat-icon>
+                        </button>
+                      }
                     </div>
                   }
                 </div>
-              }
-
-              @if (akt.posiljilac) {
-                <div class="akt-posiljilac">
-                  <mat-icon>business</mat-icon>
-                  {{ akt.posiljilac }}
-                </div>
-              }
-              @if (akt.opis) {
-                <div class="akt-opis">{{ akt.opis }}</div>
               }
             </div>
           }

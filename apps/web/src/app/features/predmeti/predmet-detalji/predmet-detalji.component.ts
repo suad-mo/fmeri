@@ -1,6 +1,6 @@
-import { Component, inject, signal, OnInit } from '@angular/core';
+import { Component, inject, signal, OnInit, computed } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { DatePipe } from '@angular/common';
+import { DatePipe, TitleCasePipe } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -16,6 +16,7 @@ import {
   ULOGA_AKTA,
 } from '../../../core/models/org.models';
 import { environment } from '../../../../environments/environment';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-predmet-detalji',
@@ -23,6 +24,7 @@ import { environment } from '../../../../environments/environment';
   imports: [
     RouterLink,
     DatePipe,
+    TitleCasePipe,
     MatButtonModule,
     MatIconModule,
     MatProgressSpinnerModule,
@@ -35,24 +37,40 @@ export class PredmetDetaljiComponent implements OnInit {
   private route = inject(ActivatedRoute);
   private orgService = inject(OrgService);
   private dialog = inject(MatDialog);
+  private authService = inject(AuthService);
 
   readonly aktiFajlUrl = environment.aktiUrl;
 
   predmet = signal<IPredmet | null>(null);
   isLoading = signal(true);
+  currentUserId = computed(() => this.authService.currentUser()?.id);
 
   statusNaziv = STATUS_PREDMETA;
   vrstaNaziv = VRSTA_AKTA;
   smjerNaziv = SMJER_AKTA;
+  ulogaNaziv = ULOGA_AKTA;
 
   environment = environment;
-
-  ulogaNaziv = ULOGA_AKTA;
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     if (!id) return;
     this.ucitaj(id);
+  }
+
+  jeVlasnik(predmet: IPredmet): boolean {
+    const isAdmin = this.authService.userRoles().includes('admin');
+    const userId = this.currentUserId();
+    console.log(
+      'isAdmin:',
+      isAdmin,
+      'userId:',
+      userId,
+      'referent:',
+      predmet.referent._id,
+    );
+    if (isAdmin) return true;
+    return predmet.referent._id === userId;
   }
 
   ucitaj(id: string) {

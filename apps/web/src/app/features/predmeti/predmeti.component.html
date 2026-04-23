@@ -35,6 +35,17 @@
         }
       </mat-select>
     </mat-form-field>
+    <mat-form-field appearance="outline" class="prioritet-field">
+      <mat-label>Prioritet</mat-label>
+      <mat-select
+        [value]="prioritetFilter()"
+        (selectionChange)="prioritetFilter.set($event.value)"
+      >
+        @for (p of prioriteti; track p.value) {
+          <mat-option [value]="p.value">{{ p.label }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
   </div>
 
   @if (isLoading()) {

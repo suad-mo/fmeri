@@ -12,16 +12,29 @@ import { MatDialog } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { DatePipe, TitleCasePipe } from '@angular/common';
 import { OrgService } from '../../core/services/org.service';
-import { IPredmet, StatusPredmeta, STATUS_PREDMETA } from '../../core/models/org.models';
+import {
+  IPredmet,
+  StatusPredmeta,
+  STATUS_PREDMETA,
+  PrioritetPredmeta,
+} from '../../core/models/org.models';
 
 @Component({
   selector: 'app-predmeti',
   standalone: true,
   imports: [
-    RouterLink, FormsModule, DatePipe, TitleCasePipe,
-    MatButtonModule, MatIconModule, MatChipsModule,
-    MatProgressSpinnerModule, MatTooltipModule,
-    MatInputModule, MatFormFieldModule, MatSelectModule,
+    RouterLink,
+    FormsModule,
+    DatePipe,
+    TitleCasePipe,
+    MatButtonModule,
+    MatIconModule,
+    MatChipsModule,
+    MatProgressSpinnerModule,
+    MatTooltipModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatSelectModule,
   ],
   templateUrl: './predmeti.component.html',
   styleUrl: './predmeti.component.scss',
@@ -35,6 +48,15 @@ export class PredmetiComponent implements OnInit {
   pretraga = signal('');
   statusFilter = signal<StatusPredmeta | ''>('');
 
+  prioritetFilter = signal<PrioritetPredmeta | ''>('');
+
+  prioriteti: { value: PrioritetPredmeta | ''; label: string }[] = [
+    { value: '', label: 'Svi prioriteti' },
+    { value: 'redovno', label: 'Redovno' },
+    { value: 'vazno', label: 'Važno' },
+    { value: 'urgentno', label: 'Urgentno' },
+  ];
+
   statusNaziv = STATUS_PREDMETA;
   statusi: { value: StatusPredmeta | ''; label: string }[] = [
     { value: '', label: 'Svi statusi' },
@@ -46,21 +68,29 @@ export class PredmetiComponent implements OnInit {
   filtrirani() {
     const p = this.pretraga().toLowerCase();
     const s = this.statusFilter();
-    return this.predmeti().filter(pred => {
-      const matchPretraga = !p ||
+    const pr = this.prioritetFilter();
+    return this.predmeti().filter((pred) => {
+      const matchPretraga =
+        !p ||
         pred.brojPredmeta.toLowerCase().includes(p) ||
         pred.naziv.toLowerCase().includes(p);
       const matchStatus = !s || pred.status === s;
-      return matchPretraga && matchStatus;
+      const matchPrioritet = !pr || pred.prioritet === pr;
+      return matchPretraga && matchStatus && matchPrioritet;
     });
   }
 
-  ngOnInit() { this.ucitaj(); }
+  ngOnInit() {
+    this.ucitaj();
+  }
 
   ucitaj() {
     this.isLoading.set(true);
     this.orgService.getPredmeti().subscribe({
-      next: (data) => { this.predmeti.set(data); this.isLoading.set(false); },
+      next: (data) => {
+        this.predmeti.set(data);
+        this.isLoading.set(false);
+      },
       error: () => this.isLoading.set(false),
     });
   }
@@ -73,8 +103,10 @@ export class PredmetiComponent implements OnInit {
           maxWidth: '95vw',
           data: {},
         });
-        ref.afterClosed().subscribe(r => { if (r) this.ucitaj(); });
-      }
+        ref.afterClosed().subscribe((r) => {
+          if (r) this.ucitaj();
+        });
+      },
     );
   }
 
@@ -86,8 +118,10 @@ export class PredmetiComponent implements OnInit {
           maxWidth: '95vw',
           data: { predmet },
         });
-        ref.afterClosed().subscribe(r => { if (r) this.ucitaj(); });
-      }
+        ref.afterClosed().subscribe((r) => {
+          if (r) this.ucitaj();
+        });
+      },
     );
   }
 

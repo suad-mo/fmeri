@@ -1,6 +1,7 @@
 .detalji-page {
   padding: 1.5rem;
   max-width: 900px;
+  margin: 0 auto; // ← dodaj
 }
 
 .loading-wrapper {
@@ -307,4 +308,17 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.prioritet-badge {
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+
+  &.prioritet-redovno  { background: rgba(160,174,192,0.1); color: #718096; }
+  &.prioritet-vazno    { background: rgba(214,158,46,0.1);  color: #d69e2e; }
+  &.prioritet-urgentno { background: rgba(229,62,62,0.1);   color: #e53e3e; }
 }
