@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import {
   MatDialogModule,
@@ -20,6 +20,7 @@ import {
   PrioritetPredmeta,
   StatusPredmeta,
 } from '../../../../core/models/org.models';
+import { AuthService } from '../../../../../app/core/services/auth.service';
 
 @Component({
   selector: 'app-predmet-dialog',
@@ -43,6 +44,9 @@ export class PredmetDialogComponent implements OnInit {
   data = inject<{ predmet?: IPredmet }>(MAT_DIALOG_DATA);
   private fb = inject(FormBuilder);
   private orgService = inject(OrgService);
+  private authService = inject(AuthService);
+
+  imaZaposlenika = computed(() => !!this.authService.currentUser()?.zaposlenik);
 
   loading = false;
   organi = signal<Organ[]>([]);
@@ -70,6 +74,9 @@ export class PredmetDialogComponent implements OnInit {
   });
 
   ngOnInit() {
+    console.log('currentUser:', this.authService.currentUser());
+    console.log('imaZaposlenika:', this.imaZaposlenika());
+    console.log('zaposlenik field:', this.authService.currentUser()?.zaposlenik);
     this.orgService.getOrgani().subscribe((o) => this.organi.set(o));
 
     if (this.data.predmet) {
@@ -99,7 +106,8 @@ export class PredmetDialogComponent implements OnInit {
       naziv: raw.naziv ?? undefined,
       opis: raw.opis ?? undefined,
       prioritet: (raw.prioritet as PrioritetPredmeta) ?? 'redovno',
-      organ: raw.organ as any, // ← as any
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      organ: this.imaZaposlenika() ? undefined : (raw.organ as any),
       status: (raw.status as StatusPredmeta) ?? 'u_radu',
       datumOtvaranja: raw.datumOtvaranja?.toISOString() ?? undefined,
       datumArhiviranja: raw.datumArhiviranja?.toISOString() ?? undefined,

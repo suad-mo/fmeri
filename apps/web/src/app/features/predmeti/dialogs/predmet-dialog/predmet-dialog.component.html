@@ -41,16 +41,18 @@
       <textarea matInput formControlName="opis" rows="2"></textarea>
     </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Organ</mat-label>
-      <mat-select formControlName="organ">
-        @for (o of organi(); track o._id) {
-          <mat-option [value]="o._id">
-            {{ o.skraceniNaziv ?? o.naziv }}
-          </mat-option>
-        }
-      </mat-select>
-    </mat-form-field>
+    @if (!imaZaposlenika()) {
+      <mat-form-field appearance="outline">
+        <mat-label>Organ</mat-label>
+        <mat-select formControlName="organ">
+          @for (o of organi(); track o._id) {
+            <mat-option [value]="o._id">
+              {{ o.skraceniNaziv ?? o.naziv }}
+            </mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    }
 
     <div class="form-row">
       <mat-form-field appearance="outline">
