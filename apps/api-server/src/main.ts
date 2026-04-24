@@ -6,7 +6,11 @@ if (process.env['NODE_ENV'] !== 'production') {
   dotenv.config({ path: path.join(__dirname, '../../../.env') });
 }
 
-const REQUIRED_ENV = ['JWT_SECRET', 'JWT_REFRESH_SECRET', 'MONGODB_URI'] as const;
+const REQUIRED_ENV = [
+  'JWT_SECRET',
+  'JWT_REFRESH_SECRET',
+  'MONGODB_URI',
+] as const;
 for (const key of REQUIRED_ENV) {
   if (!process.env[key]) {
     console.error(`FATALNA GREŠKA: ${key} nije definisan u .env fajlu!`);
@@ -15,7 +19,7 @@ for (const key of REQUIRED_ENV) {
 }
 
 import express from 'express';
-import cors from 'cors';          // ← novo
+import cors from 'cors'; // ← novo
 import mongoose from 'mongoose';
 import authRoutes from './routes/auth.routes';
 import orgRoutes from './routes/org.routes';
@@ -28,19 +32,41 @@ import zaposlenikRoutes from './routes/zaposlenik.routes';
 
 import organRoutes from './routes/organ.routes';
 import izvjestajRoutes from './routes/izvjestaj.routes';
+import predmetRoutes from './routes/predmet.routes';
 const app = express();
 
 // Statički fajlovi za slike
 // Zamijeni postojeću liniju za statičke fajlove
-app.use('/uploads', express.static(path.join(__dirname, '../../../../uploads')));
+app.use(
+  '/uploads',
+  express.static(path.join(__dirname, '../../../../uploads')),
+);
 
 // ← CORS konfiguracija
-app.use(cors({
-  origin: 'http://localhost:4200',
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true,
-}));
+const allowedOrigins =
+  process.env['NODE_ENV'] === 'production'
+    ? true // U produkciji Nginx proxira, dozvolimo sve
+    : [
+        'http://localhost:4200',
+        'http://localhost',
+        'http://10.10.105.171:4200', // ← dodaj
+        'http://10.10.105.171', // ← dodaj
+      ];
+
+app.use(
+  cors({
+    origin: allowedOrigins,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+  }),
+);
+// app.use(cors({
+//   origin: 'http://localhost:4200',
+//   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+//   allowedHeaders: ['Content-Type', 'Authorization'],
+//   credentials: true,
+// }));
 
 app.use(express.json());
 app.use(cookieParser());
@@ -53,6 +79,7 @@ app.use('/api/stats', statsRoutes);
 app.use('/api/organi', organRoutes);
 app.use('/api/zaposlenici', zaposlenikRoutes);
 app.use('/api/izvjestaj', izvjestajRoutes);
+app.use('/api/predmeti', predmetRoutes);
 
 const mongoUri = process.env['MONGODB_URI'] as string;
 const port = process.env['PORT'] || 3000;

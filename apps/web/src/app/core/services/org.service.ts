@@ -19,6 +19,8 @@ import {
   ZaposlenikDTO,
   PopunjenostOrgana,
   PregledOrgana,
+  IPredmet,
+  IAkt,
 } from '../models/org.models';
 import { environment } from '../../../environments/environment';
 
@@ -412,6 +414,77 @@ export class OrgService {
     return this.http.patch<UserProfil>(
       `${this.usersUrl}/${userId}/zaposlenik`,
       { zaposlenikId },
+    );
+  }
+
+  // Predmeti
+  getPredmeti(): Observable<IPredmet[]> {
+    return this.http.get<IPredmet[]>(`${environment.apiUrl}/predmeti`);
+  }
+
+  getPredmet(id: string): Observable<IPredmet> {
+    return this.http.get<IPredmet>(`${environment.apiUrl}/predmeti/${id}`);
+  }
+
+  createPredmet(data: Partial<IPredmet>): Observable<IPredmet> {
+    return this.http.post<IPredmet>(`${environment.apiUrl}/predmeti`, data);
+  }
+
+  updatePredmet(id: string, data: Partial<IPredmet>): Observable<IPredmet> {
+    return this.http.patch<IPredmet>(
+      `${environment.apiUrl}/predmeti/${id}`,
+      data,
+    );
+  }
+
+  deletePredmet(id: string): Observable<void> {
+    return this.http.delete<void>(`${environment.apiUrl}/predmeti/${id}`);
+  }
+
+  addAkt(predmetId: string, data: Partial<IAkt>): Observable<IPredmet> {
+    return this.http.post<IPredmet>(
+      `${environment.apiUrl}/predmeti/${predmetId}/akti`,
+      data,
+    );
+  }
+
+  updateAkt(
+    predmetId: string,
+    aktId: string,
+    data: Partial<IAkt>,
+  ): Observable<IPredmet> {
+    return this.http.patch<IPredmet>(
+      `${environment.apiUrl}/predmeti/${predmetId}/akti/${aktId}`,
+      data,
+    );
+  }
+
+  deleteAkt(predmetId: string, aktId: string): Observable<IPredmet> {
+    return this.http.delete<IPredmet>(
+      `${environment.apiUrl}/predmeti/${predmetId}/akti/${aktId}`,
+    );
+  }
+
+  uploadAktFajl(
+    predmetId: string,
+    aktId: string,
+    fajl: File,
+  ): Observable<IPredmet> {
+    const formData = new FormData();
+    formData.append('fajl', fajl);
+    return this.http.post<IPredmet>(
+      `${environment.apiUrl}/predmeti/${predmetId}/akti/${aktId}/fajl`,
+      formData,
+    );
+  }
+
+  deleteFajl(
+    predmetId: string,
+    aktId: string,
+    fajlId: string,
+  ): Observable<IPredmet> {
+    return this.http.delete<IPredmet>(
+      `${environment.apiUrl}/predmeti/${predmetId}/akti/${aktId}/fajlovi/${fajlId}`,
     );
   }
 }

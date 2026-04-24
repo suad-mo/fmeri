@@ -424,3 +424,108 @@ export interface PregledOrgana {
   upraznjeno: number;
   posto: number;
 }
+
+export type PrioritetPredmeta = 'redovno' | 'vazno' | 'urgentno';
+
+export type UlogaAkta =
+  | 'osnovni'
+  | 'zavrsni'
+  | 'prilog'
+  | 'zahtjev_za_misljenje'
+  | 'misljenje'
+  | 'obavijest'
+  | 'ostalo';
+
+export type VrstaAkta =
+  | 'zahtjev'
+  | 'rjesenje'
+  | 'dopis'
+  | 'odluka'
+  | 'ugovor'
+  | 'izvjestaj'
+  | 'zakljucak'
+  | 'zapisnik'
+  | 'obavijest'
+  | 'suglasnost'
+  | 'ostalo';
+
+export const PRIORITET_PREDMETA: Record<PrioritetPredmeta, string> = {
+  redovno: 'Redovno',
+  vazno: 'Važno',
+  urgentno: 'Urgentno',
+};
+
+export const ULOGA_AKTA: Record<UlogaAkta, string> = {
+  osnovni: 'Osnovni',
+  zavrsni: 'Završni',
+  prilog: 'Prilog',
+  zahtjev_za_misljenje: 'Zahtjev za mišljenje',
+  misljenje: 'Mišljenje',
+  obavijest: 'Obavijest',
+  ostalo: 'Ostalo',
+};
+
+export const VRSTA_AKTA: Record<VrstaAkta, string> = {
+  zahtjev: 'Zahtjev',
+  rjesenje: 'Rješenje',
+  dopis: 'Dopis',
+  odluka: 'Odluka',
+  ugovor: 'Ugovor',
+  izvjestaj: 'Izvještaj',
+  zakljucak: 'Zaključak',
+  zapisnik: 'Zapisnik',
+  obavijest: 'Obavijest',
+  suglasnost: 'Suglasnost',
+  ostalo: 'Ostalo',
+};
+
+export type SmjerAkta = 'ulazni' | 'izlazni';
+
+export type StatusPredmeta = 'u_radu' | 'rijeseno' | 'arhivirano';
+
+export interface IAkt {
+  _id: string;
+  brojAkta?: string;
+  naziv: string;
+  opis?: string;
+  vrsta: VrstaAkta;
+  uloga: UlogaAkta;
+  smjer: SmjerAkta;
+  datum: string;
+  posiljilac?: string;
+  fajlovi: {           // ← zamijeni fajl s fajlovi
+    _id: string;
+    putanja: string;
+    originalniNaziv: string;
+    mimetype: string;
+    velicina: number;
+  }[];
+}
+
+export interface IPredmet {
+  _id: string;
+  brojPredmeta: string;
+  naziv: string;
+  opis?: string;
+  prioritet: PrioritetPredmeta;
+  organ: { _id: string; naziv: string; skraceniNaziv?: string };
+  organizacionaJedinica?: { _id: string; naziv: string };
+  referent: { _id: string; name: string; email: string };
+  status: StatusPredmeta;
+  datumOtvaranja: string;
+  datumArhiviranja?: string;
+  akti: IAkt[];
+  aktivan: boolean;
+  createdAt: string;
+}
+
+export const STATUS_PREDMETA: Record<StatusPredmeta, string> = {
+  u_radu: 'U radu',
+  rijeseno: 'Riješeno',
+  arhivirano: 'Arhivirano',
+};
+
+export const SMJER_AKTA: Record<SmjerAkta, string> = {
+  ulazni: 'Ulazni',
+  izlazni: 'Izlazni',
+};

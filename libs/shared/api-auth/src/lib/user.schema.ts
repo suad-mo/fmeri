@@ -12,8 +12,7 @@ export interface AuthJSON {
   token: string;
   expiresIn: number;
   slika: string | null;
-  // organizacionaJedinica: string | null;
-  // radnoMjesto: string | null;
+  zaposlenik: { _id: string } | null; // ← dodaj
 }
 
 export interface IUser extends Document {
@@ -139,9 +138,9 @@ const userSchema: Schema<IUser> = new Schema<IUser>(
           token: this.generateJWT(),
           expiresIn,
           slika: this.slika || null,
-          // organizacionaJedinica: this.organizacionaJedinica?.toString() || null,
-          // radnoMjesto: this.radnoMjesto?.toString() || null,
-          // refreshToken se setuje kao cookie u controlleru
+          zaposlenik: this.zaposlenik
+            ? { _id: this.zaposlenik.toString() }
+            : null, // ← dodaj
         };
       },
 

@@ -1,0 +1,96 @@
+<h2 mat-dialog-title>
+  {{ data.predmet ? 'Uredi predmet' : 'Novi predmet' }}
+</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="form" class="dialog-form">
+    <div class="form-row">
+      <mat-form-field appearance="outline">
+        <mat-label>Broj predmeta</mat-label>
+        <input
+          matInput
+          formControlName="brojPredmeta"
+          placeholder="npr. 01-123/2026"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Status</mat-label>
+        <mat-select formControlName="status">
+          @for (s of statusi; track s.value) {
+            <mat-option [value]="s.value">{{ s.label }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Prioritet</mat-label>
+        <mat-select formControlName="prioritet">
+          @for (p of prioriteti; track p.value) {
+            <mat-option [value]="p.value">{{ p.label }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Naziv predmeta</mat-label>
+      <input matInput formControlName="naziv" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Opis</mat-label>
+      <textarea matInput formControlName="opis" rows="2"></textarea>
+    </mat-form-field>
+
+    @if (!imaZaposlenika()) {
+      <mat-form-field appearance="outline">
+        <mat-label>Organ</mat-label>
+        <mat-select formControlName="organ">
+          @for (o of organi(); track o._id) {
+            <mat-option [value]="o._id">
+              {{ o.skraceniNaziv ?? o.naziv }}
+            </mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    }
+
+    <div class="form-row">
+      <mat-form-field appearance="outline">
+        <mat-label>Datum otvaranja</mat-label>
+        <input
+          matInput
+          [matDatepicker]="picker1"
+          formControlName="datumOtvaranja"
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker1" />
+        <mat-datepicker #picker1 />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Datum arhiviranja</mat-label>
+        <input
+          matInput
+          [matDatepicker]="picker2"
+          formControlName="datumArhiviranja"
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker2" />
+        <mat-datepicker #picker2 />
+      </mat-form-field>
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="ref.close()">Odustani</button>
+  <button
+    mat-flat-button
+    color="primary"
+    [disabled]="form.invalid || loading"
+    (click)="spremi()"
+  >
+    @if (loading) {
+      <mat-spinner diameter="20" />
+    } @else {
+      {{ data.predmet ? 'Sačuvaj' : 'Kreiraj' }}
+    }
+  </button>
+</mat-dialog-actions>
