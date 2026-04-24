@@ -11,41 +11,150 @@
     </button>
   </div>
 
-  <!-- Filteri -->
+  <!-- Filter bar -->
   <div class="filter-bar">
     <mat-form-field appearance="outline" class="search-field">
       <mat-label>Pretraži</mat-label>
       <input
         matInput
         [value]="pretraga()"
-        (input)="pretraga.set($any($event.target).value)"
+        (input)="onPretraga($any($event.target).value)"
         placeholder="Broj predmeta, naziv..."
       />
       <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
 
-    <mat-form-field appearance="outline" class="status-field">
-      <mat-label>Status</mat-label>
-      <mat-select
-        [value]="statusFilter()"
-        (selectionChange)="statusFilter.set($event.value)"
+    <mat-checkbox
+      [checked]="mojiPredmeti()"
+      (change)="onMoji($event.checked)"
+      class="moji-checkbox"
+    >
+      Moji predmeti
+    </mat-checkbox>
+
+    <button
+      class="filter-toggle-btn"
+      [class.aktivan]="filterOtvoren"
+      (click)="filterOtvoren = !filterOtvoren"
+    >
+      <mat-icon>tune</mat-icon>
+      Filteri
+      @if (imaAktivnihFiltera()) {
+        <span class="filter-cnt">{{ brojAktivnihFiltera() }}</span>
+      }
+    </button>
+
+    @if (imaAktivnihFiltera()) {
+      <button
+        mat-icon-button
+        color="warn"
+        matTooltip="Resetuj filtere"
+        (click)="resetFilteri()"
       >
-        @for (s of statusi; track s.value) {
-          <mat-option [value]="s.value">{{ s.label }}</mat-option>
-        }
-      </mat-select>
-    </mat-form-field>
-    <mat-form-field appearance="outline" class="prioritet-field">
-      <mat-label>Prioritet</mat-label>
-      <mat-select
-        [value]="prioritetFilter()"
-        (selectionChange)="prioritetFilter.set($event.value)"
-      >
-        @for (p of prioriteti; track p.value) {
-          <mat-option [value]="p.value">{{ p.label }}</mat-option>
-        }
-      </mat-select>
-    </mat-form-field>
+        <mat-icon>filter_alt_off</mat-icon>
+      </button>
+    }
+  </div>
+
+  <!-- Napredni filteri panel -->
+  @if (filterOtvoren) {
+    <div class="napredni-panel">
+      <mat-form-field appearance="outline">
+        <mat-label>Status</mat-label>
+        <mat-select
+          [value]="statusFilter()"
+          (selectionChange)="onStatus($event.value)"
+        >
+          @for (s of statusi; track s.value) {
+            <mat-option [value]="s.value">{{ s.label }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Prioritet</mat-label>
+        <mat-select
+          [value]="prioritetFilter()"
+          (selectionChange)="onPrioritet($event.value)"
+        >
+          @for (p of prioriteti; track p.value) {
+            <mat-option [value]="p.value">{{ p.label }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Organ</mat-label>
+        <mat-select
+          [value]="organFilter()"
+          (selectionChange)="onOrgan($event.value)"
+        >
+          <mat-option value="">Svi organi</mat-option>
+          @for (o of organi(); track o._id) {
+            <mat-option [value]="o._id">
+              {{ o.skraceniNaziv ?? o.naziv }}
+            </mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Od</mat-label>
+        <input
+          matInput
+          [matDatepicker]="pickerOd"
+          [value]="datumOd()"
+          (dateChange)="onDatumOd($event.value)"
+        />
+        <mat-datepicker-toggle matSuffix [for]="pickerOd" />
+        <mat-datepicker #pickerOd />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Do</mat-label>
+        <input
+          matInput
+          [matDatepicker]="pickerDo"
+          [value]="datumDo()"
+          (dateChange)="onDatumDo($event.value)"
+        />
+        <mat-datepicker-toggle matSuffix [for]="pickerDo" />
+        <mat-datepicker #pickerDo />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Kreator / referent</mat-label>
+        <input
+          matInput
+          [value]="kreatorFilter()"
+          (input)="onKreator($any($event.target).value)"
+          placeholder="Ime referenta..."
+        />
+        <mat-icon matSuffix>person_search</mat-icon>
+      </mat-form-field>
+    </div>
+  }
+
+  <!-- Sortiranje + broj rezultata -->
+  <div class="sort-rezultati-bar">
+    <div class="sort-bar">
+      <span class="sort-label">Sortiraj:</span>
+      @for (s of sortPolja; track s.value) {
+        <button
+          class="sort-btn"
+          [class.aktivan]="sortPolje() === s.value"
+          (click)="toggleSort(s.value)"
+        >
+          {{ s.label }}
+          @if (sortPolje() === s.value) {
+            <mat-icon>{{
+              sortSmjer() === 'asc' ? 'arrow_upward' : 'arrow_downward'
+            }}</mat-icon>
+          }
+        </button>
+      }
+    </div>
+    <span class="rezultati-info">{{ filtrirani().length }} predmet(a)</span>
   </div>
 
   @if (isLoading()) {
@@ -58,16 +167,16 @@
   } @else {
     <div class="predmeti-lista">
       @for (pred of filtrirani(); track pred._id) {
-        <!-- <div>Prioritet: {{ pred.prioritet }}</div> -->
         <div class="predmet-kartica">
-          <!-- Header kartice -->
           <div class="kartica-header">
             <div class="predmet-info">
               <span class="broj-predmeta">{{ pred.brojPredmeta }}</span>
               <span class="naziv">{{ pred.naziv }}</span>
-              <span class="prioritet-badge prioritet-{{ pred.prioritet }}">
-                {{ pred.prioritet | titlecase }}
-              </span>
+              @if (pred.prioritet && pred.prioritet !== 'redovno') {
+                <span class="prioritet-badge prioritet-{{ pred.prioritet }}">
+                  {{ prioritetNaziv[pred.prioritet] }}
+                </span>
+              }
             </div>
             <div class="kartica-akcije">
               <span class="status-badge" [class]="getStatusClass(pred.status)">
@@ -98,7 +207,6 @@
             </div>
           </div>
 
-          <!-- Info -->
           <div class="kartica-body">
             @if (pred.opis) {
               <p class="opis">{{ pred.opis }}</p>
@@ -106,7 +214,7 @@
             <div class="meta-info">
               <span class="meta-item">
                 <mat-icon>account_balance</mat-icon>
-                {{ pred.organ.skraceniNaziv ?? pred.organ.naziv }}
+                {{ pred.organ!.skraceniNaziv ?? pred.organ!.naziv }}
               </span>
               @if (pred.organizacionaJedinica) {
                 <span class="meta-item">
@@ -116,7 +224,7 @@
               }
               <span class="meta-item">
                 <mat-icon>person</mat-icon>
-                {{ pred.referent.name }}
+                {{ pred.referent!.name }}
               </span>
               <span class="meta-item">
                 <mat-icon>calendar_today</mat-icon>

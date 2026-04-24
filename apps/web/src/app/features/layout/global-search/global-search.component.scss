@@ -1,7 +1,7 @@
 .search-wrap {
   position: relative;
   width: 280px;
-  z-index: 9999; // ← dodaj
+  z-index: 9999;
 }
 
 .search-input-wrap {
@@ -39,7 +39,9 @@
   font-family: inherit;
   outline: none;
 
-  &::placeholder { color: var(--color-text-tertiary); }
+  &::placeholder {
+    color: var(--color-text-tertiary);
+  }
 }
 
 .clear-btn {
@@ -51,24 +53,33 @@
   align-items: center;
   color: var(--color-text-tertiary);
 
-  mat-icon { font-size: 15px; width: 15px; height: 15px; }
-  &:hover { color: var(--color-text-primary); }
+  mat-icon {
+    font-size: 15px;
+    width: 15px;
+    height: 15px;
+  }
+  &:hover {
+    color: var(--color-text-primary);
+  }
 }
 
 /* Dropdown */
 .dropdown {
+  background: var(--color-background-primary, white);
+  // background: white; // ← privremeno za test
   position: absolute;
   top: calc(100% + 6px);
   left: 0;
   right: 0;
-  background: var(--color-background-primary);
+  // background: var(--color-background-primary);
   border: 1px solid var(--color-border-secondary);
   border-radius: 10px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-  z-index: 9999; // ← povećaj
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  z-index: 9999;
   overflow: hidden;
   max-height: 420px;
   overflow-y: auto;
+  isolation: isolate; // ← dodaj
 }
 
 .dropdown-loading,
@@ -80,7 +91,11 @@
   font-size: 0.82rem;
   color: var(--color-text-secondary);
 
-  mat-icon { font-size: 16px; width: 16px; height: 16px; }
+  mat-icon {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+  }
 }
 
 .spin {
@@ -88,8 +103,12 @@
 }
 
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .dropdown-sekcija-label {
@@ -104,9 +123,15 @@
   color: var(--color-text-tertiary);
   border-top: 0.5px solid var(--color-border-tertiary);
 
-  &:first-child { border-top: none; }
+  &:first-child {
+    border-top: none;
+  }
 
-  mat-icon { font-size: 12px; width: 12px; height: 12px; }
+  mat-icon {
+    font-size: 12px;
+    width: 12px;
+    height: 12px;
+  }
 }
 
 .dropdown-item {
@@ -125,7 +150,9 @@
   &:hover {
     background: var(--color-background-secondary);
 
-    .item-arrow { opacity: 1; }
+    .item-arrow {
+      opacity: 1;
+    }
   }
 }
 

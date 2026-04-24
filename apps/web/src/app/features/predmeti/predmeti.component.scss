@@ -1,7 +1,7 @@
 .predmeti-page {
   padding: 1.5rem;
   max-width: 1100px;
-  margin: 0 auto; // ← dodaj
+  margin: 0 auto;
 }
 
 .page-header {
@@ -24,21 +24,186 @@
 
 .filter-bar {
   display: flex;
+  align-items: center;
   gap: 0.75rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   flex-wrap: wrap;
 
   .search-field {
     flex: 1;
     min-width: 200px;
   }
-  .status-field {
-    width: 160px;
-  }
-  .prioritet-field {
-    width: 160px;
-  } // ← dodaj
 }
+
+.moji-checkbox {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.filter-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--border-radius-md);
+  border: 0.5px solid var(--color-border-tertiary);
+  background: transparent;
+  font-size: 0.82rem;
+  font-family: inherit;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  transition: all 0.12s;
+  white-space: nowrap;
+
+  mat-icon {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+  }
+
+  &:hover {
+    background: var(--color-background-secondary);
+  }
+
+  &.aktivan {
+    background: rgba(102, 126, 234, 0.1);
+    color: #667eea;
+    border-color: #667eea;
+  }
+}
+
+.filter-cnt {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #667eea;
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 700;
+}
+
+.napredni-panel {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.75rem;
+  padding: 14px 16px;
+  margin-bottom: 0.75rem;
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  background: var(--color-background-secondary);
+
+  mat-form-field {
+    width: 100%;
+  }
+}
+
+.sort-rezultati-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.sort-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.rezultati-info {
+  font-size: 0.75rem;
+  color: var(--color-text-tertiary);
+  white-space: nowrap;
+}
+
+// .filteri-accordion {
+//   margin-bottom: 0.75rem;
+
+//   mat-expansion-panel-header mat-icon {
+//     font-size: 18px;
+//     width: 18px;
+//     height: 18px;
+//     margin-right: 6px;
+//   }
+// }
+
+// .filter-cnt {
+//   margin-left: 8px;
+//   font-size: 0.68rem;
+//   font-weight: 600;
+//   padding: 1px 6px;
+//   border-radius: 8px;
+//   background: rgba(102, 126, 234, 0.15);
+//   color: #667eea;
+// }
+
+// .napredni-filteri {
+//   display: grid;
+//   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+//   gap: 0.75rem;
+//   padding-top: 0.5rem;
+
+//   mat-form-field { width: 100%; }
+// }
+
+// .sort-bar {
+//   display: flex;
+//   align-items: center;
+//   gap: 6px;
+//   margin-bottom: 0.75rem;
+//   flex-wrap: wrap;
+// }
+
+.sort-label {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  margin-right: 4px;
+}
+
+.sort-btn {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 0.5px solid var(--color-border-tertiary);
+  background: transparent;
+  font-size: 0.75rem;
+  font-family: inherit;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  transition: all 0.12s;
+
+  mat-icon {
+    font-size: 13px;
+    width: 13px;
+    height: 13px;
+  }
+
+  &:hover {
+    background: var(--color-background-secondary);
+  }
+
+  &.aktivan {
+    background: rgba(102, 126, 234, 0.1);
+    color: #667eea;
+    border-color: #667eea;
+    font-weight: 600;
+  }
+}
+
+// .rezultati-info {
+//   font-size: 0.75rem;
+//   color: var(--color-text-tertiary);
+//   margin-bottom: 0.75rem;
+// }
 
 .loading-wrapper {
   display: flex;
@@ -143,6 +308,27 @@
   }
 }
 
+.prioritet-badge {
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 4px;
+  text-transform: uppercase;
+
+  &.prioritet-redovno {
+    background: rgba(160, 174, 192, 0.1);
+    color: #718096;
+  }
+  &.prioritet-vazno {
+    background: rgba(214, 158, 46, 0.1);
+    color: #d69e2e;
+  }
+  &.prioritet-urgentno {
+    background: rgba(229, 62, 62, 0.1);
+    color: #e53e3e;
+  }
+}
+
 .kartica-body {
   padding: 10px 14px;
 }
@@ -170,26 +356,5 @@
     font-size: 14px;
     width: 14px;
     height: 14px;
-  }
-}
-
-.prioritet-badge {
-  font-size: 0.65rem;
-  font-weight: 600;
-  padding: 2px 7px;
-  border-radius: 4px;
-  text-transform: uppercase;
-
-  &.prioritet-redovno {
-    background: rgba(160, 174, 192, 0.1);
-    color: #718096;
-  }
-  &.prioritet-vazno {
-    background: rgba(214, 158, 46, 0.1);
-    color: #d69e2e;
-  }
-  &.prioritet-urgentno {
-    background: rgba(229, 62, 62, 0.1);
-    color: #e53e3e;
   }
 }
